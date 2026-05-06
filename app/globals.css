@@ -1,26 +1,133 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: only light;
+
+  /* Color tokens (locked from v139) */
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --ink: #111113;
+  --muted: #6b6b6f;
+  --faint: #d3d1cf;
+  --accent: #0284c7;
+  --square: #006AFF;
+  --bronze: #9C8567;
+  --teal: #00C9A0;
+  --dark-bg: #111113;
+  --dark-surface: #1c1c20;
+  --dark-text: #f5f5f5;
+  --dark-muted: #a1a1a5;
+  --dark-faint: #3a3a3f;
+
+  /* Motion */
+  --ease-swell: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #f7f7f8 !important;
+  color-scheme: only light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f7f7f8 !important;
+  color: #111113 !important;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Defeat iOS / in-app webview auto-inversion */
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: only light; }
+  html, body {
+    background-color: #f7f7f8 !important;
+    color: #111113 !important;
+  }
+}
+
+/* Typography utilities */
+.display {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+}
+
+.mono { font-family: var(--font-ibm-plex-mono), monospace; }
+
+.eyebrow {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =============== GLIDE MOTION SYSTEM =============== */
+.glide {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 1.2s var(--ease-swell),
+    transform 1.2s var(--ease-swell);
+  transition-delay: var(--glide-delay, 0s);
+  will-change: transform, opacity;
+}
+.glide.in-view {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.glide.glide-from-above {
+  transform: translate3d(0, -28px, 0);
+}
+.glide-headline {
+  transform: translate3d(0, 40px, 0);
+}
+.glide-headline.glide-from-above {
+  transform: translate3d(0, -40px, 0);
+}
+.glide-soft {
+  transform: translate3d(0, 16px, 0);
+}
+.glide-soft.glide-from-above {
+  transform: translate3d(0, -16px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glide, .glide-headline, .glide-soft {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =============== EMERGE TEXT SYSTEM =============== */
+.emerge {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.emerge-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.32em, 0);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 90ms);
+  will-change: opacity, transform;
+}
+.emerge.in-view .emerge-word {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emerge-word {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
