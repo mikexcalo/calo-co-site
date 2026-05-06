@@ -1,0 +1,169 @@
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  align-self: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 80px;
+}
+
+.headline {
+  font-size: clamp(48px, 9vw, 132px);
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.line {
+  display: block;
+}
+
+.piece {
+  display: inline-block;
+}
+
+.sub {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 540px;
+  margin-bottom: 40px;
+}
+
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btnPrimary {
+  background: var(--ink);
+  color: var(--dark-text);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  background: #000;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--faint);
+}
+
+.btnSecondary:hover {
+  border-color: var(--ink);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btnPrimary:hover .arrow {
+  transform: translateX(2px);
+}
+
+.marquee {
+  position: relative;
+  padding: 40px 0 60px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  gap: 64px;
+  animation: marquee 60s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.logo {
+  font-family: var(--font-geist), sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 420px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 25%,
+    rgba(10, 10, 12, 0.4) 55%,
+    #0a0a0c 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 24px;
+  }
+  .sub {
+    font-size: 17px;
+  }
+  .marquee {
+    padding: 30px 0 40px;
+  }
+  .logo {
+    font-size: 14px;
+  }
+  .track {
+    gap: 40px;
+  }
+  .fade {
+    height: 280px;
+  }
+}

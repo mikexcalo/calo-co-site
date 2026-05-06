@@ -1,5 +1,6 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -7,16 +8,14 @@ export default function Home() {
     <>
       <RevealProvider />
       <Nav />
-      <main style={{ padding: "120px 48px", maxWidth: "900px", margin: "0 auto", minHeight: "60vh" }}>
-        <span className="eyebrow glide" style={{ display: "block", marginBottom: 24 }}>
-          Stage 3 verification
+      <Hero />
+      <main style={{ padding: "120px 48px", maxWidth: "900px", margin: "0 auto", minHeight: "40vh", background: "#0a0a0c", color: "var(--dark-text)" }}>
+        <span className="eyebrow" style={{ display: "block", marginBottom: 24, color: "var(--dark-muted)" }}>
+          Stage 4a — Hero ported
         </span>
-        <h1 className="display emerge" style={{ fontSize: "72px", marginBottom: 32 }}>
-          Bookends in place. Sections coming next.
-        </h1>
-        <p className="glide" style={{ fontSize: "18px", color: "var(--muted)", maxWidth: "600px" }}>
-          The topbar above and the footer below are ported. Scroll up and the topbar
-          should pick up a faint border. Scroll down to see the footer.
+        <p style={{ fontSize: "18px", color: "var(--dark-muted)", maxWidth: "600px" }}>
+          Next sections coming in subsequent stages. The dark zone here previews
+          where the "Who We Are" section will sit in Stage 4b.
         </p>
       </main>
       <Footer />
