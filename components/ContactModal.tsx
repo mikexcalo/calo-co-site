@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import styles from "./ContactModal.module.css";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -71,7 +71,7 @@ export default function ContactModal() {
     setStatus("submitting");
     setErrorMsg("");
 
-    const { error } = await supabase.from("leads").insert({
+    const { error } = await getSupabase().from("leads").insert({
       name: name.trim(),
       email: email.trim(),
       company: company.trim() || null,
