@@ -1,0 +1,140 @@
+.section {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 140px 24px 160px;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--muted);
+}
+
+.headline {
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 32px;
+}
+
+.headline em {
+  font-style: italic;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--faint);
+}
+
+.item {
+  border-bottom: 1px solid var(--faint);
+}
+
+.qButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 32px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-geist), sans-serif;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+
+.qButton:hover {
+  color: var(--muted);
+}
+
+.qText {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.chevron {
+  flex-shrink: 0;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--muted);
+  transition: transform 0.3s var(--ease-swell), color 0.15s;
+  transform-origin: center;
+  margin-top: 4px;
+}
+
+.chevronOpen {
+  transform: rotate(45deg);
+  color: var(--ink);
+}
+
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-swell);
+}
+
+.answerOpen {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.answerInner > * {
+  padding-bottom: 16px;
+}
+
+.answerInner > *:last-child {
+  padding-bottom: 32px;
+}
+
+.answerInner p {
+  margin: 0;
+}
+
+.answerInner strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.inlineLink {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.inlineLink:hover {
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px 100px;
+  }
+  .qButton {
+    padding: 24px 0;
+    gap: 20px;
+  }
+}
