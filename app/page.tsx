@@ -6,6 +6,7 @@ import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Tiers from "@/components/Tiers";
 import Spotlight from "@/components/Spotlight";
+import Process from "@/components/Process";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <WhoWeServe />
       <Tiers />
       <Spotlight />
+      <Process />
       <FAQ />
       <ContactCTA />
       <Footer />

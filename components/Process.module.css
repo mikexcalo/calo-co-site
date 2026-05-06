@@ -1,0 +1,196 @@
+.section {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 140px 48px 160px;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--muted);
+}
+
+.headline {
+  font-size: clamp(36px, 5.5vw, 64px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 880px;
+}
+
+.headline em {
+  font-style: italic;
+}
+
+.sub {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 620px;
+  margin-bottom: 56px;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr 32px 1.4fr;
+  align-items: stretch;
+  gap: 0;
+}
+
+.node {
+  background: var(--surface);
+  border: 1px solid var(--faint);
+  border-radius: 12px;
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nodeRun {
+  background: var(--ink);
+  color: var(--dark-text);
+  border-color: var(--ink);
+}
+
+.nodeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.num {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.nodeRun .num {
+  color: var(--dark-muted);
+}
+
+.duration {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.nodeRun .duration {
+  color: var(--dark-muted);
+}
+
+.nodeTitle {
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.nodeRun .nodeTitle {
+  color: var(--dark-text);
+}
+
+.nodeBody {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.nodeRun .nodeBody {
+  color: var(--dark-muted);
+}
+
+.nodeList {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nodeList li {
+  font-size: 13px;
+  color: var(--ink);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.nodeList li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.connector {
+  align-self: center;
+  height: 1px;
+  background: var(--faint);
+  width: 100%;
+}
+
+.fork {
+  margin-top: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--dark-faint);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pathLabel {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+}
+
+.pathTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.pathBody {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--dark-muted);
+}
+
+@media (max-width: 1100px) {
+  .track {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .connector {
+    width: 1px;
+    height: 32px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 24px 100px;
+  }
+  .fork {
+    grid-template-columns: 1fr;
+  }
+}
