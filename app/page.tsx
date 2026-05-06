@@ -12,6 +12,7 @@ import FounderMemo from "@/components/FounderMemo";
 import FAQ from "@/components/FAQ";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <FAQ />
       <ContactCTA />
       <Footer />
+      <ContactModal />
     </>
   );
 }
