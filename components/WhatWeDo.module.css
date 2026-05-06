@@ -1,0 +1,125 @@
+.section {
+  background: #0a0a0c;
+  color: var(--dark-text);
+  padding: 120px 48px 160px;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.eyebrow {
+  color: var(--dark-muted);
+  display: block;
+}
+
+.headline {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--dark-text);
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+
+.headline em {
+  font-style: italic;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--dark-faint);
+  border-bottom: 1px solid var(--dark-faint);
+}
+
+.cell {
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--dark-faint);
+  color: var(--dark-text);
+  font-family: var(--font-geist), sans-serif;
+  text-align: left;
+  padding: 32px 24px 28px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cell:last-child {
+  border-right: none;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cellActive {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--dark-muted);
+}
+
+.cellActive .num {
+  color: var(--dark-text);
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--dark-text);
+}
+
+.proofWrap {
+  min-height: 80px;
+  padding-top: 24px;
+}
+
+.proof {
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--dark-text);
+  max-width: 760px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cell {
+    border-right: 1px solid var(--dark-faint);
+    border-bottom: 1px solid var(--dark-faint);
+  }
+  .cell:nth-child(2n) {
+    border-right: none;
+  }
+  .cell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px 100px;
+  }
+  .proof {
+    font-size: 18px;
+  }
+}

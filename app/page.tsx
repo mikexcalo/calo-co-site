@@ -2,6 +2,7 @@ import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import WhoWeAre from "@/components/WhoWeAre";
+import WhatWeDo from "@/components/WhatWeDo";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <WhoWeAre />
+      <WhatWeDo />
       <Footer />
     </>
   );
