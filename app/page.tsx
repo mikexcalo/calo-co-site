@@ -1,24 +1,25 @@
 import RevealProvider from "@/components/RevealProvider";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <RevealProvider />
-      <main style={{ padding: "120px 48px", maxWidth: "900px", margin: "0 auto" }}>
+      <Nav />
+      <main style={{ padding: "120px 48px", maxWidth: "900px", margin: "0 auto", minHeight: "60vh" }}>
         <span className="eyebrow glide" style={{ display: "block", marginBottom: 24 }}>
-          Stage 2 verification
+          Stage 3 verification
         </span>
         <h1 className="display emerge" style={{ fontSize: "72px", marginBottom: 32 }}>
-          We chart the course, you make <em>waves</em>.
+          Bookends in place. Sections coming next.
         </h1>
         <p className="glide" style={{ fontSize: "18px", color: "var(--muted)", maxWidth: "600px" }}>
-          If you can see this in Lora italic for the word "waves", and the headline
-          animated word-by-word on load, the foundation is working.
-        </p>
-        <p className="mono" style={{ fontSize: "12px", marginTop: 48, color: "var(--muted)" }}>
-          STAGE 02 · FOUNDATION · TYPOGRAPHY + MOTION
+          The topbar above and the footer below are ported. Scroll up and the topbar
+          should pick up a faint border. Scroll down to see the footer.
         </p>
       </main>
+      <Footer />
     </>
   );
 }
