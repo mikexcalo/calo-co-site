@@ -72,7 +72,7 @@ export default function ContactModal() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://calo-co-portal-tf7x.vercel.app/api/leads/ingest", {
+      const res = await fetch("https://nautilusapp.vercel.app/api/leads/ingest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
