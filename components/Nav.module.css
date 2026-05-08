@@ -8,14 +8,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 48px;
-  background: var(--surface);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background: transparent;
+  transition: background 0.2s;
 }
 
 .topbar.scrolled {
-  border-bottom-color: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  background: var(--surface);
 }
 
 .wordmark {
