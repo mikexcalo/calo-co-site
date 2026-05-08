@@ -1,22 +1,14 @@
 import styles from "./Hero.module.css";
 
-const LOGOS = [
-  "Pangaea", "Fuego", "Mammoth", "LG Flooring", "Stevie's Poem Store",
-  "Hero's Journey", "Wayback", "Helm",
-];
+const LOGO_COUNT = 8;
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className={`${styles.headline} display emerge`}>
-          <span className={styles.line}>
-            <span className={styles.piece}>We chart</span>{" "}
-            <span className={styles.piece}>the course,</span>
-          </span>
-          <span className={styles.line}>
-            you make <em>waves</em>.
-          </span>
+          We chart the course,{" "}
+          you make <em>waves</em>.
         </h1>
         <p className={styles.sub}>
           CALO&amp;CO is a growth partner for independent brands and businesses
@@ -32,12 +24,15 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={styles.marquee} aria-label="Clients">
-        <div className={styles.track}>
-          {[...LOGOS, ...LOGOS, ...LOGOS].map((name, i) => (
-            <span key={i} className={styles.logo}>{name}</span>
-          ))}
-        </div>
+      <div className={styles.logoStrip}>
+        {Array.from({ length: LOGO_COUNT }, (_, i) => (
+          <img
+            key={i}
+            src={`/logos/logo-${i + 1}.png`}
+            alt=""
+            className={styles.logoImg}
+          />
+        ))}
       </div>
 
       <div className={styles.fade} aria-hidden="true" />
