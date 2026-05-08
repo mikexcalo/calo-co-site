@@ -116,10 +116,10 @@ export default function ContactModal() {
         {status === "success" ? (
           <div className={styles.successState}>
             <h2 id="modalTitle" className={`${styles.title} display`}>
-              <em>Thanks! We&apos;ll be in touch soon.</em>
+              <em>Thanks!</em>
             </h2>
-            <p className={styles.successCopy}>
-              We&apos;ll come back within 48 hours with a real conversation.
+            <p className={styles.subtitle}>
+              We&apos;ll be in touch soon.
             </p>
             <button className={styles.primaryBtn} onClick={close}>
               Close
@@ -128,11 +128,8 @@ export default function ContactModal() {
         ) : (
           <>
             <h2 id="modalTitle" className={`${styles.title} display`}>
-              Tell us about <em>what you&apos;re building</em>.
+              Tell us about <em>your idea or business</em>.
             </h2>
-            <p className={styles.subtitle}>
-              We&apos;ll come back within 48 hours.
-            </p>
 
             <div className={styles.form}>
               <div className={styles.row}>
