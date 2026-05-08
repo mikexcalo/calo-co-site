@@ -71,23 +71,27 @@ export default function ContactModal() {
     setStatus("submitting");
     setErrorMsg("");
 
-    const { error } = await getSupabase().from("leads").insert({
-      name: name.trim(),
-      email: email.trim(),
-      company: company.trim() || null,
-      message: message.trim(),
-      source: "site",
-      status: "new",
-    });
+    try {
+      const res = await fetch("https://calo-co-portal-tf7x.vercel.app/api/leads/ingest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "calo-co-site-contact-form",
+          name: name.trim(),
+          email: email.trim(),
+          company: company.trim() || null,
+          message: message.trim(),
+          client_id: "calo-co",
+        }),
+      });
 
-    if (error) {
-      console.error("Lead insert failed:", error);
+      if (!res.ok) throw new Error(`Helm responded ${res.status}`);
+      setStatus("success");
+    } catch (err) {
+      console.error("Lead submission failed:", err);
       setStatus("error");
-      setErrorMsg("Something went wrong. Please try again or email hello@caloandco.com directly.");
-      return;
+      setErrorMsg("Something went wrong. Please try again.");
     }
-
-    setStatus("success");
   };
 
   if (!open) return null;
@@ -112,11 +116,10 @@ export default function ContactModal() {
         {status === "success" ? (
           <div className={styles.successState}>
             <h2 id="modalTitle" className={`${styles.title} display`}>
-              <em>We&apos;ll be in touch.</em>
+              <em>Thanks! We&apos;ll be in touch soon.</em>
             </h2>
             <p className={styles.successCopy}>
-              Thanks, {name.split(" ")[0] || "friend"}. We&apos;ll come back
-              within 48 hours with a real conversation.
+              We&apos;ll come back within 48 hours with a real conversation.
             </p>
             <button className={styles.primaryBtn} onClick={close}>
               Close
