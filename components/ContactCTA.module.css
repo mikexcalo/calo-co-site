@@ -73,11 +73,121 @@
   transform: translateX(2px);
 }
 
+/* FAQ block */
+.faqBlock {
+  max-width: 720px;
+  margin: 80px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faqHeadline {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faqList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border-top: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--faint);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQ {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 24px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-lora), Georgia, serif;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+
+.faqQ:hover {
+  color: var(--muted);
+}
+
+.faqQText {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+  transition: transform 0.3s var(--ease-swell), color 0.15s;
+  margin-top: 4px;
+}
+
+.faqIconOpen {
+  transform: rotate(45deg);
+  color: var(--ink);
+}
+
+.faqA {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-swell);
+}
+
+.faqAOpen {
+  grid-template-rows: 1fr;
+}
+
+.faqAInner {
+  overflow: hidden;
+}
+
+.faqAInner p {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 620px;
+  padding-bottom: 24px;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 80px 24px 100px;
   }
   .sub {
     font-size: 17px;
+  }
+  .faqBlock {
+    margin-top: 56px;
+  }
+  .faqHeadline {
+    margin-bottom: 32px;
+  }
+  .faqQ {
+    padding: 20px 0;
+    gap: 16px;
   }
 }
