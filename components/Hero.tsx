@@ -26,12 +26,9 @@ export default function Hero() {
 
       <div className={styles.logoStrip}>
         {Array.from({ length: LOGO_COUNT }, (_, i) => (
-          <img
-            key={i}
-            src={`/logos/logo-${i + 1}.png`}
-            alt=""
-            className={styles.logoImg}
-          />
+          <div key={i} className={styles.logoTile}>
+            Logo {i + 1}
+          </div>
         ))}
       </div>
 
