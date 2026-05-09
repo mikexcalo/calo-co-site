@@ -14,10 +14,10 @@
 }
 
 .headline {
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
   letter-spacing: -0.025em;
   line-height: 1.05;
-  max-width: 720px;
+  white-space: nowrap;
 }
 
 .controls {
@@ -57,10 +57,10 @@
   width: max-content;
 }
 
-/* Image tile */
-.card {
+/* Unified tile — locked aspect ratio */
+.tile {
   flex: 0 0 480px;
-  height: 560px;
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -68,10 +68,11 @@
   transition: transform 0.4s var(--ease-swell);
 }
 
-.card:hover {
+.tile:hover {
   transform: translateY(-16px);
 }
 
+/* Image background */
 .photo {
   position: absolute;
   inset: 0;
@@ -81,10 +82,18 @@
   transition: transform 0.5s var(--ease-swell);
 }
 
-.card:hover .photo {
+.tile:hover .photo {
   transform: scale(1.04);
 }
 
+/* Placeholder background (no image) */
+.placeholderBg {
+  position: absolute;
+  inset: 0;
+  background: var(--charcoal);
+}
+
+/* Scrim overlay */
 .scrim {
   position: absolute;
   inset: 0;
@@ -95,75 +104,84 @@
     rgba(26, 26, 26, 0.7) 100%
   );
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: background 0.4s ease;
 }
 
-.card:hover .scrim {
-  opacity: 1;
+.tile:hover .scrim {
   background: linear-gradient(
     180deg,
     transparent 0%,
-    transparent 35%,
-    rgba(26, 26, 26, 0.8) 100%
+    transparent 30%,
+    rgba(26, 26, 26, 0.85) 100%
   );
 }
 
-.label {
+/* Content area — pinned to bottom */
+.content {
   position: absolute;
-  bottom: 28px;
-  left: 28px;
-  right: 28px;
-  font-family: var(--font-lora), Georgia, serif;
-  font-size: 26px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  color: var(--ivory);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px;
   z-index: 1;
-}
-
-/* Placeholder tile (no image) */
-.cardPlaceholder {
-  flex: 0 0 480px;
-  height: 560px;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  background: var(--charcoal);
-  cursor: pointer;
-  transition: transform 0.4s var(--ease-swell);
-}
-
-.cardPlaceholder:hover {
-  transform: translateY(-16px);
-}
-
-.placeholderInner {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 12px;
-  padding: 28px;
 }
 
-.placeholderLabel {
+.label {
   font-family: var(--font-lora), Georgia, serif;
   font-size: 26px;
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
   color: var(--ivory);
-  text-align: center;
 }
 
-.placeholderCaption {
+/* Reveal on hover */
+.reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: max-height 0.4s var(--ease-swell), opacity 0.4s ease;
+}
+
+.tile:hover .reveal {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.desc {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(245, 245, 245, 0.75);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 12px;
-  color: #B8A080;
-  letter-spacing: 0.04em;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.55);
+  border: 1px solid rgba(245, 245, 245, 0.2);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+@media (max-width: 1100px) {
+  .headline {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -182,13 +200,10 @@
     align-items: flex-start;
     gap: 20px;
   }
-  .card,
-  .cardPlaceholder {
+  .tile {
     flex: 0 0 320px;
-    height: 400px;
   }
-  .label,
-  .placeholderLabel {
+  .label {
     font-size: 22px;
   }
 }
