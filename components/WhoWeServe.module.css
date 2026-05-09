@@ -14,10 +14,9 @@
 }
 
 .headline {
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
-  letter-spacing: -0.025em;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  letter-spacing: -0.02em;
   line-height: 1.05;
-  white-space: nowrap;
 }
 
 .controls {
@@ -183,11 +182,7 @@
   padding: 3px 8px;
 }
 
-@media (max-width: 1100px) {
-  .headline {
-    white-space: normal;
-  }
-}
+
 
 @media (max-width: 1024px) {
   .section {

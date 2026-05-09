@@ -21,9 +21,9 @@
 }
 
 .headline {
-  font-size: clamp(40px, 6vw, 72px);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+  letter-spacing: -0.025em;
+  line-height: 1.0;
   max-width: 800px;
 }
 
@@ -83,8 +83,8 @@
 }
 
 .faqHeadline {
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
-  letter-spacing: -0.025em;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--ink);
   text-align: center;

@@ -18,8 +18,8 @@
 }
 
 .headline {
-  font-size: clamp(36px, 5.5vw, 64px);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  letter-spacing: -0.02em;
   line-height: 1.05;
   max-width: 880px;
 }
