@@ -12,6 +12,13 @@ type Tile = {
 
 const TILES: Tile[] = [
   {
+    label: "Creators & Designers",
+    image: "/images/audiences/creators-designers.jpg",
+    imagePosition: "50% 35%",
+    description: "Solo founders, artists, and personal brands turning audience into business worth remembering.",
+    pills: ["Artist", "Designer", "Writer", "Maker", "Freelance"],
+  },
+  {
     label: "Trades & Local Services",
     image: "/images/audiences/trades-local-services.jpg",
     imagePosition: "50% 50%",
@@ -21,7 +28,7 @@ const TILES: Tile[] = [
   {
     label: "Studios & Media",
     image: "/images/audiences/studios-media.png",
-    imagePosition: "50% 38%",
+    imagePosition: "50% 45%",
     description: "Photographers, videographers, podcasters, and content studios turning craft into scalable business.",
     pills: ["Photography", "Video", "Podcast", "Content", "Production"],
   },
@@ -42,13 +49,6 @@ const TILES: Tile[] = [
     image: null,
     description: "SaaS, mobile, newsletters, and digital products solving real problems. Positioning, growth, and the GTM motion that compounds.",
     pills: ["SaaS", "Mobile", "Newsletter", "Web Tool", "Marketplace"],
-  },
-  {
-    label: "Creators & Designers",
-    image: "/images/audiences/creators-designers.jpg",
-    imagePosition: "50% 22%",
-    description: "Solo founders, artists, and personal brands turning audience into business worth remembering.",
-    pills: ["Artist", "Designer", "Writer", "Maker", "Freelance"],
   },
 ];
 
@@ -84,6 +84,10 @@ export default function WhoWeServe() {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(advance, 5800);
   }, [advance]);
+
+  const pauseTimer = useCallback(() => {
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+  }, []);
 
   useEffect(() => {
     if (!inView) return;
@@ -136,7 +140,11 @@ export default function WhoWeServe() {
         </div>
       </div>
 
-      <div className={styles.carousel}>
+      <div
+        className={styles.carousel}
+        onMouseEnter={pauseTimer}
+        onMouseLeave={() => { if (inView) startTimer(); }}
+      >
         <div
           ref={trackRef}
           className={styles.track}

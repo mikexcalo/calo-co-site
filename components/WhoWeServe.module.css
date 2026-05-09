@@ -48,7 +48,9 @@
 
 /* Carousel */
 .carousel {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
+  padding-top: 20px;
 }
 
 .track {
