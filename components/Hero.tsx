@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <h1 className={`${styles.headline} display emerge`}>
+        <h1 className={`${styles.headline} display`}>
           We chart the course,<br />
           you make <em>waves</em>.
         </h1>
