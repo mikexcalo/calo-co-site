@@ -58,7 +58,7 @@ export default function WhoWeServe() {
       <div className={styles.header}>
         <span className={`${styles.eyebrow} eyebrow glide`}>Who We Serve</span>
         <h2 className={`${styles.headline} display glide glide-headline`}>
-          Five categories. <em>One playbook.</em>
+          For every visionary and venture
         </h2>
         <div className={styles.controls}>
           <button className={styles.arrowBtn} onClick={() => scroll(-1)} aria-label="Previous">
