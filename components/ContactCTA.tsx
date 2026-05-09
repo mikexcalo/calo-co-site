@@ -33,55 +33,60 @@ export default function ContactCTA() {
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <span className={`${styles.eyebrow} eyebrow glide`}>
-          Ready when you are
-        </span>
-        <h2 className={`${styles.headline} display glide glide-headline`}>
-          Let&apos;s build something <em>worth remembering</em>.
-        </h2>
-        <p className={`${styles.sub} glide`}>
-          Tell us what you&apos;re building. We&apos;ll come back within 48 hours
-          with a real conversation — no decks, no sales theater.
-        </p>
-        <div className={`${styles.ctaWrap} glide`}>
-          <button
-            type="button"
-            className={styles.cta}
-            data-modal-trigger
-          >
-            Climb Aboard <span className={styles.arrow}>→</span>
-          </button>
+    <>
+      {/* CTA section — dark */}
+      <section className={`${styles.ctaSection} section-dark`}>
+        <div className={styles.inner}>
+          <span className={`${styles.eyebrow} eyebrow glide`}>
+            Ready when you are
+          </span>
+          <h2 className={`${styles.headline} display glide glide-headline`}>
+            Let&apos;s build something <em>worth remembering</em>.
+          </h2>
+          <p className={`${styles.sub} glide`}>
+            Tell us what you&apos;re building. We&apos;ll come back within 48 hours
+            with a real conversation — no decks, no sales theater.
+          </p>
+          <div className={`${styles.ctaWrap} glide`}>
+            <button
+              type="button"
+              className={styles.cta}
+              data-modal-trigger
+            >
+              Climb Aboard <span className={styles.arrow}>→</span>
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* FAQ block */}
-      <div className={styles.faqBlock}>
-        <h3 className={`${styles.faqHeadline} display`}>Frequently asked questions</h3>
-        <ul className={styles.faqList}>
-          {FAQS.map((faq, i) => {
-            const isOpen = openIdx === i;
-            return (
-              <li key={i} className={styles.faqItem}>
-                <button
-                  className={styles.faqQ}
-                  onClick={() => toggle(i)}
-                  aria-expanded={isOpen}
-                >
-                  <span className={styles.faqQText}>{faq.q}</span>
-                  <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ""}`}>+</span>
-                </button>
-                <div className={`${styles.faqA} ${isOpen ? styles.faqAOpen : ""}`}>
-                  <div className={styles.faqAInner}>
-                    <p>{faq.a}</p>
+      {/* FAQ section — ivory */}
+      <section className={styles.faqSection}>
+        <div className={styles.faqBlock}>
+          <h3 className={`${styles.faqHeadline} display`}>Frequently asked questions</h3>
+          <ul className={styles.faqList}>
+            {FAQS.map((faq, i) => {
+              const isOpen = openIdx === i;
+              return (
+                <li key={i} className={styles.faqItem}>
+                  <button
+                    className={styles.faqQ}
+                    onClick={() => toggle(i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span className={styles.faqQText}>{faq.q}</span>
+                    <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ""}`}>+</span>
+                  </button>
+                  <div className={`${styles.faqA} ${isOpen ? styles.faqAOpen : ""}`}>
+                    <div className={styles.faqAInner}>
+                      <p>{faq.a}</p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }
