@@ -10,12 +10,12 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className={`${styles.headline} display emerge`}>
-          We chart the course,{" "}
+          We chart the course,<br />
           you make <em>waves</em>.
         </h1>
         <p className={styles.sub}>
-          CALO&amp;CO is a marketing and growth partner for independent brands
-          and businesses ready to level up.
+          CALO&amp;CO is a marketing and growth partner<br />
+          for independent brands and businesses ready to level up.
         </p>
         <div className={styles.ctas}>
           <button className={`${styles.btn} ${styles.btnPrimary}`} data-modal-trigger>
