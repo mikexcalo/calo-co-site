@@ -58,7 +58,7 @@ export default function ContactCTA() {
 
       {/* FAQ block */}
       <div className={styles.faqBlock}>
-        <h3 className={`${styles.faqHeadline} display`}>Questions, answered</h3>
+        <h3 className={`${styles.faqHeadline} display`}>Frequently asked questions</h3>
         <ul className={styles.faqList}>
           {FAQS.map((faq, i) => {
             const isOpen = openIdx === i;

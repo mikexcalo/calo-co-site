@@ -96,12 +96,12 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  border-top: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
+  border-top: 1px solid rgba(26, 26, 26, 0.2);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.2);
 }
 
 .faqItem {
-  border-bottom: 1px solid var(--faint);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.2);
 }
 
 .faqItem:last-child {
@@ -112,15 +112,15 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 24px 0;
+  padding: 28px 0;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
   cursor: pointer;
   text-align: left;
-  font-family: var(--font-lora), Georgia, serif;
-  color: var(--ink);
+  font-family: var(--font-geist), sans-serif;
+  color: var(--charcoal);
   transition: color 0.15s;
 }
 
@@ -129,15 +129,15 @@
 }
 
 .faqQText {
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-size: 1.375rem;
+  font-weight: 500;
   line-height: 1.3;
 }
 
 .faqIcon {
   flex-shrink: 0;
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--muted);
   transition: transform 0.3s var(--ease-swell), color 0.15s;
