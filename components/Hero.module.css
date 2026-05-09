@@ -1,18 +1,17 @@
 .hero {
-  min-height: 90vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  display: flex;
+  flex-direction: column;
   padding: 0 48px;
   position: relative;
   overflow: hidden;
 }
 
 .content {
-  align-self: center;
-  max-width: 780px;
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 160px;
+  padding-bottom: 48px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -20,11 +19,11 @@
 }
 
 .headline {
-  font-size: clamp(38px, 5.5vw, 76px);
+  font-size: clamp(52px, 9vw, 120px);
   letter-spacing: -0.04em;
   line-height: 0.96;
   color: var(--ink);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .sub {
@@ -32,7 +31,7 @@
   line-height: 1.5;
   color: var(--muted);
   max-width: 540px;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .ctas {
@@ -86,31 +85,48 @@
   transform: translateX(2px);
 }
 
-/* Logo strip */
-.logoStrip {
+/* Sliding logo marquee */
+.marquee {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0 48px;
-  gap: 16px;
+  padding: 48px 0 24px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
 
-.logoTile {
-  width: 140px;
-  height: 44px;
-  flex-shrink: 0;
+.track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+  gap: 100px;
+  animation: marquee 35s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.logo {
   font-family: var(--font-geist), sans-serif;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 28px;
   letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
 }
 
 /* Dark gradient ground */
@@ -119,7 +135,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 420px;
+  height: 360px;
   pointer-events: none;
   background: linear-gradient(
     to bottom,
@@ -134,24 +150,26 @@
   .hero {
     padding: 0 24px;
   }
+  .content {
+    padding-top: 120px;
+    padding-bottom: 36px;
+  }
   .headline {
-    font-size: clamp(32px, 7vw, 48px);
+    font-size: clamp(40px, 10vw, 64px);
   }
   .sub {
     font-size: 17px;
   }
-  .logoStrip {
-    padding: 20px 0 36px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  .marquee {
+    padding: 32px 0 16px;
   }
-  .logoTile {
-    width: 100px;
-    height: 36px;
-    font-size: 10px;
+  .logo {
+    font-size: 20px;
+  }
+  .track {
+    gap: 60px;
   }
   .fade {
-    height: 280px;
+    height: 260px;
   }
 }

@@ -1,6 +1,9 @@
 import styles from "./Hero.module.css";
 
-const LOGO_COUNT = 8;
+const LOGOS = [
+  "Pangaea", "Fuego", "Mammoth", "LG Flooring",
+  "Stevie's Poem Store", "Hero's Journey", "Wayback", "Nautilus",
+];
 
 export default function Hero() {
   return (
@@ -24,12 +27,12 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={styles.logoStrip}>
-        {Array.from({ length: LOGO_COUNT }, (_, i) => (
-          <div key={i} className={styles.logoTile}>
-            Logo {i + 1}
-          </div>
-        ))}
+      <div className={styles.marquee}>
+        <div className={styles.track}>
+          {[...LOGOS, ...LOGOS, ...LOGOS].map((name, i) => (
+            <span key={i} className={styles.logo}>{name}</span>
+          ))}
+        </div>
       </div>
 
       <div className={styles.fade} aria-hidden="true" />
