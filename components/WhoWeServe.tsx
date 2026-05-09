@@ -5,6 +5,7 @@ import styles from "./WhoWeServe.module.css";
 type Tile = {
   label: string;
   image: string | null;
+  imagePosition?: string;
   description: string;
   pills: string[];
 };
@@ -13,12 +14,14 @@ const TILES: Tile[] = [
   {
     label: "Trades & Local Services",
     image: "/images/audiences/trades-local-services.jpg",
+    imagePosition: "50% 50%",
     description: "Skilled-trade operators — construction, flooring, contracting — modernizing how they win and run jobs.",
     pills: ["Construction", "Flooring", "Landscaping", "Plumbing", "Electrical"],
   },
   {
     label: "Studios & Media",
     image: "/images/audiences/studios-media.png",
+    imagePosition: "50% 38%",
     description: "Photographers, videographers, podcasters, and content studios turning craft into scalable business.",
     pills: ["Photography", "Video", "Podcast", "Content", "Production"],
   },
@@ -43,6 +46,7 @@ const TILES: Tile[] = [
   {
     label: "Creators & Designers",
     image: "/images/audiences/creators-designers.jpg",
+    imagePosition: "50% 22%",
     description: "Solo founders, artists, and personal brands turning audience into business worth remembering.",
     pills: ["Artist", "Designer", "Writer", "Maker", "Freelance"],
   },
@@ -144,7 +148,7 @@ export default function WhoWeServe() {
           {[...TILES, ...TILES].map((tile, i) => (
             <article key={i} className={styles.tile}>
               {tile.image ? (
-                <div className={styles.photo} style={{ backgroundImage: `url(${tile.image})` }} role="img" aria-label={tile.label} />
+                <div className={styles.photo} style={{ backgroundImage: `url(${tile.image})`, backgroundPosition: tile.imagePosition || 'center' }} role="img" aria-label={tile.label} />
               ) : (
                 <div className={styles.placeholderBg} />
               )}

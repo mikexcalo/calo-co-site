@@ -77,7 +77,6 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
   background-color: var(--faint);
   transition: transform 0.5s var(--ease-swell);
 }
