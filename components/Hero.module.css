@@ -1,4 +1,5 @@
 .hero {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 0 48px;
@@ -7,15 +8,17 @@
 }
 
 .content {
+  flex: 1;
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
-  padding-top: 160px;
-  padding-bottom: 48px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 0;
 }
 
 .headline {
@@ -89,7 +92,7 @@
 .marquee {
   position: relative;
   z-index: 1;
-  padding: 48px 0 24px;
+  padding: 0 0 32px;
   overflow: hidden;
   mask-image: linear-gradient(
     to right,
@@ -151,8 +154,7 @@
     padding: 0 24px;
   }
   .content {
-    padding-top: 120px;
-    padding-bottom: 36px;
+    padding-top: 40px;
   }
   .headline {
     font-size: clamp(40px, 10vw, 64px);
@@ -161,7 +163,7 @@
     font-size: 17px;
   }
   .marquee {
-    padding: 32px 0 16px;
+    padding: 0 0 20px;
   }
   .logo {
     font-size: 20px;

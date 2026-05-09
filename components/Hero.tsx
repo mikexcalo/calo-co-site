@@ -14,8 +14,8 @@ export default function Hero() {
           you make <em>waves</em>.
         </h1>
         <p className={styles.sub}>
-          CALO&amp;CO is a growth partner for independent brands and businesses
-          ready to scale.
+          CALO&amp;CO is a marketing and growth partner for independent brands
+          and businesses ready to level up.
         </p>
         <div className={styles.ctas}>
           <button className={`${styles.btn} ${styles.btnPrimary}`} data-modal-trigger>
