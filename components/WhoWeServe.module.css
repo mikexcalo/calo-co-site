@@ -117,16 +117,15 @@
   );
 }
 
-/* Content area — pinned to bottom */
+/* Content area — anchored to bottom inside locked tile */
 .content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 28px;
+  inset: 0;
+  padding: 24px;
   z-index: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 12px;
 }
 
@@ -147,7 +146,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: max-height 0.4s var(--ease-swell), opacity 0.4s ease;
+  transition:
+    max-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.4s 0.1s;
 }
 
 .tile:hover .reveal {

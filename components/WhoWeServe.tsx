@@ -14,7 +14,7 @@ const TILES: Tile[] = [
   {
     label: "Creators & Designers",
     image: "/images/audiences/creators-designers.jpg",
-    imagePosition: "50% 35%",
+    imagePosition: "50% 55%",
     description: "Solo founders, artists, and personal brands turning audience into business worth remembering.",
     pills: ["Artist", "Designer", "Writer", "Maker", "Freelance"],
   },
@@ -28,7 +28,7 @@ const TILES: Tile[] = [
   {
     label: "Studios & Media",
     image: "/images/audiences/studios-media.png",
-    imagePosition: "50% 45%",
+    imagePosition: "50% 50%",
     description: "Photographers, videographers, podcasters, and content studios turning craft into scalable business.",
     pills: ["Photography", "Video", "Podcast", "Content", "Production"],
   },
