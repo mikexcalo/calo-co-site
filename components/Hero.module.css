@@ -65,7 +65,7 @@
 
 .btnPrimary:hover {
   transform: translateY(-1px);
-  background: #000;
+  background: var(--charcoal);
 }
 
 .btnSecondary {
@@ -144,8 +144,8 @@
     to bottom,
     transparent 0%,
     transparent 25%,
-    rgba(10, 10, 12, 0.4) 55%,
-    #0a0a0c 100%
+    rgba(26, 26, 26, 0.4) 55%,
+    #1A1A1A 100%
   );
 }
 

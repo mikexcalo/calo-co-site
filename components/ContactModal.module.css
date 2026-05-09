@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 10, 12, 0.6);
+  background: rgba(26, 26, 26, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
@@ -23,7 +23,7 @@
   overflow-y: auto;
   position: relative;
   animation: slideUp 0.3s var(--ease-swell);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 60px rgba(26, 26, 26, 0.2);
 }
 
 .closeBtn {
@@ -142,7 +142,7 @@
 
 .primaryBtn:hover:not(:disabled) {
   transform: translateY(-1px);
-  background: #000;
+  background: var(--charcoal);
 }
 
 .primaryBtn:disabled {

@@ -1,5 +1,5 @@
 .section {
-  background: #0a0a0c;
+  background: var(--charcoal);
   color: var(--dark-text);
   padding: 160px 48px;
   position: relative;

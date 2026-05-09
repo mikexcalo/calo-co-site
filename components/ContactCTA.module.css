@@ -61,7 +61,7 @@
 
 .cta:hover {
   transform: translateY(-1px);
-  background: #000;
+  background: var(--charcoal);
 }
 
 .arrow {

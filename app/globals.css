@@ -1,19 +1,24 @@
 :root {
   color-scheme: only light;
 
-  /* Color tokens (locked from v139) */
-  --bg: #f7f7f8;
-  --surface: #ffffff;
-  --ink: #111113;
+  /* Locked palette */
+  --charcoal: #1A1A1A;
+  --ivory: #F5F5F5;
+  --bronze: #8B6F47;
+  --reef: #00DCA8;
+
+  /* Semantic tokens */
+  --bg: var(--ivory);
+  --surface: var(--ivory);
+  --ink: var(--charcoal);
   --muted: #6b6b6f;
   --faint: #d3d1cf;
   --accent: #0284c7;
   --square: #006AFF;
-  --bronze: #9C8567;
   --teal: #00C9A0;
-  --dark-bg: #111113;
+  --dark-bg: var(--charcoal);
   --dark-surface: #1c1c20;
-  --dark-text: #f5f5f5;
+  --dark-text: var(--ivory);
   --dark-muted: #a1a1a5;
   --dark-faint: #3a3a3f;
 
@@ -25,14 +30,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #f7f7f8 !important;
+  background-color: #F5F5F5 !important;
   color-scheme: only light;
 }
 
 body {
   font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f7f7f8 !important;
-  color: #111113 !important;
+  background-color: #F5F5F5 !important;
+  color: #1A1A1A !important;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   overflow-x: hidden;
@@ -42,8 +47,8 @@ body {
 @media (prefers-color-scheme: dark) {
   :root { color-scheme: only light; }
   html, body {
-    background-color: #f7f7f8 !important;
-    color: #111113 !important;
+    background-color: #F5F5F5 !important;
+    color: #1A1A1A !important;
   }
 }
 

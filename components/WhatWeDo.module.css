@@ -1,5 +1,5 @@
 .section {
-  background: #0a0a0c;
+  background: var(--charcoal);
   color: var(--dark-text);
   padding: 120px 48px 160px;
 }
@@ -57,11 +57,11 @@
 }
 
 .cell:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(245, 245, 245, 0.03);
 }
 
 .cellActive {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(245, 245, 245, 0.05);
 }
 
 .num {

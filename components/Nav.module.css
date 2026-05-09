@@ -17,7 +17,7 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.05em;
-  color: var(--ink);
+  color: var(--charcoal);
   pointer-events: auto;
   transition: color 0.5s ease;
 }
@@ -26,10 +26,10 @@
   font-family: var(--font-geist), sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #F5F5F5;
-  background: #1A1A1A;
+  color: var(--ivory);
+  background: var(--charcoal);
   padding: 11px 20px;
-  border: 1px solid #1A1A1A;
+  border: 1px solid var(--charcoal);
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
@@ -45,11 +45,11 @@
 
 /* Dark nav state — toggled via body.dark-nav */
 :global(body.dark-nav) .wordmark {
-  color: #F5F5F5;
+  color: var(--ivory);
 }
 
 :global(body.dark-nav) .navCta {
-  background: #F5F5F5;
-  color: #1A1A1A;
-  border-color: #F5F5F5;
+  background: var(--ivory);
+  color: var(--charcoal);
+  border-color: var(--ivory);
 }
