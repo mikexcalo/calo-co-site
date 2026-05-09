@@ -2,7 +2,7 @@ import styles from "./WhoWeAre.module.css";
 
 export default function WhoWeAre() {
   return (
-    <section id="who-we-are" className={styles.section}>
+    <section id="who-we-are" className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <span className={`${styles.eyebrow} eyebrow glide`}>
           Who We Are

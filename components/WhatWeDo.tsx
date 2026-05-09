@@ -46,7 +46,7 @@ export default function WhatWeDo() {
   const active = CAPABILITIES[activeIndex];
 
   return (
-    <section id="what-we-do" className={styles.section}>
+    <section id="what-we-do" className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <span className={`${styles.eyebrow} eyebrow glide`}>What We Do</span>
         <h2 className={`${styles.headline} display glide glide-headline`}>

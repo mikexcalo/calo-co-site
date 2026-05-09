@@ -55,7 +55,7 @@ export default function Spotlight() {
   const slide = SLIDES[active];
 
   return (
-    <section id="spotlight" className={styles.section}>
+    <section id="spotlight" className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className={`${styles.eyebrow} eyebrow glide`}>Spotlight</span>
