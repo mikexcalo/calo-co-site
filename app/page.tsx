@@ -1,9 +1,10 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeAre from "@/components/WhoWeAre";
+import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
+import HowWeWork from "@/components/HowWeWork";
 import Journey from "@/components/Journey";
 import Spotlight from "@/components/Spotlight";
 import FounderMemo from "@/components/FounderMemo";
@@ -18,9 +19,10 @@ export default function Home() {
       <RevealProvider />
       <Nav />
       <Hero />
-      <WhatWeDo />
       <WhoWeAre />
+      <WhatWeDo />
       <WhoWeServe />
+      <HowWeWork />
       <Journey />
       <Spotlight />
       <FounderMemo />
