@@ -49,7 +49,7 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 24px' }}>
+    <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 24px' }}>
       <h2 className="display" style={{ fontFamily: serif, fontWeight: 400, fontSize: 'clamp(36px, 4.2vw, 52px)', lineHeight: 1.05, letterSpacing: '-0.025em', color: '#111113', marginBottom: 56, maxWidth: 800 }}>
         Where <em style={{ fontStyle: 'italic', fontWeight: 500 }}>art</em> meets <em style={{ fontStyle: 'italic', fontWeight: 500 }}>science.</em>
       </h2>

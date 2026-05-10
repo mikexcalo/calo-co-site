@@ -5,8 +5,7 @@ export default function Journey() {
     <section className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <h2 className={`${styles.headline} display`}>
-          Wherever you are on <em>your journey,</em><br />
-          <em>we&apos;ll steer.</em>
+          Wherever you are on <em>your journey.</em>
         </h2>
         <p className={styles.sub}>
           Start with a conversation. We&apos;ll figure out where you are, where you want to go,
