@@ -1,0 +1,63 @@
+.section {
+  background: #0F0F11;
+  color: white;
+  padding: 112px 24px;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 56px;
+}
+
+.quote {
+  font-weight: 400;
+  font-size: clamp(32px, 4.8vw, 58px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 56px;
+}
+
+.word {
+  transition: opacity 500ms ease-out;
+}
+
+.signature {
+  transition: opacity 700ms;
+}
+
+.signatureName {
+  font-size: 48px;
+  line-height: 1;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.signatureRole {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+  .stars {
+    margin-bottom: 40px;
+  }
+  .quote {
+    margin-bottom: 40px;
+  }
+  .signatureName {
+    font-size: 40px;
+  }
+}
