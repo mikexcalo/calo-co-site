@@ -4,9 +4,9 @@ import Hero from "@/components/Hero";
 import WhoWeAre from "@/components/WhoWeAre";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
-import HowWeWork from "@/components/HowWeWork";
 import Journey from "@/components/Journey";
 import Spotlight from "@/components/Spotlight";
+import HowWeWork from "@/components/HowWeWork";
 import FounderMemo from "@/components/FounderMemo";
 import Testimonial from "@/components/Testimonial";
 import ContactCTA from "@/components/ContactCTA";
@@ -22,9 +22,9 @@ export default function Home() {
       <WhoWeAre />
       <WhatWeDo />
       <WhoWeServe />
-      <HowWeWork />
       <Journey />
       <Spotlight />
+      <HowWeWork />
       <FounderMemo />
       <Testimonial />
       <ContactCTA />

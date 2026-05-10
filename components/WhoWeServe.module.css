@@ -1,7 +1,7 @@
 .section {
-  background: var(--bg);
-  color: var(--ink);
-  padding: 140px 96px 160px;
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 96px 96px 120px;
 }
 
 .header {
@@ -17,6 +17,7 @@
   font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
+  color: var(--ivory);
 }
 
 .controls {
@@ -29,10 +30,10 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--charcoal);
+  border: 1px solid rgba(245, 245, 245, 0.3);
   background: transparent;
   font-size: 16px;
-  color: var(--charcoal);
+  color: var(--ivory);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -41,8 +42,8 @@
 }
 
 .arrowBtn:hover {
-  background: var(--charcoal);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--charcoal);
 }
 
 /* Carousel */
@@ -54,13 +55,13 @@
 
 .track {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   width: max-content;
 }
 
 /* Unified tile — locked aspect ratio */
 .tile {
-  flex: 0 0 480px;
+  flex: 0 0 312px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
@@ -130,7 +131,7 @@
 
 .label {
   font-family: var(--font-lora), Georgia, serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
@@ -201,7 +202,7 @@
     gap: 20px;
   }
   .tile {
-    flex: 0 0 320px;
+    flex: 0 0 260px;
   }
   .label {
     font-size: 22px;
