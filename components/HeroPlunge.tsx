@@ -85,15 +85,33 @@ export default function HeroPlunge() {
           </div>
         </div>
 
-        {/* WHO WE ARE layer */}
+        {/* WHERE ART MEETS SCIENCE layer */}
         <div className={`${styles.layer} ${styles.layer02}`}>
-          <span className={`${styles.wwEyebrow} eyebrow`}>Who We Are</span>
           <h2 className={`${styles.wwHeadline} display`}>
-            We are <em>navigators</em>, builders, and signal-makers for ambitious independents.
+            Where art meets <em>science</em>.
           </h2>
-          <p className={styles.wwLede}>
-            CALO&amp;CO is a small studio with a long horizon. We partner with founders building businesses worth remembering — not the loudest in the room, but the ones with the strongest signal.
-          </p>
+          <div className={styles.wwGrid}>
+            <div className={styles.wwCell}>
+              <span className={styles.wwCellNum}>01</span>
+              <span className={styles.wwCellName}>Brand</span>
+              <span className={styles.wwCellBody}>Identity, voice, foundation.</span>
+            </div>
+            <div className={styles.wwCell}>
+              <span className={styles.wwCellNum}>02</span>
+              <span className={styles.wwCellName}>Story</span>
+              <span className={styles.wwCellBody}>Copy, sales, positioning.</span>
+            </div>
+            <div className={styles.wwCell}>
+              <span className={styles.wwCellNum}>03</span>
+              <span className={styles.wwCellName}>Growth</span>
+              <span className={styles.wwCellBody}>Pipeline, distribution, retention.</span>
+            </div>
+            <div className={styles.wwCell}>
+              <span className={styles.wwCellNum}>04</span>
+              <span className={styles.wwCellName}>Build</span>
+              <span className={styles.wwCellBody}>Sites, tools, operations.</span>
+            </div>
+          </div>
         </div>
 
       </div>
