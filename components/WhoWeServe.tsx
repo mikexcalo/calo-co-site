@@ -52,7 +52,7 @@ const TILES: Tile[] = [
   },
 ];
 
-const TILE_WIDTH = 312;
+const TILE_WIDTH = 356;
 const TILE_GAP = 20;
 const STEP = TILE_WIDTH + TILE_GAP;
 const COUNT = TILES.length;
@@ -129,7 +129,7 @@ export default function WhoWeServe() {
   const offset = -(index * STEP);
 
   return (
-    <section id="who-we-serve" className={`${styles.section} section-dark`} ref={sectionRef}>
+    <section id="who-we-serve" className={styles.section} ref={sectionRef}>
       <div className={styles.header}>
         <h2 className={`${styles.headline} display glide glide-headline`}>
           For every visionary and venture

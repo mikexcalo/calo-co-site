@@ -1,6 +1,6 @@
 .section {
-  background: var(--charcoal);
-  color: var(--ivory);
+  background: var(--bg);
+  color: var(--ink);
   padding: 96px 96px 120px;
 }
 
@@ -17,7 +17,7 @@
   font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
-  color: var(--ivory);
+  color: var(--ink);
 }
 
 .controls {
@@ -30,10 +30,10 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(245, 245, 245, 0.3);
+  border: 1px solid rgba(26, 26, 26, 0.2);
   background: transparent;
   font-size: 16px;
-  color: var(--ivory);
+  color: var(--ink);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -42,8 +42,8 @@
 }
 
 .arrowBtn:hover {
-  background: var(--ivory);
-  color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--ivory);
 }
 
 /* Carousel */
@@ -61,7 +61,7 @@
 
 /* Unified tile — locked aspect ratio */
 .tile {
-  flex: 0 0 312px;
+  flex: 0 0 356px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
@@ -202,7 +202,7 @@
     gap: 20px;
   }
   .tile {
-    flex: 0 0 260px;
+    flex: 0 0 280px;
   }
   .label {
     font-size: 22px;
