@@ -32,7 +32,7 @@ const PILLARS: { id: Pillar; name: string; body: string; caps: string[] }[] = [
   },
 ];
 
-const ICONS: Record<Pillar, JSX.Element> = {
+const ICONS: Record<Pillar, React.ReactNode> = {
   brand: (
     <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="18" cy="18" r="14"/>
