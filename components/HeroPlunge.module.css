@@ -40,7 +40,7 @@
 
 /* HERO layer — translates upward as you dive */
 .layerHero {
-  transform: translateY(calc(var(--p, 0) * -110vh));
+  transform: translateY(calc(var(--p, 0) * -110vh - 6vh));
 }
 
 /* WHO WE ARE layer — rises from below, fades in after --p > 0.4 */
