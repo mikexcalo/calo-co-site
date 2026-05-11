@@ -52,7 +52,7 @@ const TILES: Tile[] = [
   },
 ];
 
-const TILE_WIDTH = 356;
+const TILE_WIDTH = 412;
 const TILE_GAP = 20;
 const STEP = TILE_WIDTH + TILE_GAP;
 const COUNT = TILES.length;

@@ -61,7 +61,7 @@
 
 /* Unified tile — locked aspect ratio */
 .tile {
-  flex: 0 0 356px;
+  flex: 0 0 412px;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
