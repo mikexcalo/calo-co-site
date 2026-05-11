@@ -22,8 +22,8 @@ export default function Home() {
         <Nav />
         <Hero />
         <WhoWeAre />
-        <WhatWeDo />
       </div>
+      <WhatWeDo />
       <WhoWeServe />
       <Journey />
       <Spotlight />
