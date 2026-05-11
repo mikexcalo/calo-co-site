@@ -1,0 +1,197 @@
+/* Plunge container — 300vh runway */
+.plunge {
+  position: relative;
+  height: 300vh;
+}
+
+/* Inner stage — sticky for the dive */
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  /* Hero gradient: vertical paper→ivory with a soft warm wash from the top */
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(245, 239, 228, 0.7), transparent 70%),
+    linear-gradient(180deg, #FAFAF7 0%, #F2F1EC 100%);
+}
+
+/* The dark overlay that fades in to cover the cream gradient */
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #111113;
+  opacity: clamp(0, calc((var(--p, 0) - 0.2) * 1.6), 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Layer base */
+.layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 64px;
+  will-change: transform, opacity;
+  z-index: 2;
+}
+
+/* HERO layer — translates upward as you dive */
+.layerHero {
+  transform: translateY(calc(var(--p, 0) * -110vh));
+}
+
+/* WHO WE ARE layer — rises from below, fades in after --p > 0.4 */
+.layer02 {
+  transform: translateY(calc((1 - var(--p, 0)) * 80vh));
+  opacity: clamp(0, calc((var(--p, 0) - 0.4) * 2.5), 1);
+  z-index: 3;
+}
+
+/* HERO content */
+.heroHeadline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 7vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-align: center;
+  color: #1A1A1A;
+  max-width: 1100px;
+  margin: 0;
+}
+.heroHeadline em { font-style: italic; font-weight: 500; }
+
+.heroSub {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 28px;
+  color: rgba(26, 26, 26, 0.7);
+  max-width: 720px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 13px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  text-decoration: none;
+  transition: gap 200ms;
+}
+.btnPrimary { background: #111113; color: #FAFAF7; }
+.btnSecondary {
+  background: transparent;
+  color: #111113;
+  border: 1px solid rgba(17, 17, 19, 0.2);
+}
+.btnPrimary:hover, .btnSecondary:hover { gap: 12px; }
+
+/* MARQUEE — at bottom of hero, fades out by --p = 0.3 */
+.marquee {
+  position: absolute;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 2;
+  opacity: clamp(0, calc(1 - var(--p, 0) * 3.3), 1);
+  transition: none;
+}
+.marqueeTrack {
+  display: inline-block;
+  animation: heroPlunge-scroll-left 30s linear infinite;
+}
+.marqueeLogo {
+  display: inline-block;
+  font-family: var(--font-lora), Georgia, serif;
+  font-style: italic;
+  font-size: 28px;
+  color: rgba(26, 26, 26, 0.35);
+  margin: 0 32px;
+  letter-spacing: -0.01em;
+}
+@keyframes heroPlunge-scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Bottom fade on hero — fades out as you dive */
+.heroFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, #F5F5F5);
+  z-index: 1;
+  pointer-events: none;
+  opacity: clamp(0, calc(1 - var(--p, 0) * 3), 1);
+}
+
+/* WHO WE ARE content */
+.wwEyebrow {
+  font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.65);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.wwHeadline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-align: center;
+  max-width: 980px;
+  color: #FAFAF7;
+  margin: 0;
+}
+.wwHeadline em { font-style: italic; font-weight: 500; }
+
+.wwLede {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  text-align: center;
+  margin-top: 28px;
+  color: rgba(245, 245, 245, 0.7);
+  max-width: 760px;
+}
+
+@media (max-width: 880px) {
+  .layer { padding: 0 24px; }
+  .heroHeadline { font-size: clamp(2.25rem, 9vw, 3.5rem); }
+  .heroSub { font-size: 1rem; margin-top: 20px; }
+  .heroSub br { display: none; }
+  .heroCtas { flex-direction: column; gap: 10px; width: 100%; max-width: 320px; }
+  .btnPrimary, .btnSecondary { justify-content: center; }
+  .wwHeadline { font-size: clamp(1.75rem, 7vw, 2.75rem); }
+  .marqueeLogo { font-size: 20px; margin: 0 20px; }
+  .marquee { bottom: 40px; }
+}
