@@ -12,15 +12,18 @@ import Testimonial from "@/components/Testimonial";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <>
       <RevealProvider />
-      <Nav />
-      <Hero />
-      <WhoWeAre />
-      <WhatWeDo />
+      <div className={styles.navStickyRegion}>
+        <Nav />
+        <Hero />
+        <WhoWeAre />
+        <WhatWeDo />
+      </div>
       <WhoWeServe />
       <Journey />
       <Spotlight />

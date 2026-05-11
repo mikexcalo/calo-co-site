@@ -41,12 +41,8 @@ export default function ContactCTA() {
             Ready when you are
           </span>
           <h2 className={`${styles.headline} display glide glide-headline`}>
-            Let&apos;s build something <em>worth remembering</em>.
+            Worth <em>remembering</em>.
           </h2>
-          <p className={`${styles.sub} glide`}>
-            Tell us what you&apos;re building. We&apos;ll come back within 48 hours
-            with a real conversation — no decks, no sales theater.
-          </p>
           <div className={`${styles.ctaWrap} glide`}>
             <button
               type="button"
@@ -56,6 +52,7 @@ export default function ContactCTA() {
               Climb Aboard <span className={styles.arrow}>→</span>
             </button>
           </div>
+          <p className={`${styles.timeNote} glide`}>14 seconds. We timed it.</p>
         </div>
       </section>
 
