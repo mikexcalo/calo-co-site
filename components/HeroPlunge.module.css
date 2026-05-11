@@ -10,10 +10,8 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
-  /* Hero gradient: vertical paper→ivory with a soft warm wash from the top */
-  background:
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(245, 239, 228, 0.7), transparent 70%),
-    linear-gradient(180deg, #FAFAF7 0%, #F2F1EC 100%);
+  /* Clean ivory gradient — Master Palette v1.2 only */
+  background: linear-gradient(180deg, #F5F5F5 0%, #EDEDED 100%);
 }
 
 /* The dark overlay that fades in to cover the cream gradient */
@@ -21,7 +19,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #111113;
+  background: #1A1A1A;
   opacity: clamp(0, calc((var(--p, 0) - 0.2) * 1.6), 1);
   z-index: 1;
   pointer-events: none;
@@ -98,11 +96,11 @@
   text-decoration: none;
   transition: gap 200ms;
 }
-.btnPrimary { background: #111113; color: #FAFAF7; }
+.btnPrimary { background: #1A1A1A; color: #F5F5F5; }
 .btnSecondary {
   background: transparent;
-  color: #111113;
-  border: 1px solid rgba(17, 17, 19, 0.2);
+  color: #1A1A1A;
+  border: 1px solid rgba(26, 26, 26, 0.2);
 }
 .btnPrimary:hover, .btnSecondary:hover { gap: 12px; }
 
@@ -143,7 +141,7 @@
   left: 0;
   right: 0;
   height: 80px;
-  background: linear-gradient(180deg, transparent, #F5F5F5);
+  background: linear-gradient(180deg, transparent, #EDEDED);
   z-index: 1;
   pointer-events: none;
   opacity: clamp(0, calc(1 - var(--p, 0) * 3), 1);
@@ -168,7 +166,7 @@
   letter-spacing: -0.025em;
   text-align: center;
   max-width: 980px;
-  color: #FAFAF7;
+  color: #F5F5F5;
   margin: 0;
 }
 .wwHeadline em { font-style: italic; font-weight: 500; }
