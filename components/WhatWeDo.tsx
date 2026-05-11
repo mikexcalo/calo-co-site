@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import styles from './WhatWeDo.module.css';
 
 type Pillar = 'brand' | 'story' | 'growth' | 'build';
 
-const pillars: { id: Pillar; name: string; body: string; caps: string[] }[] = [
+const PILLARS: { id: Pillar; name: string; body: string; caps: string[] }[] = [
   {
     id: 'brand',
     name: 'Brand',
@@ -15,182 +16,202 @@ const pillars: { id: Pillar; name: string; body: string; caps: string[] }[] = [
     id: 'story',
     name: 'Story',
     body: "The reason someone picks you instead of the guy down the street. It's every place you make the case — the website, the pitch, the proposal. We figure out what your buyer actually needs to hear to say yes, and we build the thing that says it.",
-    caps: ['Website copy', 'Sales decks', 'Case studies', 'Proposals', 'Email campaigns', 'Social content'],
+    caps: ['Website copy', 'Sales decks', 'Case studies', 'Proposals', 'Email campaigns'],
   },
   {
     id: 'growth',
     name: 'Growth',
     body: "The difference between busy and booked. It's who you're for, why you're different, where they find you, and what gets them to call. We build the engine, run it with you, and pay attention to what's actually bringing in work versus what just feels like progress.",
-    caps: ['Positioning', 'Pricing', 'Lead generation', 'Email marketing', 'Local SEO', 'Reviews & referrals', 'Event strategy'],
+    caps: ['Positioning', 'Pricing', 'Lead generation', 'Local SEO', 'Email marketing', 'Events'],
   },
   {
     id: 'build',
     name: 'Build',
     body: "Everything happening behind the scenes that makes the business run. The website that brings in jobs, the way you send quotes, collect payment, and keep track of customers without dropping the ball. We build it, wire it together, and teach you how to run it.",
-    caps: ['Websites', 'Quoting tools', 'Invoicing & payments', 'Customer tracking', 'AI workflows', 'Automations', 'Internal dashboards'],
+    caps: ['Websites', 'Quoting tools', 'Invoicing & payments', 'Customer tracking', 'AI workflows'],
   },
 ];
 
-const serif = 'var(--font-lora), Georgia, serif';
-const sans = 'var(--font-geist), system-ui, sans-serif';
-const mono = 'var(--font-ibm-plex-mono), monospace';
+const ICONS: Record<Pillar, JSX.Element> = {
+  brand: (
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="18" cy="18" r="14"/>
+      <circle cx="18" cy="18" r="2.5" fill="currentColor" stroke="none"/>
+      <path d="M18 4 L20.5 18 L18 32 L15.5 18 Z" fill="currentColor"/>
+      <path d="M4 18 L18 15.5 L32 18 L18 20.5 Z" opacity="0.4" fill="currentColor"/>
+    </svg>
+  ),
+  story: (
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 8 C8 6 9 5 10.5 5 L25.5 5 C27 5 28 6 28 8 L28 26"/>
+      <path d="M28 26 C28 28 27 29 25.5 29 L11 29 C9 29 8 28 8 26 L8 8"/>
+      <line x1="12" y1="11" x2="24" y2="11"/>
+      <line x1="12" y1="15" x2="24" y2="15"/>
+      <line x1="12" y1="19" x2="20" y2="19"/>
+    </svg>
+  ),
+  growth: (
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="4" x2="18" y2="30"/>
+      <path d="M18 6 C24 8 28 12 29 18 C26 19 22 19 18 18 Z" fill="currentColor" fillOpacity="0.12"/>
+      <path d="M18 18 C22 20 26 22 28 26 C25 27 21 27 18 26 Z" fill="currentColor" fillOpacity="0.08"/>
+      <line x1="10" y1="30" x2="26" y2="30"/>
+    </svg>
+  ),
+  build: (
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="18" cy="8" r="2.5"/>
+      <line x1="18" y1="10.5" x2="18" y2="28"/>
+      <line x1="13" y1="14" x2="23" y2="14"/>
+      <path d="M8 22 C8 26 12 29 18 29 C24 29 28 26 28 22"/>
+    </svg>
+  ),
+};
 
 export default function WhatWeDo() {
-  const [active, setActive] = useState<Pillar | null>('brand');
-  const [lastActive, setLastActive] = useState<Pillar>('brand');
+  const [active, setActive] = useState<Pillar>('brand');
+  const pillarRefs = useRef<Map<Pillar, HTMLDivElement | null>>(new Map());
 
-  const toggle = (p: Pillar) => {
-    if (active === p) {
-      setActive(null);
-    } else {
-      setActive(p);
-      setLastActive(p);
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('data-pillar') as Pillar;
+            if (id) setActive(id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    );
+    pillarRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 24px' }}>
-      <h2 className="display" style={{ fontFamily: serif, fontWeight: 400, fontSize: 'clamp(36px, 4.2vw, 52px)', lineHeight: 1.05, letterSpacing: '-0.025em', color: '#111113', marginBottom: 56, maxWidth: 800 }}>
-        Where <em style={{ fontStyle: 'italic', fontWeight: 500 }}>art</em> meets <em style={{ fontStyle: 'italic', fontWeight: 500 }}>science.</em>
-      </h2>
+    <section className={styles.section}>
+      <div className={styles.split}>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 48, alignItems: 'start' }} className="md-grid">
+        {/* LEFT: sticky headline + visual */}
+        <div className={styles.visualCol}>
+          <h2 className={`${styles.headline} display`}>
+            Where <em>art</em> meets <em>science.</em>
+          </h2>
 
-        {/* Accordion */}
-        <div style={{ borderTop: '1px solid #E2E2DD', order: 2 }} className="md-order-1">
-          {pillars.map((p) => {
-            const isOpen = active === p.id;
-            return (
-              <div key={p.id} style={{ borderBottom: '1px solid #E2E2DD' }}>
-                <button
-                  onClick={() => toggle(p.id)}
-                  style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', textAlign: 'left', padding: isOpen ? '22px 0 12px' : '22px 0', background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: sans, transition: 'padding 300ms' }}
-                >
-                  <span style={{ fontWeight: 600, fontSize: 19, color: '#111113', letterSpacing: '-0.012em' }}>{p.name}</span>
-                  <span style={{ width: 18, height: 18, position: 'relative', flexShrink: 0 }}>
-                    <span style={{ position: 'absolute', top: '50%', left: '50%', width: 13, height: 1.5, background: '#111113', transform: 'translate(-50%, -50%)' }} />
-                    <span style={{ position: 'absolute', top: '50%', left: '50%', width: 1.5, height: 13, background: '#111113', transform: `translate(-50%, -50%) scaleY(${isOpen ? 0 : 1})`, transition: 'transform 300ms' }} />
+          <div className={styles.visualWrap}>
+
+            {/* BRAND — Fuego */}
+            <div className={`${styles.vp} ${styles.vpFuego} ${active === 'brand' ? styles.active : ''}`}>
+              <div className={styles.fuegoStage}>
+                <div className={styles.fuegoLeft}>
+                  <div className={styles.fuegoTag}>Fuego &middot; Fintech identity</div>
+                  <div className={styles.fuegoMark}>Fuego</div>
+                  <div className={styles.fuegoSwatches}>
+                    <div className={styles.fuegoSw} style={{ background: '#DC2626' }} />
+                    <div className={styles.fuegoSw} style={{ background: '#0F0F11' }} />
+                    <div className={styles.fuegoSw} style={{ background: '#F5EFE4' }} />
+                    <div className={styles.fuegoSw} style={{ background: '#1a1a1d' }} />
+                  </div>
+                </div>
+                <div className={styles.fuegoCard}>
+                  <div className={styles.fuegoChip} />
+                  <div className={styles.fuegoCardBottom}>
+                    <div className={styles.fuegoCardName}>Fuego</div>
+                    <div className={styles.fuegoCardNum}>&bull;&bull;&bull;&bull; 4729</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* STORY — Stevie's */}
+            <div className={`${styles.vp} ${styles.vpStevie} ${active === 'story' ? styles.active : ''}`}>
+              <div className={styles.stevieStage}>
+                <div className={styles.stevieCluster}>
+                  <div className={styles.stevieCard}>
+                    <div className={styles.steviePrice}>$12</div>
+                    <div className={styles.stevieNum}>Poem No. 047</div>
+                    <div className={styles.steviePoem}>
+                      &ldquo;She wasn&rsquo;t lost.<br />She was<br /><em>between maps.</em>&rdquo;
+                    </div>
+                    <div className={styles.stevieAuthor}>&mdash; Stevie T.</div>
+                  </div>
+                </div>
+                <div className={styles.stevieSide}>
+                  <div className={styles.stevieSideLabel}>The case</div>
+                  <div className={styles.stevieSideTitle}>A poem that pays the rent.</div>
+                  <div className={styles.stevieTag}>Stevie&rsquo;s Poem Store</div>
+                </div>
+              </div>
+            </div>
+
+            {/* GROWTH — LG */}
+            <div className={`${styles.vp} ${styles.vpLg} ${active === 'growth' ? styles.active : ''}`}>
+              <div className={styles.lgStage}>
+                <div className={styles.lgMetric}><div className={styles.lgmLabel}>Monthly inbound</div><div className={styles.lgmValue}>3.4&times;</div><div className={styles.lgmTrend}>vs baseline</div></div>
+                <div className={styles.lgMetric}><div className={styles.lgmLabel}>Local rank</div><div className={styles.lgmValue}>#1</div><div className={styles.lgmTrend}>3 keywords</div></div>
+                <div className={styles.lgMetric}><div className={styles.lgmLabel}>Quote-to-close</div><div className={styles.lgmValue}>42%</div><div className={styles.lgmTrend}>+ 18 pts</div></div>
+                <div className={styles.lgMetric}><div className={styles.lgmLabel}>Avg ticket</div><div className={styles.lgmValue}>$8.4k</div><div className={styles.lgmTrend}>+ 22%</div></div>
+                <div className={styles.lgPin}>
+                  <span className={styles.lgpTag}>LG Flooring</span>
+                  <span>Tri-county metro</span>
+                  <span className={styles.lgpDot} />
+                </div>
+              </div>
+            </div>
+
+            {/* BUILD — Mammoth */}
+            <div className={`${styles.vp} ${styles.vpMammoth} ${active === 'build' ? styles.active : ''}`}>
+              <div className={styles.mammothStage}>
+                <div className={styles.mammothWindow}>
+                  <div className={styles.mwBar}>
+                    <span className={styles.mwDot} /><span className={styles.mwDot} /><span className={styles.mwDot} />
+                    <span className={styles.mwTitle}>Nautilus &middot; Mammoth</span>
+                  </div>
+                  <div className={styles.mwBody}>
+                    <div className={styles.mwInvoiceNum}>INV-MAM-024</div>
+                    <div className={styles.mwAmount}>$18,450</div>
+                    <div className={styles.mwRow}><span>Foundation pour</span><span className={styles.mwRowAmt}>$12,200</span></div>
+                    <div className={styles.mwRow}><span>Materials</span><span className={styles.mwRowAmt}>$4,180</span></div>
+                    <div className={styles.mwRow}><span>Labor (3 days)</span><span className={styles.mwRowAmt}>$2,070</span></div>
+                    <div className={styles.mwRow}><span>Total</span><span className={styles.mwRowAmt}>$18,450</span></div>
+                  </div>
+                </div>
+                <div className={styles.mwSide}>
+                  <div className={styles.mwStatus}>Paid &middot; in 4 days</div>
+                  <div className={styles.mwNote}>Auto-tracked<br />in Nautilus</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT: scrolling pillar list */}
+        <div className={styles.pillars}>
+          {PILLARS.map((p) => (
+            <div
+              key={p.id}
+              ref={(el) => { pillarRefs.current.set(p.id, el); }}
+              data-pillar={p.id}
+              className={`${styles.pillar} ${active === p.id ? styles.active : ''}`}
+            >
+              <div className={styles.pillarHead}>
+                <span className={styles.pillarIcon}>{ICONS[p.id]}</span>
+                <h3 className={`${styles.pillarName} display`}>{p.name}</h3>
+              </div>
+              <p className={styles.pillarText}>{p.body}</p>
+              <div className={styles.pillarCaps}>
+                {p.caps.map((cap, i) => (
+                  <span key={cap}>
+                    {cap}{i < p.caps.length - 1 && <em className={styles.pillarCapsSep}> &middot; </em>}
                   </span>
-                </button>
-                <div style={{ overflow: 'hidden', maxHeight: isOpen ? 360 : 0, opacity: isOpen ? 1 : 0, paddingBottom: isOpen ? 28 : 0, transition: 'all 400ms' }}>
-                  <p style={{ fontFamily: sans, fontWeight: 300, fontSize: 15, lineHeight: 1.6, color: '#1A1A1A', marginBottom: 20, maxWidth: 480 }}>{p.body}</p>
-                  <div style={{ fontFamily: sans, fontWeight: 400, fontSize: 13, lineHeight: 1.8, color: '#6B6B6B', maxWidth: 480 }}>
-                    {p.caps.map((cap, i) => (
-                      <span key={cap} style={{ display: 'inline-flex', alignItems: 'center' }}>
-                        {cap}
-                        {i < p.caps.length - 1 && <span style={{ margin: '0 14px', color: '#E2E2DD', fontWeight: 500 }}>·</span>}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* Visual frame */}
-        <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', minHeight: 480, isolation: 'isolate', order: 1 }} className="md-order-2">
-
-          {/* FUEGO / Brand */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40, background: '#0F0F11', opacity: lastActive === 'brand' ? 1 : 0, zIndex: lastActive === 'brand' ? 10 : 0, pointerEvents: lastActive === 'brand' ? 'auto' : 'none', transition: 'opacity 500ms' }}>
-            <div style={{ position: 'absolute', top: '38%', left: '50%', width: 380, height: 380, transform: 'translate(-50%, -50%)', pointerEvents: 'none', background: 'radial-gradient(circle, rgba(220,38,38,0.32) 0%, transparent 60%)' }} />
-            <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, maxWidth: 340 }}>
-              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Fuego · Fintech identity</div>
-              <div style={{ fontFamily: serif, fontStyle: 'italic', fontWeight: 500, fontSize: 'clamp(60px, 6.5vw, 84px)', lineHeight: 1, letterSpacing: '-0.035em', color: 'white' }}>Fuego</div>
-              <div style={{ width: 250, height: 158, background: '#1a1a1d', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '18px 20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 24px 60px rgba(220,38,38,0.15)' }}>
-                <div style={{ width: 32, height: 24, border: '1px solid rgba(255,255,255,0.3)', borderRadius: 4 }} />
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                  <div style={{ fontFamily: serif, fontStyle: 'italic', fontWeight: 500, fontSize: 17, color: 'white', letterSpacing: '-0.02em' }}>Fuego</div>
-                  <div style={{ fontFamily: mono, fontSize: 10, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.12em' }}>•••• 4729</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* STEVIE / Story */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40, background: '#F5EFE4', opacity: lastActive === 'story' ? 1 : 0, zIndex: lastActive === 'story' ? 10 : 0, pointerEvents: lastActive === 'story' ? 'auto' : 'none', transition: 'opacity 500ms' }}>
-            <div style={{ position: 'relative', width: '100%', maxWidth: 340, height: 340 }}>
-              <div style={{ position: 'absolute', top: 30, left: '50%', transform: 'translateX(-50%) rotate(-2deg)', width: 270, background: 'white', border: '1px solid rgba(0,0,0,0.06)', borderRadius: 10, padding: '30px 28px 26px', boxShadow: '0 24px 50px rgba(0,0,0,0.07)', zIndex: 20 }}>
-                <div style={{ position: 'absolute', top: -14, right: -14, background: '#111113', color: 'white', borderRadius: '50%', width: 46, height: 46, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: mono, fontSize: 11, letterSpacing: '0.06em', zIndex: 30, transform: 'rotate(8deg)' }}>$12</div>
-                <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#6B6B6B', marginBottom: 18 }}>Poem No. 047</div>
-                <div style={{ fontFamily: serif, fontStyle: 'italic', fontWeight: 400, fontSize: 19, lineHeight: 1.35, color: '#111113', marginBottom: 20 }}>
-                  &ldquo;She wasn&apos;t lost.<br />She was<br /><em>between maps.</em>&rdquo;
-                </div>
-                <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#6B6B6B' }}>— Stevie T.</div>
-              </div>
-              <div style={{ position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)', background: 'white', border: '1px solid rgba(0,0,0,0.06)', padding: '8px 14px', borderRadius: 999, fontFamily: mono, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#1A1A1A', zIndex: 40 }}>Stevie&apos;s Poem Store</div>
-            </div>
-          </div>
-
-          {/* LG / Growth */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40, background: '#E6F4EF', opacity: lastActive === 'growth' ? 1 : 0, zIndex: lastActive === 'growth' ? 10 : 0, pointerEvents: lastActive === 'growth' ? 'auto' : 'none', transition: 'opacity 500ms' }}>
-            <div style={{ width: '100%', maxWidth: 330, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {[
-                { label: 'Monthly inbound', value: '3.4×', trend: 'vs baseline' },
-                { label: 'Local rank', value: '#1', trend: '3 keywords' },
-                { label: 'Quote-to-close', value: '42%', trend: '+ 18 pts' },
-              ].map((m) => (
-                <div key={m.label} style={{ background: 'white', border: '1px solid rgba(0,0,0,0.05)', borderRadius: 10, padding: '14px 18px', boxShadow: '0 2px 12px rgba(0,0,0,0.03)', display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center', gap: 14 }}>
-                  <div>
-                    <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#6B6B6B', marginBottom: 4 }}>{m.label}</div>
-                    <div style={{ fontFamily: serif, fontStyle: 'italic', fontWeight: 500, fontSize: 25, lineHeight: 1, color: '#111113', letterSpacing: '-0.02em' }}>{m.value}</div>
-                  </div>
-                  <div style={{ fontFamily: mono, fontSize: 9, color: '#00A879', letterSpacing: '0.05em', textAlign: 'right' }}>↑ {m.trend}</div>
-                </div>
-              ))}
-              <div style={{ background: '#111113', color: 'white', borderRadius: 10, padding: '12px 18px', display: 'flex', alignItems: 'center', gap: 10, fontFamily: sans, fontSize: 12, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
-                <span style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>LG Flooring</span>
-                <span>Tri-county metro</span>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#14F0B5', marginLeft: 'auto', boxShadow: '0 0 8px #14F0B5' }} />
-              </div>
-            </div>
-          </div>
-
-          {/* MAMMOTH / Build */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40, background: '#F2F1EC', opacity: lastActive === 'build' ? 1 : 0, zIndex: lastActive === 'build' ? 10 : 0, pointerEvents: lastActive === 'build' ? 'auto' : 'none', transition: 'opacity 500ms' }}>
-            <div style={{ width: '100%', maxWidth: 350, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div style={{ background: 'white', border: '1px solid rgba(0,0,0,0.06)', borderRadius: 10, overflow: 'hidden', boxShadow: '0 24px 50px rgba(0,0,0,0.05)' }}>
-                <div style={{ padding: '11px 16px', borderBottom: '1px solid #EAE9E3', display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#E2E2DD' }} />
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#E2E2DD' }} />
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#E2E2DD' }} />
-                  <span style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#6B6B6B', marginLeft: 'auto' }}>Nautilus · Mammoth</span>
-                </div>
-                <div style={{ padding: '22px 22px 18px' }}>
-                  <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: '0.14em', color: '#6B6B6B', marginBottom: 6 }}>INV-MAM-024</div>
-                  <div style={{ fontFamily: serif, fontStyle: 'italic', fontWeight: 500, fontSize: 38, color: '#111113', lineHeight: 1, marginBottom: 18, letterSpacing: '-0.025em' }}>$18,450</div>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {[
-                      ['Foundation pour', '$12,200'],
-                      ['Materials', '$4,180'],
-                      ['Labor (3 days)', '$2,070'],
-                      ['Total', '$18,450'],
-                    ].map(([label, amt], i, arr) => (
-                      <div key={label} style={{ display: 'flex', justifyContent: 'space-between', fontFamily: sans, fontSize: 12, color: '#1A1A1A', padding: '9px 0', borderBottom: i < arr.length - 1 ? '1px solid #EAE9E3' : 'none', fontWeight: i === arr.length - 1 ? 500 : 400, paddingTop: i === arr.length - 1 ? 11 : 9 }}>
-                        <span>{label}</span>
-                        <span style={{ fontFamily: mono, fontSize: 11 }}>{amt}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div style={{ background: '#111113', color: 'white', borderRadius: 10, padding: '12px 20px', fontFamily: mono, fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#14F0B5', boxShadow: '0 0 8px #14F0B5' }} />
-                Paid · in 4 days
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
-
-      <style>{`
-        @media (min-width: 768px) {
-          .md-grid { grid-template-columns: 1fr 1fr !important; }
-          .md-order-1 { order: 1 !important; }
-          .md-order-2 { order: 2 !important; }
-        }
-      `}</style>
     </section>
   );
 }
