@@ -62,7 +62,7 @@
   max-width: 1100px;
   margin: 0;
 }
-.heroHeadline em { font-style: italic; font-weight: 500; }
+.heroHeadline em { font-style: italic; }
 
 .heroSub {
   font-family: var(--font-geist), system-ui, sans-serif;
@@ -169,7 +169,7 @@
   color: #F5F5F5;
   margin: 0;
 }
-.wwHeadline em { font-style: italic; font-weight: 500; }
+.wwHeadline em { font-style: italic; }
 
 .wwLede {
   font-family: var(--font-geist), system-ui, sans-serif;

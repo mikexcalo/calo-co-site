@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 22px 40px;
-  background: #F5F5F5;
+  background: transparent;
   pointer-events: none;
 }
 
@@ -15,39 +15,29 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.05em;
-  color: var(--charcoal);
+  --nav-mode: clamp(0, calc((var(--p, 0) - 0.45) * 5), 1);
+  color: color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
   pointer-events: auto;
-  transition: color 0.5s ease;
 }
 
 .navCta {
   font-family: var(--font-geist), sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--ivory);
-  background: var(--charcoal);
+  --nav-mode: clamp(0, calc((var(--p, 0) - 0.45) * 5), 1);
+  background: color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
+  color: color-mix(in srgb, #F5F5F5, #1A1A1A calc(var(--nav-mode) * 100%));
   padding: 11px 20px;
-  border: 1px solid var(--charcoal);
+  border: 1px solid color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   pointer-events: auto;
-  transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease, transform 0.15s;
+  transition: transform 0.15s;
 }
 
 .navCta:hover {
   transform: translateY(-1px);
-}
-
-/* Dark nav state — toggled via body.dark-nav */
-:global(body.dark-nav) .wordmark {
-  color: var(--ivory);
-}
-
-:global(body.dark-nav) .navCta {
-  background: var(--ivory);
-  color: var(--charcoal);
-  border-color: var(--ivory);
 }

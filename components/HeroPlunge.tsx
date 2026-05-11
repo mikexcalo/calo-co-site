@@ -20,6 +20,7 @@ export default function HeroPlunge() {
       const scrolled = -rect.top;
       const p = Math.max(0, Math.min(1, scrolled / total));
       block.style.setProperty('--p', p.toFixed(4));
+      document.documentElement.style.setProperty('--p', p.toFixed(4));
     };
 
     const onScroll = () => {
