@@ -6,6 +6,7 @@
   background: var(--ivory);
   color: var(--charcoal);
   padding: 180px 24px 160px;
+  position: relative;
 }
 
 .inner {
@@ -16,6 +17,8 @@
   gap: 24px;
   text-align: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -215,4 +218,15 @@
   color: rgba(26, 26, 26, 0.45);
   margin-top: 20px;
   text-align: center;
+}
+
+.topFade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, #1A1A1A 0%, rgba(26,26,26,0) 100%);
+  pointer-events: none;
+  z-index: 0;
 }

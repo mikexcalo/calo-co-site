@@ -36,6 +36,7 @@ export default function ContactCTA() {
     <>
       {/* CTA section — dark */}
       <section className={styles.ctaSection}>
+        <div className={styles.topFade} aria-hidden="true" />
         <div className={styles.inner}>
           <span className={`${styles.eyebrow} eyebrow glide`}>
             Ready when you are
