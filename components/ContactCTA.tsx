@@ -37,11 +37,8 @@ export default function ContactCTA() {
       {/* CTA section — dark */}
       <section className={styles.ctaSection}>
         <div className={styles.inner}>
-          <span className={`${styles.eyebrow} eyebrow glide`}>
-            Ready when you are
-          </span>
           <h2 className={`${styles.headline} display glide glide-headline`}>
-            Worth <em>remembering</em>.
+            Let&apos;s build the business of <em>your dreams</em>.
           </h2>
           <div className={`${styles.ctaWrap} glide`}>
             <button
@@ -49,7 +46,7 @@ export default function ContactCTA() {
               className={styles.cta}
               data-modal-trigger
             >
-              Climb Aboard <span className={styles.arrow}>→</span>
+              Get started <span className={styles.arrow}>→</span>
             </button>
           </div>
           <p className={`${styles.timeNote} glide`}>14 seconds. We timed it.</p>
