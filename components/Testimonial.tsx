@@ -8,11 +8,10 @@ const QUOTE = "Mike is a master of his craft and comes highly recommended.";
 export default function Testimonial() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const starsRef = useRef<HTMLDivElement | null>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const signatureRef = useRef<HTMLDivElement | null>(null);
 
-  const words = QUOTE.split(' ');
+  const words = ['\u201C', ...QUOTE.split(' '), '\u201D'];
 
   useEffect(() => {
     let raf = 0;
@@ -29,7 +28,6 @@ export default function Testimonial() {
       const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
 
       const slideProgress = Math.min(1, progress / 0.18);
-      const starsProgress = Math.min(1, progress / 0.15);
       const wordsProgress = Math.max(0, Math.min(1, (progress - 0.18) / 0.60));
       const sigProgress = Math.max(0, Math.min(1, (progress - 0.78) / 0.20));
 
@@ -38,12 +36,6 @@ export default function Testimonial() {
         const opacity = slideProgress;
         contentRef.current.style.transform = `translateY(${slideY}px)`;
         contentRef.current.style.opacity = String(0.3 + opacity * 0.7);
-      }
-
-      if (starsRef.current) {
-        const scale = 0.85 + starsProgress * 0.15;
-        starsRef.current.style.opacity = String(starsProgress);
-        starsRef.current.style.transform = `scale(${scale})`;
       }
 
       const total = wordRefs.current.length;
@@ -78,18 +70,23 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={`${styles.section} section-dark`}>
+    <section ref={sectionRef} className={styles.section}>
       <div className={styles.sticky}>
         <div ref={contentRef} className={styles.content} style={{ opacity: 0, transform: 'translateY(60px)' }}>
-          <div ref={starsRef} className={styles.stars} style={{ opacity: 0, transform: 'scale(0.85)' }}>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z" />
-              </svg>
+          <div className={`${styles.stars} emerge`}>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <span
+                key={i}
+                className={styles.starWrap}
+                style={{ "--i": i } as React.CSSProperties}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.4c.32 0 .61.19.74.49l2.27 5.36 5.82.52a.8.8 0 0 1 .46 1.4l-4.42 3.85 1.34 5.71a.8.8 0 0 1-1.19.87L12 17.7l-4.99 2.9a.8.8 0 0 1-1.19-.87l1.34-5.71L2.74 10.17a.8.8 0 0 1 .46-1.4l5.82-.52L11.26 2.9c.13-.3.42-.49.74-.49z"/>
+                </svg>
+              </span>
             ))}
           </div>
-          <blockquote className={styles.quote}>
-            <span className={styles.mark}>&ldquo;</span>
+          <blockquote className={`${styles.quote} emerge`}>
             {words.map((word, i) => (
               <span
                 key={i}
@@ -100,7 +97,6 @@ export default function Testimonial() {
                 {word}{i < words.length - 1 ? ' ' : ''}
               </span>
             ))}
-            <span className={styles.mark}>&rdquo;</span>
           </blockquote>
           <div
             ref={signatureRef}
