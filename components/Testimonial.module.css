@@ -13,7 +13,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  background: #F5F5F5;
+  background: #1A1A1A;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +41,7 @@
 
 .starWrap {
   display: inline-block;
-  color: #1A1A1A;
+  color: #F5F5F5;
   opacity: 0;
   transform: translateY(0.4em) scale(0.7);
   transition:
@@ -76,7 +76,7 @@
   font-size: clamp(28px, 4vw, 54px);
   line-height: 1.22;
   letter-spacing: -0.02em;
-  color: #1A1A1A;
+  color: #F5F5F5;
   text-align: center;
   max-width: 920px;
   margin: 0;
@@ -90,7 +90,7 @@
 
 .word {
   display: inline;
-  color: #1A1A1A;
+  color: #F5F5F5;
   transition: opacity 80ms linear;
 }
 
@@ -102,12 +102,12 @@
 }
 
 .signatureName {
-  font-family: 'Allura', cursive;
+  font-family: 'Sacramento', cursive;
   font-weight: 400;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: 0;
-  color: #1A1A1A;
+  color: #F5F5F5;
   margin-bottom: 20px;
 }
 
@@ -116,7 +116,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.62);
+  color: rgba(245, 245, 245, 0.55);
   margin: 0;
 }
 

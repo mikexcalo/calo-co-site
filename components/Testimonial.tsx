@@ -70,7 +70,7 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section ref={sectionRef} className={`${styles.section} section-dark`}>
       <div className={styles.sticky}>
         <div ref={contentRef} className={styles.content} style={{ opacity: 0, transform: 'translateY(60px)' }}>
           <div className={`${styles.stars} emerge`}>

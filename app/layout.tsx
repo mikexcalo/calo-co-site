@@ -41,7 +41,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light" />
         <meta name="supported-color-schemes" content="light" />
-        <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
