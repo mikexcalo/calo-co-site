@@ -3,7 +3,8 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import styles from "./WhoWeServe.module.css";
 
 type Tile = {
-  label: string;
+  label: React.ReactNode;
+  plainLabel: string;
   image: string | null;
   imagePosition?: string;
   description: string;
@@ -12,40 +13,46 @@ type Tile = {
 
 const TILES: Tile[] = [
   {
-    label: "Creators & Designers",
+    label: <>Creators <span className="amp">&</span> Designers</>,
+    plainLabel: "Creators & Designers",
     image: "/images/audiences/creators-designers.jpg",
     imagePosition: "50% 55%",
     description: "Solo founders, artists, and personal brands turning audience into business worth remembering.",
     pills: ["Artist", "Designer", "Writer", "Maker", "Freelance"],
   },
   {
-    label: "Trades & Local Services",
+    label: <>Trades <span className="amp">&</span> Local Services</>,
+    plainLabel: "Trades & Local Services",
     image: "/images/audiences/trades-local-services.jpg",
     imagePosition: "50% 50%",
     description: "Skilled-trade operators — construction, flooring, contracting — modernizing how they win and run jobs.",
     pills: ["Construction", "Flooring", "Landscaping", "Plumbing", "Electrical"],
   },
   {
-    label: "Studios & Media",
+    label: <>Studios <span className="amp">&</span> Media</>,
+    plainLabel: "Studios & Media",
     image: "/images/audiences/studios-media.png",
     imagePosition: "50% 50%",
     description: "Photographers, videographers, podcasters, and content studios turning craft into scalable business.",
     pills: ["Photography", "Video", "Podcast", "Content", "Production"],
   },
   {
-    label: "Retail & Accessories",
+    label: <>Retail <span className="amp">&</span> Accessories</>,
+    plainLabel: "Retail & Accessories",
     image: null,
     description: "Independent product brands navigating brick-and-mortar, e-commerce, and the increasingly blurred line between.",
     pills: ["Apparel", "Jewelry", "Home", "Accessories", "Boutique"],
   },
   {
-    label: "CPG & Consumables",
+    label: <>CPG <span className="amp">&</span> Consumables</>,
+    plainLabel: "CPG & Consumables",
     image: null,
     description: "Food, beverage, beauty, and wellness brands building distribution, awareness, and loyalty in a crowded shelf.",
     pills: ["Food", "Beverage", "Beauty", "Wellness", "Supplements"],
   },
   {
-    label: "Apps & Digital Products",
+    label: <>Apps <span className="amp">&</span> Digital Products</>,
+    plainLabel: "Apps & Digital Products",
     image: null,
     description: "SaaS, mobile, newsletters, and digital products solving real problems. Positioning, growth, and the GTM motion that compounds.",
     pills: ["SaaS", "Mobile", "Newsletter", "Web Tool", "Marketplace"],
@@ -156,7 +163,7 @@ export default function WhoWeServe() {
           {[...TILES, ...TILES].map((tile, i) => (
             <article key={i} className={styles.tile}>
               {tile.image ? (
-                <div className={styles.photo} style={{ backgroundImage: `url(${tile.image})`, backgroundPosition: tile.imagePosition || 'center' }} role="img" aria-label={tile.label} />
+                <div className={styles.photo} style={{ backgroundImage: `url(${tile.image})`, backgroundPosition: tile.imagePosition || 'center' }} role="img" aria-label={tile.plainLabel} />
               ) : (
                 <div className={styles.placeholderBg} />
               )}

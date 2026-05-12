@@ -2,7 +2,7 @@ import styles from "./FounderMemo.module.css";
 
 type Principle = {
   headline: string;
-  body: string;
+  body: React.ReactNode;
 };
 
 const PRINCIPLES: Principle[] = [
@@ -16,7 +16,7 @@ const PRINCIPLES: Principle[] = [
   },
   {
     headline: "The system stays after we leave.",
-    body: "Every CALO&CO engagement is built on Helm, our proprietary operating system. When we step out — or scale back — you keep everything: the brand, the site, the data, the rails. The system compounds long after we're done.",
+    body: <>Every CALO<span className="amp">&</span>CO engagement is built on Helm, our proprietary operating system. When we step out — or scale back — you keep everything: the brand, the site, the data, the rails. The system compounds long after we&apos;re done.</>,
   },
 ];
 
@@ -44,7 +44,7 @@ export default function FounderMemo() {
             <p className={styles.signatureLabel}>
               Mike Calo
               <br />
-              <span className={styles.signatureRole}>Founder, CALO&amp;CO</span>
+              <span className={styles.signatureRole}>Founder, CALO<span className="amp">&amp;</span>CO</span>
             </p>
           </div>
         </div>

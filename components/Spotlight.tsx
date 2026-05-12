@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Spotlight.module.css";
 
 type Slide = {
-  quote: string;
+  quote: React.ReactNode;
   name: string;
   role: string;
   company: string;
@@ -13,7 +13,7 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     quote:
-      "CALO&CO didn't just rebrand my business — they handed me an operating system. Six months in and I'm still finding leverage in what they built.",
+      <>CALO<span className="amp">&</span>CO didn&apos;t just rebrand my business — they handed me an operating system. Six months in and I&apos;m still finding leverage in what they built.</>,
     name: "Stevie Treviño",
     role: "Founder",
     company: "Stevie's Poem Store",
@@ -31,7 +31,7 @@ const SLIDES: Slide[] = [
   },
   {
     quote:
-      "The difference is they actually finish things. Most agencies hand you a deck. CALO&CO hands you a business that runs.",
+      <>The difference is they actually finish things. Most agencies hand you a deck. CALO<span className="amp">&</span>CO hands you a business that runs.</>,
     name: "Christina Lau",
     role: "Co-Founder",
     company: "Mammoth Construction",

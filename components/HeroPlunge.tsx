@@ -52,7 +52,7 @@ export default function HeroPlunge() {
             We chart the course,<br />you make <em>waves</em>.
           </h1>
           <p className={styles.heroSub}>
-            CALO&amp;CO is a marketing and growth partner<br />
+            CALO<span className="amp">&amp;</span>CO is a marketing and growth partner<br />
             for independent brands and businesses ready to level up.
           </p>
           <div className={styles.heroCtas}>
@@ -98,7 +98,7 @@ export default function HeroPlunge() {
               <span className={styles.wwCellTag}>01 &middot; Brand + Design</span>
               <h3 className={styles.wwCellName}>Stand out in a sea of <em>sameness</em>.</h3>
               <p className={styles.wwCellBody}>People decide how they feel about your business before they ever talk to you. We build the look, the voice, and the story that makes them want to.</p>
-              <span className={styles.wwCellCaps}>Logo design &middot; Visual identity &middot; Brand systems &middot; Voice &amp; tone &middot; Positioning &middot; Naming &middot; Storytelling</span>
+              <span className={styles.wwCellCaps}>Logo design &middot; Visual identity &middot; Brand systems &middot; Voice <span className="amp">&amp;</span> tone &middot; Positioning &middot; Naming &middot; Storytelling</span>
             </div>
             <div className={styles.wwCell}>
               <span className={styles.wwCellTag}>02 &middot; Marketing + Campaigns</span>
@@ -110,7 +110,7 @@ export default function HeroPlunge() {
               <span className={styles.wwCellTag}>03 &middot; Growth + Systems</span>
               <h3 className={styles.wwCellName}>Build a sustainable <em>growth engine</em>.</h3>
               <p className={styles.wwCellBody}>The website that brings in jobs, the way you send quotes, collect payment, and follow up without dropping the ball. We build it, wire it together, and teach you how to run it.</p>
-              <span className={styles.wwCellCaps}>Websites &middot; Quoting &amp; invoicing &middot; Lead generation &middot; Local SEO &middot; Automations &middot; AI workflows &middot; Internal dashboards</span>
+              <span className={styles.wwCellCaps}>Websites &middot; Quoting <span className="amp">&amp;</span> invoicing &middot; Lead generation &middot; Local SEO &middot; Automations &middot; AI workflows &middot; Internal dashboards</span>
             </div>
           </div>
         </div>

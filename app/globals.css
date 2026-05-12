@@ -137,3 +137,10 @@ body {
     transition: none !important;
   }
 }
+
+.amp {
+  font-family: var(--font-lora), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+}

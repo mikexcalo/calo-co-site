@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={`${styles.footer} section-dark`}>
       <div className={styles.inner}>
         <div className={`${styles.col} ${styles.colBrand}`}>
-          <div className={styles.word}>CALO&amp;CO</div>
+          <div className={styles.word}>CALO<span className="amp">&amp;</span>CO</div>
           <p className={styles.tagline}>
             Your success is <em>our success</em>.
           </p>
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <div className={styles.copyright}>© 2026 CALO&amp;CO</div>
+        <div className={styles.copyright}>© 2026 CALO<span className="amp">&amp;</span>CO</div>
         <div className={styles.coords}>EST. PORTLAND, MAINE · 43°N 70°W</div>
       </div>
     </footer>

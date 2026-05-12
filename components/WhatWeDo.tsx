@@ -5,7 +5,7 @@ import styles from './WhatWeDo.module.css';
 
 type Pillar = 'brand' | 'story' | 'growth' | 'build';
 
-const PILLARS: { id: Pillar; name: string; body: string; caps: string[] }[] = [
+const PILLARS: { id: Pillar; name: string; body: string; caps: React.ReactNode[] }[] = [
   {
     id: 'brand',
     name: 'Brand',
@@ -28,7 +28,7 @@ const PILLARS: { id: Pillar; name: string; body: string; caps: string[] }[] = [
     id: 'build',
     name: 'Build',
     body: "Everything happening behind the scenes that makes the business run. The website that brings in jobs, the way you send quotes, collect payment, and keep track of customers without dropping the ball. We build it, wire it together, and teach you how to run it.",
-    caps: ['Websites', 'Quoting tools', 'Invoicing & payments', 'Customer tracking', 'AI workflows'],
+    caps: ['Websites', 'Quoting tools', <>Invoicing <span className="amp">&</span> payments</>, 'Customer tracking', 'AI workflows'],
   },
 ];
 
@@ -202,7 +202,7 @@ export default function WhatWeDo() {
               <p className={styles.pillarText}>{p.body}</p>
               <div className={styles.pillarCaps}>
                 {p.caps.map((cap, i) => (
-                  <span key={cap}>
+                  <span key={i}>
                     {cap}{i < p.caps.length - 1 && <em className={styles.pillarCapsSep}> &middot; </em>}
                   </span>
                 ))}
