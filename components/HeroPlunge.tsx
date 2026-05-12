@@ -90,26 +90,27 @@ export default function HeroPlunge() {
           <h2 className={`${styles.wwHeadline} display`}>
             Where art meets <em>science</em>.
           </h2>
+          <p className={styles.wwSubhead}>
+            Where creative thinking meets <em>strategic execution</em>.
+          </p>
           <div className={styles.wwGrid}>
             <div className={styles.wwCell}>
-              <span className={styles.wwCellNum}>01</span>
-              <span className={styles.wwCellName}>Brand</span>
-              <span className={styles.wwCellBody}>Identity, voice, foundation.</span>
+              <span className={styles.wwCellTag}>01 &middot; Brand + Design</span>
+              <h3 className={styles.wwCellName}>Stand out in a sea of <em>sameness</em>.</h3>
+              <p className={styles.wwCellBody}>People decide how they feel about your business before they ever talk to you. We build the look, the voice, and the story that makes them want to.</p>
+              <span className={styles.wwCellCaps}>Logo design &middot; Visual identity &middot; Brand systems &middot; Voice &amp; tone &middot; Positioning &middot; Naming &middot; Storytelling</span>
             </div>
             <div className={styles.wwCell}>
-              <span className={styles.wwCellNum}>02</span>
-              <span className={styles.wwCellName}>Story</span>
-              <span className={styles.wwCellBody}>Copy, sales, positioning.</span>
+              <span className={styles.wwCellTag}>02 &middot; Marketing + Campaigns</span>
+              <h3 className={styles.wwCellName}>Reach your customers <em>where they are</em>.</h3>
+              <p className={styles.wwCellBody}>Getting in front of the right people is half the work — saying the right thing when you do is the other half. We handle both.</p>
+              <span className={styles.wwCellCaps}>Website copy &middot; Sales decks &middot; Case studies &middot; Email campaigns &middot; Social content &middot; SEO &middot; Paid media &middot; Events</span>
             </div>
             <div className={styles.wwCell}>
-              <span className={styles.wwCellNum}>03</span>
-              <span className={styles.wwCellName}>Growth</span>
-              <span className={styles.wwCellBody}>Pipeline, distribution, retention.</span>
-            </div>
-            <div className={styles.wwCell}>
-              <span className={styles.wwCellNum}>04</span>
-              <span className={styles.wwCellName}>Build</span>
-              <span className={styles.wwCellBody}>Sites, tools, operations.</span>
+              <span className={styles.wwCellTag}>03 &middot; Growth + Systems</span>
+              <h3 className={styles.wwCellName}>Build a sustainable <em>growth engine</em>.</h3>
+              <p className={styles.wwCellBody}>The website that brings in jobs, the way you send quotes, collect payment, and follow up without dropping the ball. We build it, wire it together, and teach you how to run it.</p>
+              <span className={styles.wwCellCaps}>Websites &middot; Quoting &amp; invoicing &middot; Lead generation &middot; Local SEO &middot; Automations &middot; AI workflows &middot; Internal dashboards</span>
             </div>
           </div>
         </div>
