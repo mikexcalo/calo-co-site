@@ -35,7 +35,7 @@ export default function ContactCTA() {
   return (
     <>
       {/* CTA section — dark */}
-      <section className={`${styles.ctaSection} section-dark`}>
+      <section className={styles.ctaSection}>
         <div className={styles.inner}>
           <span className={`${styles.eyebrow} eyebrow glide`}>
             Ready when you are
