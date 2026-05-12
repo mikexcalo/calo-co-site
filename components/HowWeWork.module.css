@@ -5,12 +5,12 @@
 }
 
 .inner {
-  max-width: 1240px;
+  max-width: 880px;
   margin: 0 auto;
   padding: 96px 64px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-  gap: 96px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 64px;
   align-items: start;
 }
 
@@ -27,7 +27,7 @@
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  font-size: clamp(2rem, 3.6vw, 3rem);
   line-height: 1.04;
   letter-spacing: -0.025em;
   color: #1A1A1A;
@@ -121,7 +121,7 @@
 }
 
 .step {
-  min-height: 55vh;
+  min-height: 38vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -166,7 +166,7 @@
 .stepTitle {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: #1A1A1A;
