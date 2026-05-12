@@ -1,6 +1,7 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
+import ArtScience from "@/components/ArtScience";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Journey from "@/components/Journey";
@@ -20,6 +21,7 @@ export default function Home() {
         <Nav />
         <HeroPlunge />
       </div>
+      <ArtScience />
       <WhatWeDo />
       <WhoWeServe />
       <Journey />

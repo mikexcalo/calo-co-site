@@ -1,0 +1,138 @@
+.section {
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 140px 24px 160px;
+  position: relative;
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* Headline block — its own zone, will animate later */
+.headlineBlock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 60px 0 40px;
+}
+
+.headline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+  margin: 0;
+  max-width: 14ch;
+}
+
+.headline em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.subhead {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.6);
+  margin: 0;
+}
+
+.subhead em {
+  font-style: normal;
+  color: var(--ivory);
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cardTag {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.cardName {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin: 0;
+}
+
+.cardName em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.cardBody {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.75);
+  margin: 0;
+  flex: 1;
+}
+
+.cardCaps {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.45);
+  line-height: 1.7;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Mobile + tablet */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .section {
+    padding: 100px 20px 120px;
+  }
+  .inner {
+    gap: 72px;
+  }
+  .headlineBlock {
+    padding: 20px 0;
+  }
+}
