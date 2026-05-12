@@ -1,8 +1,33 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import styles from "./FounderMemo.module.css";
 
 export default function FounderMemo() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25, rootMargin: '0px 0px -10% 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${inView ? styles.inView : ''}`}
+    >
       <div className={styles.split}>
         <div
           className={styles.portrait}
