@@ -52,7 +52,7 @@
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: #F5F5F5;
@@ -70,6 +70,7 @@
     )
   );
   transition: none;
+  white-space: pre;
   will-change: opacity, transform;
 }
 

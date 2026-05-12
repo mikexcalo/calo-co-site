@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import FounderMemo from "./FounderMemo";
 import Testimonial from "./Testimonial";
 import styles from "./RevealRunway.module.css";
 
 export default function RevealRunway() {
   const runwayRef = useRef<HTMLDivElement | null>(null);
-  const [debug, setDebug] = useState("reveal: 0.00");
 
   useEffect(() => {
     const runway = runwayRef.current;
@@ -21,7 +20,6 @@ export default function RevealRunway() {
       const total = rect.height - winH;
       const progress = Math.max(0, Math.min(1, scrolled / total));
       runway.style.setProperty("--reveal", progress.toFixed(4));
-      setDebug(`reveal: ${progress.toFixed(2)}`);
     };
 
     const onScroll = () => {
@@ -44,25 +42,9 @@ export default function RevealRunway() {
   }, []);
 
   return (
-    <>
-      <div ref={runwayRef} className={styles.runway}>
-        <Testimonial />
-        <FounderMemo />
-      </div>
-      <div style={{
-        position: "fixed",
-        top: 16,
-        right: 16,
-        background: "rgba(26,26,26,0.85)",
-        color: "#F5F5F5",
-        padding: "6px 12px",
-        borderRadius: 4,
-        fontFamily: "monospace",
-        fontSize: 11,
-        letterSpacing: "0.1em",
-        zIndex: 9999,
-        pointerEvents: "none",
-      }}>{debug}</div>
-    </>
+    <div ref={runwayRef} className={styles.runway}>
+      <Testimonial />
+      <FounderMemo />
+    </div>
   );
 }

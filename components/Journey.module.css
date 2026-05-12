@@ -26,7 +26,7 @@
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   line-height: 1.05;
   letter-spacing: -0.025em;
   color: #FAFAF7;
