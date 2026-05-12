@@ -5,9 +5,8 @@
 .ctaSection {
   background: var(--ivory);
   color: var(--charcoal);
-  padding: 180px 24px 160px;
+  padding: 100px 24px 160px;
   position: relative;
-  overflow: visible;
 }
 
 .inner {
@@ -221,13 +220,3 @@
   text-align: center;
 }
 
-.topFade {
-  position: absolute;
-  top: -200px;
-  left: 0;
-  right: 0;
-  height: 280px;
-  background: linear-gradient(to bottom, #1A1A1A 0%, #1A1A1A 30%, rgba(26,26,26,0) 100%);
-  pointer-events: none;
-  z-index: 0;
-}

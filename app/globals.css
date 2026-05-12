@@ -144,3 +144,12 @@ body {
   font-weight: 500;
   letter-spacing: 0;
 }
+
+.sectionTransition {
+  height: 200px;
+  background: linear-gradient(to bottom, #1A1A1A 0%, #1A1A1A 20%, #F5F5F5 100%);
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}

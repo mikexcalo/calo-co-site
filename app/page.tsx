@@ -26,6 +26,7 @@ export default function Home() {
       <Spotlight />
       <HowWeWork />
       <RevealRunway />
+      <div className="sectionTransition" aria-hidden="true" />
       <ContactCTA />
       <Footer />
       <ContactModal />
