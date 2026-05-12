@@ -53,13 +53,12 @@ export default function HeroPlunge() {
           </h1>
           <p className={styles.heroSub}>
             CALO<span className="amp">&amp;</span>CO is a marketing and growth partner<br />
-            for independent brands and businesses ready to level up.
+            for brands and businesses ready to level up.
           </p>
           <div className={styles.heroCtas}>
             <button className={styles.btnPrimary} data-modal-trigger="true">
               Climb Aboard <span>&rarr;</span>
             </button>
-            <a className={styles.btnSecondary} href="#stories">See Our Work</a>
           </div>
         </div>
 
