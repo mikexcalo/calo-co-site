@@ -6,8 +6,7 @@ import WhoWeServe from "@/components/WhoWeServe";
 import Journey from "@/components/Journey";
 import Spotlight from "@/components/Spotlight";
 import HowWeWork from "@/components/HowWeWork";
-import FounderMemo from "@/components/FounderMemo";
-import Testimonial from "@/components/Testimonial";
+import RevealRunway from "@/components/RevealRunway";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
@@ -26,8 +25,7 @@ export default function Home() {
       <Journey />
       <Spotlight />
       <HowWeWork />
-      <FounderMemo />
-      <Testimonial />
+      <RevealRunway />
       <ContactCTA />
       <Footer />
       <ContactModal />

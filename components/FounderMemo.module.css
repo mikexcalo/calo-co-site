@@ -2,6 +2,17 @@
   background: #faf6f1;
   color: var(--ink);
   padding: 160px 48px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin-top: -100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform: translateY(calc(var(--reveal, 0) * -100vh / 0.45));
+  transition: none;
+  will-change: transform;
 }
 
 .inner {

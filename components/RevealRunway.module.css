@@ -1,0 +1,5 @@
+.runway {
+  position: relative;
+  height: 250vh;
+  --reveal: 0;
+}

@@ -1,118 +1,100 @@
-/* Outer section pulls UP over the previous section to create slide-up reveal */
 .section {
-  position: relative;
-  height: 280vh;
-  margin-top: -100vh;
-  padding-top: 100vh;
-  background: transparent;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   background: #1A1A1A;
+  color: #F5F5F5;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: auto;
+  padding: 64px;
   overflow: hidden;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 80px;
-  padding: 0 64px;
-  max-width: 1200px;
+.sticky {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  max-width: 980px;
+  width: 100%;
+  text-align: center;
 }
 
 .stars {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 48px;
+  gap: 14px;
+  margin-bottom: 40px;
 }
 
 .starWrap {
   display: inline-block;
   color: #F5F5F5;
-  opacity: 0;
-  transform: translateY(0.4em) scale(0.7);
-  transition:
-    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--i, 0) * 110ms);
+  opacity: clamp(0, calc((var(--reveal, 0) - var(--start, 0.45) - var(--i, 0) * 0.025) * 18), 1);
+  transform: scale(calc(0.7 + 0.3 * clamp(0, (var(--reveal, 0) - var(--start, 0.45) - var(--i, 0) * 0.025) * 18, 1)));
+  transition: none;
   will-change: opacity, transform;
 }
 
-.stars.in-view .starWrap {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
 .starWrap svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   display: block;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .starWrap {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 }
 
 .quote {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(28px, 4vw, 54px);
-  line-height: 1.22;
-  letter-spacing: -0.02em;
+  font-style: normal;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   color: #F5F5F5;
+  margin: 0 auto 40px;
+  max-width: 880px;
   text-align: center;
-  max-width: 920px;
-  margin: 0;
-}
-
-.quote .word:first-of-type,
-.quote .word:last-of-type {
-  font-size: 1.15em;
-  vertical-align: -0.05em;
 }
 
 .word {
-  display: inline;
-  color: #F5F5F5;
-  transition: opacity 80ms linear;
+  display: inline-block;
+  opacity: clamp(0, calc((var(--reveal, 0) - var(--start, 0.5)) * 5), 1);
+  transform: translateY(
+    calc(
+      16px * (1 - clamp(0, (var(--reveal, 0) - var(--start, 0.5)) * 5, 1))
+    )
+  );
+  transition: none;
+  will-change: opacity, transform;
 }
 
 .signature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  opacity: clamp(0, calc((var(--reveal, 0) - 0.92) * 12), 1);
+  transform: translateY(
+    calc(14px * (1 - clamp(0, (var(--reveal, 0) - 0.92) * 12, 1)))
+  );
+  transition: none;
+  will-change: opacity, transform;
+  margin-top: 12px;
 }
 
 .signatureName {
   font-family: 'Sacramento', cursive;
   font-weight: 400;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
   line-height: 1.1;
   letter-spacing: 0;
   color: #F5F5F5;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .signatureRole {
-  font-family: var(--font-ibm-plex-mono), monospace;
+  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), monospace;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -121,10 +103,16 @@
 }
 
 @media (max-width: 880px) {
-  .section { height: 240vh; }
-  .content { padding: 0 24px; gap: 48px; }
-  .stars { gap: 8px; }
-  .quote { font-size: clamp(22px, 6vw, 32px); max-width: 100%; }
-  .signatureName { font-size: 38px; }
-  .signatureRole { font-size: 10px; letter-spacing: 0.18em; }
+  .section {
+    padding: 32px 24px;
+  }
+  .content {
+    max-width: none;
+  }
+  .quote {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+  .signatureName {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
 }
