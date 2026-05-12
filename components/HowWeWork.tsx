@@ -95,9 +95,6 @@ export default function HowWeWork() {
               </li>
             ))}
           </ol>
-          <p className={styles.lede}>
-            Three steps. Plain English. <em>Fixed quote.</em>
-          </p>
         </aside>
 
         <div className={styles.right}>
