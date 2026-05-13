@@ -1,163 +1,118 @@
 .section {
-  background: #F5F5F5;
-  color: #1A1A1A;
-  padding: 96px 0 120px;
+  padding: 96px 48px 120px;
+  background: var(--ivory);
+  position: relative;
 }
 
 .inner {
-  max-width: 720px;
-  width: 50%;
-  min-width: 560px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
 }
 
-/* LEFT — sticky column with headline + stepper */
-.left {
-  position: sticky;
-  top: 96px;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.head {
+  margin-bottom: 72px;
 }
 
-.headline {
+.title {
   font-family: var(--font-lora), Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(2rem, 3.6vw, 3rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  color: #1A1A1A;
+  font-weight: 500;
+  font-size: clamp(40px, 4.8vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  color: var(--charcoal);
   margin: 0;
 }
 
-.headline em {
+.title em {
   font-style: italic;
 }
 
-.stepper {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  border-left: 1px solid rgba(26, 26, 26, 0.12);
-  padding-left: 20px;
-}
-
-.stepperItem {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  align-items: center;
-  gap: 14px;
+.timeline {
   position: relative;
-  color: rgba(26, 26, 26, 0.4);
-  transition: color 320ms ease;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  padding-top: 14px;
 }
 
-.stepperItemActive {
-  color: #1A1A1A;
-}
-
-.stepperDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px solid rgba(26, 26, 26, 0.3);
+.railBase,
+.railFill {
   position: absolute;
-  left: -25px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: background 320ms ease, border-color 320ms ease, transform 320ms ease;
+  top: 27px;
+  height: 1.5px;
+  left: 5%;
+  right: 5%;
 }
 
-.stepperItemActive .stepperDot {
-  background: #1A1A1A;
-  border-color: #1A1A1A;
-  transform: translateY(-50%) scale(1.15);
+.railBase {
+  background: rgba(26, 26, 26, 0.12);
 }
 
-.stepperNum {
-  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: inherit;
-}
-
-.stepperLabel {
-  font-family: var(--font-lora), Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: -0.01em;
-  color: inherit;
-}
-
-/* RIGHT — scrolling step blocks */
-.right {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.railFill {
+  background: var(--charcoal);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .step {
-  min-height: 38vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 0;
-  gap: 16px;
-  border-top: 1px solid rgba(26, 26, 26, 0.08);
-  opacity: 0.45;
-  transition: opacity 480ms ease;
+  position: relative;
+  padding-top: 64px;
 }
 
-.step:first-child {
-  border-top: none;
+.node {
+  position: absolute;
+  top: 19px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 1.5px solid #6B6B6B;
+  z-index: 3;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stepActive {
-  opacity: 1;
+.step.lit .node {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
 }
 
-.stepIcon {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1A1A1A;
-  margin-bottom: 4px;
+.step.active .node {
+  background: #8B6F47;
+  border-color: #8B6F47;
+  box-shadow: 0 0 0 4px var(--ivory), 0 0 0 5px rgba(139, 111, 71, 0.3);
 }
 
-.stepIcon svg {
+.icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 20px;
+  color: var(--charcoal);
+}
+
+.icon svg {
   width: 100%;
   height: 100%;
 }
 
-.stepTag {
-  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.22em;
+.num {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
+  color: #8B6F47;
+  margin-bottom: 10px;
 }
 
 .stepTitle {
   font-family: var(--font-lora), Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  font-size: 24px;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #1A1A1A;
-  margin: 0;
+  letter-spacing: -0.014em;
+  color: var(--charcoal);
+  margin: 0 0 12px;
 }
 
 .stepTitle em {
@@ -166,59 +121,93 @@
 
 .stepBody {
   font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(26, 26, 26, 0.72);
-  margin: 0;
-  max-width: 540px;
+  font-size: 14px;
+  color: var(--charcoal);
+  opacity: 0.85;
+  line-height: 1.55;
+  margin: 0 0 14px;
 }
 
-.stepDetail {
+.detail {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  gap: 8px;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
-  margin-top: 6px;
+  color: #6B6B6B;
 }
 
-.stepDetailDot {
+.dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #1A1A1A;
-  opacity: 0.5;
+  background: #8B6F47;
 }
 
-/* RESPONSIVE — stack into single column under 900px */
+.section.pinning {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  z-index: 50;
+}
+
+.section.pinning .inner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media (max-width: 900px) {
-  .inner {
+  .section {
+    padding: 64px 24px 80px;
+  }
+  .head {
+    margin-bottom: 40px;
+  }
+  .timeline {
     grid-template-columns: 1fr;
-    width: auto;
-    min-width: 0;
-    max-width: 480px;
-    gap: 40px;
-    padding: 0 24px;
+    gap: 48px;
+    padding-left: 40px;
   }
-  .left {
-    position: static;
-    top: auto;
-    gap: 28px;
+  .railBase,
+  .railFill {
+    top: 8px;
+    bottom: 8px;
+    left: 19px;
+    right: auto;
+    width: 1.5px;
+    height: auto;
   }
-  .stepper {
-    gap: 14px;
+  .railFill {
+    transform-origin: top center;
+    transform: scaleY(0);
   }
   .step {
-    min-height: auto;
-    padding: 32px 0;
-    opacity: 1; /* no dim on mobile — IO won't track properly stacked */
+    padding-top: 0;
+    padding-left: 0;
   }
-  .stepIcon {
-    width: 36px;
-    height: 36px;
+  .node {
+    top: 4px;
+    left: -28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .railFill {
+    transition: none;
+  }
+  .node {
+    transition: none;
+  }
+  .section.pinning {
+    position: relative;
+    min-height: auto;
+  }
+  .section.pinning .inner {
+    min-height: auto;
+    display: block;
   }
 }
