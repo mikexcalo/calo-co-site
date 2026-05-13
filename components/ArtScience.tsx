@@ -4,15 +4,6 @@ export default function ArtScience() {
   return (
     <section className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
-        <div className={styles.headlineBlock}>
-          <h2 className={`${styles.headline} display`}>
-            Where art meets <em>science</em>.
-          </h2>
-          <p className={styles.subhead}>
-            Where creative thinking meets <em>strategic execution</em>.
-          </p>
-        </div>
-
         <div className={styles.cards}>
           <article className={styles.card}>
             <span className={styles.cardTag}>01 · Brand + Design</span>

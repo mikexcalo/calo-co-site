@@ -1,56 +1,13 @@
 .section {
   background: var(--charcoal);
   color: var(--ivory);
-  padding: 140px 24px 160px;
+  padding: 40px 24px 160px;
   position: relative;
 }
 
 .inner {
   max-width: 1320px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-/* Headline block — its own zone, will animate later */
-.headlineBlock {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  padding: 60px 0 40px;
-}
-
-.headline {
-  font-family: var(--font-lora), Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(2.75rem, 6vw, 5.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ivory);
-  margin: 0;
-  max-width: 14ch;
-}
-
-.headline em {
-  font-style: italic;
-  font-weight: 500;
-}
-
-.subhead {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.6);
-  margin: 0;
-}
-
-.subhead em {
-  font-style: normal;
-  color: var(--ivory);
 }
 
 /* Cards grid */
@@ -128,11 +85,5 @@
   }
   .section {
     padding: 100px 20px 120px;
-  }
-  .inner {
-    gap: 72px;
-  }
-  .headlineBlock {
-    padding: 20px 0;
   }
 }
