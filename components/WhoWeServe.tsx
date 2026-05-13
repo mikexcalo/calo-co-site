@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './WhoWeServe.module.css'
 
 type Audience = {
@@ -56,10 +56,50 @@ const audiences: Audience[] = [
 ]
 
 export default function WhoWeServe() {
-  const [activeId, setActiveId] = useState<string>(audiences[0].id)
+  const [activeId, setActiveId] = useState<string | null>(null)
+  const [isInView, setIsInView] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
   const shelfRef = useRef<HTMLDivElement>(null)
+  const pauseUntilRef = useRef<number>(0)
 
-  const scrollBy = (direction: 'prev' | 'next') => {
+  const pauseAutoplay = () => {
+    pauseUntilRef.current = Date.now() + 8000
+  }
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.intersectionRatio >= 0.5)
+      },
+      { threshold: 0.5 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isInView) return
+    const interval = setInterval(() => {
+      if (Date.now() < pauseUntilRef.current) return
+      setActiveId((prev) => {
+        const idx = prev === null ? -1 : audiences.findIndex((a) => a.id === prev)
+        return audiences[((idx === -1 ? -1 : idx) + 1 + audiences.length) % audiences.length].id
+      })
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [isInView])
+
+  const handleArrow = (direction: 'next' | 'prev') => {
+    pauseAutoplay()
+    setActiveId((prev) => {
+      const idx = prev === null ? -1 : audiences.findIndex((a) => a.id === prev)
+      if (idx === -1) {
+        return direction === 'next' ? audiences[0].id : audiences[audiences.length - 1].id
+      }
+      return audiences[(idx + (direction === 'next' ? 1 : -1) + audiences.length) % audiences.length].id
+    })
     const shelf = shelfRef.current
     if (!shelf) return
     const firstTile = shelf.querySelector('[data-tile]') as HTMLElement | null
@@ -68,7 +108,7 @@ export default function WhoWeServe() {
   }
 
   return (
-    <section className={styles.section}>
+    <section ref={sectionRef} className={styles.section}>
       <div className={styles.head}>
         <h2 className={`${styles.title} display`}>
           For every visionary <em>and venture</em>
@@ -77,7 +117,7 @@ export default function WhoWeServe() {
           <button
             type="button"
             className={styles.arrow}
-            onClick={() => scrollBy('prev')}
+            onClick={() => handleArrow('prev')}
             aria-label="Previous"
           >
             ←
@@ -85,7 +125,7 @@ export default function WhoWeServe() {
           <button
             type="button"
             className={styles.arrow}
-            onClick={() => scrollBy('next')}
+            onClick={() => handleArrow('next')}
             aria-label="Next"
           >
             →
@@ -102,13 +142,17 @@ export default function WhoWeServe() {
                 key={a.id}
                 data-tile
                 className={`${styles.tile} ${isActive ? styles.active : ''}`}
-                onClick={() => setActiveId(a.id)}
+                onClick={() => {
+                  pauseAutoplay()
+                  setActiveId((prev) => prev === a.id ? null : a.id)
+                }}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    setActiveId(a.id)
+                    pauseAutoplay()
+                    setActiveId((prev) => prev === a.id ? null : a.id)
                   }
                 }}
               >
