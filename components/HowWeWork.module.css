@@ -15,16 +15,17 @@
 
 .title {
   font-family: var(--font-lora), Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(40px, 4.8vw, 60px);
-  line-height: 1.02;
-  letter-spacing: -0.022em;
+  font-weight: 400;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   color: var(--charcoal);
   margin: 0;
 }
 
 .title em {
   font-style: italic;
+  font-weight: 400;
 }
 
 .timeline {
@@ -125,39 +126,27 @@
   color: var(--charcoal);
   opacity: 0.85;
   line-height: 1.55;
-  margin: 0 0 14px;
-}
-
-.detail {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #6B6B6B;
-}
-
-.dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #8B6F47;
+  margin: 0;
 }
 
 .section.pinning {
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  z-index: 50;
+  height: 100vh;
 }
 
 .section.pinning .inner {
-  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 48px;
+  max-width: none;
+  margin: 0;
+  z-index: 10;
+  background: var(--ivory);
 }
 
 @media (max-width: 900px) {
@@ -203,11 +192,12 @@
     transition: none;
   }
   .section.pinning {
-    position: relative;
-    min-height: auto;
+    height: auto;
   }
   .section.pinning .inner {
-    min-height: auto;
+    position: relative;
+    height: auto;
+    padding: 96px 48px 120px;
     display: block;
   }
 }

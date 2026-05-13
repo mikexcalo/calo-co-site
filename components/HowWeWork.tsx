@@ -8,6 +8,7 @@ const TRANSITION_MS = 450;
 
 export default function HowWeWork() {
   const sectionRef = useRef<HTMLElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
   const stepEls = useRef<(HTMLDivElement | null)[]>([]);
   const railBaseRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,7 @@ export default function HowWeWork() {
 
   useEffect(() => {
     reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    lastScrollY.current = window.scrollY;
   }, []);
 
   const isMobile = useCallback(() => {
@@ -31,7 +33,7 @@ export default function HowWeWork() {
 
   const paint = useCallback((idx: number) => {
     activeIdx.current = idx;
-    const p = Math.max(0, Math.min(1, (idx + 1) / TOTAL));
+    const p = idx < 0 ? 0 : Math.max(0, Math.min(1, (idx + 1) / TOTAL));
     const fill = fillRef.current;
     if (fill) {
       fill.style.transform = isMobile() ? `scaleY(${p})` : `scaleX(${p})`;
@@ -44,33 +46,43 @@ export default function HowWeWork() {
     forceRender((n) => n + 1);
   }, [isMobile]);
 
-  const enablePin = useCallback(() => {
-    if (pinActive.current || reducedMotion.current || isMobile()) return;
-    pinActive.current = true;
-    const section = sectionRef.current;
-    if (section) section.classList.add(styles.pinning);
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-  }, [isMobile]);
-
-  const releasePin = useCallback(() => {
+  const releasePin = useCallback((direction: "down" | "up") => {
     if (!pinActive.current) return;
     pinActive.current = false;
     const section = sectionRef.current;
     if (section) section.classList.remove(styles.pinning);
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      const absTop = rect.top + window.scrollY;
+      if (direction === "down") {
+        window.scrollTo({ top: absTop + section.offsetHeight + 1, behavior: "instant" as ScrollBehavior });
+      } else {
+        window.scrollTo({ top: absTop - window.innerHeight - 1, behavior: "instant" as ScrollBehavior });
+      }
+    }
   }, []);
 
-  const advance = useCallback((direction: number): boolean => {
-    if (isAnimating.current) return false;
+  const enablePin = useCallback((fromDirection: "down" | "up") => {
+    if (pinActive.current || reducedMotion.current || isMobile()) return;
+    pinActive.current = true;
+    const section = sectionRef.current;
+    if (section) section.classList.add(styles.pinning);
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    activeIdx.current = fromDirection === "down" ? -1 : TOTAL - 1;
+    paint(activeIdx.current);
+  }, [isMobile, paint]);
+
+  const advance = useCallback((direction: number) => {
+    if (isAnimating.current) return;
     const next = activeIdx.current + direction;
-    if (next >= TOTAL) { releasePin(); return true; }
-    if (next < 0) { releasePin(); return true; }
+    if (next >= TOTAL) { releasePin("down"); return; }
+    if (next < 0) { releasePin("up"); return; }
     isAnimating.current = true;
     paint(next);
     setTimeout(() => { isAnimating.current = false; }, TRANSITION_MS);
-    return false;
   }, [paint, releasePin]);
 
   useEffect(() => {
@@ -81,8 +93,7 @@ export default function HowWeWork() {
       if (!pinActive.current) return;
       e.preventDefault();
       if (isAnimating.current) return;
-      const dir = e.deltaY > 0 ? 1 : -1;
-      advance(dir);
+      advance(e.deltaY > 0 ? 1 : -1);
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -112,13 +123,16 @@ export default function HowWeWork() {
     };
 
     const onScrollDesktop = () => {
-      if (reducedMotion.current || isMobile()) return;
+      if (reducedMotion.current || isMobile() || pinActive.current) {
+        lastScrollY.current = window.scrollY;
+        return;
+      }
       const rect = section.getBoundingClientRect();
-      if (!pinActive.current && rect.top <= 0 && rect.bottom > window.innerHeight) {
-        const scrollingDown = window.scrollY - lastScrollY.current >= 0;
-        activeIdx.current = scrollingDown ? -1 : TOTAL - 1;
-        paint(activeIdx.current);
-        enablePin();
+      const direction = window.scrollY >= lastScrollY.current ? "down" : "up";
+      if (direction === "down" && rect.top <= 0 && rect.bottom > 0) {
+        enablePin("down");
+      } else if (direction === "up" && rect.bottom >= window.innerHeight && rect.top < window.innerHeight) {
+        enablePin("up");
       }
       lastScrollY.current = window.scrollY;
     };
@@ -150,7 +164,7 @@ export default function HowWeWork() {
     };
 
     const onResize = () => {
-      releasePin();
+      if (pinActive.current) releasePin("down");
       activeIdx.current = -1;
       const fill = fillRef.current;
       if (fill) fill.style.transform = isMobile() ? "scaleY(0)" : "scaleX(0)";
@@ -176,13 +190,13 @@ export default function HowWeWork() {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("keydown", onKey);
-      releasePin();
+      if (pinActive.current) releasePin("down");
     };
   }, [advance, enablePin, releasePin, paint, isMobile]);
 
   return (
     <section id="process" ref={sectionRef} className={styles.section}>
-      <div className={styles.inner}>
+      <div ref={innerRef} className={styles.inner}>
         <div className={styles.head}>
           <h2 className={`${styles.title} display`}>
             How <em>we work.</em>
@@ -208,7 +222,6 @@ export default function HowWeWork() {
             <div className={styles.num}>Step 01</div>
             <h3 className={`${styles.stepTitle} display`}>Discovery <em>call</em></h3>
             <p className={styles.stepBody}>A real conversation, not a pitch. We hear what you&apos;re working on, what&apos;s broken, what&apos;s working.</p>
-            <div className={styles.detail}><span className={styles.dot} />About 30 minutes. Always free.</div>
           </div>
 
           <div
@@ -229,7 +242,6 @@ export default function HowWeWork() {
             <div className={styles.num}>Step 02</div>
             <h3 className={`${styles.stepTitle} display`}>Plan with a <em>quote</em></h3>
             <p className={styles.stepBody}>Within a week, you get a written plan and a fixed quote. What, in what order, how long, how much.</p>
-            <div className={styles.detail}><span className={styles.dot} />Fixed price. No surprises.</div>
           </div>
 
           <div
@@ -250,7 +262,6 @@ export default function HowWeWork() {
             <div className={styles.num}>Step 03</div>
             <h3 className={`${styles.stepTitle} display`}>Build <span className="amp">&amp;</span> <em>operate</em></h3>
             <p className={styles.stepBody}>We do the work, then run it with you, refine what&apos;s working, and teach your team how to keep it going.</p>
-            <div className={styles.detail}><span className={styles.dot} />Project, retainer, or part-friends.</div>
           </div>
 
           <div
@@ -270,7 +281,6 @@ export default function HowWeWork() {
             <div className={styles.num}>Step 04</div>
             <h3 className={`${styles.stepTitle} display`}>Iterate <em>forever</em></h3>
             <p className={styles.stepBody}>Launch is mile one. We measure, refine, and stack the wins — long after the project ends.</p>
-            <div className={styles.detail}><span className={styles.dot} />Ongoing, by design.</div>
           </div>
         </div>
       </div>
