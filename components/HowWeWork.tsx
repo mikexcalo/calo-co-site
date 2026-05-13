@@ -220,8 +220,8 @@ export default function HowWeWork() {
               </svg>
             </div>
             <div className={styles.num}>Step 01</div>
-            <h3 className={`${styles.stepTitle} display`}>Discovery <em>call</em></h3>
-            <p className={styles.stepBody}>A real conversation, not a pitch. We hear what you&apos;re working on, what&apos;s broken, what&apos;s working.</p>
+            <h3 className={`${styles.stepTitle} display`}><em>Discovery</em></h3>
+            <p className={styles.stepBody}>A real conversation, not a pitch. We learn what you&apos;re building, what&apos;s working, and what&apos;s in the way.</p>
           </div>
 
           <div
@@ -240,8 +240,8 @@ export default function HowWeWork() {
               </svg>
             </div>
             <div className={styles.num}>Step 02</div>
-            <h3 className={`${styles.stepTitle} display`}>Plan with a <em>quote</em></h3>
-            <p className={styles.stepBody}>Within a week, you get a written plan and a fixed quote. What, in what order, how long, how much.</p>
+            <h3 className={`${styles.stepTitle} display`}><em>Charting</em></h3>
+            <p className={styles.stepBody}>Within a week, you get a written plan and a fixed quote. What we&apos;ll do, in what order, how long, how much.</p>
           </div>
 
           <div
@@ -260,8 +260,8 @@ export default function HowWeWork() {
               </svg>
             </div>
             <div className={styles.num}>Step 03</div>
-            <h3 className={`${styles.stepTitle} display`}>Build <span className="amp">&amp;</span> <em>operate</em></h3>
-            <p className={styles.stepBody}>We do the work, then run it with you, refine what&apos;s working, and teach your team how to keep it going.</p>
+            <h3 className={`${styles.stepTitle} display`}><em>Voyage</em></h3>
+            <p className={styles.stepBody}>We build it for you, with you, or teach you how. Whichever fits where you are.</p>
           </div>
 
           <div
@@ -279,8 +279,8 @@ export default function HowWeWork() {
               </svg>
             </div>
             <div className={styles.num}>Step 04</div>
-            <h3 className={`${styles.stepTitle} display`}>Iterate <em>forever</em></h3>
-            <p className={styles.stepBody}>Launch is mile one. We measure, refine, and stack the wins — long after the project ends.</p>
+            <h3 className={`${styles.stepTitle} display`}><em>Course correction</em></h3>
+            <p className={styles.stepBody}>Launch isn&apos;t the end. We measure what&apos;s working, fix what isn&apos;t, and keep adjusting as you grow.</p>
           </div>
         </div>
       </div>
