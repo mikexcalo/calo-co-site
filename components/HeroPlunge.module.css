@@ -143,12 +143,52 @@
 
 
 @media (max-width: 880px) {
-  .layer { padding: 0 24px; }
-  .heroHeadline { font-size: clamp(2.25rem, 9vw, 3.5rem); }
-  .heroSub { font-size: 1rem; margin-top: 20px; }
+  .layer { padding: 0 20px; }
+  .heroHeadline {
+    font-size: clamp(2.75rem, 12vw, 5rem);
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+  .heroSub {
+    margin-top: 24px;
+    font-size: 1.0625rem;
+    line-height: 1.45;
+  }
   .heroSub br { display: none; }
-  .heroCtas { flex-direction: column; gap: 10px; width: 100%; max-width: 320px; }
-  .btnPrimary, .btnSecondary { justify-content: center; }
-  .marqueeLogo { font-size: 20px; margin: 0 20px; }
-  .marquee { bottom: 40px; }
+  .heroCtas {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 32px;
+  }
+  .btnPrimary, .btnSecondary {
+    justify-content: center;
+    padding: 15px 22px;
+    font-size: 15px;
+  }
+  .marqueeLogo {
+    margin: 0 22px;
+    font-size: 24px;
+  }
+  .marquee {
+    bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  .heroHeadline {
+    font-size: clamp(2.75rem, 14vw, 4.25rem);
+    letter-spacing: -0.035em;
+  }
+  .heroSub {
+    font-size: 1rem;
+  }
+  .marqueeLogo {
+    margin: 0 18px;
+    font-size: 22px;
+  }
+  .marquee {
+    bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+  }
 }
