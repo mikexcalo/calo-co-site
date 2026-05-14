@@ -1,0 +1,123 @@
+.section {
+  background: var(--charcoal);
+  color: var(--ivory);
+}
+
+.row {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 160px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.numberLabel {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.85);
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.numberLine {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--bronze);
+}
+
+.headline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ivory);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.description {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(245, 245, 245, 0.78);
+  margin-top: 24px;
+  max-width: 480px;
+}
+
+.bullets {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.ringIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--bronze);
+  margin-top: 4px;
+}
+
+.imageCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 96px 24px;
+  }
+  .headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  .description {
+    font-size: 16px;
+    max-width: none;
+  }
+  .imagePlaceholder {
+    aspect-ratio: 16 / 10;
+  }
+}

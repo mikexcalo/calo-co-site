@@ -2,7 +2,7 @@ import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
 import ArtScienceHeadline from "@/components/ArtScienceHeadline";
-import ArtScience from "@/components/ArtScience";
+import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Journey from "@/components/Journey";
 import Spotlight from "@/components/Spotlight";
@@ -22,7 +22,7 @@ export default function Home() {
         <HeroPlunge />
       </div>
       <ArtScienceHeadline />
-      <ArtScience />
+      <WhatWeDo />
       <WhoWeServe />
       <Journey />
       <Spotlight />
