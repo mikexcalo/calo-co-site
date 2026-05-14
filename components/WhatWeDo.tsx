@@ -26,8 +26,34 @@ const pillars: Pillar[] = [
     ctaHref: '#',
     imageAlt: 'Brand and design work sample',
   },
-  // Brief 2: Section 02 — Marketing + Sales (image-left, text-right)
-  // Brief 2: Section 03 — Web + Systems (text-left, image-right)
+  {
+    number: '02',
+    label: 'MARKETING + SALES',
+    headline: <>Meet your customers where they <em>are</em>.</>,
+    description: 'The plan and the playbook for finding the right people and turning them into business. Strategy on one side, sales tactics on the other.',
+    bullets: [
+      'Marketing strategy and campaigns',
+      'Lead generation and outbound',
+      'Sales positioning and enablement',
+    ],
+    ctaLabel: 'EXPLORE MARKETING + SALES',
+    ctaHref: '#',
+    imageAlt: 'Marketing and sales work sample',
+  },
+  {
+    number: '03',
+    label: 'WEB + SYSTEMS',
+    headline: <>Build the <em>engine</em> that runs your business.</>,
+    description: "The website, tools, and infrastructure that move you from scrappy to scalable. Built so you can run them yourself when you're ready.",
+    bullets: [
+      'Websites that work as hard as you do',
+      'CRM, quoting, and invoicing tools',
+      'AI and automation, built in',
+    ],
+    ctaLabel: 'EXPLORE WEB + SYSTEMS',
+    ctaHref: '#',
+    imageAlt: 'Web and systems work sample',
+  },
 ]
 
 export default function WhatWeDo() {
