@@ -1,0 +1,160 @@
+.section {
+  background: #F5F5F5;
+  color: #1A1A1A;
+  padding: 120px 48px;
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* LEFT — portrait */
+.portraitCol {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.portrait {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.portraitActive {
+  opacity: 1;
+}
+
+/* RIGHT — content */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  color: #1A1A1A;
+}
+
+.quote {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(24px, 2.5vw, 36px);
+  line-height: 1.4;
+  color: #1A1A1A;
+  margin: 0 0 40px;
+  min-height: 6em;
+}
+
+.quoteOpen,
+.quoteClose {
+  font-family: var(--font-lora), Georgia, serif;
+}
+
+.cursor {
+  display: inline;
+  animation: blink 1s step-end infinite;
+  color: #1A1A1A;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 48px;
+}
+
+.name {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1A1A1A;
+}
+
+.role {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+.arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.arrowBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F5F5F5;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  color: #1A1A1A;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.arrowBtn:hover {
+  background: #1A1A1A;
+  color: #F5F5F5;
+  border-color: #1A1A1A;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 24px;
+  }
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .portraitCol {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .quote {
+    min-height: 8em;
+  }
+}

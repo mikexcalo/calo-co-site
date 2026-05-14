@@ -5,7 +5,7 @@ import ArtScienceHeadline from "@/components/ArtScienceHeadline";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Journey from "@/components/Journey";
-import Spotlight from "@/components/Spotlight";
+import QuoteSpotlight from "@/components/QuoteSpotlight";
 import HowWeWork from "@/components/HowWeWork";
 import RevealRunway from "@/components/RevealRunway";
 import ContactCTA from "@/components/ContactCTA";
@@ -23,9 +23,9 @@ export default function Home() {
       </div>
       <ArtScienceHeadline />
       <WhatWeDo />
-      <WhoWeServe />
       <Journey />
-      <Spotlight />
+      <QuoteSpotlight />
+      <WhoWeServe />
       <HowWeWork />
       <RevealRunway />
       <ContactCTA />
