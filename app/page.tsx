@@ -4,6 +4,7 @@ import HeroPlunge from "@/components/HeroPlunge";
 import ArtScienceHeadline from "@/components/ArtScienceHeadline";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
+import Journey from "@/components/Journey";
 import QuoteSpotlight from "@/components/QuoteSpotlight";
 import HowWeWork from "@/components/HowWeWork";
 import RevealRunway from "@/components/RevealRunway";
@@ -24,6 +25,7 @@ export default function Home() {
       <WhatWeDo />
       <QuoteSpotlight />
       <WhoWeServe />
+      <Journey />
       <HowWeWork />
       <RevealRunway />
       <ContactCTA />

@@ -8,12 +8,6 @@ export default function HowWeWork() {
           <h2 className={`${styles.title} display`}>
             How <em>we work</em>
           </h2>
-          <p className={styles.intro}>
-            Not sure where to begin? Tell us what you&apos;re thinking &mdash; <em>we&apos;ll steer.</em>
-          </p>
-          <a href="#" className={styles.introCta} data-modal-trigger="true">
-            Book a call <span className={styles.arrow}>&rarr;</span>
-          </a>
         </div>
 
         <div className={styles.timeline}>
