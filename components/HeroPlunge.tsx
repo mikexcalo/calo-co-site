@@ -3,6 +3,20 @@
 import { useEffect, useRef } from 'react';
 import styles from './HeroPlunge.module.css';
 
+const brands = [
+  { name: "Mammoth", logo: "/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction" },
+  { name: "LG Flooring", logo: "/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co." },
+  { name: "Stevie's Poem Store", logo: null, alt: null },
+  { name: "Hero's Journey", logo: null, alt: null },
+  { name: "Pangaea", logo: "/logos/pangaea_logo_white.png", alt: "Pangaea" },
+  { name: "Wayback", logo: null, alt: null },
+  { name: "Nautilus", logo: null, alt: null },
+  { name: "CL Cleaning", logo: "/logos/CL_Cleaning_Logo_White.png", alt: "CL Cleaning Services, Portland Maine" },
+  { name: "Contra Energy", logo: "/logos/Contra_Energy_2025.png", alt: "Contra Energy" },
+  { name: "Frank's", logo: "/logos/Franks_Logo_2025_White.png", alt: "Frank's" },
+  { name: "Fuego", logo: null, alt: null },
+];
+
 export default function HeroPlunge() {
   const blockRef = useRef<HTMLDivElement | null>(null);
 
@@ -64,22 +78,15 @@ export default function HeroPlunge() {
         {/* MARQUEE — fades out by --p = 0.3 */}
         <div className={styles.marquee}>
           <div className={styles.marqueeTrack}>
-            <span className={styles.marqueeLogo}>Pangaea</span>
-            <span className={styles.marqueeLogo}>Fuego</span>
-            <span className={styles.marqueeLogo}>Mammoth</span>
-            <span className={styles.marqueeLogo}>LG Flooring</span>
-            <span className={styles.marqueeLogo}>Stevie&apos;s Poem Store</span>
-            <span className={styles.marqueeLogo}>Hero&apos;s Journey</span>
-            <span className={styles.marqueeLogo}>Wayback</span>
-            <span className={styles.marqueeLogo}>Nautilus</span>
-            <span className={styles.marqueeLogo}>Pangaea</span>
-            <span className={styles.marqueeLogo}>Fuego</span>
-            <span className={styles.marqueeLogo}>Mammoth</span>
-            <span className={styles.marqueeLogo}>LG Flooring</span>
-            <span className={styles.marqueeLogo}>Stevie&apos;s Poem Store</span>
-            <span className={styles.marqueeLogo}>Hero&apos;s Journey</span>
-            <span className={styles.marqueeLogo}>Wayback</span>
-            <span className={styles.marqueeLogo}>Nautilus</span>
+            {[...brands, ...brands].map((b, i) => (
+              <span key={i} className={styles.marqueeItem}>
+                {b.logo ? (
+                  <img src={b.logo} alt={b.alt || b.name} className={styles.marqueeImg} />
+                ) : (
+                  <span className={styles.marqueeText}>{b.name}</span>
+                )}
+              </span>
+            ))}
           </div>
         </div>
 

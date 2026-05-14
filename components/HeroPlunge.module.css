@@ -120,14 +120,26 @@
   display: inline-block;
   animation: heroPlunge-scroll-left 30s linear infinite;
 }
-.marqueeLogo {
-  display: inline-block;
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 32px;
+}
+
+.marqueeText {
   font-family: var(--font-lora), Georgia, serif;
   font-style: italic;
   font-size: 28px;
   color: rgba(26, 26, 26, 0.35);
-  margin: 0 32px;
   letter-spacing: -0.01em;
+}
+
+.marqueeImg {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.35;
 }
 @keyframes heroPlunge-scroll-left {
   from { transform: translateX(0); }
@@ -173,9 +185,14 @@
     padding: 15px 22px;
     font-size: 15px;
   }
-  .marqueeLogo {
+  .marqueeItem {
     margin: 0 22px;
+  }
+  .marqueeText {
     font-size: 24px;
+  }
+  .marqueeImg {
+    height: 32px;
   }
   .marquee {
     bottom: calc(56px + env(safe-area-inset-bottom, 0px));
@@ -190,9 +207,14 @@
   .heroSub {
     font-size: 1rem;
   }
-  .marqueeLogo {
+  .marqueeItem {
     margin: 0 18px;
+  }
+  .marqueeText {
     font-size: 22px;
+  }
+  .marqueeImg {
+    height: 28px;
   }
   .marquee {
     bottom: calc(40px + env(safe-area-inset-bottom, 0px));
