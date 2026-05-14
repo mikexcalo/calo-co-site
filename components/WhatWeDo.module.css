@@ -1,122 +1,75 @@
-.section {
+.outer {
+  height: 360vh;
+  position: relative;
+  background: var(--charcoal);
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background: var(--charcoal);
   color: var(--ivory);
 }
 
-/* ===== DESKTOP: sticky image + scrolling text ===== */
-.split {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 120px 48px 160px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.imageStack {
-  position: sticky;
-  top: 0;
-  align-self: start;
-  height: 100vh;
+.stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.imageInner {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 5 / 4;
-  max-height: 80vh;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.imageLayer {
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
-  opacity: 0;
-  transform: scale(0.98);
-  transition: opacity 400ms ease, transform 400ms ease;
-}
-
-.imageLayerActive {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.textStack {
+.track {
   display: flex;
-  flex-direction: column;
+  gap: 24px;
+  padding: 0 64px;
+  will-change: transform;
 }
 
-.textBlock {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 0;
-  opacity: 0.4;
-  transition: opacity 400ms ease;
+.card {
+  flex: 0 0 calc(100vw - 128px);
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: stretch;
 }
 
-.textBlock:first-child {
-  padding-top: 0;
+.imageBlock {
+  min-height: 520px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: linear-gradient(135deg, #1F1F1F 0%, #2A2A2A 100%);
 }
 
-.textBlockActive {
-  opacity: 1;
-}
-
-.textBlockActive .numberLabel {
-  color: rgba(245, 245, 245, 1);
-}
-
-/* ===== MOBILE: stacked rows ===== */
-.mobileRows {
-  display: none;
-}
-
-.mobileRow {
-  padding: 96px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.mobileImage {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
-}
-
-/* ===== SHARED TEXT STYLES ===== */
 .textCol {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  min-height: 520px;
+  padding: 24px 20% 24px 0;
 }
 
-.numberLabel {
+.eyebrow {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(245, 245, 245, 0.85);
-  margin-bottom: 28px;
-  transition: color 400ms ease;
+  font-weight: 600;
 }
 
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: clamp(36px, 3.6vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
   color: var(--ivory);
   margin: 0;
 }
@@ -126,57 +79,69 @@
   font-weight: 400;
 }
 
-.description {
+.body {
   font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 300;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 400;
   line-height: 1.5;
   color: rgba(245, 245, 245, 0.78);
-  margin-top: 24px;
-  max-width: 480px;
+  max-width: 48ch;
+  margin: 0;
 }
 
 .bullets {
   list-style: none;
-  margin: 40px 0 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 .bulletItem {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
   font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 300;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 400;
   line-height: 1.5;
-  color: rgba(245, 245, 245, 0.78);
+  color: rgba(245, 245, 245, 0.85);
 }
 
-.compassIcon {
-  width: 16px;
-  height: 16px;
+.bulletItem svg {
   flex-shrink: 0;
   color: #00DCA8;
-  margin-top: 5px;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .split {
-    display: none;
+  .outer {
+    height: auto;
   }
-  .mobileRows {
+  .pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .stage {
     display: block;
   }
-  .headline {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  .track {
+    flex-direction: column;
+    gap: 80px;
+    transform: none !important;
+    padding: 0 24px 80px;
   }
-  .description {
-    font-size: 16px;
-    max-width: none;
+  .card {
+    flex: 0 0 auto;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .imageBlock {
+    min-height: 320px;
+  }
+  .textCol {
+    min-height: auto;
+    padding: 0;
   }
 }
