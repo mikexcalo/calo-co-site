@@ -22,12 +22,12 @@
 
 .navCta {
   font-family: var(--font-geist), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   --nav-mode: clamp(0, calc((var(--p, 0) - 0.45) * 5), 1);
   background: color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
   color: color-mix(in srgb, #F5F5F5, #1A1A1A calc(var(--nav-mode) * 100%));
-  padding: 11px 20px;
+  padding: 12px 24px;
   border: 1px solid color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
   border-radius: 6px;
   cursor: pointer;

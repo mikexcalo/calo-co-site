@@ -69,10 +69,16 @@
   max-width: 720px;
 }
 
+.heroSub :global(.amp) {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
 .heroCtas {
   display: flex;
   gap: 12px;
-  margin-top: 36px;
+  margin-top: 48px;
 }
 
 .btnPrimary,
@@ -80,10 +86,8 @@
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  padding: 20px 48px;
-  border-radius: 8px;
-  min-width: 220px;
-  justify-content: center;
+  padding: 17px 32px;
+  border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
