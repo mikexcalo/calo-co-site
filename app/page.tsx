@@ -3,8 +3,6 @@ import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
 import ArtScienceHeadline from "@/components/ArtScienceHeadline";
 import ArtScience from "@/components/ArtScience";
-import CaseStudies from "@/components/CaseStudies";
-import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Journey from "@/components/Journey";
 import Spotlight from "@/components/Spotlight";
@@ -25,8 +23,6 @@ export default function Home() {
       </div>
       <ArtScienceHeadline />
       <ArtScience />
-      <CaseStudies />
-      <WhatWeDo />
       <WhoWeServe />
       <Journey />
       <Spotlight />
