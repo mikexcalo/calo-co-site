@@ -1,7 +1,6 @@
 .section {
-  padding: 96px 48px 120px;
+  padding: 120px 48px;
   background: var(--ivory);
-  position: relative;
 }
 
 .inner {
@@ -36,24 +35,13 @@
   padding-top: 14px;
 }
 
-.railBase,
-.railFill {
+.railBase {
   position: absolute;
   top: 27px;
   height: 1.5px;
   left: 5%;
   right: 5%;
-}
-
-.railBase {
   background: rgba(26, 26, 26, 0.12);
-}
-
-.railFill {
-  background: var(--charcoal);
-  transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .step {
@@ -68,21 +56,9 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--ivory);
-  border: 1.5px solid #6B6B6B;
-  z-index: 3;
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.step.lit .node {
   background: var(--charcoal);
-  border-color: var(--charcoal);
-}
-
-.step.active .node {
-  background: #8B6F47;
-  border-color: #8B6F47;
-  box-shadow: 0 0 0 4px var(--ivory), 0 0 0 5px rgba(139, 111, 71, 0.3);
+  border: 1.5px solid var(--charcoal);
+  z-index: 3;
 }
 
 .icon {
@@ -129,26 +105,6 @@
   margin: 0;
 }
 
-.section.pinning {
-  height: 100vh;
-}
-
-.section.pinning .inner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 48px;
-  max-width: none;
-  margin: 0;
-  z-index: 10;
-  background: var(--ivory);
-}
-
 @media (max-width: 900px) {
   .section {
     padding: 64px 24px 80px;
@@ -161,18 +117,13 @@
     gap: 48px;
     padding-left: 40px;
   }
-  .railBase,
-  .railFill {
+  .railBase {
     top: 8px;
     bottom: 8px;
     left: 19px;
     right: auto;
     width: 1.5px;
     height: auto;
-  }
-  .railFill {
-    transform-origin: top center;
-    transform: scaleY(0);
   }
   .step {
     padding-top: 0;
@@ -181,23 +132,5 @@
   .node {
     top: 4px;
     left: -28px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .railFill {
-    transition: none;
-  }
-  .node {
-    transition: none;
-  }
-  .section.pinning {
-    height: auto;
-  }
-  .section.pinning .inner {
-    position: relative;
-    height: auto;
-    padding: 96px 48px 120px;
-    display: block;
   }
 }
