@@ -13,14 +13,6 @@
   align-items: center;
 }
 
-/* Flipped layout: image-left, text-right */
-.rowFlipped {
-  direction: rtl;
-}
-.rowFlipped > * {
-  direction: ltr;
-}
-
 .textCol {
   display: flex;
   flex-direction: column;
@@ -29,18 +21,29 @@
 .numberLabel {
   font-family: var(--font-ibm-plex-mono), monospace;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(245, 245, 245, 0.85);
   margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.numberLine {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--bronze);
 }
 
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--ivory);
   margin: 0;
 }
@@ -80,43 +83,12 @@
   color: rgba(245, 245, 245, 0.9);
 }
 
-.checkIcon {
-  width: 20px;
-  height: 20px;
+.ringIcon {
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
   color: var(--bronze);
-  margin-top: 1px;
-}
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 48px;
-  font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ivory);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.cta:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.arrowIcon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.cta:hover .arrowIcon {
-  transform: translateX(3px);
+  margin-top: 4px;
 }
 
 .imageCol {
@@ -138,11 +110,8 @@
     gap: 48px;
     padding: 96px 24px;
   }
-  .rowFlipped {
-    direction: ltr;
-  }
   .headline {
-    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
   .description {
     font-size: 16px;
