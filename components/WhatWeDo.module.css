@@ -3,16 +3,94 @@
   color: var(--ivory);
 }
 
-.row {
+/* ===== DESKTOP: sticky image + scrolling text ===== */
+.split {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 160px 48px;
+  padding: 120px 48px 160px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: start;
 }
 
+.imageStack {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  height: calc(100vh - 160px);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Make imageStack both sticky AND a positioning context */
+.imageStack {
+  position: sticky;
+}
+
+.imageLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.imageLayerActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.textStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.textBlock {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+  opacity: 0.4;
+  transition: opacity 400ms ease;
+}
+
+.textBlock:first-child {
+  padding-top: 0;
+}
+
+.textBlockActive {
+  opacity: 1;
+}
+
+.textBlockActive .numberLabel {
+  color: rgba(245, 245, 245, 1);
+}
+
+/* ===== MOBILE: stacked rows ===== */
+.mobileRows {
+  display: none;
+}
+
+.mobileRow {
+  padding: 96px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.mobileImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
+}
+
+/* ===== SHARED TEXT STYLES ===== */
 .textCol {
   display: flex;
   flex-direction: column;
@@ -29,6 +107,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: color 400ms ease;
 }
 
 .numberLine {
@@ -91,24 +170,13 @@
   margin-top: 4px;
 }
 
-.imageCol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .row {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 96px 24px;
+  .split {
+    display: none;
+  }
+  .mobileRows {
+    display: block;
   }
   .headline {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
@@ -116,8 +184,5 @@
   .description {
     font-size: 16px;
     max-width: none;
-  }
-  .imagePlaceholder {
-    aspect-ratio: 16 / 10;
   }
 }

@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import styles from './WhatWeDo.module.css'
 
 type Pillar = {
@@ -49,49 +52,117 @@ const pillars: Pillar[] = [
 ]
 
 export default function WhatWeDo() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const blockRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.idx)
+            if (!isNaN(idx)) setActiveIndex(idx)
+          }
+        })
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    )
+    blockRefs.current.forEach((el) => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className={`${styles.section} section-dark`}>
-      {pillars.map((pillar) => (
-        <div key={pillar.number} className={styles.row}>
-          <div className={styles.imageCol}>
-            {/* TODO: replace with pillar hero image */}
+      {/* Desktop: two-column sticky layout */}
+      <div className={styles.split}>
+        <div className={styles.imageStack}>
+          {pillars.map((pillar, i) => (
             <div
-              className={styles.imagePlaceholder}
+              key={pillar.number}
+              className={`${styles.imageLayer} ${i === activeIndex ? styles.imageLayerActive : ''}`}
               role="img"
               aria-label={pillar.imageAlt}
             />
-          </div>
-          <div className={styles.textCol}>
-            <div className={styles.numberLabel}>
-              <span className={styles.numberLine} aria-hidden="true" />
-              {pillar.number} / {pillar.label}
-            </div>
-            <h2 className={`${styles.headline} display`}>
-              {pillar.headline}
-            </h2>
-            <p className={styles.description}>{pillar.description}</p>
-            <ul className={styles.bullets}>
-              {pillar.bullets.map((bullet) => (
-                <li key={bullet} className={styles.bulletItem}>
-                  <svg
-                    className={styles.ringIcon}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
-      ))}
+
+        <div className={styles.textStack}>
+          {pillars.map((pillar, i) => (
+            <div
+              key={pillar.number}
+              data-idx={i}
+              ref={(el) => { blockRefs.current[i] = el }}
+              className={`${styles.textBlock} ${i === activeIndex ? styles.textBlockActive : ''}`}
+            >
+              <div className={styles.numberLabel}>
+                <span className={styles.numberLine} aria-hidden="true" />
+                {pillar.number} / {pillar.label}
+              </div>
+              <h2 className={`${styles.headline} display`}>
+                {pillar.headline}
+              </h2>
+              <p className={styles.description}>{pillar.description}</p>
+              <ul className={styles.bullets}>
+                {pillar.bullets.map((bullet) => (
+                  <li key={bullet} className={styles.bulletItem}>
+                    <svg
+                      className={styles.ringIcon}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile: stacked rows (rendered separately to avoid sticky on small screens) */}
+      <div className={styles.mobileRows}>
+        {pillars.map((pillar) => (
+          <div key={pillar.number} className={styles.mobileRow}>
+            <div className={styles.mobileImage} role="img" aria-label={pillar.imageAlt} />
+            <div className={styles.textCol}>
+              <div className={styles.numberLabel}>
+                <span className={styles.numberLine} aria-hidden="true" />
+                {pillar.number} / {pillar.label}
+              </div>
+              <h2 className={`${styles.headline} display`}>
+                {pillar.headline}
+              </h2>
+              <p className={styles.description}>{pillar.description}</p>
+              <ul className={styles.bullets}>
+                {pillar.bullets.map((bullet) => (
+                  <li key={bullet} className={styles.bulletItem}>
+                    <svg
+                      className={styles.ringIcon}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
