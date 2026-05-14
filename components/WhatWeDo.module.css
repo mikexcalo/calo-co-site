@@ -16,10 +16,19 @@
 
 .imageStack {
   position: sticky;
-  top: 80px;
+  top: 0;
   align-self: start;
-  aspect-ratio: 5 / 4;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageInner {
+  position: relative;
   width: 100%;
+  aspect-ratio: 5 / 4;
+  max-height: 80vh;
   border-radius: 12px;
   overflow: hidden;
 }

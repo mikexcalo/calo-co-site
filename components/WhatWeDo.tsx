@@ -88,14 +88,16 @@ export default function WhatWeDo() {
       {/* Desktop: two-column sticky layout */}
       <div className={styles.split}>
         <div className={styles.imageStack}>
-          {pillars.map((pillar, i) => (
-            <div
-              key={pillar.label}
-              className={`${styles.imageLayer} ${i === activeIndex ? styles.imageLayerActive : ''}`}
-              role="img"
-              aria-label={pillar.imageAlt}
-            />
-          ))}
+          <div className={styles.imageInner}>
+            {pillars.map((pillar, i) => (
+              <div
+                key={pillar.label}
+                className={`${styles.imageLayer} ${i === activeIndex ? styles.imageLayerActive : ''}`}
+                role="img"
+                aria-label={pillar.imageAlt}
+              />
+            ))}
+          </div>
         </div>
 
         <div className={styles.textStack}>
