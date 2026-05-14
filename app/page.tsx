@@ -23,10 +23,10 @@ export default function Home() {
       </div>
       <ArtScienceHeadline />
       <WhatWeDo />
+      <QuoteSpotlight />
       <WhoWeServe />
       <Journey />
       <HowWeWork />
-      <QuoteSpotlight />
       <RevealRunway />
       <ContactCTA />
       <Footer />
