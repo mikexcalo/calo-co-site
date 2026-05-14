@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .starWrap {
@@ -56,7 +56,7 @@
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: #F5F5F5;
-  margin: 0 auto 40px;
+  margin: 0 auto 56px;
   max-width: 880px;
   text-align: center;
 }
@@ -75,7 +75,7 @@
 }
 
 .signature {
-  opacity: clamp(0, calc((var(--reveal, 0) - 0.92) * 12), 1);
+  opacity: clamp(0, calc((var(--reveal, 0) - 0.40) * 12), 1);
   transform: translateY(
     calc(14px * (1 - clamp(0, (var(--reveal, 0) - 0.92) * 12, 1)))
   );

@@ -19,19 +19,19 @@ export default function Testimonial() {
             ))}
           </div>
           <blockquote className={styles.quote}>
-            <span className={styles.word} style={{ "--start": 0.500 } as React.CSSProperties}>{"\u201C "}</span>
-            <span className={styles.word} style={{ "--start": 0.530 } as React.CSSProperties}>Mike </span>
-            <span className={styles.word} style={{ "--start": 0.560 } as React.CSSProperties}>is </span>
-            <span className={styles.word} style={{ "--start": 0.590 } as React.CSSProperties}>a </span>
-            <span className={styles.word} style={{ "--start": 0.620 } as React.CSSProperties}>master </span>
-            <span className={styles.word} style={{ "--start": 0.650 } as React.CSSProperties}>of </span>
-            <span className={styles.word} style={{ "--start": 0.680 } as React.CSSProperties}>his </span>
-            <span className={styles.word} style={{ "--start": 0.710 } as React.CSSProperties}>craft </span>
-            <span className={styles.word} style={{ "--start": 0.740 } as React.CSSProperties}>and </span>
-            <span className={styles.word} style={{ "--start": 0.770 } as React.CSSProperties}>comes </span>
-            <span className={styles.word} style={{ "--start": 0.800 } as React.CSSProperties}>highly </span>
-            <span className={styles.word} style={{ "--start": 0.830 } as React.CSSProperties}>recommended.</span>
-            <span className={styles.word} style={{ "--start": 0.860 } as React.CSSProperties}>{"\u201D"}</span>
+            <span className={styles.word} style={{ "--start": 0.050 } as React.CSSProperties}>{"\u201C"}</span>
+            <span className={styles.word} style={{ "--start": 0.075 } as React.CSSProperties}>Mike </span>
+            <span className={styles.word} style={{ "--start": 0.100 } as React.CSSProperties}>is </span>
+            <span className={styles.word} style={{ "--start": 0.125 } as React.CSSProperties}>a </span>
+            <span className={styles.word} style={{ "--start": 0.150 } as React.CSSProperties}>master </span>
+            <span className={styles.word} style={{ "--start": 0.175 } as React.CSSProperties}>of </span>
+            <span className={styles.word} style={{ "--start": 0.200 } as React.CSSProperties}>his </span>
+            <span className={styles.word} style={{ "--start": 0.225 } as React.CSSProperties}>craft </span>
+            <span className={styles.word} style={{ "--start": 0.250 } as React.CSSProperties}>and </span>
+            <span className={styles.word} style={{ "--start": 0.275 } as React.CSSProperties}>comes </span>
+            <span className={styles.word} style={{ "--start": 0.300 } as React.CSSProperties}>highly </span>
+            <span className={styles.word} style={{ "--start": 0.325 } as React.CSSProperties}>recommended.</span>
+            <span className={styles.word} style={{ "--start": 0.350 } as React.CSSProperties}>{"\u201D"}</span>
           </blockquote>
           <div className={styles.signature}>
             <div className={styles.signatureName}>JoAnn Dorio</div>
