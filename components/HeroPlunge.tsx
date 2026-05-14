@@ -52,7 +52,7 @@ export default function HeroPlunge() {
             We chart the course,<br />you make <em>waves</em>.
           </h1>
           <p className={styles.heroSub}>
-            CALO<span className="amp">&amp;</span>CO is a marketing and growth partner<br />
+            CALO<span className="amp">&amp;</span>CO is a growth partner<br />
             for brands and businesses ready to level up.
           </p>
           <div className={styles.heroCtas}>

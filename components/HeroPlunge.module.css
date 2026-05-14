@@ -79,9 +79,11 @@
 .btnSecondary {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  padding: 13px 22px;
-  border-radius: 6px;
+  font-size: 16px;
+  padding: 20px 48px;
+  border-radius: 8px;
+  min-width: 220px;
+  justify-content: center;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
