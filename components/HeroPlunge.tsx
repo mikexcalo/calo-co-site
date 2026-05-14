@@ -4,16 +4,16 @@ import { useEffect, useRef } from 'react';
 import styles from './HeroPlunge.module.css';
 
 const brands = [
-  { name: "Mammoth", logo: "/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction" },
-  { name: "LG Flooring", logo: "/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co." },
+  { name: "Mammoth", logo: "/images/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction" },
+  { name: "LG Flooring", logo: "/images/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co." },
   { name: "Stevie's Poem Store", logo: null, alt: null },
   { name: "Hero's Journey", logo: null, alt: null },
-  { name: "Pangaea", logo: "/logos/pangaea_logo_white.png", alt: "Pangaea" },
+  { name: "Pangaea", logo: "/images/logos/pangaea logo_white.png", alt: "Pangaea" },
   { name: "Wayback", logo: null, alt: null },
   { name: "Nautilus", logo: null, alt: null },
-  { name: "CL Cleaning", logo: "/logos/CL_Cleaning_Logo_White.png", alt: "CL Cleaning Services, Portland Maine" },
-  { name: "Contra Energy", logo: "/logos/Contra_Energy_2025.png", alt: "Contra Energy" },
-  { name: "Frank's", logo: "/logos/Franks_Logo_2025_White.png", alt: "Frank's" },
+  { name: "CL Cleaning", logo: "/images/logos/CL Cleaning Logo_White.png", alt: "CL Cleaning Services, Portland Maine" },
+  { name: "Contra Energy", logo: "/images/logos/Contra Energy 2025.png", alt: "Contra Energy" },
+  { name: "Frank's", logo: "/images/logos/Franks Logo 2025_White.png", alt: "Frank's" },
   { name: "Fuego", logo: null, alt: null },
 ];
 
