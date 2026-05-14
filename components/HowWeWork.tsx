@@ -6,7 +6,7 @@ export default function HowWeWork() {
       <div className={styles.inner}>
         <div className={styles.head}>
           <h2 className={`${styles.title} display`}>
-            How <em>we work.</em>
+            How <em>we work</em>
           </h2>
         </div>
 

@@ -14,7 +14,7 @@ type Pillar = {
 const pillars: Pillar[] = [
   {
     label: 'BRAND + DESIGN',
-    headline: <>Stand out in a sea of <em>sameness</em>.</>,
+    headline: <>Stand out in a sea of <em>sameness</em></>,
     description: 'The look, voice, and identity that make people stop, trust, and remember you. From positioning to logo to every asset your business puts in the world.',
     bullets: [
       'Brand strategy and visual identity',
@@ -25,7 +25,7 @@ const pillars: Pillar[] = [
   },
   {
     label: 'MARKETING + SALES',
-    headline: <>Meet your customers where they <em>are</em>.</>,
+    headline: <>Meet your customers where they <em>are</em></>,
     description: 'The plan and the playbook for finding the right people and turning them into business. Strategy on one side, sales tactics on the other.',
     bullets: [
       'Marketing strategy and campaigns',
@@ -36,7 +36,7 @@ const pillars: Pillar[] = [
   },
   {
     label: 'WEB + SYSTEMS',
-    headline: <>Build the <em>engine</em> that runs your business.</>,
+    headline: <>Build the <em>engine</em> that runs your business</>,
     description: "The website, tools, and infrastructure that move you from scrappy to scalable. Built so you can run them yourself when you're ready.",
     bullets: [
       'Websites that work as hard as you do',

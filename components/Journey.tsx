@@ -6,7 +6,7 @@ export default function Journey() {
       <div className={styles.inner}>
         <div className={styles.left}>
           <h2 className={`${styles.headline} display`}>
-            Wherever you are on <em>your journey.</em>
+            Wherever you are on <em>your journey</em>
           </h2>
         </div>
         <div className={styles.right}>
