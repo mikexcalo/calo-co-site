@@ -1,7 +1,7 @@
 .section {
   background: #1A1A1A;
   color: #F5F5F5;
-  padding: 96px 24px;
+  padding: 96px 24px 200px;
 }
 
 .inner {
@@ -27,6 +27,6 @@
 
 @media (max-width: 900px) {
   .section {
-    padding: 96px 24px;
+    padding: 96px 24px 150px;
   }
 }
