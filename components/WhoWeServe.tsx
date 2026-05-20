@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useRef, useCallback } from 'react'
 import styles from './WhoWeServe.module.css'
 
 type Audience = {
@@ -57,37 +57,7 @@ const audiences: Audience[] = [
 
 export default function WhoWeServe() {
   const shelfRef = useRef<HTMLDivElement>(null)
-  const [isHovering, setIsHovering] = useState(false)
-  const pauseUntilRef = useRef(0)
-  const reducedMotion = useRef(false)
-
-  useEffect(() => {
-    reducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  }, [])
-
-  // Auto-scroll marquee
-  useEffect(() => {
-    const shelf = shelfRef.current
-    if (!shelf || reducedMotion.current) return
-
-    let raf = 0
-    const tick = () => {
-      if (!isHovering && Date.now() >= pauseUntilRef.current) {
-        shelf.scrollLeft += 0.5
-        const half = shelf.scrollWidth / 2
-        if (shelf.scrollLeft >= half) {
-          shelf.scrollLeft -= half
-        }
-      }
-      raf = requestAnimationFrame(tick)
-    }
-
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [isHovering])
-
   const scrollBy = useCallback((direction: 'prev' | 'next') => {
-    pauseUntilRef.current = Date.now() + 4000
     const shelf = shelfRef.current
     if (!shelf) return
     const firstTile = shelf.querySelector('[data-tile]') as HTMLElement | null
@@ -99,7 +69,7 @@ export default function WhoWeServe() {
     <section className={styles.section}>
       <div className={styles.head}>
         <h2 className={`${styles.title} display`}>
-          For every visionary and venture
+          For every visionary<br />and venture
         </h2>
         <div className={styles.arrows}>
           <button type="button" className={styles.arrow} onClick={() => scrollBy('prev')} aria-label="Previous">&larr;</button>
@@ -107,11 +77,7 @@ export default function WhoWeServe() {
         </div>
       </div>
 
-      <div
-        className={styles.shelfWrap}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
+      <div className={styles.shelfWrap}>
         <div className={styles.shelf} ref={shelfRef}>
           {[...audiences, ...audiences].map((a, i) => (
             <article key={`${a.id}-${i}`} data-tile className={styles.tile}>
@@ -123,11 +89,6 @@ export default function WhoWeServe() {
               <div className={styles.tileContent}>
                 <h3 className={styles.tileLabel}>{a.label}</h3>
                 <p className={styles.tileDesc}>{a.description}</p>
-                <div className={styles.tilePills}>
-                  {a.pills.map((pill) => (
-                    <span key={pill} className={styles.tilePill}>{pill}</span>
-                  ))}
-                </div>
               </div>
             </article>
           ))}
