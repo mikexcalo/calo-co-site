@@ -53,8 +53,26 @@
   text-align: center;
 }
 
+/* Words default to VISIBLE (no-JS fallback) */
 .word {
   display: inline;
+}
+
+/* Only when JS has mounted do we set pre-animation state */
+.jsReady .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 35ms);
+}
+
+/* When section enters view, reveal words */
+.inView .word {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .signature {
@@ -78,6 +96,15 @@
   text-transform: uppercase;
   color: rgba(245, 245, 245, 0.55);
   margin: 0;
+}
+
+/* Reduced motion: skip animation, always visible */
+@media (prefers-reduced-motion: reduce) {
+  .jsReady .word {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 880px) {

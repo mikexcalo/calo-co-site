@@ -1,8 +1,40 @@
-import styles from './Testimonial.module.css';
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import styles from './Testimonial.module.css'
+
+const words = [
+  '\u201C', 'Mike', 'is', 'a', 'master', 'of', 'his',
+  'craft', 'and', 'comes', 'highly', 'recommended.', '\u201D',
+]
 
 export default function Testimonial() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [jsReady, setJsReady] = useState(false)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    setJsReady(true)
+    const node = sectionRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className={`${styles.section} section-dark`}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} section-dark ${jsReady ? styles.jsReady : ''} ${inView ? styles.inView : ''}`}
+    >
       <div className={styles.sticky}>
         <div className={styles.content}>
           <div className={styles.stars}>
@@ -15,7 +47,15 @@ export default function Testimonial() {
             ))}
           </div>
           <blockquote className={styles.quote}>
-            {"\u201C"}Mike is a master of his craft and comes highly recommended.{"\u201D"}
+            {words.map((word, i) => (
+              <span
+                key={i}
+                className={styles.word}
+                style={{ '--i': i } as React.CSSProperties}
+              >
+                {word}{i < words.length - 1 ? ' ' : ''}
+              </span>
+            ))}
           </blockquote>
           <div className={styles.signature}>
             <div className={styles.signatureName}>JoAnn Dorio</div>
@@ -24,5 +64,5 @@ export default function Testimonial() {
         </div>
       </div>
     </section>
-  );
+  )
 }
