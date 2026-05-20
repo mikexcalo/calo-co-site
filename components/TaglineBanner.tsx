@@ -5,7 +5,7 @@ export default function TaglineBanner() {
     <section className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <h2 className={`${styles.headline} display`}>
-          We chart the course, you make <em>waves</em>.
+          We chart the course,<br />you make <em>waves</em>.
         </h2>
       </div>
     </section>
