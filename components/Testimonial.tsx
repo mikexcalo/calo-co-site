@@ -47,15 +47,20 @@ export default function Testimonial() {
             ))}
           </div>
           <blockquote className={styles.quote}>
-            {words.map((word, i) => (
-              <span
-                key={i}
-                className={styles.word}
-                style={{ '--i': i } as React.CSSProperties}
-              >
-                {word}{i < words.length - 1 ? ' ' : ''}
-              </span>
-            ))}
+            {words.map((word, i) => {
+              const isOpen = word === '\u201C'
+              const isClose = word === '\u201D'
+              const needsSpaceBefore = i > 0 && !isClose && words[i - 1] !== '\u201C'
+              return (
+                <span key={i}>
+                  {needsSpaceBefore && ' '}
+                  <span
+                    className={styles.word}
+                    style={{ '--i': i } as React.CSSProperties}
+                  >{word}</span>
+                </span>
+              )
+            })}
           </blockquote>
           <div className={styles.signature}>
             <div className={styles.signatureName}>JoAnn Dorio</div>
