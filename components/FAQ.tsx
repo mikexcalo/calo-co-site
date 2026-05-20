@@ -46,7 +46,6 @@ export default function FAQ() {
     >
       <div className={styles.inner}>
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>FAQ</span>
           <h2 className={`${styles.headline} display`}>
             Frequently asked <em>questions</em>
           </h2>

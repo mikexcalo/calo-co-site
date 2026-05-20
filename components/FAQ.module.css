@@ -19,16 +19,6 @@
   top: 120px;
 }
 
-.eyebrow {
-  display: block;
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #8B6F47;
-  margin-bottom: 20px;
-}
-
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
@@ -73,7 +63,7 @@
 }
 
 .qButton:hover {
-  color: #8B6F47;
+  color: #00DCA8;
 }
 
 .qText {
@@ -95,7 +85,7 @@
 }
 
 .iconOpen {
-  color: #8B6F47;
+  color: #00DCA8;
 }
 
 .answer {
