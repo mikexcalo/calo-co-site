@@ -45,10 +45,12 @@ export default function FAQ() {
       itemType="https://schema.org/FAQPage"
     >
       <div className={styles.inner}>
-        <span className={styles.eyebrow}>FAQ</span>
-        <h2 className={`${styles.headline} display`}>
-          Frequently asked <em>questions</em>
-        </h2>
+        <div className={styles.intro}>
+          <span className={styles.eyebrow}>FAQ</span>
+          <h2 className={`${styles.headline} display`}>
+            Frequently asked <em>questions</em>
+          </h2>
+        </div>
 
         <ul className={styles.list}>
           {FAQS.map((item, i) => {
