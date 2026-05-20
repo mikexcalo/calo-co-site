@@ -1,15 +1,11 @@
 .section {
-  position: sticky;
-  top: 0;
-  height: 100vh;
   background: #1A1A1A;
   color: #F5F5F5;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 64px;
-  overflow: hidden;
+  padding: 120px 64px;
+  min-height: 80vh;
 }
 
 .sticky {
@@ -36,10 +32,6 @@
 .starWrap {
   display: inline-block;
   color: #F5F5F5;
-  opacity: clamp(0, calc((var(--reveal, 0) - var(--start, 0.45) - var(--i, 0) * 0.025) * 18), 1);
-  transform: scale(calc(0.7 + 0.3 * clamp(0, (var(--reveal, 0) - var(--start, 0.45) - var(--i, 0) * 0.025) * 18, 1)));
-  transition: none;
-  will-change: opacity, transform;
 }
 
 .starWrap svg {
@@ -62,25 +54,10 @@
 }
 
 .word {
-  display: inline-block;
-  opacity: clamp(0, calc((var(--reveal, 0) - var(--start, 0.5)) * 5), 1);
-  transform: translateY(
-    calc(
-      16px * (1 - clamp(0, (var(--reveal, 0) - var(--start, 0.5)) * 5, 1))
-    )
-  );
-  transition: none;
-  white-space: pre;
-  will-change: opacity, transform;
+  display: inline;
 }
 
 .signature {
-  opacity: clamp(0, calc((var(--reveal, 0) - 0.40) * 12), 1);
-  transform: translateY(
-    calc(14px * (1 - clamp(0, (var(--reveal, 0) - 0.92) * 12, 1)))
-  );
-  transition: none;
-  will-change: opacity, transform;
   margin-top: 12px;
 }
 
@@ -105,7 +82,8 @@
 
 @media (max-width: 880px) {
   .section {
-    padding: 32px 24px;
+    padding: 80px 24px;
+    min-height: auto;
   }
   .content {
     max-width: none;

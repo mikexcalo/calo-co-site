@@ -4,10 +4,10 @@ export default function ContactCTA() {
   return (
     <section className={styles.ctaSection}>
       <div className={styles.inner}>
-        <h2 className={`${styles.headline} display glide glide-headline`}>
+        <h2 className={`${styles.headline} display`}>
           Let&apos;s build <em>your dream</em>.
         </h2>
-        <div className={`${styles.ctaWrap} glide`}>
+        <div className={styles.ctaWrap}>
           <button
             type="button"
             className={styles.cta}
@@ -16,7 +16,7 @@ export default function ContactCTA() {
             Get started <span className={styles.arrow}>→</span>
           </button>
         </div>
-        <p className={`${styles.timeNote} glide`}>14 seconds. We timed it.</p>
+        <p className={styles.timeNote}>14 seconds. We timed it.</p>
       </div>
     </section>
   );
