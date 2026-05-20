@@ -69,7 +69,7 @@ export default function RootLayout({
                 "name": "What does CALO&CO do?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We're a marketing and growth partner for independent brands. Strategy, brand identity, websites, content, paid media, and the operational scaffolding around all of it — but only the parts your business actually needs."
+                  "text": "We're a growth partner for independent brands and businesses. Brand and design, marketing and sales, websites and systems — the strategy and the execution, scoped to what your business actually needs."
                 }
               },
               {
@@ -77,31 +77,31 @@ export default function RootLayout({
                 "name": "Who do you work with?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Independent operators with the instinct to build — across creators, trades, studios and media, retail, CPG, and digital products. Founders running real businesses who want to look as serious as they actually are."
+                  "text": "Independent operators with the instinct to build — founders, creators, trades, studios, retail, and digital products. People running real businesses who want to look as serious as they actually are."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How much does it cost to work with CALO&CO?",
+                "name": "How much does it cost?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Every engagement is scoped to the business. Some clients work with us on a single project, others retain us monthly. Pricing reflects scope, not a menu. We'll tell you what something costs once we understand what you're trying to do."
+                  "text": "Every engagement is scoped to the business. Some clients work with us on a single project, others partner with us over time. We'll talk through what you need and what it costs once we understand what you're building."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long is a typical engagement?",
+                "name": "How long does it take?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Project work runs from a few weeks to a few months. Retainers usually start at three months — long enough for the work to compound and the strategy to show up in numbers."
+                  "text": "It depends on scope. Some projects run a few weeks, others a few months. We'll give you a clear timeline before anything starts — no open-ended engagements."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How do we start working with CALO&CO?",
+                "name": "How do we start?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A short intro call. If both sides want to keep going, a paid one-to-two-week discovery where we audit what's there and come back with a recommended path. From there: a project, a retainer, or part friends."
+                  "text": "A short intro call. If it's a fit, we move into a discovery phase, then come back with a recommended path. No pressure, no obligation."
                 }
               }
             ]
