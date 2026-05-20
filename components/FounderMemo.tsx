@@ -51,6 +51,24 @@ export default function FounderMemo() {
                 </span>
               </p>
             </div>
+
+            <div className={styles.manifesto}>
+              <span className={styles.manifestoEyebrow}>WHAT WE BELIEVE</span>
+              <div className={styles.principles}>
+                <div className={styles.principle}>
+                  <span className={styles.principleNum}>01</span>
+                  <p className={styles.principleText}>[PLACEHOLDER PRINCIPLE ONE — replace with final manifesto copy]</p>
+                </div>
+                <div className={styles.principle}>
+                  <span className={styles.principleNum}>02</span>
+                  <p className={styles.principleText}>[PLACEHOLDER PRINCIPLE TWO — replace with final manifesto copy]</p>
+                </div>
+                <div className={styles.principle}>
+                  <span className={styles.principleNum}>03</span>
+                  <p className={styles.principleText}>[PLACEHOLDER PRINCIPLE THREE — replace with final manifesto copy]</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

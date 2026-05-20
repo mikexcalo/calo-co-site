@@ -1,23 +1,13 @@
 .section {
   background: var(--ivory);
   color: var(--charcoal);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  margin-top: -100vh;
-  z-index: 2;
-  overflow: hidden;
-  transform: translateY(calc(var(--reveal, 0) * -100vh / 0.45));
-  transition: none;
-  will-change: transform;
 }
 
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
 }
 
 .portrait {
@@ -27,6 +17,13 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  transform: scale(1.08);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.section.inView .portrait {
+  transform: scale(1);
 }
 
 .copyCol {
@@ -42,6 +39,16 @@
   flex-direction: column;
   gap: 48px;
   max-width: 520px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  will-change: opacity, transform;
+}
+
+.section.inView .copyInner {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .eyebrow {
@@ -97,35 +104,60 @@
   font-size: 13px;
 }
 
-/* Square-style scroll-driven animation */
-.portrait {
-  transform: scale(1.08);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+/* Manifesto */
+.manifesto {
+  margin-top: 16px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(26, 26, 26, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-.copyInner {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-  will-change: opacity, transform;
+.manifestoEyebrow {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.55);
+  font-weight: 600;
 }
 
-.section.inView .portrait {
-  transform: scale(1);
+.principles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.section.inView .copyInner {
-  opacity: 1;
-  transform: translateY(0);
+.principle {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
 
-/* Mobile: stack vertically, portrait on top */
+.principleNum {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #8B6F47;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.principleText {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.75);
+  margin: 0;
+}
+
+/* Mobile */
 @media (max-width: 860px) {
   .split {
     grid-template-columns: 1fr;
     grid-template-rows: 60vh auto;
+    min-height: auto;
   }
   .portrait {
     min-height: 60vh;
