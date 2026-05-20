@@ -45,8 +45,8 @@ export default function FAQ() {
       itemType="https://schema.org/FAQPage"
     >
       <div className={styles.inner}>
-        <span className={`${styles.eyebrow} eyebrow glide`}>FAQ</span>
-        <h2 className={`${styles.headline} display glide glide-headline`}>
+        <span className={styles.eyebrow}>FAQ</span>
+        <h2 className={`${styles.headline} display`}>
           Frequently asked <em>questions</em>
         </h2>
 
@@ -71,7 +71,7 @@ export default function FAQ() {
                     {item.q}
                   </span>
                   <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`} aria-hidden>
-                    +
+                    {isOpen ? "\u2212" : "+"}
                   </span>
                 </button>
                 <div
