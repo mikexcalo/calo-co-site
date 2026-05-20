@@ -1,0 +1,225 @@
+.outer {
+  height: 280vh;
+  position: relative;
+  background: var(--charcoal);
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 40px 48px;
+}
+
+.title {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+  text-align: center;
+  margin: 0 0 26px;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pillsWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.pills {
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(245, 245, 245, 0.06);
+  border-radius: 999px;
+}
+
+.pillHl {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 0;
+  background: var(--ivory);
+  border-radius: 999px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pill {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(245, 245, 245, 0.5);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.pill svg {
+  flex-shrink: 0;
+}
+
+.pill:hover {
+  color: var(--ivory);
+}
+
+.pillActive {
+  color: var(--charcoal);
+}
+
+.stage {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  will-change: transform;
+}
+
+.card {
+  flex: 0 0 100%;
+  padding: 0 64px;
+  will-change: transform, opacity;
+}
+
+.cardGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.82fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.imageBlock {
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.headline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ivory);
+  margin: 0;
+}
+
+.headline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.body {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(245, 245, 245, 0.74);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+.bulletItem svg {
+  flex-shrink: 0;
+  color: #00dca8;
+}
+
+@media (max-width: 900px) {
+  .outer {
+    height: auto;
+  }
+  .pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: 80px 24px;
+    justify-content: flex-start;
+  }
+  .stage {
+    overflow: visible;
+  }
+  .track {
+    flex-direction: column;
+    gap: 64px;
+    transform: none !important;
+  }
+  .card {
+    flex: 0 0 auto;
+    padding: 0;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .imageBlock {
+    aspect-ratio: 16 / 10;
+  }
+  .headline br {
+    display: none;
+  }
+  .pills {
+    flex-wrap: wrap;
+  }
+  .pillHl {
+    display: none;
+  }
+  .pillActive {
+    background: var(--ivory);
+  }
+}

@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
 import TaglineBanner from "@/components/TaglineBanner";
 import WhatWeDo from "@/components/WhatWeDo";
+import WhatWeDoV2 from "@/components/WhatWeDoV2";
 import WhoWeServe from "@/components/WhoWeServe";
 import StoryTiles from "@/components/StoryTiles";
 import SteerBand from "@/components/SteerBand";
@@ -25,6 +26,7 @@ export default function Home() {
       </div>
       <TaglineBanner />
       <WhatWeDo />
+      <WhatWeDoV2 />
       <WhoWeServe />
       <StoryTiles />
       <SteerBand />
