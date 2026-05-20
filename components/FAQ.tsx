@@ -70,7 +70,10 @@ export default function FAQ() {
                   <span className={styles.qText} itemProp="name">
                     {item.q}
                   </span>
-                  <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`} aria-hidden>
+                  <span
+                    className={`${styles.icon} ${isOpen ? styles.iconOpen : ""}`}
+                    aria-hidden
+                  >
                     {isOpen ? "\u2212" : "+"}
                   </span>
                 </button>
