@@ -1,11 +1,9 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
-import ArtScienceHeadline from "@/components/ArtScienceHeadline";
+import TaglineBanner from "@/components/TaglineBanner";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
-import Journey from "@/components/Journey";
-import QuoteSpotlight from "@/components/QuoteSpotlight";
 import HowWeWork from "@/components/HowWeWork";
 import RevealRunway from "@/components/RevealRunway";
 import ContactCTA from "@/components/ContactCTA";
@@ -21,11 +19,9 @@ export default function Home() {
         <Nav />
         <HeroPlunge />
       </div>
-      <ArtScienceHeadline />
+      <TaglineBanner />
       <WhatWeDo />
-      <QuoteSpotlight />
       <WhoWeServe />
-      <Journey />
       <HowWeWork />
       <RevealRunway />
       <ContactCTA />

@@ -1,28 +1,23 @@
 .section {
-  background: var(--charcoal);
-  color: var(--ivory);
-  padding: 96px 24px 120px;
-  position: relative;
+  background: #1A1A1A;
+  color: #F5F5F5;
+  padding: 140px 24px;
 }
 
 .inner {
   max-width: 1320px;
   margin: 0 auto;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--ivory);
+  color: #F5F5F5;
   margin: 0;
-  max-width: 16ch;
 }
 
 .headline em {
@@ -30,8 +25,8 @@
   font-weight: 400;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .section {
-    padding: 100px 20px 80px;
+    padding: 96px 24px;
   }
 }

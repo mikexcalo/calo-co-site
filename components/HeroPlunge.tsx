@@ -63,7 +63,7 @@ export default function HeroPlunge() {
         {/* HERO layer */}
         <div className={`${styles.layer} ${styles.layerHero}`}>
           <h1 className={`${styles.heroHeadline} display`}>
-            We chart the course,<br />you make <em>waves</em>.
+            [PLACEHOLDER HEADLINE — building the business of <em>your dreams</em>]
           </h1>
           <p className={styles.heroSub}>
             CALO<span className="amp">&amp;</span>CO is a growth partner for brands and businesses ready to level up.
