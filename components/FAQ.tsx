@@ -26,9 +26,10 @@ const FAQS = [
 ];
 
 export default function FAQ() {
+  const [groupOpen, setGroupOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<Set<number>>(new Set());
 
-  const toggle = (i: number) => {
+  const toggleQuestion = (i: number) => {
     setOpenIndex((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i);
@@ -45,54 +46,67 @@ export default function FAQ() {
       itemType="https://schema.org/FAQPage"
     >
       <div className={styles.inner}>
-        <div className={styles.intro}>
-          <h2 className={`${styles.headline} display`}>
-            Frequently asked <em>questions</em>
-          </h2>
-        </div>
+        <div className={`${styles.group} ${groupOpen ? styles.groupOpen : ""}`}>
+          <button
+            className={styles.master}
+            aria-expanded={groupOpen}
+            aria-controls="faq-panel"
+            onClick={() => setGroupOpen((v) => !v)}
+          >
+            <span className={styles.masterTitle}>
+              Frequently asked <em>questions</em>
+            </span>
+            <span className={styles.masterIcon} aria-hidden>
+              {groupOpen ? "\u2212" : "+"}
+            </span>
+          </button>
 
-        <ul className={styles.list}>
-          {FAQS.map((item, i) => {
-            const isOpen = openIndex.has(i);
-            return (
-              <li
-                key={i}
-                className={styles.item}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-              >
-                <button
-                  className={styles.qButton}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-a-${i}`}
-                  onClick={() => toggle(i)}
-                >
-                  <span className={styles.qText} itemProp="name">
-                    {item.q}
-                  </span>
-                  <span
-                    className={`${styles.icon} ${isOpen ? styles.iconOpen : ""}`}
-                    aria-hidden
-                  >
-                    {isOpen ? "\u2212" : "+"}
-                  </span>
-                </button>
-                <div
-                  id={`faq-a-${i}`}
-                  className={`${styles.answer} ${isOpen ? styles.answerOpen : ""}`}
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <div className={styles.answerInner} itemProp="text">
-                    <p>{item.a}</p>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+          <div id="faq-panel" className={styles.panel}>
+            <div className={styles.panelInner}>
+              <div className={styles.grid}>
+                <ul className={styles.questions}>
+                  {FAQS.map((item, i) => {
+                    const isOpen = openIndex.has(i);
+                    return (
+                      <li
+                        key={i}
+                        className={`${styles.qItem} ${isOpen ? styles.qItemOpen : ""}`}
+                        itemScope
+                        itemProp="mainEntity"
+                        itemType="https://schema.org/Question"
+                      >
+                        <button
+                          className={styles.qRow}
+                          aria-expanded={isOpen}
+                          aria-controls={`faq-a-${i}`}
+                          onClick={() => toggleQuestion(i)}
+                        >
+                          <span className={styles.qText} itemProp="name">
+                            {item.q}
+                          </span>
+                          <span className={styles.qIcon} aria-hidden>
+                            {isOpen ? "\u2212" : "+"}
+                          </span>
+                        </button>
+                        <div
+                          id={`faq-a-${i}`}
+                          className={styles.answer}
+                          itemScope
+                          itemProp="acceptedAnswer"
+                          itemType="https://schema.org/Answer"
+                        >
+                          <div className={styles.answerInner} itemProp="text">
+                            <p>{item.a}</p>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

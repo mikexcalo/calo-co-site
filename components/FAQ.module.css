@@ -7,94 +7,137 @@
 .inner {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.group {
+  border-top: 1px solid rgba(245, 245, 245, 0.14);
+  border-bottom: 1px solid rgba(245, 245, 245, 0.14);
+}
+
+.master {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 96px;
-  align-items: start;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 48px;
+  padding: 42px 0;
 }
 
-/* LEFT COLUMN — headline */
-.intro {
-  position: sticky;
-  top: 120px;
-}
-
-.headline {
+.masterTitle {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.05;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: #F5F5F5;
-  margin: 0;
+  transition: color 0.18s ease;
 }
 
-.headline em {
+.masterTitle em {
   font-style: italic;
   font-weight: 400;
 }
 
-/* RIGHT COLUMN — question list */
-.list {
+.masterIcon {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 1.85rem;
+  line-height: 1;
+  color: #F5F5F5;
+  transition: color 0.18s ease;
+}
+
+.master:hover .masterTitle,
+.master:hover .masterIcon,
+.groupOpen .masterIcon {
+  color: #00DCA8;
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.groupOpen .panel {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  padding-bottom: 8px;
+}
+
+.questions {
+  grid-column: 2;
   list-style: none;
   padding: 0;
   margin: 0;
   border-top: 1px solid rgba(245, 245, 245, 0.14);
 }
 
-.item {
+.qItem {
   border-bottom: 1px solid rgba(245, 245, 245, 0.14);
 }
 
-.qButton {
+.qItem:last-child {
+  border-bottom: none;
+}
+
+.qRow {
   width: 100%;
   background: none;
   border: none;
-  padding: 28px 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 32px;
   cursor: pointer;
   text-align: left;
-  font-family: var(--font-lora), Georgia, serif;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 32px;
+  padding: 26px 0;
+}
+
+.qText {
+  font-family: var(--font-geist), sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
   color: #F5F5F5;
   transition: color 0.18s ease;
 }
 
-.qButton:hover {
-  color: #00DCA8;
-}
-
-.qText {
-  font-family: var(--font-lora), Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(1.25rem, 1.7vw, 1.625rem);
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-}
-
-.icon {
-  flex-shrink: 0;
+.qIcon {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 1.2rem;
   line-height: 1;
-  margin-top: 0.15em;
+  color: #F5F5F5;
+  margin-top: 0.2em;
   transition: color 0.18s ease;
 }
 
-.iconOpen {
+.qRow:hover .qText,
+.qRow:hover .qIcon,
+.qItemOpen .qIcon {
   color: #00DCA8;
 }
 
 .answer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.answerOpen {
+.qItemOpen .answer {
   grid-template-rows: 1fr;
 }
 
@@ -104,37 +147,37 @@
 
 .answerInner p {
   font-family: var(--font-geist), sans-serif;
+  font-weight: 400;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.66;
   color: rgba(245, 245, 245, 0.62);
+  padding: 4px 0 26px;
+  max-width: 52ch;
   margin: 0;
-  padding: 2px 0 30px;
-  max-width: 46ch;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .section {
-    padding: 80px 24px 88px;
+    padding: 80px 22px;
   }
-  .inner {
+  .master {
+    padding: 32px 0;
+    gap: 24px;
+  }
+  .masterTitle {
+    font-size: clamp(1.625rem, 6vw, 2.25rem);
+  }
+  .masterIcon {
+    font-size: 1.5rem;
+  }
+  .grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    column-gap: 0;
   }
-  .intro {
-    position: static;
-    top: auto;
-  }
-  .headline {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-  .qButton {
-    padding: 24px 0;
-    gap: 20px;
+  .questions {
+    grid-column: 1;
   }
   .qText {
-    font-size: clamp(1.125rem, 4.5vw, 1.375rem);
-  }
-  .icon {
-    font-size: 20px;
+    font-size: clamp(1.0625rem, 4.5vw, 1.25rem);
   }
 }
