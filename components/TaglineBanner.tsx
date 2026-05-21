@@ -5,7 +5,7 @@ export default function TaglineBanner() {
     <section className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
         <h2 className={`${styles.headline} display`}>
-          We chart the course,<br />you make <em>waves</em>.
+          CALO<span className="amp">&amp;</span>CO is a <em>growth partner</em> for brands and businesses ready to level up.
         </h2>
       </div>
     </section>
