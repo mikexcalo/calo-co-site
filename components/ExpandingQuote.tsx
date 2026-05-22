@@ -53,7 +53,7 @@ export default function ExpandingQuote() {
             </p>
             <div className={`${styles.qSig} ${styles.fi}`} data-fi="2">Stevie Treviño</div>
             <div className={`${styles.qRole} ${styles.fi}`} data-fi="3">Founder, Stevie&rsquo;s Poem Store</div>
-            <a className={`${styles.qBtn} ${styles.fi}`} data-fi="4" href="#">Visit Stevie&rsquo;s Poem Store →</a>
+            <a className={`${styles.qBtn} ${styles.fi}`} data-fi="4" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store →</a>
           </div>
         </div>
       </div>
