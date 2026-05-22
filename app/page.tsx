@@ -1,7 +1,6 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
-import TaglineBanner from "@/components/TaglineBanner";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import StoryTiles from "@/components/StoryTiles";
@@ -23,7 +22,6 @@ export default function Home() {
         <Nav />
         <HeroPlunge />
       </div>
-      <TaglineBanner />
       <WhatWeDo />
       <WhoWeServe />
       <StoryTiles />

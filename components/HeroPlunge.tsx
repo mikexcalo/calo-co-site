@@ -75,6 +75,13 @@ export default function HeroPlunge() {
           </div>
         </div>
 
+        {/* MODULE 02 layer — rises in as the dive completes */}
+        <div className={`${styles.layer} ${styles.layerMod02}`}>
+          <h2 className={styles.mod02Headline}>
+            CALO<span className="amp">&amp;</span>CO is a <em>growth partner</em><br />for brands and businesses<br />ready to level up.
+          </h2>
+        </div>
+
         {/* MARQUEE — fades out by --p = 0.3 */}
         <div className={styles.marquee}>
           <div className={styles.marqueeTrack}>

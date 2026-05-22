@@ -1,7 +1,7 @@
 /* Plunge container — 300vh runway */
 .plunge {
   position: relative;
-  height: 130vh;
+  height: 112vh;
   margin-top: -80px;
 }
 
@@ -21,7 +21,7 @@
   position: absolute;
   inset: 0;
   background: #1A1A1A;
-  opacity: clamp(0, calc((var(--p, 0) - 0.1) * 2.5), 1);
+  opacity: clamp(0, calc((var(--p, 0) - 0.06) * 1.55), 1);
   z-index: 1;
   pointer-events: none;
 }
@@ -41,8 +41,27 @@
 
 /* HERO layer — translates upward as you dive */
 .layerHero {
-  transform: translateY(calc(var(--p, 0) * -110vh - 4vh));
+  transform: translateY(calc(var(--p, 0) * -88vh - 4vh));
 }
+
+.layerMod02 {
+  z-index: 2;
+  opacity: clamp(0, calc((var(--p, 0) - 0.5) * 3), 1);
+  transform: translateY(calc(clamp(0, calc(1 - var(--p, 0)), 1) * 70px));
+}
+
+.mod02Headline {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #F5F5F5;
+  margin: 0;
+}
+
+.mod02Headline em { font-style: italic; }
 
 /* HERO content */
 .heroHeadline {
