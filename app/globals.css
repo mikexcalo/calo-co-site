@@ -24,6 +24,10 @@
 
   /* Motion */
   --ease-swell: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --site-max-width: min(92vw, 1480px);
+  --site-gutter: 48px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

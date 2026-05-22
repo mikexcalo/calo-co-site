@@ -1,11 +1,11 @@
 .section {
   background: #1A1A1A;
   color: #F5F5F5;
-  padding: 120px 24px;
+  padding: 120px var(--site-gutter);
 }
 
 .inner {
-  max-width: 1280px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
 }
 
