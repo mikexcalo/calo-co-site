@@ -61,12 +61,16 @@ export default function WhoWeServe() {
   const pendingRef = useRef(0)
   const pausedRef = useRef(false)
   const stepRef = useRef(378)
+  const dragRef = useRef<{ active: boolean; lastX: number; lastT: number; vel: number }>({
+    active: false, lastX: 0, lastT: 0, vel: 0,
+  })
 
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
 
-    const SPEED = 0.5
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    const SPEED = isMobile ? 1.1 : 0.7
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let raf = 0
     let half = 0
@@ -80,9 +84,9 @@ export default function WhoWeServe() {
     }
 
     const frame = () => {
-      if (!pausedRef.current && !reduce) offsetRef.current += SPEED
-      if (Math.abs(pendingRef.current) > 0.4) {
-        const s = pendingRef.current * 0.15
+      if (!dragRef.current.active && !pausedRef.current && !reduce) offsetRef.current += SPEED
+      if (!dragRef.current.active && Math.abs(pendingRef.current) > 0.4) {
+        const s = pendingRef.current * 0.12
         offsetRef.current += s
         pendingRef.current -= s
       }
@@ -94,6 +98,33 @@ export default function WhoWeServe() {
       raf = requestAnimationFrame(frame)
     }
 
+    const onTouchStart = (e: TouchEvent) => {
+      const t = e.touches[0]
+      dragRef.current = { active: true, lastX: t.clientX, lastT: e.timeStamp, vel: 0 }
+      pendingRef.current = 0
+    }
+    const onTouchMove = (e: TouchEvent) => {
+      if (!dragRef.current.active) return
+      const t = e.touches[0]
+      const dx = t.clientX - dragRef.current.lastX
+      const dt = e.timeStamp - dragRef.current.lastT || 16
+      offsetRef.current -= dx
+      dragRef.current.vel = dx / dt
+      dragRef.current.lastX = t.clientX
+      dragRef.current.lastT = e.timeStamp
+    }
+    const onTouchEnd = () => {
+      if (!dragRef.current.active) return
+      dragRef.current.active = false
+      pendingRef.current = -dragRef.current.vel * 220
+    }
+
+    const track2 = track
+    track2.addEventListener('touchstart', onTouchStart, { passive: true })
+    track2.addEventListener('touchmove', onTouchMove, { passive: true })
+    track2.addEventListener('touchend', onTouchEnd, { passive: true })
+    track2.addEventListener('touchcancel', onTouchEnd, { passive: true })
+
     measure()
     raf = requestAnimationFrame(frame)
     window.addEventListener('resize', measure)
@@ -101,6 +132,10 @@ export default function WhoWeServe() {
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', measure)
+      track2.removeEventListener('touchstart', onTouchStart)
+      track2.removeEventListener('touchmove', onTouchMove)
+      track2.removeEventListener('touchend', onTouchEnd)
+      track2.removeEventListener('touchcancel', onTouchEnd)
     }
   }, [])
 
