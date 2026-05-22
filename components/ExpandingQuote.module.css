@@ -16,7 +16,7 @@
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  width: calc((min(92vw, 1480px) - 96px) + var(--p, 0) * (100vw - (min(92vw, 1480px) - 96px)));
+  width: calc(var(--site-max-width) + var(--p, 0) * (100vw - var(--site-max-width)));
   height: calc(64vh + var(--p, 0) * 28vh);
   border-radius: calc((1 - var(--p, 0)) * 16px);
 }
