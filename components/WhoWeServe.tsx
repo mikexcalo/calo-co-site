@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 import styles from './WhoWeServe.module.css'
 
 type Audience = {
@@ -56,14 +56,57 @@ const audiences: Audience[] = [
 ]
 
 export default function WhoWeServe() {
-  const shelfRef = useRef<HTMLDivElement>(null)
-  const scrollBy = useCallback((direction: 'prev' | 'next') => {
-    const shelf = shelfRef.current
-    if (!shelf) return
-    const firstTile = shelf.querySelector('[data-tile]') as HTMLElement | null
-    const step = firstTile ? firstTile.offsetWidth + 18 : 400
-    shelf.scrollBy({ left: direction === 'next' ? step : -step, behavior: 'smooth' })
+  const trackRef = useRef<HTMLDivElement>(null)
+  const offsetRef = useRef(0)
+  const pendingRef = useRef(0)
+  const pausedRef = useRef(false)
+  const stepRef = useRef(378)
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+
+    const SPEED = 0.5
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let raf = 0
+    let half = 0
+
+    const measure = () => {
+      const tile = track.querySelector('[data-tile]') as HTMLElement | null
+      if (!tile) return
+      const gap = parseFloat(getComputedStyle(track).columnGap || '18') || 18
+      stepRef.current = tile.offsetWidth + gap
+      half = stepRef.current * audiences.length
+    }
+
+    const frame = () => {
+      if (!pausedRef.current && !reduce) offsetRef.current += SPEED
+      if (Math.abs(pendingRef.current) > 0.4) {
+        const s = pendingRef.current * 0.15
+        offsetRef.current += s
+        pendingRef.current -= s
+      }
+      if (half > 0) {
+        if (offsetRef.current >= half) offsetRef.current -= half
+        if (offsetRef.current < 0) offsetRef.current += half
+      }
+      track.style.transform = `translate3d(${-offsetRef.current}px, 0, 0)`
+      raf = requestAnimationFrame(frame)
+    }
+
+    measure()
+    raf = requestAnimationFrame(frame)
+    window.addEventListener('resize', measure)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', measure)
+    }
   }, [])
+
+  const nudge = (dir: 1 | -1) => {
+    pendingRef.current += dir * stepRef.current
+  }
 
   return (
     <section className={styles.section}>
@@ -72,13 +115,17 @@ export default function WhoWeServe() {
           For every visionary<br />and venture
         </h2>
         <div className={styles.arrows}>
-          <button type="button" className={styles.arrow} onClick={() => scrollBy('prev')} aria-label="Previous">&larr;</button>
-          <button type="button" className={styles.arrow} onClick={() => scrollBy('next')} aria-label="Next">&rarr;</button>
+          <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
+          <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
         </div>
       </div>
 
-      <div className={styles.shelfWrap}>
-        <div className={styles.shelf} ref={shelfRef}>
+      <div
+        className={styles.shelfWrap}
+        onMouseEnter={() => { pausedRef.current = true }}
+        onMouseLeave={() => { pausedRef.current = false }}
+      >
+        <div className={styles.shelf} ref={trackRef}>
           {[...audiences, ...audiences].map((a, i) => (
             <article key={`${a.id}-${i}`} data-tile className={styles.tile}>
               {a.image ? (

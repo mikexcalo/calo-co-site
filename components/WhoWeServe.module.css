@@ -69,23 +69,12 @@
   gap: 18px;
   padding: 4px 0 24px;
   width: max-content;
-  animation: whoWeServeScroll 40s linear infinite;
-}
-
-.shelfWrap:hover .shelf {
-  animation-play-state: paused;
-}
-
-@keyframes whoWeServeScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  will-change: transform;
 }
 
 .tile {
-  flex: 0 0 26vw;
+  flex: 0 0 clamp(280px, 25vw, 372px);
   flex-shrink: 0;
-  max-width: 400px;
-  min-width: 280px;
   aspect-ratio: 3 / 4;
   border-radius: 10px;
   position: relative;
@@ -166,12 +155,6 @@
   background: rgba(26, 26, 26, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .shelf {
-    animation: none;
-  }
 }
 
 @media (max-width: 900px) {
