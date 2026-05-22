@@ -1,0 +1,125 @@
+.module {
+  height: 300vh;
+  position: relative;
+  background: #F5F5F5;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.panel {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  width: calc((min(92vw, 1480px) - 96px) + var(--p, 0) * (100vw - (min(92vw, 1480px) - 96px)));
+  height: calc(64vh + var(--p, 0) * 28vh);
+  border-radius: calc((1 - var(--p, 0)) * 16px);
+}
+
+.panel img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-width: 100vw;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.scrimL {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(75% 88% at 72% 52%, transparent 0%, transparent 26%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.86) 100%);
+}
+
+.scrimBR {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 38%, transparent 58%);
+}
+
+.qzone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: min(620px, 54%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 clamp(28px, 5vw, 80px);
+}
+
+.qText {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.5vw, 2.7rem);
+  line-height: 1.26;
+  letter-spacing: -0.02em;
+  color: #F5F5F5;
+  text-align: left;
+  margin: 0;
+}
+
+.qText em { font-style: italic; }
+.ln { display: block; }
+
+.qSig {
+  font-family: 'Sacramento', cursive;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.1;
+  color: #F5F5F5;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.qRole {
+  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.55);
+  margin-top: 12px;
+  text-align: left;
+}
+
+.qBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  background: #F5F5F5;
+  color: #111113;
+  padding: 15px 26px;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.fi {
+  opacity: var(--i, 0);
+  transform: translateY(calc((1 - var(--i, 0)) * 24px));
+}
+
+@media (max-width: 860px) {
+  .panel { width: 100vw !important; }
+  .qzone {
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,0.82);
+    padding: 40px 24px;
+  }
+}

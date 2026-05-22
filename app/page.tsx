@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
+import ExpandingQuote from "@/components/ExpandingQuote";
 import StoryTiles from "@/components/StoryTiles";
 import SteerBand from "@/components/SteerBand";
 import HowWeWork from "@/components/HowWeWork";
@@ -24,6 +25,7 @@ export default function Home() {
       </div>
       <WhatWeDo />
       <WhoWeServe />
+      <ExpandingQuote />
       <StoryTiles />
       <SteerBand />
       <HowWeWork />
