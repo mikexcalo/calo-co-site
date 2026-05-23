@@ -1,6 +1,8 @@
 .section {
   background: #1A1A1A;
   padding: 90px 0 110px;
+  margin-top: -1px;
+  position: relative;
 }
 
 .stage {
