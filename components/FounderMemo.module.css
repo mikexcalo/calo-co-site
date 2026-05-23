@@ -5,18 +5,29 @@
 
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.05fr 0.95fr;
   width: 100%;
   min-height: 100vh;
+}
+
+.copyCol {
+  background: #FBFAF7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 7vw 80px 8vw;
+  order: 1;
 }
 
 .portrait {
   background-color: #2a2520;
   background-size: cover;
-  background-position: center 30%;
+  background-position: center top;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
+  order: 2;
   transform: scale(1.08);
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
@@ -26,19 +37,11 @@
   transform: scale(1);
 }
 
-.copyCol {
-  background: var(--ivory);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 80px 8vw 80px 6vw;
-}
-
 .copyInner {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  max-width: 520px;
+  gap: 32px;
+  max-width: 480px;
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
@@ -63,7 +66,7 @@
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
   font-size: clamp(1.75rem, 2.6vw, 2.625rem);
-  line-height: 1.2;
+  line-height: 1.28;
   letter-spacing: -0.015em;
   color: var(--charcoal);
   margin: 0;
@@ -104,71 +107,24 @@
   font-size: 13px;
 }
 
-/* Manifesto */
-.manifesto {
-  margin-top: 16px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(26, 26, 26, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.manifestoEyebrow {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
-  font-weight: 600;
-}
-
-.principles {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.principle {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.principleNum {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--muted);
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.principleText {
-  font-family: var(--font-geist), sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgba(26, 26, 26, 0.75);
-  margin: 0;
-}
-
-/* Mobile */
 @media (max-width: 860px) {
   .split {
     grid-template-columns: 1fr;
-    grid-template-rows: 60vh auto;
+    grid-template-rows: auto 60vh;
     min-height: auto;
-  }
-  .portrait {
-    min-height: 60vh;
   }
   .copyCol {
     padding: 64px 24px;
     justify-content: center;
+    order: 2;
+  }
+  .portrait {
+    min-height: 60vh;
+    order: 1;
   }
   .copyInner {
     max-width: 100%;
-    gap: 32px;
+    gap: 28px;
   }
   .signatureBlock {
     align-items: center;
