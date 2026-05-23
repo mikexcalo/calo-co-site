@@ -13,17 +13,20 @@
   overflow: hidden;
   /* Clean ivory gradient — Master Palette v1.2 only */
   background: linear-gradient(180deg, #F5F5F5 0%, #EDEDED 100%);
+  transform: translateZ(0);
 }
 
 /* The dark overlay that fades in to cover the cream gradient */
 .stage::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -1px;
   background: #1A1A1A;
   opacity: clamp(0, calc((var(--p, 0) - 0.06) * 1.55), 1);
   z-index: 1;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: opacity;
 }
 
 /* Layer base */

@@ -29,6 +29,8 @@
   color: color-mix(in srgb, #F5F5F5, #1A1A1A calc(var(--nav-mode) * 100%));
   padding: 12px 24px;
   border: 1px solid color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
+  transform: translateZ(0);
+  backface-visibility: hidden;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
