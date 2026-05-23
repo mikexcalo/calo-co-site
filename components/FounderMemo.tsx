@@ -49,7 +49,7 @@ export default function FounderMemo() {
         </div>
         <div
           className={styles.portrait}
-          style={{ backgroundImage: "url(/images/founder/mike-artist-grade2.jpg)" }}
+          style={{ backgroundImage: "url(/images/audiences/mike-artist-grade2.jpg)" }}
           role="img"
           aria-label="Mike Calo, Founder of CALO&CO"
         />
