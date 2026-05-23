@@ -115,11 +115,16 @@
 }
 
 @media (max-width: 860px) {
-  .panel { width: 100vw !important; }
+  .panel {
+    width: 100vw !important;
+    height: auto !important;
+    min-height: 70vh;
+  }
   .qzone {
     position: relative;
     width: 100%;
     background: rgba(0,0,0,0.82);
-    padding: 40px 24px;
+    padding: 56px 24px;
   }
+  .qText { font-size: 1.5rem; }
 }
