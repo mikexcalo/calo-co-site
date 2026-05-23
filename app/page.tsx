@@ -33,8 +33,8 @@ export default function Home() {
       <HowWeWork />
       <FounderMemo />
       <Testimonial />
-      <ContactCTA />
       <FAQ />
+      <ContactCTA />
       <Footer />
       <ContactModal />
     </>
