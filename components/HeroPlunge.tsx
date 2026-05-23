@@ -6,9 +6,10 @@ import styles from './HeroPlunge.module.css';
 const brands = [
   { name: "Mammoth", logo: "/images/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction" },
   { name: "LG Flooring", logo: "/images/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co." },
-  { name: "Stevie's Poem Store", logo: null, alt: null },
+  { name: "Stevie's Poem Store", logo: "/images/logos/stevies-poem-store-white.png", alt: "Stevie's Poem Store" },
   { name: "Hero's Journey", logo: null, alt: null },
   { name: "Pangaea", logo: "/images/logos/pangaea logo_white.png", alt: "Pangaea" },
+  { name: "Loyal Construction", logo: "/images/logos/loyal-construction-white.png", alt: "Loyal Construction" },
   { name: "Wayback", logo: null, alt: null },
   { name: "Nautilus", logo: null, alt: null },
   { name: "CL Cleaning", logo: "/images/logos/CL Cleaning Logo_White.png", alt: "CL Cleaning Services, Portland Maine" },
@@ -81,6 +82,9 @@ export default function HeroPlunge() {
             CALO<span className="amp">&amp;</span>CO is a <em>growth partner</em><br />for brands and businesses<br />ready to level up.
           </h2>
         </div>
+
+        {/* MARQUEE SCRIM — dark band so white logos are visible */}
+        <div className={styles.marqueeScrim} aria-hidden="true"></div>
 
         {/* MARQUEE — fades out by --p = 0.3 */}
         <div className={styles.marquee}>
