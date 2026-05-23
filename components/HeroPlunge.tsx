@@ -4,14 +4,14 @@ import { useEffect, useRef } from 'react';
 import styles from './HeroPlunge.module.css';
 
 const brands = [
-  { name: "Mammoth", logo: "/images/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction" },
-  { name: "LG Flooring", logo: "/images/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co." },
-  { name: "Stevie's Poem Store", logo: "/images/logos/stevies-poem-store-white.png", alt: "Stevie's Poem Store" },
-  { name: "Pangaea", logo: "/images/logos/pangaea logo_white.png", alt: "Pangaea" },
-  { name: "Loyal Construction", logo: "/images/logos/loyal-construction-white.png", alt: "Loyal Construction" },
-  { name: "CL Cleaning", logo: "/images/logos/CL Cleaning Logo_White.png", alt: "CL Cleaning Services, Portland Maine" },
-  { name: "Contra Energy", logo: "/images/logos/Contra Energy 2025.png", alt: "Contra Energy" },
-  { name: "Frank's", logo: "/images/logos/Franks Logo 2025_White.png", alt: "Frank's" },
+  { name: "Mammoth", logo: "/images/logos/Mammoth-Flat-White.png", alt: "Mammoth Construction", wide: false },
+  { name: "LG Flooring", logo: "/images/logos/LG-FLOORING-WHITE.png", alt: "LG Flooring Installation Co.", wide: false },
+  { name: "Stevie's Poem Store", logo: "/images/logos/stevies-poem-store-white.png", alt: "Stevie's Poem Store", wide: false },
+  { name: "Pangaea", logo: "/images/logos/pangaea logo_white.png", alt: "Pangaea", wide: true },
+  { name: "Loyal Construction", logo: "/images/logos/loyal-construction-white.png", alt: "Loyal Construction", wide: true },
+  { name: "CL Cleaning", logo: "/images/logos/CL Cleaning Logo_White.png", alt: "CL Cleaning Services, Portland Maine", wide: true },
+  { name: "Contra Energy", logo: "/images/logos/Contra Energy 2025.png", alt: "Contra Energy", wide: false },
+  { name: "Frank's", logo: "/images/logos/Franks Logo 2025_White.png", alt: "Frank's", wide: true },
 ];
 
 export default function HeroPlunge() {
@@ -88,7 +88,11 @@ export default function HeroPlunge() {
             {[...brands, ...brands].map((b, i) => (
               <span key={i} className={styles.marqueeItem}>
                 {b.logo ? (
-                  <img src={b.logo} alt={b.alt || b.name} className={styles.marqueeImg} />
+                  <img
+                    src={b.logo}
+                    alt={b.alt || b.name}
+                    className={`${styles.marqueeImg} ${b.wide ? styles.marqueeImgWide : ''}`}
+                  />
                 ) : (
                   <span className={styles.marqueeText}>{b.name}</span>
                 )}
