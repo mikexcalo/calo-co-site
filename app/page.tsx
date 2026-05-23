@@ -1,6 +1,7 @@
 import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
+import AngledCarousel from "@/components/AngledCarousel";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import ExpandingQuote from "@/components/ExpandingQuote";
@@ -23,6 +24,7 @@ export default function Home() {
         <Nav />
         <HeroPlunge />
       </div>
+      <AngledCarousel />
       <WhatWeDo />
       <WhoWeServe />
       <ExpandingQuote />
