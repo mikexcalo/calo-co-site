@@ -102,6 +102,7 @@ export default function WhoWeServe() {
       const t = e.touches[0]
       dragRef.current = { active: true, lastX: t.clientX, lastT: e.timeStamp, vel: 0 }
       pendingRef.current = 0
+      pausedRef.current = true
     }
     const onTouchMove = (e: TouchEvent) => {
       if (!dragRef.current.active) return
@@ -117,6 +118,7 @@ export default function WhoWeServe() {
       if (!dragRef.current.active) return
       dragRef.current.active = false
       pendingRef.current = -dragRef.current.vel * 220
+      pausedRef.current = false
     }
 
     const track2 = track

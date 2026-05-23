@@ -1,7 +1,7 @@
 /* Plunge container — 300vh runway */
 .plunge {
   position: relative;
-  height: 112vh;
+  height: 175vh;
   margin-top: -80px;
 }
 
@@ -188,8 +188,8 @@
     font-size: clamp(1.6rem, 6vw, 2.4rem);
   }
   .layerMod02 {
-    justify-content: flex-start;
-    padding-top: 22vh;
+    justify-content: center;
+    padding-top: 0;
   }
   .heroHeadline {
     font-size: clamp(2.75rem, 12vw, 5rem);
