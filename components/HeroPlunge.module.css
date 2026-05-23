@@ -173,7 +173,7 @@
 }
 
 .marqueeImg {
-  height: 40px;
+  height: 68px;
   width: auto;
   object-fit: contain;
   opacity: 0.85;
@@ -236,7 +236,7 @@
     font-size: 24px;
   }
   .marqueeImg {
-    height: 32px;
+    height: 52px;
   }
   .marquee {
     bottom: calc(140px + env(safe-area-inset-bottom, 0px));
@@ -258,7 +258,7 @@
     font-size: 22px;
   }
   .marqueeImg {
-    height: 28px;
+    height: 44px;
   }
   .marquee {
     bottom: calc(120px + env(safe-area-inset-bottom, 0px));
