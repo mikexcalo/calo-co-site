@@ -72,12 +72,7 @@ export default function HeroPlunge() {
           </div>
         </div>
 
-        {/* MODULE 02 layer — rises in as the dive completes */}
-        <div className={`${styles.layer} ${styles.layerMod02}`}>
-          <h2 className={styles.mod02Headline}>
-            CALO<span className="amp">&amp;</span>CO is a <em>growth partner</em><br />for brands and businesses<br />ready to level up.
-          </h2>
-        </div>
+        {/* Module 02 text removed — now handled by ScrollCover */}
 
         {/* MARQUEE SCRIM — dark band so white logos are visible */}
         <div className={styles.marqueeScrim} aria-hidden="true"></div>
