@@ -7,6 +7,7 @@ import ExpandingQuote from "@/components/ExpandingQuote";
 import StoryTiles from "@/components/StoryTiles";
 import SteerBand from "@/components/SteerBand";
 import HowWeWork from "@/components/HowWeWork";
+import AngledCarousel from "@/components/AngledCarousel";
 import FAQ from "@/components/FAQ";
 import FounderMemo from "@/components/FounderMemo";
 import Testimonial from "@/components/Testimonial";
@@ -29,6 +30,7 @@ export default function Home() {
       <StoryTiles />
       <SteerBand />
       <HowWeWork />
+      <AngledCarousel />
       <FounderMemo />
       <Testimonial />
       <FAQ />
