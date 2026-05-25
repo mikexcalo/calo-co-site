@@ -16,9 +16,9 @@
 
 .eyebrow {
   display: block;
-  font-family: var(--font-ibm-plex-mono), monospace;
+  font-family: var(--font-geist), system-ui, sans-serif;
   font-size: 11px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.5);
   margin-bottom: 16px;
