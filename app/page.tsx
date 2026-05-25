@@ -28,10 +28,10 @@ export default function Home() {
       <ScrollCover />
       <WhatWeDo />
       <WhoWeServe />
-      <ExpandingQuote />
       <StoryTiles />
-      <SteerBand />
+      <ExpandingQuote />
       <HowWeWork />
+      <SteerBand />
       <FounderMemo />
       <Testimonial />
       <FAQ />
