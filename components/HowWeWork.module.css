@@ -1,6 +1,6 @@
 .section {
-  background: var(--charcoal);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--charcoal);
   padding: 120px var(--site-gutter);
 }
 
@@ -12,7 +12,7 @@
 .head {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 80px;
+  margin: 0 auto 60px;
 }
 
 .eyebrow {
@@ -21,7 +21,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.4);
+  color: rgba(26, 26, 26, 0.4);
   margin-bottom: 20px;
 }
 
@@ -31,7 +31,7 @@
   font-size: clamp(2rem, 4.2vw, 3.25rem);
   line-height: 1.08;
   letter-spacing: -0.022em;
-  color: var(--ivory);
+  color: var(--charcoal);
   margin: 0 0 18px;
 }
 
@@ -42,103 +42,120 @@
 .subhead {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-size: 15px;
-  color: rgba(245, 245, 245, 0.55);
+  color: rgba(26, 26, 26, 0.55);
   line-height: 1.55;
   margin: 0;
 }
 
-/* Timeline */
-.timeline {
-  position: relative;
-}
-
-.rail {
-  position: absolute;
-  top: 6px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.steps {
+/* Card grid */
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
+  gap: 20px;
 }
 
-.step {
-  position: relative;
-  padding-top: 40px;
+.card {
+  background: #fff;
+  border: 1px solid rgba(26, 26, 26, 0.12);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: rgba(245, 245, 245, 0.25);
-  z-index: 2;
-  transition: background 0.3s ease;
+.card:hover {
+  background: #1A1A1A;
+  transform: translateY(-4px);
 }
 
-.stepActive .dot {
-  background: #00DCA8;
-}
-
-.label {
+.kicker {
   font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.5);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
-.stepTitle {
-  font-family: var(--font-lora), Georgia, serif;
+.kickerNum {
+  font-weight: 700;
+  color: #1A1A1A;
+  transition: color 0.25s;
+}
+
+.kickerSep {
+  color: rgba(26, 26, 26, 0.4);
+  transition: color 0.25s;
+}
+
+.kickerTag {
   font-weight: 400;
-  font-size: 24px;
-  letter-spacing: -0.014em;
-  color: var(--ivory);
-  margin: 0 0 12px;
+  color: rgba(26, 26, 26, 0.4);
+  transition: color 0.25s;
 }
 
-.stepTitle em {
-  font-style: italic;
+.card:hover .kickerNum,
+.card:hover .kickerSep,
+.card:hover .kickerTag {
+  color: rgba(245, 245, 245, 0.42);
 }
 
-.stepBody {
+.icon {
+  width: 26px;
+  height: 26px;
+  color: #1A1A1A;
+  margin-bottom: 18px;
+  transition: color 0.25s;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .icon {
+  color: #F5F5F5;
+}
+
+.cardTitle {
   font-family: var(--font-geist), system-ui, sans-serif;
-  font-size: 15px;
-  color: rgba(245, 245, 245, 0.65);
-  line-height: 1.55;
+  font-weight: 500;
+  font-size: 1.22rem;
+  color: #1A1A1A;
   margin: 0;
+  transition: color 0.25s;
 }
 
-/* Tablet: 2x2 */
-@media (max-width: 960px) {
-  .steps {
+.card:hover .cardTitle {
+  color: #F5F5F5;
+}
+
+.cardBody {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: rgba(26, 26, 26, 0.62);
+  line-height: 1.55;
+  margin: 8px 0 0;
+  transition: color 0.25s;
+}
+
+.card:hover .cardBody {
+  color: #F5F5F5;
+}
+
+@media (max-width: 980px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 48px 36px;
-  }
-  .rail {
-    display: none;
   }
 }
 
-/* Phone: single column */
-@media (max-width: 600px) {
+@media (max-width: 560px) {
   .section {
     padding: 80px 24px;
   }
   .head {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
-  .steps {
+  .grid {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 }

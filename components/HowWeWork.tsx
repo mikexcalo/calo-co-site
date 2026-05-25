@@ -1,15 +1,61 @@
 import styles from './HowWeWork.module.css'
 
-const steps = [
-  { num: '01', title: 'Discovery', body: "A real conversation, not a pitch. We learn what you\u2019re building, what\u2019s working, and what\u2019s in the way." },
-  { num: '02', title: 'Charting', body: "Within a week, you get a written plan and a fixed quote. What we\u2019ll do, in what order, how long, how much." },
-  { num: '03', title: 'Voyage', body: "We build it for you, with you, or teach you how. Whichever fits where you are." },
-  { num: '04', title: 'Course correction', body: "Launch isn\u2019t the end. We measure what\u2019s working, fix what isn\u2019t, and keep adjusting as you grow." },
+const cards = [
+  {
+    num: '01',
+    tag: 'Discovery',
+    title: 'Chart the course',
+    body: 'We dig into your business, your market, and your goals. You leave with a plan built on evidence \u2014 not a guess.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5 15.5 8.5" />
+      </svg>
+    ),
+  },
+  {
+    num: '02',
+    tag: 'Design & build',
+    title: 'Build the kit',
+    body: 'Brand, website, and systems \u2014 designed and built by one team, in sync, with nothing lost between handoffs.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14.5 5.5l4 4" />
+        <path d="M3 21l3.5-1 11-11-2.5-2.5-11 11L3 21z" />
+        <path d="M15 4l5 5" />
+      </svg>
+    ),
+  },
+  {
+    num: '03',
+    tag: 'Growth',
+    title: 'Launch & steer',
+    body: 'We put it live and run the growth \u2014 campaigns, lead flow, and the tuning that turns traffic into revenue.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 17l6-6 4 4 8-8" />
+        <polyline points="14 7 21 7 21 14" />
+      </svg>
+    ),
+  },
+  {
+    num: '04',
+    tag: 'Handover',
+    title: 'Hand on the wheel',
+    body: 'Everything is built so your team can run it. You get the keys, the training, and the confidence \u2014 never a lock-in.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" />
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+      </svg>
+    ),
+  },
 ]
 
 export default function HowWeWork() {
   return (
-    <section className={`${styles.section} section-dark`}>
+    <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.head}>
           <span className={styles.eyebrow}>How we work</span>
@@ -21,18 +67,19 @@ export default function HowWeWork() {
           </p>
         </div>
 
-        <div className={styles.timeline}>
-          <div className={styles.rail} />
-          <div className={styles.steps}>
-            {steps.map((step, i) => (
-              <div key={step.num} className={`${styles.step} ${i === 0 ? styles.stepActive : ''}`}>
-                <span className={styles.dot} />
-                <div className={styles.label}>Step {step.num}</div>
-                <h3 className={styles.stepTitle}><em>{step.title}</em></h3>
-                <p className={styles.stepBody}>{step.body}</p>
+        <div className={styles.grid}>
+          {cards.map((card) => (
+            <div key={card.num} className={styles.card}>
+              <div className={styles.kicker}>
+                <span className={styles.kickerNum}>{card.num}</span>
+                <span className={styles.kickerSep}> · </span>
+                <span className={styles.kickerTag}>{card.tag}</span>
               </div>
-            ))}
-          </div>
+              <div className={styles.icon}>{card.icon}</div>
+              <h3 className={styles.cardTitle}>{card.title}</h3>
+              <p className={styles.cardBody}>{card.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
