@@ -24,88 +24,64 @@
   font-weight: 400;
 }
 
-.grid {
+.columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.tile {
-  background: #FFFFFF;
-  border: 1px solid rgba(17, 17, 19, 0.08);
-  border-radius: 8px;
-  overflow: hidden;
+.col {
+  padding: 0 40px;
+  border-left: 1px solid rgba(26, 26, 26, 0.14);
 }
 
-.imagePlaceholder {
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-  border-radius: 8px 8px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.col:first-child {
+  border-left: none;
+  padding-left: 0;
 }
 
-.placeholderLabel {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.35);
+.col:last-child {
+  padding-right: 0;
 }
 
-.content {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.eyebrow {
-  font-family: var(--font-ibm-plex-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
+.colTitle {
+  font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 600;
+  font-size: 1.125rem;
+  color: #1A1A1A;
+  margin: 0 0 10px;
 }
 
-.tileHeadline {
-  font-family: var(--font-lora), Georgia, serif;
+.colDesc {
+  font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: #1A1A1A;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.55);
   margin: 0;
 }
 
-.body {
+.rule {
+  border: none;
+  border-top: 1px solid rgba(26, 26, 26, 0.14);
+  margin: 24px 0;
+}
+
+.colBody {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  color: rgba(26, 26, 26, 0.7);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.72);
   margin: 0;
 }
 
-.attribution {
-  font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  color: #1A1A1A;
-  margin: 8px 0 0;
-}
-
-@media (max-width: 900px) {
-  .section {
-    padding: 80px 24px;
-  }
-  .grid {
+@media (max-width: 860px) {
+  .columns {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 40px;
   }
-  .content {
-    padding: 28px 24px 32px;
+  .col {
+    border-left: none;
+    padding: 0;
   }
 }
