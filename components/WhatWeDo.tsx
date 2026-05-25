@@ -1,6 +1,17 @@
-import styles from './WhatWeDo.module.css';
+'use client'
+import { useState } from 'react'
+import styles from './WhatWeDo.module.css'
+
+const items = [
+  { header: '[Service one]', body: '[Placeholder — what this service covers and the outcome the client gets.]' },
+  { header: '[Service two]', body: '[Placeholder — what this service covers and the outcome the client gets.]' },
+  { header: '[Service three]', body: '[Placeholder — what this service covers and the outcome the client gets.]' },
+  { header: '[Service four]', body: '[Placeholder — what this service covers and the outcome the client gets.]' },
+]
 
 export default function WhatWeDo() {
+  const [openIdx, setOpenIdx] = useState(0)
+
   return (
     <section className={`${styles.section} section-dark`}>
       <div className={styles.inner}>
@@ -9,11 +20,30 @@ export default function WhatWeDo() {
           [Placeholder headline — everything we offer and everything
           they get, said in one confident line.]
         </h2>
-        <p className={styles.sub}>
-          [Placeholder supporting line — a sentence on the breadth of
-          services and the outcome clients walk away with.]
-        </p>
+
+        <ul className={styles.accordion}>
+          {items.map((item, i) => {
+            const isOpen = openIdx === i
+            return (
+              <li key={i} className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}>
+                <button
+                  className={styles.row}
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenIdx(i)}
+                >
+                  <span className={styles.rowLabel}>{item.header}</span>
+                  <span className={styles.sign} aria-hidden />
+                </button>
+                <div className={styles.body}>
+                  <div className={styles.bodyInner}>
+                    <p>{item.body}</p>
+                  </div>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </section>
-  );
+  )
 }
