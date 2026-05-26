@@ -277,8 +277,8 @@ export default function FixedPillars() {
     const inView = rect.top <= 0 && rect.bottom >= window.innerHeight;
 
     if (inView) {
-      if (!frame.classList.contains(styles.frameVisible)) {
-        frame.classList.add(styles.frameVisible);
+      if (!frame.classList.contains(styles.frameEntered)) {
+        frame.classList.add(styles.frameEntered);
       }
       const total = rect.height - window.innerHeight;
       const p = clamp(-rect.top / total, 0, 1);
@@ -309,8 +309,8 @@ export default function FixedPillars() {
         }
       }
     } else {
-      if (frame.classList.contains(styles.frameVisible)) {
-        frame.classList.remove(styles.frameVisible);
+      if (frame.classList.contains(styles.frameEntered)) {
+        frame.classList.remove(styles.frameEntered);
         lastActiveRef.current = -1;
       }
     }
