@@ -11,6 +11,13 @@ function map(v: number, inA: number, inB: number, outA: number, outB: number) {
   return clamp((v - inA) / (inB - inA), 0, 1) * (outB - outA) + outA;
 }
 
+function shade(a: number) {
+  return `rgba(245,245,245,${0.10 + 0.90 * clamp(a, 0, 1)})`;
+}
+
+const STAR_COUNT = 5;
+const FEATHER = 6.0;
+
 interface QuoteScrollStageProps {
   quote: React.ReactNode;
   founder: React.ReactNode;
@@ -21,6 +28,33 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
   const stageRef = useRef<HTMLDivElement>(null);
   const founderRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
+  const quoteLayerRef = useRef<HTMLDivElement>(null);
+
+  // Cached DOM element arrays — populated once after mount
+  const starsRef = useRef<HTMLElement[]>([]);
+  const lettersRef = useRef<HTMLElement[]>([]);
+  const signatureRef = useRef<HTMLElement | null>(null);
+  const wordCountRef = useRef(0);
+  const totalLettersRef = useRef(0);
+
+  useEffect(() => {
+    const layer = quoteLayerRef.current;
+    if (!layer) return;
+
+    starsRef.current = Array.from(layer.querySelectorAll<HTMLElement>('[data-star]'));
+    lettersRef.current = Array.from(layer.querySelectorAll<HTMLElement>('[data-letter]'));
+    signatureRef.current = layer.querySelector<HTMLElement>('[data-signature]');
+    totalLettersRef.current = lettersRef.current.length;
+
+    // Count words by finding the highest word boundary
+    // We know the words array from Testimonial — derive word count from letter groupings
+    // Actually simpler: count unique parent inline-block spans
+    const wordSet = new Set<Node>();
+    lettersRef.current.forEach((el) => {
+      if (el.parentElement) wordSet.add(el.parentElement);
+    });
+    wordCountRef.current = wordSet.size;
+  }, []);
 
   const onFrame = useCallback(() => {
     const stage = stageRef.current;
@@ -40,6 +74,29 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
     // FAQ rise (hold between 0.62–0.74, then rise)
     const faqY = map(p, 0.74, 0.96, 106, 0);
     faqEl.style.transform = `translateY(${faqY}%)`;
+
+    // Quote reveal
+    const totalUnits = STAR_COUNT + wordCountRef.current;
+    const edge = p * totalUnits;
+
+    // Stars
+    const stars = starsRef.current;
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].style.color = shade((edge - i + 0.35) / 0.85);
+    }
+
+    // Letters
+    const letters = lettersRef.current;
+    const letterEdge = (edge - STAR_COUNT) * FEATHER;
+    for (let gi = 0; gi < letters.length; gi++) {
+      letters[gi].style.color = shade(letterEdge - gi);
+    }
+
+    // Signature — fade in once all letters are lit
+    const sig = signatureRef.current;
+    if (sig) {
+      sig.style.opacity = letterEdge >= totalLettersRef.current ? '1' : '0';
+    }
   }, []);
 
   useEffect(() => {
@@ -50,8 +107,6 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
       rafId = requestAnimationFrame(tick);
     };
 
-    // Use scroll + resize to keep raf running only when needed
-    // Actually, simpler: just run raf loop while mounted
     rafId = requestAnimationFrame(tick);
 
     return () => cancelAnimationFrame(rafId);
@@ -60,7 +115,7 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
   return (
     <div ref={stageRef} className={styles.stage}>
       <div className={styles.pin}>
-        <div className={styles.layerQuote}>
+        <div ref={quoteLayerRef} className={styles.layerQuote}>
           {quote}
         </div>
         <div ref={founderRef} className={styles.layerFounder}>

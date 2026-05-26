@@ -31,7 +31,7 @@
 
 .starWrap {
   display: inline-block;
-  color: #F5F5F5;
+  color: rgba(245, 245, 245, 0.10);
 }
 
 .starWrap svg {
@@ -47,36 +47,16 @@
   font-size: clamp(1.875rem, 3.6vw, 3.25rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
-  color: #F5F5F5;
+  color: rgba(245, 245, 245, 0.10);
   margin: 0 auto 56px;
   max-width: 880px;
   text-align: center;
 }
 
-/* Words default to VISIBLE (no-JS fallback) */
-.word {
-  display: inline;
-}
-
-/* Only when JS has mounted do we set pre-animation state */
-.jsReady .word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--i, 0) * 35ms);
-}
-
-/* When section enters view, reveal words */
-.inView .word {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .signature {
   margin-top: 12px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .signatureName {
@@ -98,12 +78,16 @@
   margin: 0;
 }
 
-/* Reduced motion: skip animation, always visible */
+/* Reduced motion: show everything */
 @media (prefers-reduced-motion: reduce) {
-  .jsReady .word {
+  .starWrap {
+    color: #F5F5F5 !important;
+  }
+  .quote {
+    color: #F5F5F5 !important;
+  }
+  .signature {
     opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
   }
 }
 
