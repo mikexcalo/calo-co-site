@@ -13,7 +13,7 @@ export default function WhatWeDo() {
   const [openIdx, setOpenIdx] = useState(0)
 
   return (
-    <section className={`${styles.section} section-dark`}>
+    <section className={styles.section}>
       <div className={styles.inner}>
         <span className={styles.eyebrow}>What We Do</span>
         <h2 className={styles.headline}>

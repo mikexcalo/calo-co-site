@@ -1,6 +1,6 @@
 .section {
-  background: var(--charcoal, #1A1A1A);
-  color: var(--ivory, #F5F5F5);
+  background: var(--ivory, #F5F5F5);
+  color: var(--charcoal, #1A1A1A);
   padding: 120px var(--site-gutter);
 }
 
@@ -15,7 +15,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.4);
+  color: rgba(26, 26, 26, 0.55);
   margin-bottom: 20px;
 }
 
@@ -25,7 +25,7 @@
   font-size: clamp(2rem, 4.2vw, 3.25rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
-  color: var(--ivory, #F5F5F5);
+  color: var(--charcoal, #1A1A1A);
   margin: 0 0 64px;
   max-width: 20ch;
 }
@@ -38,11 +38,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(245, 245, 245, 0.14);
+  border-top: 1px solid rgba(26, 26, 26, 0.12);
 }
 
 .item {
-  border-bottom: 1px solid rgba(245, 245, 245, 0.14);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
 }
 
 .row {
@@ -59,7 +59,7 @@
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
   font-size: 1.25rem;
-  color: var(--ivory, #F5F5F5);
+  color: var(--charcoal, #1A1A1A);
   transition: color 0.18s ease;
 }
 
@@ -82,7 +82,7 @@
 .sign::after {
   content: '';
   position: absolute;
-  background: var(--ivory, #F5F5F5);
+  background: var(--charcoal, #1A1A1A);
   top: 50%;
   left: 50%;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -123,7 +123,7 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(26, 26, 26, 0.62);
   margin: 0;
   max-width: 60ch;
 }
