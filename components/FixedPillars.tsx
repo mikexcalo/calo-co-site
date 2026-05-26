@@ -245,7 +245,7 @@ function clamp(v: number, a: number, b: number) {
 function PaneContent({ pillar }: { pillar: typeof PILLARS[number] }) {
   return (
     <>
-      <h2 className={styles.headline}>{pillar.headline}</h2>
+      <h3 className={styles.headline}>{pillar.headline}</h3>
       <p className={styles.description}>{pillar.desc}</p>
       <div className={styles.features}>
         {pillar.features.map((f, i) => (
@@ -332,6 +332,12 @@ export default function FixedPillars() {
     <div ref={runwayRef} className={styles.runway}>
       <div ref={frameRef} className={styles.frame}>
         <div className={styles.wrap}>
+          <div className={styles.header}>
+            <span className={styles.sectionEyebrow}>What we do</span>
+            <h2 className={styles.sectionHeadline}>
+              Everything your business needs, <em>in one place</em>.
+            </h2>
+          </div>
           <div className={styles.row}>
             {/* Left column */}
             <div className={styles.copy}>
