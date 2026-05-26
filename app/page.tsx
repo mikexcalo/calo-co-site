@@ -28,6 +28,7 @@ export default function Home() {
       </div>
       <ScrollCover />
       <FixedPillars />
+      <ExpandingQuote />
       <WhoWeServe />
       <StoryTiles />
       <ExpandingQuote />
