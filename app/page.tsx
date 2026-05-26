@@ -11,6 +11,7 @@ import HowWeWork from "@/components/HowWeWork";
 import FAQ from "@/components/FAQ";
 import FounderMemo from "@/components/FounderMemo";
 import Testimonial from "@/components/Testimonial";
+import QuoteScrollStage from "@/components/QuoteScrollStage";
 import ContactCTA from "@/components/ContactCTA";
 import Draft from "@/components/Draft";
 import Footer from "@/components/Footer";
@@ -32,9 +33,11 @@ export default function Home() {
       <ExpandingQuote />
       <HowWeWork />
       <SteerBand />
-      <FounderMemo />
-      <Testimonial />
-      <FAQ />
+      <QuoteScrollStage
+        quote={<Testimonial />}
+        founder={<FounderMemo />}
+        faq={<FAQ />}
+      />
       <ContactCTA />
       <Draft />
       <Footer />
