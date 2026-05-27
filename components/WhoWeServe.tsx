@@ -149,13 +149,19 @@ export default function WhoWeServe() {
     <section className={styles.section}>
       <div className={styles.head}>
         <span className={styles.eyebrow}>Who we serve</span>
-        <h2 className={`${styles.title} display`}>
-          For every visionary<br />and venture
+        <h2 className={styles.title}>
+          For every visionary<br />and venture.
         </h2>
-        <div className={styles.arrows}>
-          <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
-          <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
-        </div>
+        <p className={styles.subhead}>
+          From solo founders to skilled-trade teams, we partner with operators
+          ready to build something worth remembering. Every business runs different
+          — we shape what we do to match how yours actually works.
+        </p>
+      </div>
+
+      <div className={styles.arrowBar}>
+        <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
+        <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
       </div>
 
       <div
@@ -178,6 +184,11 @@ export default function WhoWeServe() {
             </article>
           ))}
         </div>
+      </div>
+
+      <div className={styles.arrowBarMobile}>
+        <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
+        <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
       </div>
     </section>
   )
