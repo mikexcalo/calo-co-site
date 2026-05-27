@@ -63,7 +63,7 @@ export default function HeroPlunge() {
             We chart the course,<br />you make <em>waves</em>.
           </h1>
           <p className={styles.heroSub}>
-            Grow your business with a team of experts in accelerating growth.
+            Accelerate sustainable growth that scales.
           </p>
           <div className={styles.heroCtas}>
             <button className={styles.btnPrimary} data-modal-trigger="true">
