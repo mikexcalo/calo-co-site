@@ -45,7 +45,6 @@ body {
   color: #1A1A1A !important;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  overflow-x: hidden;
 }
 
 /* Defeat iOS / in-app webview auto-inversion */
