@@ -13,7 +13,6 @@ import FounderMemo from "@/components/FounderMemo";
 import Testimonial from "@/components/Testimonial";
 import QuoteScrollStage from "@/components/QuoteScrollStage";
 import ContactCTA from "@/components/ContactCTA";
-import Draft from "@/components/Draft";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import styles from "./page.module.css";
@@ -40,7 +39,6 @@ export default function Home() {
         founder={<FounderMemo />}
         faq={<FAQ />}
       />
-      <Draft />
       <Footer />
       <ContactModal />
     </>
