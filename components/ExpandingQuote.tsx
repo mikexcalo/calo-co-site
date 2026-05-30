@@ -22,8 +22,7 @@ export default function ExpandingQuote() {
       const total = moduleEl.offsetHeight - window.innerHeight
       const p = total > 0 ? Math.max(0, Math.min(1, -rect.top / total)) : 0
       const openP = seg(p, 0, 0.3)
-      const closeP = seg(p, 0.7, 1)
-      const pv = openP * (1 - closeP)
+      const pv = openP
       panelEl.style.setProperty('--p', pv.toFixed(4))
       panelEl.querySelectorAll<HTMLElement>('.' + styles.fi).forEach((el) => {
         const idx = parseFloat(el.dataset.fi || '0')
