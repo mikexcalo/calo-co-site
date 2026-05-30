@@ -21,13 +21,11 @@ const FEATHER = 6.0;
 interface QuoteScrollStageProps {
   quote: React.ReactNode;
   founder: React.ReactNode;
-  faq: React.ReactNode;
 }
 
-export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollStageProps) {
+export default function QuoteScrollStage({ quote, founder }: QuoteScrollStageProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const founderRef = useRef<HTMLDivElement>(null);
-  const faqRef = useRef<HTMLDivElement>(null);
   const quoteLayerRef = useRef<HTMLDivElement>(null);
 
   // Cached DOM element arrays — populated once after mount
@@ -59,8 +57,7 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
   const onFrame = useCallback(() => {
     const stage = stageRef.current;
     const founderEl = founderRef.current;
-    const faqEl = faqRef.current;
-    if (!stage || !founderEl || !faqEl) return;
+    if (!stage || !founderEl) return;
 
     const rect = stage.getBoundingClientRect();
     const p = clamp(-rect.top / (rect.height - window.innerHeight), 0, 1);
@@ -70,10 +67,6 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
     const founderOpacity = map(p, 0.10, 0.16, 1, 0);
     founderEl.style.transform = `translateY(${founderY}%)`;
     founderEl.style.opacity = String(founderOpacity);
-
-    // FAQ rise (hold between 0.62–0.74, then rise)
-    const faqY = map(p, 0.74, 0.96, 106, 0);
-    faqEl.style.transform = `translateY(${faqY}%)`;
 
     // Quote reveal
     const totalUnits = STAR_COUNT + wordCountRef.current;
@@ -120,9 +113,6 @@ export default function QuoteScrollStage({ quote, founder, faq }: QuoteScrollSta
         </div>
         <div ref={founderRef} className={styles.layerFounder}>
           {founder}
-        </div>
-        <div ref={faqRef} className={styles.layerFaq}>
-          {faq}
         </div>
       </div>
     </div>

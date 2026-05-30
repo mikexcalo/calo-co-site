@@ -33,12 +33,12 @@ export default function Home() {
       <ExpandingQuote />
       <HowWeWork />
       <SteerBand />
-      <ContactCTA />
       <QuoteScrollStage
         quote={<Testimonial />}
         founder={<FounderMemo />}
-        faq={<FAQ />}
       />
+      <ContactCTA />
+      <FAQ />
       <Footer />
       <ContactModal />
     </>
