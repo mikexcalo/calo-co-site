@@ -81,14 +81,28 @@ export default function QuoteScrollStage({ quote, founder }: QuoteScrollStagePro
     // Letters
     const letters = lettersRef.current;
     const letterEdge = (edge - STAR_COUNT) * FEATHER;
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     for (let gi = 0; gi < letters.length; gi++) {
-      letters[gi].style.color = shade(letterEdge - gi);
+      const wave = 2.4 * Math.sin(gi * 0.45);
+      let t = (letterEdge - (gi + wave)) / 9.0 + 0.5;
+      t = clamp(t, 0, 1);
+      t = t * t * (3 - 2 * t);
+      letters[gi].style.color = `rgba(245,245,245,${0.12 + 0.88 * t})`;
+      if (reduce || t >= 1) {
+        letters[gi].style.transform = '';
+        letters[gi].style.filter = '';
+      } else {
+        letters[gi].style.transform = `translateY(${(1 - t) * 8}px)`;
+        letters[gi].style.filter = `blur(${(1 - t) * 3}px)`;
+      }
     }
 
     // Signature — fade in once all letters are lit
     const sig = signatureRef.current;
     if (sig) {
-      sig.style.opacity = letterEdge >= totalLettersRef.current ? '1' : '0';
+      sig.style.opacity = letterEdge >= totalLettersRef.current + 5 ? '1' : '0';
     }
   }, []);
 
