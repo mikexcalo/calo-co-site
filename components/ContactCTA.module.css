@@ -56,9 +56,9 @@
   font-weight: 600;
   padding: 16px 28px;
   border-radius: 6px;
-  border: 1px solid #00DCA8;
-  background: #00DCA8;
-  color: var(--charcoal);
+  border: 1px solid var(--charcoal);
+  background: var(--charcoal);
+  color: var(--ivory);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -67,9 +67,9 @@
 }
 
 .cta:hover {
-  background: #14F0B5;
-  border-color: #14F0B5;
-  color: var(--charcoal);
+  background: #000;
+  border-color: #000;
+  color: var(--ivory);
   transform: translateY(-1px);
 }
 
@@ -80,6 +80,26 @@
 
 .cta:hover .arrow {
   transform: translateX(2px);
+}
+
+.riser {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 40px;
+  color: var(--charcoal);
+  pointer-events: none;
+}
+
+.riser svg {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.ctaWrap:hover ~ .riser svg {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
