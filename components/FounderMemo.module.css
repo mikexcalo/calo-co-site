@@ -1,55 +1,30 @@
 .section {
   background: var(--ivory);
   color: var(--charcoal);
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
   width: 100%;
   min-height: 100vh;
-}
-
-.copyCol {
-  background: #FBFAF7;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 80px 7vw 80px 8vw;
-  order: 1;
+  justify-content: center;
+  padding: 72px var(--site-gutter);
 }
 
-.portrait {
-  background-color: #2a2520;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  order: 2;
-  transform: scale(1.08);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.section.inView .portrait {
-  transform: scale(1);
-}
-
-.copyInner {
+.inner {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  max-width: 480px;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  max-width: 640px;
+  width: 100%;
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
   will-change: opacity, transform;
 }
 
-.section.inView .copyInner {
+.section.inView .inner {
   opacity: 1;
   transform: translateY(0);
 }
@@ -62,32 +37,50 @@
   color: rgba(26, 26, 26, 0.55);
 }
 
+.portrait {
+  width: min(560px, 100%);
+  aspect-ratio: 16 / 10;
+  max-height: 44vh;
+  border-radius: 16px;
+  background-color: #2a2520;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.section.inView .portrait {
+  transform: scale(1);
+}
+
 .quote {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(1.75rem, 2.6vw, 2.625rem);
-  line-height: 1.28;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  line-height: 1.26;
   letter-spacing: -0.015em;
   color: var(--charcoal);
   margin: 0;
+  max-width: 28ch;
 }
 
 .quote em {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .signatureBlock {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 8px;
+  align-items: center;
+  gap: 6px;
 }
 
 .signature {
   font-family: 'Sacramento', cursive;
-  font-size: 52px;
+  font-size: 46px;
   line-height: 1;
   color: var(--charcoal);
   letter-spacing: 0.02em;
@@ -99,7 +92,7 @@
   line-height: 1.4;
   color: var(--charcoal);
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .signatureRole {
@@ -108,28 +101,15 @@
 }
 
 @media (max-width: 860px) {
-  .split {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 60vh;
-    min-height: auto;
-  }
-  .copyCol {
+  .section {
     padding: 64px 24px;
-    justify-content: center;
-    order: 2;
   }
   .portrait {
-    min-height: 60vh;
-    order: 1;
+    width: 100%;
+    max-height: none;
   }
-  .copyInner {
+  .quote {
+    font-size: 1.5rem;
     max-width: 100%;
-    gap: 28px;
-  }
-  .signatureBlock {
-    align-items: center;
-  }
-  .signatureLabel {
-    text-align: center;
   }
 }
