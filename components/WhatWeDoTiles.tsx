@@ -130,8 +130,12 @@ export default function WhatWeDoTiles() {
         <div className={styles.header}>
           <span className={styles.eyebrow}>What we do</span>
           <h2 className={styles.headline}>
-            Everything your business needs,<br /><em>in one place</em>.
+            Strategy, design, and execution.<br /><em>One team for all of it.</em>
           </h2>
+          <p className={styles.subhead}>
+            Brand, marketing, websites, and the systems behind them — handled by
+            one team and scoped to what your business actually needs.
+          </p>
         </div>
 
         <div className={styles.tileRow}>

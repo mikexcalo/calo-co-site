@@ -12,7 +12,7 @@
 /* ── Header ── */
 
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 56px;
 }
 
@@ -37,11 +37,11 @@
 .headline {
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
-  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-  line-height: 1.12;
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--ivory, #F5F5F5);
-  margin: 0 auto;
+  margin: 0;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s ease 0.08s, transform 0.5s ease 0.08s;
@@ -54,6 +54,15 @@
 
 .headline em {
   font-style: italic;
+}
+
+.subhead {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.62);
+  max-width: 52ch;
+  margin: 18px 0 0;
 }
 
 /* ── Tile row ── */
