@@ -21,11 +21,15 @@ export default function ExpandingQuote() {
       const rect = moduleEl.getBoundingClientRect()
       const total = moduleEl.offsetHeight - window.innerHeight
       const p = total > 0 ? Math.max(0, Math.min(1, -rect.top / total)) : 0
-      panelEl.style.setProperty('--p', seg(p, 0, 0.7).toFixed(4))
+      const openP = seg(p, 0, 0.3)
+      const closeP = seg(p, 0.7, 1)
+      const pv = openP * (1 - closeP)
+      panelEl.style.setProperty('--p', pv.toFixed(4))
+      const out = 1 - seg(p, 0.74, 0.92)
       panelEl.querySelectorAll<HTMLElement>('.' + styles.fi).forEach((el) => {
         const idx = parseFloat(el.dataset.fi || '0')
-        const start = 0.42 + idx * 0.08
-        el.style.setProperty('--i', seg(p, start, start + 0.16).toFixed(4))
+        const start = 0.3 + idx * 0.05
+        el.style.setProperty('--i', (seg(p, start, start + 0.14) * out).toFixed(4))
       })
     }
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
