@@ -13,6 +13,7 @@ import FounderMemo from "@/components/FounderMemo";
 import Testimonial from "@/components/Testimonial";
 import QuoteScrollStage from "@/components/QuoteScrollStage";
 import ContactCTA from "@/components/ContactCTA";
+import WebsiteShowcase from "@/components/WebsiteShowcase";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import styles from "./page.module.css";
@@ -27,7 +28,7 @@ export default function Home() {
       </div>
       <ScrollCover />
       <WhatWeDoTiles />
-      <ExpandingQuote />
+      <WebsiteShowcase />
       <WhoWeServe />
       <StoryTiles />
       <ExpandingQuote />
