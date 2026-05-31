@@ -43,48 +43,56 @@ const PILLARS = [
     label: 'Brand & Design',
     kicker: 'Brand & Design',
     statement: <>The brand they <em>won&rsquo;t forget</em>.</>,
+    sub: 'Identity that looks as serious as the business behind it.',
     features: [
       { icon: <IcoTarget />, text: 'Brand strategy' },
       { icon: <IcoPen />, text: 'Logo & identity' },
       { icon: <IcoMic />, text: 'Voice' },
       { icon: <IcoPrinter />, text: 'Print & signage' },
       { icon: <IcoBook />, text: 'Guidelines' },
+      { icon: <IcoEdit />, text: 'Brand kit' },
     ],
   },
   {
     label: 'Marketing & Sales',
     kicker: 'Marketing & Sales',
     statement: <>Attention, turned <em>into customers</em>.</>,
+    sub: 'Demand that compounds instead of renting reach.',
     features: [
       { icon: <IcoMap />, text: 'GTM strategy' },
       { icon: <IcoEdit />, text: 'Content & social' },
       { icon: <IcoTrendingUp />, text: 'Paid & organic' },
       { icon: <IcoFilter />, text: 'Lead funnels' },
       { icon: <IcoMail />, text: 'Email & CRM' },
+      { icon: <IcoActivity />, text: 'Analytics' },
     ],
   },
   {
     label: 'Websites & Systems',
     kicker: 'Websites & Systems',
     statement: <>The engine that <em>scales with you</em>.</>,
+    sub: 'A site and stack that runs the business, not just shows it.',
     features: [
       { icon: <IcoMonitor />, text: 'Design & build' },
       { icon: <IcoCalendar />, text: 'Scheduling' },
       { icon: <IcoCreditCard />, text: 'Payments' },
       { icon: <IcoZap />, text: 'Automation' },
       { icon: <IcoLink />, text: 'Integrations' },
+      { icon: <IcoShield />, text: 'Hosting & care' },
     ],
   },
   {
     label: 'Support & Growth',
     kicker: 'Support & Growth',
     statement: <>A partner <em>in your corner</em>.</>,
+    sub: 'A team that stays after launch and keeps moving the needle.',
     features: [
       { icon: <IcoUsers />, text: 'Dedicated team' },
       { icon: <IcoActivity />, text: 'Performance reviews' },
       { icon: <IcoRefresh />, text: 'Optimization' },
       { icon: <IcoCompass />, text: 'Roadmap' },
       { icon: <IcoShield />, text: 'Priority support' },
+      { icon: <IcoCalendar />, text: 'Quarterly planning' },
     ],
   },
 ];
@@ -128,10 +136,10 @@ export default function WhatWeDoTiles() {
     >
       <div className={styles.inner}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>What we do</span>
-          <h2 className={styles.headline}>
-            Strategy, design, and execution.<br /><em>One team for all of it.</em>
-          </h2>
+          <div className={styles.hleft}>
+            <span className={styles.eyebrow}>What we do</span>
+            <h2 className={styles.headline}>Strategy, design, and execution.</h2>
+          </div>
           <p className={styles.subhead}>
             Brand, marketing, websites, and the systems behind them — handled by
             one team and scoped to what your business actually needs.
@@ -143,17 +151,16 @@ export default function WhatWeDoTiles() {
             <div
               key={i}
               className={`${styles.tile} ${active === i ? styles.tileActive : ''}`}
+              onMouseEnter={() => setActive(i)}
               onClick={() => setActive(i)}
             >
               <span className={styles.collapsedLabel}>{p.label}</span>
 
               <div className={styles.activeContent}>
-                <div>
-                  <div className={styles.kicker}>{p.kicker}</div>
-                  <h3 className={styles.statement}>{p.statement}</h3>
-                  <a href="#contact" className={styles.ctaLink}>Get in touch &rarr;</a>
-                </div>
-                <div className={styles.featuresCol}>
+                <div className={styles.kicker}>{p.kicker}</div>
+                <h3 className={styles.statement}>{p.statement}</h3>
+                <p className={styles.msub}>{p.sub}</p>
+                <div className={styles.featuresGrid}>
                   {p.features.map((f, fi) => (
                     <div key={fi} className={styles.featureRow}>
                       {f.icon}
@@ -161,6 +168,7 @@ export default function WhatWeDoTiles() {
                     </div>
                   ))}
                 </div>
+                <a href="#contact" className={styles.ctaLink}>Get in touch &rarr;</a>
               </div>
             </div>
           ))}
