@@ -26,6 +26,7 @@ const FAQS = [
 ];
 
 export default function FAQ() {
+  const [masterOpen, setMasterOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<Set<number>>(new Set());
 
   const toggle = (i: number) => {
@@ -45,50 +46,61 @@ export default function FAQ() {
       itemType="https://schema.org/FAQPage"
     >
       <div className={styles.inner}>
-        <div className={styles.head}>
-          <span className={styles.eyebrow}>Good questions</span>
-          <h2 className={styles.headline}>
-            The things people ask us <em>first</em>.
-          </h2>
-        </div>
+        <div className={`${styles.master} ${masterOpen ? styles.masterOpen : ""}`}>
+          <button
+            className={styles.masterRow}
+            aria-expanded={masterOpen}
+            aria-controls="faq-body"
+            onClick={() => setMasterOpen((v) => !v)}
+          >
+            <span className={styles.masterTitle}>
+              Still have questions? We have <em>answers</em>.
+            </span>
+            <span className={styles.masterSign} aria-hidden />
+          </button>
 
-        <ul className={styles.grid}>
-          {FAQS.map((item, i) => {
-            const isOpen = openIndex.has(i);
-            return (
-              <li
-                key={i}
-                className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-              >
-                <button
-                  className={styles.row}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-a-${i}`}
-                  onClick={() => toggle(i)}
-                >
-                  <span className={styles.qText} itemProp="name">
-                    {item.q}
-                  </span>
-                  <span className={styles.sign} aria-hidden />
-                </button>
-                <div
-                  id={`faq-a-${i}`}
-                  className={styles.answer}
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <div className={styles.answerInner} itemProp="text">
-                    <p>{item.a}</p>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+          <div id="faq-body" className={styles.body}>
+            <div className={styles.bodyClip}>
+              <ul className={styles.grid}>
+                {FAQS.map((item, i) => {
+                  const isOpen = openIndex.has(i);
+                  return (
+                    <li
+                      key={i}
+                      className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}
+                      itemScope
+                      itemProp="mainEntity"
+                      itemType="https://schema.org/Question"
+                    >
+                      <button
+                        className={styles.row}
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-a-${i}`}
+                        onClick={() => toggle(i)}
+                      >
+                        <span className={styles.qText} itemProp="name">
+                          {item.q}
+                        </span>
+                        <span className={styles.sign} aria-hidden />
+                      </button>
+                      <div
+                        id={`faq-a-${i}`}
+                        className={styles.answer}
+                        itemScope
+                        itemProp="acceptedAnswer"
+                        itemType="https://schema.org/Answer"
+                      >
+                        <div className={styles.answerInner} itemProp="text">
+                          <p>{item.a}</p>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
