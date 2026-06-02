@@ -15,8 +15,7 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.02em;
-  --nav-mode: clamp(0, calc((var(--p, 0) - 0.45) * 5), 1);
-  color: color-mix(in srgb, #1A1A1A, #F5F5F5 calc(var(--nav-mode) * 100%));
+  color: #F5F5F5;
   pointer-events: auto;
 }
 

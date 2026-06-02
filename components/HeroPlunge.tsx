@@ -67,6 +67,9 @@ export default function HeroPlunge() {
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
 
+        {/* Scrim over video for text legibility */}
+        <div className={styles.heroScrim} aria-hidden="true"></div>
+
         {/* Subtle bottom fade on hero (fades out as you dive) */}
         <div className={styles.heroFade} aria-hidden="true"></div>
 

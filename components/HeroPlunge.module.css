@@ -27,6 +27,21 @@
   pointer-events: none;
 }
 
+/* Whole-hero scrim — darker top & bottom, lighter middle (Square-style text legibility) */
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 26, 0.55) 0%,
+    rgba(26, 26, 26, 0.25) 32%,
+    rgba(26, 26, 26, 0.25) 60%,
+    rgba(26, 26, 26, 0.65) 100%
+  );
+}
+
 /* The dark overlay that fades in to cover the cream gradient */
 .stage::before {
   content: '';
@@ -105,14 +120,14 @@
   font-weight: 500;
   font-size: 16px;
   padding: 17px 32px;
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   border: none;
   text-decoration: none;
-  transition: gap 200ms;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .btnPrimary { background: #F5F5F5; color: #1A1A1A; }
 .btnSecondary {
@@ -120,7 +135,7 @@
   color: #1A1A1A;
   border: 1px solid rgba(26, 26, 26, 0.2);
 }
-.btnPrimary:hover, .btnSecondary:hover { gap: 12px; }
+.btnPrimary:hover, .btnSecondary:hover { transform: scale(1.04); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25); }
 
 .marqueeScrim {
   position: absolute;
@@ -146,7 +161,7 @@
 }
 .marqueeTrack {
   display: inline-block;
-  animation: heroPlunge-scroll-left 50s linear infinite;
+  animation: heroPlunge-scroll-left 75s linear infinite;
 }
 .marqueeItem {
   display: inline-flex;
@@ -186,10 +201,10 @@
   left: 0;
   right: 0;
   height: 80px;
-  background: linear-gradient(180deg, transparent, #EDEDED);
+  background: none;
   z-index: 1;
   pointer-events: none;
-  opacity: clamp(0, calc(1 - var(--p, 0) * 3), 1);
+  opacity: 0;
 }
 
 
