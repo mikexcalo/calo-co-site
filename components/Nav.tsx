@@ -43,7 +43,7 @@ export default function Nav() {
     <header className={styles.header}>
       <div className={styles.wordmark}>CALO<span className="amp">&amp;</span>CO</div>
       <button className={styles.navCta} data-modal-trigger>
-        Get in Touch
+        Get Started
       </button>
     </header>
   );

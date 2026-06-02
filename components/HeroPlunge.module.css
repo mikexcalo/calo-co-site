@@ -70,7 +70,7 @@
 
 /* HERO layer — translates upward as you dive */
 .layerHero {
-  transform: translateY(calc(var(--p, 0) * -88vh - 4vh));
+  transform: translateY(calc(var(--p, 0) * -88vh + 6vh));
 }
 
 /* layerMod02 / mod02Headline removed — Module 02 text now lives in ScrollCover */
@@ -119,6 +119,8 @@
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
   font-size: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   padding: 17px 32px;
   border-radius: 0;
   cursor: pointer;
@@ -150,7 +152,7 @@
 }
 .marquee {
   position: absolute;
-  bottom: 64px;
+  bottom: 36px;
   left: 0;
   right: 0;
   overflow: hidden;
