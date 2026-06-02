@@ -54,6 +54,19 @@ export default function HeroPlunge() {
     <div ref={blockRef} className={styles.plunge}>
       <div className={styles.stage}>
 
+        {/* HERO BACKGROUND VIDEO */}
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/videos/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+
         {/* Subtle bottom fade on hero (fades out as you dive) */}
         <div className={styles.heroFade} aria-hidden="true"></div>
 

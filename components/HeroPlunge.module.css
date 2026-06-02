@@ -16,6 +16,17 @@
   transform: translateZ(0);
 }
 
+/* Hero background video — sits behind the dark dive-overlay (z-index 0) */
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* The dark overlay that fades in to cover the cream gradient */
 .stage::before {
   content: '';
