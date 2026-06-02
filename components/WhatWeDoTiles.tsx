@@ -138,7 +138,7 @@ export default function WhatWeDoTiles() {
         <div className={styles.header}>
           <div className={styles.hleft}>
             <span className={styles.eyebrow}>What we do</span>
-            <h2 className={styles.headline}>Strategy, design, and execution.</h2>
+            <h2 className={styles.headline}>We chart the course, you make <em>waves</em>.</h2>
           </div>
           <p className={styles.subhead}>
             Brand, marketing, websites, and the systems behind them — handled by

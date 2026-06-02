@@ -76,10 +76,10 @@ export default function HeroPlunge() {
         {/* HERO layer */}
         <div className={`${styles.layer} ${styles.layerHero}`}>
           <h1 className={`${styles.heroHeadline} display`}>
-            We chart the course,<br />you make <em>waves</em>.
+            Turn vision into reality
           </h1>
           <p className={styles.heroSub}>
-            Accelerate sustainable growth that scales.
+            Strategy and execution for independent businesses ready to scale.
           </p>
           <div className={styles.heroCtas}>
             <button className={styles.btnPrimary} data-modal-trigger="true">
