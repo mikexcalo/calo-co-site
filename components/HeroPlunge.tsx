@@ -80,7 +80,7 @@ export default function HeroPlunge() {
           </p>
           <div className={styles.heroCtas}>
             <button className={styles.btnPrimary} data-modal-trigger="true">
-              Climb Aboard <span>&rarr;</span>
+              Get Started
             </button>
           </div>
         </div>
