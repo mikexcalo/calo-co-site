@@ -76,7 +76,7 @@ export default function HeroPlunge() {
         {/* HERO layer */}
         <div className={`${styles.layer} ${styles.layerHero}`}>
           <h1 className={`${styles.heroHeadline} display`}>
-            Build the business of your dreams
+            Build the business<br />of your dreams
           </h1>
           <div className={styles.heroCtas}>
             <button className={styles.btnPrimary} data-modal-trigger="true">

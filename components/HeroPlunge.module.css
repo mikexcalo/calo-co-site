@@ -80,7 +80,7 @@
   font-family: var(--font-lora), Georgia, serif;
   font-weight: 400;
   font-size: clamp(2.75rem, 7vw, 6rem);
-  line-height: 1.02;
+  line-height: 0.95;
   letter-spacing: -0.025em;
   text-align: center;
   color: #F5F5F5;
@@ -162,7 +162,7 @@
 }
 .marqueeTrack {
   display: inline-block;
-  animation: heroPlunge-scroll-left 75s linear infinite;
+  animation: heroPlunge-scroll-left 58s linear infinite;
 }
 .marqueeItem {
   display: inline-flex;
