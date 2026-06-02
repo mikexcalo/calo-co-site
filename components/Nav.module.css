@@ -23,15 +23,14 @@
   font-family: var(--font-geist), sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   background: #F5F5F5;
   color: #1A1A1A;
   padding: 12px 24px;
   border: 1px solid #F5F5F5;
   transform: translateZ(0);
   backface-visibility: hidden;
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   display: inline-flex;
   align-items: center;

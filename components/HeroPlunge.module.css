@@ -2,7 +2,7 @@
 .plunge {
   position: relative;
   height: 132vh;
-  margin-top: -80px;
+  margin-top: -92px;
 }
 
 /* Inner stage — sticky for the dive */
@@ -119,8 +119,7 @@
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   padding: 17px 32px;
   border-radius: 0;
   cursor: pointer;
