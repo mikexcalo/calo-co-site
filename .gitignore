@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 Stock Videos/
+Digital Resume/
+*.mp4
+!public/hotschedules-reel.mp4
+!public/videos/*.mp4

@@ -63,6 +63,14 @@ const CSS = `
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
+.mc-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
+.mc-video video{width:100%;height:100%;object-fit:cover;display:block}
+.mc-vmeta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:12px}
+.mc-vcap{font-size:14px;color:var(--ink)}
+.mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
+.mc-vlink:hover{opacity:.6}
+.mc-embed{border-radius:12px;overflow:hidden;max-width:660px}
+.mc-embed iframe{width:100%;border:0;background:transparent;display:block}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
@@ -125,7 +133,7 @@ export default function MikeCalo(){
   const [dark,setDark]=useState(false);
   const [open,setOpen]=useState<Record<string,boolean>>({});
   const [active,setActive]=useState('intro');
-  const ids=['intro','experience','endorsements','contact'];
+  const ids=['intro','experience','endorsements','offtheclock','contact'];
   useEffect(()=>{
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
     ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
@@ -151,6 +159,7 @@ export default function MikeCalo(){
             <a onClick={()=>go('intro')}>Intro</a>
             <a onClick={()=>go('experience')}>Experience</a>
             <a onClick={()=>go('endorsements')}>Endorsements</a>
+            <a onClick={()=>go('offtheclock')}>Off the Clock</a>
             <a onClick={()=>go('contact')}>Contact</a>
           </nav>
         </aside>
@@ -160,6 +169,19 @@ export default function MikeCalo(){
             <div className="mc-bio">
               <p>Product marketing and go-to-market leader with 13+ years turning products into categories — across SaaS, FinTech, and enterprise, from SMB to the enterprise floor.</p>
               <p>Today I lead Product Marketing &amp; GTM Strategy at Fourth, where I rebuilt the function and own launches, monetization, and the shift toward product-led growth and AI-native GTM. Based in Portland, Maine.</p>
+            </div>
+          </section>
+
+          <div className="mc-rule"/>
+
+          <section id="featured">
+            <div className="mc-label">Featured</div>
+            <div className="mc-video">
+              <video src="/hotschedules-reel.mp4" controls playsInline preload="metadata"></video>
+            </div>
+            <div className="mc-vmeta">
+              <span className="mc-vcap">HotSchedules — &ldquo;Built for the Hustle&rdquo;</span>
+              <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version &rarr;</a>
             </div>
           </section>
 
@@ -199,6 +221,17 @@ export default function MikeCalo(){
                   <div className="mc-qc"><b>Placeholder Name</b> — Title, Company</div>
                 </blockquote>
               ))}
+            </div>
+          </section>
+
+          <div className="mc-rule"/>
+
+          <section id="offtheclock">
+            <div className="mc-label">Off the Clock</div>
+            <div className="mc-embed">
+              <iframe allow="autoplay *; encrypted-media *;" height="450"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                src="https://embed.music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj"></iframe>
             </div>
           </section>
 
