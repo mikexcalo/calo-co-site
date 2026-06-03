@@ -63,16 +63,22 @@ const CSS = `
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
-.mc-video{width:30%;min-width:260px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
+.mc-video{width:60%;min-width:260px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
 .mc-video video{width:100%;height:100%;object-fit:cover;display:block}
 .mc-vmeta{width:30%;min-width:260px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:12px}
 @media(max-width:880px){.mc-video{width:100%}.mc-vmeta{width:100%}}
 .mc-vcap{font-size:14px;color:var(--ink)}
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
-.mc-clocknote{font-size:15px;color:var(--ink);max-width:54ch;line-height:1.55;margin-bottom:20px}
-.mc-embed{border-radius:12px;overflow:hidden;max-width:450px}
-.mc-embed iframe{width:100%;border:0;background:transparent;display:block}
+.mc-music{display:flex;gap:22px;align-items:stretch;max-width:560px}
+.mc-music-cover{width:auto;aspect-ratio:1/1;border-radius:10px;object-fit:cover;display:block;align-self:stretch}
+.mc-music-meta{display:flex;flex-direction:column;justify-content:space-between;padding:2px 0}
+.mc-music-t{font-size:21px;font-weight:500;letter-spacing:-.01em}
+.mc-music-n{font-size:15px;color:var(--ink);max-width:42ch;line-height:1.5;margin-top:8px}
+.mc-listen{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;background:var(--ink);color:var(--bg);font-size:14px;border:none;border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit;text-decoration:none;margin-top:16px}
+.mc-listen:hover{opacity:.85}
+.mc-listen:before{content:'';border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+@media(max-width:880px){.mc-music{flex-direction:column;gap:16px}.mc-music-cover{width:160px}}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
@@ -179,7 +185,7 @@ export default function MikeCalo(){
           <section id="featured">
             <div className="mc-label">Featured</div>
             <div className="mc-video">
-              <video src="/hotschedules-reel.mp4" controls playsInline preload="metadata"></video>
+              <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
             </div>
             <div className="mc-vmeta">
               <span className="mc-vcap">HotSchedules — &ldquo;Built for the Hustle&rdquo;</span>
@@ -230,11 +236,15 @@ export default function MikeCalo(){
 
           <section id="offtheclock">
             <div className="mc-label">Off the Clock</div>
-            <p className="mc-clocknote">A playlist I curate and keep growing — hip-hop and R&amp;B for the slow, unhurried end of a day.</p>
-            <div className="mc-embed">
-              <iframe allow="autoplay *; encrypted-media *;" height="175"
-                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-                src="https://embed.music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" style={{maxHeight:175}}></iframe>
+            <div className="mc-music">
+              <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
+              <div className="mc-music-meta">
+                <div>
+                  <div className="mc-music-t">Cigar Music</div>
+                  <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
+                </div>
+                <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
+              </div>
             </div>
           </section>
 
