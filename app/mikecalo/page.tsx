@@ -70,15 +70,15 @@ const CSS = `
 .mc-vcap{font-size:14px;color:var(--ink)}
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
-.mc-music{display:flex;gap:24px;align-items:center;max-width:560px}
-.mc-music-cover{width:200px;height:200px;border-radius:12px;object-fit:cover;display:block;flex-shrink:0}
-.mc-music-meta{display:flex;flex-direction:column}
-.mc-music-t{font-size:24px;font-weight:500;letter-spacing:-.01em}
-.mc-music-n{font-size:15px;color:var(--ink);max-width:34ch;line-height:1.5;margin-top:10px}
-.mc-listen{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;background:var(--ink);color:var(--bg);font-size:14px;border:none;border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit;text-decoration:none;margin-top:18px;white-space:nowrap}
+.mc-music{display:flex;align-items:center;gap:20px}
+.mc-music-cover{width:140px;height:140px;border-radius:12px;object-fit:cover;display:block;flex-shrink:0}
+.mc-music-meta{display:flex;flex-direction:column;min-width:0}
+.mc-music-t{font-size:22px;font-weight:500;letter-spacing:-.01em}
+.mc-music-n{font-size:14.5px;color:var(--ink);line-height:1.5;margin-top:8px}
+.mc-listen{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;background:var(--ink);color:var(--bg);font-size:14px;border:none;border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit;text-decoration:none;margin-top:16px;white-space:nowrap}
 .mc-listen:hover{opacity:.85}
 .mc-listen:before{content:'';border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
-@media(max-width:880px){.mc-music{flex-direction:column;align-items:flex-start;gap:18px}.mc-music-cover{width:160px;height:160px}}
+@media(max-width:880px){.mc-music-cover{width:120px;height:120px}}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
@@ -239,10 +239,8 @@ export default function MikeCalo(){
             <div className="mc-music">
               <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
               <div className="mc-music-meta">
-                <div>
-                  <div className="mc-music-t">Cigar Music</div>
-                  <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
-                </div>
+                <div className="mc-music-t">Cigar Music</div>
+                <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
                 <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
               </div>
             </div>
