@@ -16,13 +16,13 @@ const CSS = `
 .mc-avatar{width:124px;height:124px;border-radius:50%;object-fit:cover;margin-bottom:22px;display:block}
 .mc-name{font-weight:600;font-size:40px;line-height:1.02;letter-spacing:-.025em}
 .mc-role{font-size:12px;letter-spacing:.04em;color:var(--soft);margin-top:14px;line-height:1.55}
-.mc-nav{margin-top:auto;display:flex;flex-direction:column;gap:13px}
+.mc-nav{margin-top:34px;display:flex;flex-direction:column;gap:13px}
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
 .mc-social{margin-top:18px}
 .mc-social a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;transition:opacity .2s}
 .mc-social a:hover{opacity:.6}
-.mc-main{padding:0 60px 110px}
+.mc-main{padding:40px 60px 110px}
 @media(max-width:880px){.mc-main{padding:0 26px 70px}}
 .mc-pillbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;padding:20px 0 12px;background:linear-gradient(var(--bg) 72%,transparent)}
 .mc-pills{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;gap:2px;background:var(--bg)}
@@ -57,7 +57,7 @@ const CSS = `
 .mc-panel.open{max-height:640px}
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
-.mc-panel li:before{content:'';position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--soft)}
+.mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
 .mc-quotes{display:grid;grid-template-columns:1fr 1fr;gap:42px 54px}
 @media(max-width:880px){.mc-quotes{grid-template-columns:1fr;gap:34px}}
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
@@ -71,47 +71,47 @@ const CSS = `
 `;
 
 const ORGS = [
-  { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality — scheduling, labor, and back-office management.', roles:[
-    { title:'Head of Product Marketing', dates:'2024 — Present', bullets:[
-      'Rebuilt the product marketing function from the ground up, re-establishing positioning, launch, and enablement as the engine connecting product, sales, and customers.',
-      'Architected the U.S. go-to-market for Fourth iQ, positioning the company as a category leader in AI-driven restaurant technology.',
-      'Created "Built for the Hustle," the company\'s first YouTube brand campaign — 24M+ impressions at a $0.063 CPC (67% below benchmark), a +245% branded-search spike, and a +22pp traffic lift in targeted markets.',
-      'Designed a promotional monetization program that generated $2M in new ARR across 162 deals, returning $4.60 for every dollar comped.',
-      'Drove 7x year-over-year bookings on a FinTech product line, lifting win rates from 10% to 78% through sharper messaging, enablement, and offer design.',
-      'Leading the shift to product-led growth and a company-wide AI transformation, applying GTM rigor to how the business plans, ships, and sells.' ]},
-    { title:'Senior Product Marketing Lead', dates:'2022 — 2024', bullets:[
-      'Owned go-to-market for the payments and FinTech ecosystem while leading rebranding and ABM across the enterprise product line.',
-      'Coordinated positioning and launches across overlapping FinTech and enterprise lines, each with its own audience and sales motion.',
-      'Built the enablement backbone — battle cards, pitch decks, and collateral — that simplified complex conversations and shortened enterprise deal cycles.' ]},
+  { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
+    { title:'Head of Product Marketing', dates:'2024 \u2014 Present', bullets:[
+      'Rebuilt the product marketing function from the ground up, making positioning, launch, and enablement the connective tissue between product, sales, and customers.',
+      'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology.',
+      'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits.',
+      'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline.',
+      'Grew a FinTech product line 7x year over year and lifted win rates from 10% to 78% through sharper messaging, enablement, and offer design.',
+      'Consolidated fragmented SMB offerings into unified pricing and packaging, and is leading the shift to product-led growth and AI-native GTM.' ]},
+    { title:'Senior Product Marketing Lead', dates:'2022 \u2014 2024', bullets:[
+      'Owned go-to-market for the payments and FinTech ecosystem while directing rebranding and ABM across the enterprise product line.',
+      'Coordinated positioning and launches across overlapping FinTech and enterprise lines, each with a distinct audience and sales motion.',
+      'Built the enablement system of battle cards, pitch decks, and collateral that simplified complex deals and shortened enterprise sales cycles.' ]},
   ]},
   { logo:{text:'CC'}, name:'CALO&CO', tip:'Boutique growth and creative studio based in Portland, Maine.', roles:[
-    { title:'Founder', dates:'2024 — Present', bullets:[
+    { title:'Founder', dates:'20XX \u2014 Present', bullets:[
       'Founded an independent growth and creative studio, partnering with small and mid-sized businesses on brand, positioning, and go-to-market.' ]},
   ]},
-  { logo:{img:'/logos/crunchtime.png'}, name:'Crunchtime', tip:'Operations-management software for multi-unit restaurants — inventory, labor, and food-cost control.', roles:[
-    { title:'Senior Product Marketing Manager', dates:'2021 — 2022', bullets:[
-      'Joined as the first product marketing hire and built the discipline from scratch — personas, competitive intelligence, and the enablement frameworks the sales team came to rely on.',
+  { logo:{img:'/logos/crunchtime.png'}, name:'Crunchtime', tip:'Operations-management software for multi-unit restaurants: inventory, labor, and food-cost control.', roles:[
+    { title:'Senior Product Marketing Manager', dates:'2021 \u2014 2022', bullets:[
+      'Joined as the first product marketing hire and built the entire discipline from scratch, defining personas, competitive battle cards, and the enablement frameworks the sales team still runs on.',
       'Repositioned the legacy portfolio, cutting sales cycles roughly 20% and lifting win rates about 15%.',
-      'Launched the company\'s first e-book and caselet series, driving inbound engagement 200% above prior benchmarks.' ]},
+      'Authored the company\u2019s first e-book and caselet series, driving inbound engagement 200% above prior benchmarks.' ]},
   ]},
-  { logo:{img:'/logos/state-street.jpg'}, name:'State Street', tip:'Global financial-services firm and one of the world\'s largest asset managers and custodian banks.', roles:[
-    { title:'Senior Demand Generation Marketing Manager', dates:'2019 — 2021', bullets:[
-      'Ran paid and organic social for the firm\'s ETF portfolios, partnering with creative and content on full-funnel digital campaigns.',
-      'Turned complex financial products into demand-generating programs that lifted engagement and qualified leads.' ]},
+  { logo:{img:'/logos/state-street.jpg'}, name:'State Street', tip:'Global financial-services firm and one of the world\u2019s largest asset managers and custodian banks.', roles:[
+    { title:'Senior Demand Generation Marketing Manager', dates:'2019 \u2014 2021', bullets:[
+      'Ran paid and organic social for the firm\u2019s ETF portfolios, partnering with creative and content on full-funnel digital campaigns.',
+      'Turned complex financial products into demand-generation programs that grew engagement and qualified pipeline.' ]},
   ]},
   { logo:{img:'/logos/liberty-mutual.png'}, name:'Liberty Mutual', tip:'One of the largest property-and-casualty insurance companies in the United States.', roles:[
-    { title:'Partnerships & Field Marketing Manager', dates:'2016 — 2018', bullets:[
-      'Designed and launched a scalable field-marketing program for partner dealerships, with a performance leaderboard and incentive structure built to expand.',
-      'Ran email and direct-mail programs for strategic partners across the connected-home and insurance verticals.' ]},
+    { title:'Partnerships & Field Marketing Manager', dates:'2016 \u2014 2018', bullets:[
+      'Built and launched a scalable field-marketing program for partner dealerships, including a performance leaderboard and incentive structure designed to expand across regions.',
+      'Ran email and direct-mail campaigns for strategic partners across the connected-home and insurance verticals.' ]},
   ]},
   { logo:{img:'/logos/edx.png'}, name:'edX', tip:'Online learning platform offering university-level courses, originally founded by Harvard and MIT.', roles:[
-    { title:'Product Marketing Specialist', dates:'2015 — 2017', bullets:[
-      'Owned marketing for the website and course catalog, A/B testing listings to lift engagement and conversion.',
-      'Shaped positioning and go-to-market for the MicroMasters program launch.',
-      'Built the affiliate partner program from zero to 55+ partners in its first year.' ]},
+    { title:'Product Marketing Specialist', dates:'2015 \u2014 2017', bullets:[
+      'Grew the affiliate partner program from 0 to 55+ partners in its first year, opening a new inbound acquisition channel.',
+      'Ran marketing for the website and course catalog, A/B testing listings to lift engagement and conversion.',
+      'Shaped positioning and go-to-market for the MicroMasters launch and supported enterprise bulk-adoption agreements.' ]},
   ]},
   { logo:{img:'/logos/dell.png'}, name:'EMC (Dell)', tip:'Enterprise data-storage and cloud-infrastructure company, now part of Dell Technologies.', roles:[
-    { title:'Product Marketing Rotational Program', dates:'2013 — 2015', bullets:[
+    { title:'Product Marketing Rotational Program', dates:'2013 \u2014 2015', bullets:[
       'Delivered sales enablement for early-stage cloud and big-data products, supporting adoption across a global sales force.',
       'Partnered across product, channel, and field teams to align messaging with the sales motion.' ]},
   ]},
@@ -155,10 +155,6 @@ export default function MikeCalo(){
           </nav>
         </aside>
         <main className="mc-main">
-          <div className="mc-pillbar"><div className="mc-pills">
-            {ids.map(id=><button key={id} className={active===id?'active':''} onClick={()=>go(id)}>{id[0].toUpperCase()+id.slice(1)}</button>)}
-          </div></div>
-
           <section id="intro">
             <h1 className="mc-hook">I help great products win the markets they deserve.</h1>
             <div className="mc-bio">
