@@ -63,22 +63,24 @@ const CSS = `
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
-.mc-video{width:60%;min-width:260px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
+.mc-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
 .mc-video video{width:100%;height:100%;object-fit:cover;display:block}
-.mc-vmeta{width:60%;min-width:260px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px}
+.mc-vmeta{width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px}
 @media(max-width:880px){.mc-video{width:100%}.mc-vmeta{width:100%;flex-direction:column;align-items:flex-start;gap:6px}}
 .mc-vcap{font-size:14px;color:var(--ink)}
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
-.mc-music{display:flex;align-items:center;gap:24px;max-width:600px}
-.mc-music-cover{width:140px;height:140px;border-radius:12px;object-fit:cover;display:block;flex-shrink:0}
+.mc-music{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.mc-music-cover{width:100%;max-width:300px;aspect-ratio:1/1;height:auto;border-radius:12px;object-fit:cover;display:block}
 .mc-music-meta{display:flex;flex-direction:column;min-width:0}
-.mc-music-t{font-size:22px;font-weight:500;letter-spacing:-.01em}
-.mc-music-n{font-size:14.5px;color:var(--ink);line-height:1.5;margin-top:8px;max-width:34ch}
+.mc-music-t{font-size:22px;font-weight:500;letter-spacing:-.01em;margin-top:16px}
+.mc-music-n{font-size:15px;color:var(--ink);line-height:1.5;margin-top:8px;max-width:34ch}
 .mc-listen{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;background:var(--ink);color:var(--bg);font-size:14px;border:none;border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit;text-decoration:none;margin-top:16px;white-space:nowrap}
 .mc-listen:hover{opacity:.85}
 .mc-listen:before{content:'';border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
-@media(max-width:880px){.mc-music-cover{width:120px;height:120px}}
+@media(max-width:880px){.mc-music-cover{max-width:200px}}
+.mc-feature-row{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
+@media(max-width:880px){.mc-feature-row{grid-template-columns:1fr;gap:40px}}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
@@ -182,16 +184,30 @@ export default function MikeCalo(){
 
           <div className="mc-rule"/>
 
-          <section id="featured">
-            <div className="mc-label">Featured</div>
-            <div className="mc-video">
-              <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
-            </div>
-            <div className="mc-vmeta">
-              <span className="mc-vcap">HotSchedules — &ldquo;Built for the Hustle&rdquo;</span>
-              <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version &rarr;</a>
-            </div>
-          </section>
+          <div className="mc-feature-row">
+            <section id="featured">
+              <div className="mc-label">Featured</div>
+              <div className="mc-video">
+                <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
+              </div>
+              <div className="mc-vmeta">
+                <span className="mc-vcap">HotSchedules &mdash; &ldquo;Built for the Hustle&rdquo;</span>
+                <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version &rarr;</a>
+              </div>
+            </section>
+
+            <section id="offtheclock">
+              <div className="mc-label">Off the Clock</div>
+              <div className="mc-music">
+                <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
+                <div className="mc-music-meta">
+                  <div className="mc-music-t">Cigar Music</div>
+                  <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
+                  <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
+                </div>
+              </div>
+            </section>
+          </div>
 
           <div className="mc-rule"/>
 
@@ -229,20 +245,6 @@ export default function MikeCalo(){
                   <div className="mc-qc"><b>Placeholder Name</b> — Title, Company</div>
                 </blockquote>
               ))}
-            </div>
-          </section>
-
-          <div className="mc-rule"/>
-
-          <section id="offtheclock">
-            <div className="mc-label">Off the Clock</div>
-            <div className="mc-music">
-              <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
-              <div className="mc-music-meta">
-                <div className="mc-music-t">Cigar Music</div>
-                <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
-                <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
-              </div>
             </div>
           </section>
 
