@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap');
-.mc-root{--bg:#F6F4EF;--ink:#1C1B19;--mid:rgba(28,27,25,0.74);--soft:rgba(28,27,25,0.5);--line:rgba(28,27,25,0.13);--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
-.mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:rgba(246,244,239,0.72);--soft:rgba(246,244,239,0.48);--line:rgba(246,244,239,0.15)}
+.mc-root{--bg:#F6F4EF;--ink:#1C1B19;--mid:#1C1B19;--soft:#1C1B19;--line:rgba(28,27,25,0.13);--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+.mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:#F6F4EF;--soft:#F6F4EF;--line:rgba(246,244,239,0.15)}
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
 .mc-root{scroll-behavior:smooth}
 .mc-theme{position:fixed;top:18px;right:22px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
@@ -13,15 +13,15 @@ const CSS = `
 @media(max-width:880px){.mc-shell{grid-template-columns:1fr}}
 .mc-rail{border-right:1px solid var(--line);padding:48px 42px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
 @media(max-width:880px){.mc-rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line)}}
-.mc-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;margin-bottom:28px;display:block}
+.mc-avatar{width:124px;height:124px;border-radius:50%;object-fit:cover;margin-bottom:22px;display:block}
 .mc-name{font-weight:600;font-size:40px;line-height:1.02;letter-spacing:-.025em}
 .mc-role{font-size:12px;letter-spacing:.04em;color:var(--soft);margin-top:14px;line-height:1.55}
 .mc-nav{margin-top:auto;display:flex;flex-direction:column;gap:13px}
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
-.mc-social{margin-top:30px}
-.mc-social a{color:var(--soft);font-size:13px;text-decoration:none;transition:color .2s}
-.mc-social a:hover{color:var(--ink)}
+.mc-social{margin-top:18px}
+.mc-social a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;transition:opacity .2s}
+.mc-social a:hover{opacity:.6}
 .mc-main{padding:0 60px 110px}
 @media(max-width:880px){.mc-main{padding:0 26px 70px}}
 .mc-pillbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;padding:20px 0 12px;background:linear-gradient(var(--bg) 72%,transparent)}
@@ -37,7 +37,7 @@ const CSS = `
 .mc-bio p{margin-bottom:15px}
 .mc-org{margin-bottom:26px}
 .mc-orghead{display:flex;align-items:center;gap:11px;margin-bottom:5px}
-.mc-logo{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;overflow:hidden}
+.mc-logo{width:26px;height:26px;border-radius:6px;border:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;overflow:hidden}
 .mc-logo img{width:100%;height:100%;object-fit:contain}
 .mc-orgname{font-size:18px;font-weight:600;letter-spacing:-.01em}
 .mc-q{position:relative;display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1px solid var(--line);border-radius:50%;font-size:9px;color:var(--soft);cursor:help;flex-shrink:0}
@@ -58,6 +58,11 @@ const CSS = `
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
 .mc-panel li:before{content:'';position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--soft)}
+.mc-quotes{display:grid;grid-template-columns:1fr 1fr;gap:42px 54px}
+@media(max-width:880px){.mc-quotes{grid-template-columns:1fr;gap:34px}}
+.mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
+.mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
+.mc-qc b{font-weight:500}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
@@ -120,7 +125,7 @@ export default function MikeCalo(){
   const [dark,setDark]=useState(false);
   const [open,setOpen]=useState<Record<string,boolean>>({});
   const [active,setActive]=useState('intro');
-  const ids=['intro','experience','contact'];
+  const ids=['intro','experience','endorsements','contact'];
   useEffect(()=>{
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
     ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
@@ -141,12 +146,13 @@ export default function MikeCalo(){
           <img className="mc-avatar" src="/mike-headshot-square.jpg" alt="Mike Calo"/>
           <div className="mc-name">Mike<br/>Calo</div>
           <div className="mc-role">GTM Strategist<br/>Product Marketing Leader</div>
+          <div className="mc-social"><a href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg></a></div>
           <nav className="mc-nav">
             <a onClick={()=>go('intro')}>Intro</a>
             <a onClick={()=>go('experience')}>Experience</a>
+            <a onClick={()=>go('endorsements')}>Endorsements</a>
             <a onClick={()=>go('contact')}>Contact</a>
           </nav>
-          <div className="mc-social"><a href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener">LinkedIn</a></div>
         </aside>
         <main className="mc-main">
           <div className="mc-pillbar"><div className="mc-pills">
@@ -183,6 +189,21 @@ export default function MikeCalo(){
                 );})}
               </div>
             ))}
+          </section>
+
+          <div className="mc-rule"/>
+
+          <div className="mc-rule"/>
+          <section id="endorsements">
+            <div className="mc-label">Endorsements</div>
+            <div className="mc-quotes">
+              {[1,2,3,4].map(i=>(
+                <blockquote key={i}>
+                  <div className="mc-qt">&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;</div>
+                  <div className="mc-qc"><b>Placeholder Name</b> — Title, Company</div>
+                </blockquote>
+              ))}
+            </div>
           </section>
 
           <div className="mc-rule"/>
