@@ -49,6 +49,7 @@ export default function FounderMemo() {
             </span>
           </p>
         </div>
+        <a href="/mikecalo" className={styles.resumeLink}>View full r&eacute;sum&eacute; &rarr;</a>
       </div>
     </section>
   );
