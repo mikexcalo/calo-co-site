@@ -63,13 +63,15 @@ const CSS = `
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
-.mc-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
+.mc-video{width:30%;min-width:260px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
 .mc-video video{width:100%;height:100%;object-fit:cover;display:block}
-.mc-vmeta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:12px}
+.mc-vmeta{width:30%;min-width:260px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:12px}
+@media(max-width:880px){.mc-video{width:100%}.mc-vmeta{width:100%}}
 .mc-vcap{font-size:14px;color:var(--ink)}
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
-.mc-embed{border-radius:12px;overflow:hidden;max-width:660px}
+.mc-clocknote{font-size:15px;color:var(--ink);max-width:54ch;line-height:1.55;margin-bottom:20px}
+.mc-embed{border-radius:12px;overflow:hidden;max-width:450px}
 .mc-embed iframe{width:100%;border:0;background:transparent;display:block}
 .mc-rule{height:1px;background:var(--line);margin:44px 0 0}
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
@@ -228,10 +230,11 @@ export default function MikeCalo(){
 
           <section id="offtheclock">
             <div className="mc-label">Off the Clock</div>
+            <p className="mc-clocknote">A playlist I curate and keep growing — hip-hop and R&amp;B for the slow, unhurried end of a day.</p>
             <div className="mc-embed">
-              <iframe allow="autoplay *; encrypted-media *;" height="450"
+              <iframe allow="autoplay *; encrypted-media *;" height="175"
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-                src="https://embed.music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj"></iframe>
+                src="https://embed.music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" style={{maxHeight:175}}></iframe>
             </div>
           </section>
 
