@@ -54,7 +54,7 @@ const CSS = `
 .mc-dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:24px}
 .mc-yr{font-size:13px;color:var(--soft);white-space:nowrap;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .mc-panel{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.mc-panel.open{max-height:900px}
+.mc-panel.open{max-height:1300px}
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
@@ -109,9 +109,10 @@ const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
     { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
       { label:'Product Marketing', bullets:[
-        'Rebuilt the product marketing function from the ground up, making positioning, launch, and enablement the connective tissue between product, sales, and customers.',
+        'Rebuilt the product marketing function from the ground up and run its full craft \u2014 positioning, messaging, product narrative, launch, sales enablement, and competitive intelligence \u2014 as the connective tissue between product, sales, and customers.',
         'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology.',
         'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits.',
+        'Built AI-native tooling to run the function at scale \u2014 from competitive-intelligence systems to an automated collateral and brochure builder \u2014 turning slow, manual PMM work into fast, on-brand, repeatable engines.',
       ]},
       { label:'GTM Strategy', bullets:[
         'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline.',
