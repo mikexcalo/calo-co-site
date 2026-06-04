@@ -2,7 +2,7 @@ import RevealProvider from "@/components/RevealProvider";
 import Nav from "@/components/Nav";
 import HeroPlunge from "@/components/HeroPlunge";
 import ScrollCover from "@/components/ScrollCover";
-import WhatWeDoTiles from "@/components/WhatWeDoTiles";
+import WhatWeDoScroll from "@/components/WhatWeDoScroll";
 import WhoWeServe from "@/components/WhoWeServe";
 import ExpandingQuote from "@/components/ExpandingQuote";
 import StoryTiles from "@/components/StoryTiles";
@@ -27,6 +27,7 @@ export default function Home() {
         <HeroPlunge />
       </div>
       <ScrollCover />
+      <WhatWeDoScroll />
       <WhoWeServe />
       <StoryTiles />
       <ExpandingQuote />
