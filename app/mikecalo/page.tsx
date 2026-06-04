@@ -209,14 +209,14 @@ export default function MikeCalo(){
                       <span className="mc-pos">{r.title}</span><span className="mc-dots"/><span className="mc-yr">{r.dates}</span>
                     </button>
                     <div className={'mc-panel'+(isOpen?' open':'')}>
-                      {r.groups
-                        ? r.groups.map((g,gi)=>(
+                      {(r as any).groups
+                        ? (r as any).groups.map((g: any,gi: number)=>(
                             <div key={gi}>
                               <div className="mc-group">{g.label}</div>
-                              <ul>{g.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>
+                              <ul>{g.bullets.map((b: string,bi: number)=><li key={bi}>{b}</li>)}</ul>
                             </div>
                           ))
-                        : <ul>{r.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>}
+                        : <ul>{(r as any).bullets.map((b: string,bi: number)=><li key={bi}>{b}</li>)}</ul>}
                     </div>
                   </div>
                 );})}
