@@ -46,7 +46,7 @@ const CSS = `
 .mc-q:hover .mc-tip,.mc-q:focus-within .mc-tip{opacity:1;transform:translateY(0)}
 .mc-tip:before{content:'';position:absolute;bottom:100%;left:9px;border:5px solid transparent;border-bottom-color:var(--ink)}
 .mc-row{position:relative;display:flex;align-items:baseline;gap:12px;width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;padding:7px 0 7px 37px;transition:color .2s}
-.mc-tog{position:absolute;left:5px;top:7px;width:19px;height:19px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;color:var(--soft);transition:all .2s}
+.mc-tog{position:absolute;left:5px;top:7px;width:19px;height:19px;border:none;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;color:var(--soft);transition:all .2s}
 .mc-row:hover .mc-tog{border-color:var(--soft);color:var(--ink)}
 .mc-row.open .mc-tog{border-color:var(--ink);color:var(--ink)}
 .mc-pos{font-size:15px;white-space:nowrap;color:var(--mid)}
@@ -58,8 +58,8 @@ const CSS = `
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
-.mc-group{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:600;margin:14px 0 8px 0}
-.mc-group:first-child{margin-top:2px}
+.mc-group{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:400;margin:24px 0 10px 0}
+.mc-group:first-child{margin-top:18px}
 .mc-quotes{display:grid;grid-template-columns:1fr 1fr;gap:42px 54px}
 @media(max-width:880px){.mc-quotes{grid-template-columns:1fr;gap:34px}}
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
@@ -88,7 +88,8 @@ const CSS = `
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
 .mc-contact a:hover{opacity:.6}
-.mc-btnrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.mc-contactrow{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.mc-btnrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .mc-btn{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-size:14.5px;border-radius:999px;padding:11px 20px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;border:1px solid var(--ink);background:transparent;color:var(--ink)}
 .mc-btn.primary{background:var(--ink);color:var(--bg)}
 .mc-btn.primary:hover{opacity:.85}
@@ -244,8 +245,8 @@ export default function MikeCalo(){
               </div>
               <div className="mc-vmeta">
                 <div className="mc-vtitle">Built for the Hustle</div>
-                <div className="mc-vsub">HotSchedules&rsquo; first YouTube brand campaign &mdash; concept, GTM, and launch.</div>
-                <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version</a>
+                <div className="mc-vsub">I created and launched HotSchedules&rsquo; first-ever YouTube brand campaign &mdash; from concept to go-to-market.</div>
+                <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">Watch on YouTube</a>
               </div>
             </section>
 
@@ -280,7 +281,8 @@ export default function MikeCalo(){
 
           <section id="contact">
             <div className="mc-label">Contact</div>
-            <div className="mc-contact" style={{marginBottom:24}}>Let&apos;s talk.</div>
+            <div className="mc-contactrow">
+            <div className="mc-contact">Let&apos;s talk.</div>
             <div className="mc-btnrow">
               <a className="mc-btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=mikexcalo@gmail.com" target="_blank" rel="noopener">
                 <svg className="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.5v13c0 .8-.7 1.5-1.5 1.5H19V8.6l-7 5.2-7-5.2V20H3.5C2.7 20 2 19.3 2 18.5v-13C2 4.7 2.7 4 3.5 4H4l8 6 8-6h.5c.8 0 1.5.7 1.5 1.5z"/></svg>
@@ -294,6 +296,7 @@ export default function MikeCalo(){
                 <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
                 {copied ? 'Copied \u2713' : 'Copy'}
               </button>
+            </div>
             </div>
             <div className="mc-foot">&copy; Mike Calo &middot; Portland, Maine</div>
           </section>
