@@ -54,10 +54,12 @@ const CSS = `
 .mc-dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:24px}
 .mc-yr{font-size:13px;color:var(--soft);white-space:nowrap;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .mc-panel{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.mc-panel.open{max-height:640px}
+.mc-panel.open{max-height:900px}
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
+.mc-group{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:600;margin:14px 0 8px 0}
+.mc-group:first-child{margin-top:2px}
 .mc-quotes{display:grid;grid-template-columns:1fr 1fr;gap:42px 54px}
 @media(max-width:880px){.mc-quotes{grid-template-columns:1fr;gap:34px}}
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
@@ -65,8 +67,9 @@ const CSS = `
 .mc-qc b{font-weight:500}
 .mc-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
 .mc-video video{width:100%;height:100%;object-fit:cover;display:block}
-.mc-vmeta{width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px}
-@media(max-width:880px){.mc-video{width:100%}.mc-vmeta{width:100%;flex-direction:column;align-items:flex-start;gap:6px}}
+.mc-vmeta{display:flex;flex-direction:column;align-items:flex-start;margin-top:16px}
+.mc-vtitle{font-size:24px;font-weight:500;letter-spacing:-.01em}
+.mc-vsub{font-size:15px;color:var(--ink);line-height:1.5;margin-top:8px;max-width:34ch}
 .mc-vcap{font-size:14px;color:var(--ink)}
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
@@ -90,13 +93,19 @@ const CSS = `
 
 const ORGS = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
-    { title:'Head of Product Marketing', dates:'2024 \u2014 Present', bullets:[
-      'Rebuilt the product marketing function from the ground up, making positioning, launch, and enablement the connective tissue between product, sales, and customers.',
-      'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology.',
-      'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits.',
-      'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline.',
-      'Grew a FinTech product line 7x year over year and lifted win rates from 10% to 78% through sharper messaging, enablement, and offer design.',
-      'Consolidated fragmented SMB offerings into unified pricing and packaging, and is leading the shift to product-led growth and AI-native GTM.' ]},
+    { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
+      { label:'Product Marketing', bullets:[
+        'Rebuilt the product marketing function from the ground up, making positioning, launch, and enablement the connective tissue between product, sales, and customers.',
+        'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology.',
+        'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits.',
+      ]},
+      { label:'GTM Strategy', bullets:[
+        'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline.',
+        'Grew a FinTech product line 7x year over year and lifted win rates from 10% to 78% through sharper messaging, enablement, and offer design.',
+        'Secured official partner status with Square and architected the joint go-to-market promotional strategy to penetrate the food-and-beverage segment.',
+        'Consolidated fragmented SMB offerings into unified pricing and packaging, and is leading the shift to product-led growth and AI-native GTM.',
+      ]},
+    ]},
     { title:'Senior Product Marketing Lead', dates:'2022 \u2014 2024', bullets:[
       'Owned go-to-market for the payments and FinTech ecosystem while directing rebranding and ABM across the enterprise product line.',
       'Coordinated positioning and launches across overlapping FinTech and enterprise lines, each with a distinct audience and sales motion.',
@@ -184,6 +193,39 @@ export default function MikeCalo(){
 
           <div className="mc-rule"/>
 
+          <section id="experience">
+            <div className="mc-label">Experience</div>
+            {ORGS.map((org,oi)=>(
+              <div className="mc-org" key={oi}>
+                <div className="mc-orghead">
+                  <div className="mc-logo">{org.logo.img?<img src={org.logo.img} alt={org.name}/>:org.logo.text}</div>
+                  <div className="mc-orgname">{org.name}</div>
+                  <span className="mc-q" tabIndex={0}>?<span className="mc-tip">{org.tip}</span></span>
+                </div>
+                {org.roles.map((r,ri)=>{const k=oi+'-'+ri;const isOpen=!!open[k];return(
+                  <div key={k}>
+                    <button className={'mc-row'+(isOpen?' open':'')} aria-expanded={isOpen} onClick={()=>toggle(k)}>
+                      <span className="mc-tog">{isOpen?'\u2212':'+'}</span>
+                      <span className="mc-pos">{r.title}</span><span className="mc-dots"/><span className="mc-yr">{r.dates}</span>
+                    </button>
+                    <div className={'mc-panel'+(isOpen?' open':'')}>
+                      {r.groups
+                        ? r.groups.map((g,gi)=>(
+                            <div key={gi}>
+                              <div className="mc-group">{g.label}</div>
+                              <ul>{g.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>
+                            </div>
+                          ))
+                        : <ul>{r.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>}
+                    </div>
+                  </div>
+                );})}
+              </div>
+            ))}
+          </section>
+
+          <div className="mc-rule"/>
+
           <div className="mc-feature-row">
             <section id="featured">
               <div className="mc-label">Featured</div>
@@ -191,8 +233,9 @@ export default function MikeCalo(){
                 <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
               </div>
               <div className="mc-vmeta">
-                <span className="mc-vcap">HotSchedules &mdash; &ldquo;Built for the Hustle&rdquo;</span>
-                <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version &rarr;</a>
+                <div className="mc-vtitle">Built for the Hustle</div>
+                <div className="mc-vsub">HotSchedules&rsquo; first YouTube brand campaign &mdash; concept, GTM, and launch.</div>
+                <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener" style={{marginTop:16}}>See the full version &rarr;</a>
               </div>
             </section>
 
@@ -211,31 +254,6 @@ export default function MikeCalo(){
 
           <div className="mc-rule"/>
 
-          <section id="experience">
-            <div className="mc-label">Experience</div>
-            {ORGS.map((org,oi)=>(
-              <div className="mc-org" key={oi}>
-                <div className="mc-orghead">
-                  <div className="mc-logo">{org.logo.img?<img src={org.logo.img} alt={org.name}/>:org.logo.text}</div>
-                  <div className="mc-orgname">{org.name}</div>
-                  <span className="mc-q" tabIndex={0}>?<span className="mc-tip">{org.tip}</span></span>
-                </div>
-                {org.roles.map((r,ri)=>{const k=oi+'-'+ri;const isOpen=!!open[k];return(
-                  <div key={k}>
-                    <button className={'mc-row'+(isOpen?' open':'')} aria-expanded={isOpen} onClick={()=>toggle(k)}>
-                      <span className="mc-tog">{isOpen?'\u2212':'+'}</span>
-                      <span className="mc-pos">{r.title}</span><span className="mc-dots"/><span className="mc-yr">{r.dates}</span>
-                    </button>
-                    <div className={'mc-panel'+(isOpen?' open':'')}><ul>{r.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul></div>
-                  </div>
-                );})}
-              </div>
-            ))}
-          </section>
-
-          <div className="mc-rule"/>
-
-          <div className="mc-rule"/>
           <section id="endorsements">
             <div className="mc-label">Endorsements</div>
             <div className="mc-quotes">
