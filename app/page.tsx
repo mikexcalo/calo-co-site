@@ -27,8 +27,6 @@ export default function Home() {
         <HeroPlunge />
       </div>
       <ScrollCover />
-      <WhatWeDoTiles />
-      <WebsiteShowcase />
       <WhoWeServe />
       <StoryTiles />
       <ExpandingQuote />
