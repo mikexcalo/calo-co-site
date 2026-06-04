@@ -88,6 +88,14 @@ const CSS = `
 .mc-contact{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
 .mc-contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
 .mc-contact a:hover{opacity:.6}
+.mc-btnrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.mc-btn{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-size:14.5px;border-radius:999px;padding:11px 20px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;border:1px solid var(--ink);background:transparent;color:var(--ink)}
+.mc-btn.primary{background:var(--ink);color:var(--bg)}
+.mc-btn.primary:hover{opacity:.85}
+.mc-btn.outline:hover{background:var(--ink);color:var(--bg)}
+.mc-btn.ghost{border-color:var(--line)}
+.mc-btn.ghost:hover{border-color:var(--ink)}
+.mc-btn .ico{width:16px;height:16px;display:block}
 .mc-foot{font-size:12px;color:var(--soft);margin-top:64px;letter-spacing:.02em}
 `;
 
@@ -152,6 +160,8 @@ export default function MikeCalo(){
   const [dark,setDark]=useState(false);
   const [open,setOpen]=useState<Record<string,boolean>>({});
   const [active,setActive]=useState('intro');
+  const [copied,setCopied]=useState(false);
+  const copyEmail=async()=>{ try{ await navigator.clipboard.writeText('mikexcalo@gmail.com'); }catch(e){} setCopied(true); setTimeout(()=>setCopied(false),1400); };
   const ids=['intro','experience','endorsements','offtheclock','contact'];
   useEffect(()=>{
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
@@ -270,7 +280,21 @@ export default function MikeCalo(){
 
           <section id="contact">
             <div className="mc-label">Contact</div>
-            <p className="mc-contact">Let&apos;s talk. <a href="mailto:mikexcalo@gmail.com">mikexcalo@gmail.com</a></p>
+            <div className="mc-contact" style={{marginBottom:24}}>Let&apos;s talk.</div>
+            <div className="mc-btnrow">
+              <a className="mc-btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=mikexcalo@gmail.com" target="_blank" rel="noopener">
+                <svg className="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.5v13c0 .8-.7 1.5-1.5 1.5H19V8.6l-7 5.2-7-5.2V20H3.5C2.7 20 2 19.3 2 18.5v-13C2 4.7 2.7 4 3.5 4H4l8 6 8-6h.5c.8 0 1.5.7 1.5 1.5z"/></svg>
+                Gmail
+              </a>
+              <a className="mc-btn outline" href="mailto:mikexcalo@gmail.com">
+                <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+                Email
+              </a>
+              <button className="mc-btn ghost" onClick={copyEmail}>
+                <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+                {copied ? 'Copied \u2713' : 'Copy'}
+              </button>
+            </div>
             <div className="mc-foot">&copy; Mike Calo &middot; Portland, Maine</div>
           </section>
         </main>
