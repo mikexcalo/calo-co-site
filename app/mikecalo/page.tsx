@@ -100,7 +100,12 @@ const CSS = `
 .mc-foot{font-size:12px;color:var(--soft);margin-top:64px;letter-spacing:.02em}
 `;
 
-const ORGS = [
+type Role =
+  | { title: string; dates: string; bullets: string[] }
+  | { title: string; dates: string; groups: { label: string; bullets: string[] }[] };
+type Org = { logo: { img?: string; text?: string }; name: string; tip: string; roles: Role[] };
+
+const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
     { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
       { label:'Product Marketing', bullets:[
@@ -220,14 +225,14 @@ export default function MikeCalo(){
                       <span className="mc-pos">{r.title}</span><span className="mc-dots"/><span className="mc-yr">{r.dates}</span>
                     </button>
                     <div className={'mc-panel'+(isOpen?' open':'')}>
-                      {(r as any).groups
-                        ? (r as any).groups.map((g: any,gi: number)=>(
+                      {'groups' in r
+                        ? r.groups.map((g,gi)=>(
                             <div key={gi}>
                               <div className="mc-group">{g.label}</div>
-                              <ul>{g.bullets.map((b: string,bi: number)=><li key={bi}>{b}</li>)}</ul>
+                              <ul>{g.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>
                             </div>
                           ))
-                        : <ul>{(r as any).bullets.map((b: string,bi: number)=><li key={bi}>{b}</li>)}</ul>}
+                        : <ul>{r.bullets.map((b,bi)=><li key={bi}>{b}</li>)}</ul>}
                     </div>
                   </div>
                 );})}
@@ -245,7 +250,7 @@ export default function MikeCalo(){
               </div>
               <div className="mc-vmeta">
                 <div className="mc-vtitle">Built for the Hustle</div>
-                <div className="mc-vsub">I created and launched HotSchedules&rsquo; first-ever YouTube brand campaign &mdash; from concept to go-to-market.</div>
+                <div className="mc-vsub">I created and launched HotSchedules&rsquo; first-ever YouTube brand campaign &mdash; concept to market.</div>
                 <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">Watch on YouTube</a>
               </div>
             </section>
