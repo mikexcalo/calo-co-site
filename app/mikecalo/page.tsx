@@ -74,7 +74,7 @@ const CSS = `
 .mc-vlink{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);white-space:nowrap}
 .mc-vlink:hover{opacity:.6}
 .mc-music{display:flex;flex-direction:column;align-items:flex-start;gap:0}
-.mc-music-cover{width:100%;max-width:300px;aspect-ratio:1/1;height:auto;border-radius:12px;object-fit:cover;display:block}
+.mc-music-cover{width:100%;aspect-ratio:1.317;height:auto;border-radius:12px;object-fit:cover;display:block}
 .mc-music-meta{display:flex;flex-direction:column;min-width:0}
 .mc-music-t{font-size:22px;font-weight:500;letter-spacing:-.01em;margin-top:16px}
 .mc-music-n{font-size:15px;color:var(--ink);line-height:1.5;margin-top:8px;max-width:34ch}
@@ -245,7 +245,7 @@ export default function MikeCalo(){
               <div className="mc-vmeta">
                 <div className="mc-vtitle">Built for the Hustle</div>
                 <div className="mc-vsub">HotSchedules&rsquo; first YouTube brand campaign &mdash; concept, GTM, and launch.</div>
-                <a className="mc-vlink" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener" style={{marginTop:16}}>See the full version &rarr;</a>
+                <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">See the full version</a>
               </div>
             </section>
 
