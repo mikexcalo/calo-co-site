@@ -98,11 +98,12 @@
 }
 
 .stmt {
-  font-weight: 500;
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
   font-size: clamp(25px, 2.7vw, 34px);
-  line-height: 1.42;
+  line-height: 1.2;
   letter-spacing: 0;
-  max-width: 15ch;
+  max-width: 22ch;
 }
 
 .caps {
