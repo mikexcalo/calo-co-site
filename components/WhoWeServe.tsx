@@ -146,7 +146,7 @@ export default function WhoWeServe() {
   }
 
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} section-dark`}>
       <div className={styles.head}>
         <span className={styles.eyebrow}>Who we serve</span>
         <h2 className={styles.title}>

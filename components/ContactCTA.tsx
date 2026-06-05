@@ -2,7 +2,7 @@ import styles from "./ContactCTA.module.css";
 
 export default function ContactCTA() {
   return (
-    <section className={styles.ctaSection}>
+    <section className={`${styles.ctaSection} section-dark`}>
       <div className={styles.inner}>
         <h2 className={`${styles.headline} display`}>
           Create your <em>future</em>
