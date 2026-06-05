@@ -321,6 +321,9 @@ export default function WhatWeDoScroll() {
                     </div>
                   ))}
                 </div>
+                <div className={styles.inlineVisual}>
+                  {(() => { const V = VISUALS[i]; return <V />; })()}
+                </div>
               </div>
             ))}
           </div>
