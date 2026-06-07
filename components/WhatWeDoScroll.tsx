@@ -38,38 +38,38 @@ function Icon({ name }: { name: string }) {
   );
 }
 
-/* ── Pillar data (with delta #2 caps) ── */
+/* ── Pillar data ── */
 const PILLARS = [
   {
-    eye: '01 / Presence',
-    stmt: 'We build powerful websites that turn your visitors into customers.',
+    eye: 'Identity',
+    stmt: 'We craft unforgettable brands that capture attention and command a premium.',
     caps: [
-      ['monitor', 'Website design'], ['bag', 'Online store'], ['pin', 'Google listing'],
-      ['form', 'Booking & forms'], ['card', 'Online payments'], ['shield', 'Hosting & upkeep'],
+      ['target', 'Brand Strategy'], ['msgsq', 'Story & Positioning'], ['pen', 'Logo & Identity'],
+      ['mic', 'Messaging & Voice'], ['printer', 'Print & Signage'], ['editsq', 'Brand Assets'],
     ],
   },
   {
-    eye: '02 / Identity',
-    stmt: 'We craft unforgettable brands that earn trust and command a premium.',
+    eye: 'Presence',
+    stmt: 'We build stunning websites designed to turn visitors into customers.',
     caps: [
-      ['target', 'Brand strategy'], ['pen', 'Logo & identity'], ['mic', 'Messaging & copy'],
-      ['printer', 'Print & signage'], ['book', 'Brand guidelines'], ['editsq', 'Brand kit'],
+      ['monitor', 'Website Design'], ['bag', 'Online Stores'], ['calendar', 'Booking & Scheduling'],
+      ['card', 'Payments & Checkout'], ['pin', 'Search & Visibility'], ['shield', 'Hosting & Support'],
     ],
   },
   {
-    eye: '03 / Growth',
-    stmt: 'We find the strategies that grow your unique business — and keep it growing.',
+    eye: 'Growth',
+    stmt: 'We develop winning strategies custom-built to accelerate growth.',
     caps: [
-      ['megaphone', 'Marketing campaigns'], ['msgsq', 'Content & social'], ['trending', 'Paid ads'],
-      ['funnel', 'Lead generation'], ['video', 'Video content'], ['activity', 'Tracking results'],
+      ['megaphone', 'Marketing Campaigns'], ['msgsq', 'Content & Social'], ['trending', 'Paid Advertising'],
+      ['msgcircle', 'Direct Outreach'], ['calendar', 'Events & Activations'], ['activity', 'Sales Support'],
     ],
   },
   {
-    eye: '04 / Operations',
-    stmt: 'We engineer the systems that run your business on autopilot.',
+    eye: 'Operations',
+    stmt: 'We engineer the systems behind a profitable, sustainable business.',
     caps: [
-      ['tag', 'Pricing & quotes'], ['users', 'Client tracking'], ['zap', 'Auto follow-ups'],
-      ['cpu', 'AI assistants'], ['link', 'Connected tools'], ['msgcircle', 'Sales scripts'],
+      ['tag', 'Pricing Strategy'], ['form', 'Quotes & Estimates'], ['card', 'Invoicing & Billing'],
+      ['users', 'Client Management'], ['link', 'Connected Tools'], ['cpu', 'AI & Automation'],
     ],
   },
 ];
@@ -124,7 +124,7 @@ function BrandMock() {
 /* ── Radar chart (Growth visual) ── */
 function RadarChart() {
   const cx = 260, cy = 180, R = 112, RL = R + 20;
-  const labels = ['CAMPAIGNS', 'CONTENT', 'PAID', 'SOCIAL', 'EMAIL', 'VIDEO'];
+  const labels = ['CAMPAIGNS', 'CONTENT', 'PAID ADS', 'OUTREACH', 'EVENTS', 'SALES'];
   const angles = [-90, -30, 30, 90, 150, 210].map(d => (d * Math.PI) / 180);
   const profiles = [
     [0.52, 0.42, 0.64, 0.46, 0.40, 0.66],
@@ -248,7 +248,7 @@ function EngineDiagram() {
   );
 }
 
-const VISUALS = [BrowserMock, BrandMock, RadarChart, EngineDiagram];
+const VISUALS = [BrandMock, BrowserMock, RadarChart, EngineDiagram];
 
 /* ── Main component ── */
 export default function WhatWeDoScroll() {
@@ -292,8 +292,8 @@ export default function WhatWeDoScroll() {
       <div className={styles.wrap}>
         <div ref={headerRef} className={`${styles.mhead} ${styles.reveal} ${headerIn ? styles.revealIn : ''}`}>
           <p className={styles.kicker}>What we do</p>
-          <h2 className={styles.headline}>Four disciplines. One growth engine.</h2>
-          <p className={styles.subhead}>We learn what your business actually needs — then build the parts that move it.</p>
+          <h2 className={styles.headline}>You know your business. We know how to build it.</h2>
+          <p className={styles.subhead}>Everything it takes to look the part, win the work, and run it well — handled in one place.</p>
         </div>
 
         <div className={styles.cols}>
