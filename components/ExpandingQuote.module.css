@@ -114,17 +114,102 @@
   transform: translateY(calc((1 - var(--i, 0)) * 24px));
 }
 
+/* ── Mobile card (hidden on desktop) ── */
+.mobileCard {
+  display: none;
+}
+
+.mobilePhoto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.mobilePhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mobileGrad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0) 40%, rgba(26,26,26,0.55) 68%, #1A1A1A 100%);
+  pointer-events: none;
+}
+
+.mobileAttrib {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 22px 22px;
+  z-index: 2;
+}
+
+.mobileAttribName {
+  font-family: 'Sacramento', cursive;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #F5F5F5;
+}
+
+.mobileAttribRole {
+  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+}
+
+.mobileBody {
+  background: #1A1A1A;
+  padding: 20px 22px 28px;
+}
+
+.mobileQuote {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.42;
+  color: #F5F5F5;
+  margin: 0;
+}
+
+.mobileQuote em {
+  font-style: italic;
+}
+
+.mobileBtn {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  background: #FAFAF8;
+  color: #1A1A1A;
+  padding: 15px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 @media (max-width: 860px) {
-  .panel {
-    width: 100vw !important;
-    height: auto !important;
-    min-height: 70vh;
+  /* Hide desktop sticky + motion */
+  .module {
+    height: auto;
+    background: #1A1A1A;
   }
-  .qzone {
-    position: relative;
-    width: 100%;
-    background: rgba(0,0,0,0.82);
-    padding: 56px 24px;
+  .sticky {
+    display: none;
   }
-  .qText { font-size: 1.5rem; }
+
+  /* Show mobile card */
+  .mobileCard {
+    display: block;
+  }
 }

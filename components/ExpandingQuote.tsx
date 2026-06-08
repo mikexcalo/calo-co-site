@@ -48,6 +48,7 @@ export default function ExpandingQuote() {
 
   return (
     <div className={styles.module} ref={moduleRef}>
+      {/* Desktop: sticky + motion */}
       <div className={styles.sticky}>
         <div className={styles.panel} ref={panelRef} style={{ ['--p' as string]: 0 }}>
           <img src="/images/audiences/stevie-trevino.jpg" alt="Stevie Treviño of Stevie's Poem Store" />
@@ -60,8 +61,26 @@ export default function ExpandingQuote() {
             </p>
             <div className={`${styles.qSig} ${styles.fi}`} data-fi="2">Stevie Treviño</div>
             <div className={`${styles.qRole} ${styles.fi}`} data-fi="3">Founder, Stevie&rsquo;s Poem Store</div>
-            <a className={`${styles.qBtn} ${styles.fi}`} data-fi="4" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store →</a>
+            <a className={`${styles.qBtn} ${styles.fi}`} data-fi="4" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile: static Square layout */}
+      <div className={styles.mobileCard}>
+        <div className={styles.mobilePhoto}>
+          <img src="/images/audiences/stevie-trevino.jpg" alt="Stevie Treviño of Stevie's Poem Store" />
+          <div className={styles.mobileGrad} />
+          <div className={styles.mobileAttrib}>
+            <div className={styles.mobileAttribName}>Stevie Treviño</div>
+            <div className={styles.mobileAttribRole}>Founder, Stevie&rsquo;s Poem Store</div>
+          </div>
+        </div>
+        <div className={styles.mobileBody}>
+          <p className={styles.mobileQuote}>
+            &ldquo;They didn&rsquo;t just build us a store. They kept the <em>weird</em> that makes it ours.&rdquo;
+          </p>
+          <a className={styles.mobileBtn} href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store</a>
         </div>
       </div>
     </div>
