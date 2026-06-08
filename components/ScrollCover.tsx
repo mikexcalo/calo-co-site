@@ -10,9 +10,9 @@ const TILES = [
 
 // per tile: [enterAt, exitAt, restX(vw)]
 const CFG = {
-  t1: [0.000, 0.851, -15],
-  t2: [0.212, 1.063, 15],
-  t3: [0.426, 1.277, 0],
+  t1: [0.000, 0.520, -15],
+  t2: [0.130, 0.650, 15],
+  t3: [0.260, 0.780, 0],
 } as const;
 
 const START_Y = 120;
