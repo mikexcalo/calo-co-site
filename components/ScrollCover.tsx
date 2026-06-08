@@ -45,10 +45,8 @@ export default function ScrollCover() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const r = track.getBoundingClientRect();
-        const overlap = window.innerHeight; // 100vh negative-margin overlap
-        const effectiveScroll = -r.top - overlap;
-        const total = r.height - window.innerHeight - overlap;
-        const p = clamp(effectiveScroll / total, 0, 1);
+        const total = r.height - window.innerHeight;
+        const p = clamp(-r.top / total, 0, 1);
         let t3y = START_Y;
         (['t1', 't2', 't3'] as const).forEach((k) => {
           const [s, e, x] = CFG[k];
