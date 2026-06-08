@@ -13,17 +13,18 @@ const CSS = `
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
 @media(max-width:880px){.mc-shell{grid-template-columns:1fr}}
 .mc-rail{border-right:1px solid var(--line);padding:48px 42px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-@media(max-width:880px){.mc-rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line)}}
+@media(max-width:880px){.mc-rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:32px 26px}}
 .mc-avatar{width:124px;height:124px;border-radius:50%;object-fit:cover;margin-bottom:22px;display:block}
 .mc-name{font-weight:600;font-size:40px;line-height:1.02;letter-spacing:-.025em}
+@media(max-width:880px){.mc-name-br{display:none}}
 .mc-role{font-size:12px;letter-spacing:.04em;color:var(--soft);margin-top:14px;line-height:1.55}
 .mc-nav{margin-top:34px;display:flex;flex-direction:column;gap:13px}
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
 .mc-nav a.active{opacity:1;font-weight:500;padding-left:6px}
-@media(max-width:880px){.mc-nav{flex-direction:row;flex-wrap:wrap;gap:18px;margin-top:22px}.mc-nav a:hover,.mc-nav a.active{padding-left:0}}
-.mc-li{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;margin-bottom:4px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s}
-.mc-li:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+@media(max-width:880px){.mc-nav{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:16px;margin-top:22px;scrollbar-width:none}.mc-nav::-webkit-scrollbar{display:none}.mc-nav a{font-size:13px;white-space:nowrap}.mc-nav a:hover,.mc-nav a.active{padding-left:0}}
+.mc-li{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:16px;margin-bottom:4px;padding:10px 18px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-size:14px;white-space:nowrap;transition:opacity .2s}
+.mc-li:hover{opacity:.85}
 .mc-main{padding:40px 60px 110px}
 @media(max-width:880px){.mc-main{padding:0 26px 70px}}
 .mc-pillbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;padding:20px 0 12px;background:linear-gradient(var(--bg) 72%,transparent)}
@@ -225,7 +226,7 @@ export default function MikeCalo(){
       <div className="mc-shell">
         <aside className="mc-rail">
           <img className="mc-avatar" src="/mike-headshot-square.jpg" alt="Mike Calo"/>
-          <div className="mc-name">Mike<br/>Calo</div>
+          <div className="mc-name">Mike <br className="mc-name-br"/>Calo</div>
           <div className="mc-role">GTM Strategist<br/>Product Marketing Leader</div>
           <a className="mc-li" href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg>LinkedIn</a>
           <nav className="mc-nav">
