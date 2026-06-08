@@ -15,7 +15,7 @@ const CFG = {
   t3: [0.383, 1.149, 0],
 } as const;
 
-const START_Y = 100;
+const START_Y = 120;
 const END_Y = -128;
 const CUT_AT = 14;   // vh: tile-3 centre Y where the text cuts out
 const SLIVER = 2;    // vh: near-instant transition width
