@@ -1,12 +1,27 @@
 .section {
-  background: #F5F5F5;
+  background: #FAFAF8;
   color: #1A1A1A;
-  padding: 120px var(--site-gutter) 48px;
+  padding: 96px var(--site-gutter, 48px);
 }
 
 .inner {
   max-width: var(--site-max-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-ibm-plex-mono, 'IBM Plex Mono'), monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9a9893;
+  margin-bottom: 16px;
 }
 
 .headline {
@@ -17,8 +32,6 @@
   letter-spacing: -0.02em;
   color: #1A1A1A;
   margin: 0;
-  text-align: center;
-  width: 100%;
 }
 
 .headline em {
@@ -26,64 +39,37 @@
   font-weight: 400;
 }
 
-.columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.subhead {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #6b6b6f;
+  max-width: 46ch;
+  margin: 18px 0 0;
 }
 
-.col {
-  padding: 0 40px;
-  border-left: 1px solid rgba(26, 26, 26, 0.14);
-}
-
-.col:first-child {
-  border-left: none;
-  padding-left: 0;
-}
-
-.col:last-child {
-  padding-right: 0;
-}
-
-.colTitle {
+.cta {
+  display: inline-block;
+  margin-top: 28px;
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 600;
-  font-size: 1.125rem;
-  color: #1A1A1A;
-  margin: 0 0 10px;
+  font-size: 15px;
+  background: #1A1A1A;
+  color: #FAFAF8;
+  padding: 15px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
 }
 
-.colDesc {
-  font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: rgba(26, 26, 26, 0.55);
-  margin: 0;
-}
-
-.rule {
-  border: none;
-  border-top: 1px solid rgba(26, 26, 26, 0.14);
-  margin: 24px 0;
-}
-
-.colBody {
-  font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(26, 26, 26, 0.72);
-  margin: 0;
+.cta:hover {
+  opacity: 0.85;
 }
 
 @media (max-width: 860px) {
-  .columns {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .col {
-    border-left: none;
-    padding: 0;
+  .section {
+    padding: 72px 24px;
   }
 }
