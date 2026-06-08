@@ -31,7 +31,10 @@ const CSS = `
 .mc-pills button:hover{color:var(--ink)}
 .mc-root section{padding-top:30px;scroll-margin-top:74px}
 .mc-label{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:22px;font-weight:500}
-.mc-hook{font-weight:500;font-size:30px;line-height:1.22;letter-spacing:-.02em;max-width:20ch}
+.mc-hook{font-weight:500;font-size:30px;line-height:1.22;letter-spacing:-.02em;max-width:30ch}
+.mc-rot{display:inline-block}
+.mc-rot > span{display:inline-block;transition:opacity .35s ease, transform .35s ease}
+.mc-rot.swap > span{opacity:0;transform:translateY(-8px)}
 @media(max-width:880px){.mc-hook{font-size:25px}}
 .mc-bio{font-size:17px;max-width:60ch;margin-top:24px}
 .mc-bio p{margin-bottom:15px}
@@ -111,6 +114,8 @@ type Role =
   | { title: string; dates: string; groups: { label: string; bullets: string[] }[] };
 type Org = { logo: { img?: string; text?: string }; name: string; tip: string; roles: Role[] };
 
+const ROLES = ["a leader","a marketer","a designer","a product engineer","a founder","a creator","an artist","a dad","a world football fan"];
+
 const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
     { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
@@ -173,9 +178,18 @@ export default function MikeCalo(){
   const [dark,setDark]=useState(false);
   const [open,setOpen]=useState<Record<string,boolean>>({});
   const [active,setActive]=useState('intro');
+  const [roleIdx,setRoleIdx]=useState(0);
+  const [roleSwap,setRoleSwap]=useState(false);
   const [copied,setCopied]=useState(false);
   const copyEmail=async()=>{ try{ await navigator.clipboard.writeText('mikexcalo@gmail.com'); }catch(e){} setCopied(true); setTimeout(()=>setCopied(false),1400); };
   const ids=['intro','experience','endorsements','offtheclock','contact'];
+  useEffect(()=>{
+    const id=setInterval(()=>{
+      setRoleSwap(true);
+      setTimeout(()=>{ setRoleIdx(i=>(i+1)%ROLES.length); setRoleSwap(false); },360);
+    },2200);
+    return ()=>clearInterval(id);
+  },[]);
   useEffect(()=>{
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
     ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
@@ -207,8 +221,9 @@ export default function MikeCalo(){
         </aside>
         <main className="mc-main">
           <section id="intro">
-            <h1 className="mc-hook">I help great products win the markets they deserve.</h1>
+            <h1 className="mc-hook">Hey, I&apos;m Mike.<br/>I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span>.</h1>
             <div className="mc-bio">
+              <p>I help great products, brands, and businesses win.</p>
               <p>Product marketing and go-to-market leader with 13+ years turning products into categories — across SaaS, FinTech, and enterprise, from SMB to the enterprise floor.</p>
               <p>Today I lead Product Marketing &amp; GTM Strategy at Fourth, where I rebuilt the function and own launches, monetization, and the shift toward product-led growth and AI-native GTM. Based in Portland, Maine.</p>
             </div>
