@@ -39,6 +39,8 @@ const CSS = `
 @media(max-width:880px){.mc-hook{font-size:25px}}
 .mc-bio{font-size:17px;max-width:60ch;margin-top:24px}
 .mc-bio p{margin-bottom:15px}
+.mc-journey{font-size:13px;color:var(--soft);letter-spacing:.02em;margin-top:22px;line-height:1.5}
+.mc-journey .arrow{color:var(--soft);opacity:.6;padding:0 4px}
 .mc-org{margin-bottom:26px}
 .mc-orghead{display:flex;align-items:center;gap:11px;margin-bottom:5px}
 .mc-logo{width:26px;height:26px;border-radius:6px;border:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;overflow:hidden}
@@ -226,7 +228,8 @@ export default function MikeCalo(){
             <div className="mc-bio">
               <p>I help great products, brands, and businesses win.</p>
               <p>Product marketing and go-to-market leader with 13+ years turning products into categories — across SaaS, FinTech, and enterprise, from SMB to the enterprise floor.</p>
-              <p>Today I lead Product Marketing &amp; GTM Strategy at Fourth, where I rebuilt the function and own launches, monetization, and the shift toward product-led growth and AI-native GTM. Based in Portland, Maine.</p>
+              <p>Today I lead Product Marketing &amp; GTM Strategy at Fourth, where I rebuilt the function and own launches, monetization, and the shift toward product-led growth and AI-native GTM.</p>
+              <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine</div>
             </div>
           </section>
 
