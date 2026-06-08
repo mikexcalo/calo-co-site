@@ -20,9 +20,8 @@ const CSS = `
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
 .mc-nav a.active{opacity:1;font-weight:500;padding-left:6px}
-.mc-social{margin-top:14px;margin-bottom:4px}
-.mc-social a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;transition:opacity .2s}
-.mc-social a:hover{opacity:.6}
+.mc-li{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;margin-bottom:4px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s}
+.mc-li:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
 .mc-main{padding:40px 60px 110px}
 @media(max-width:880px){.mc-main{padding:0 26px 70px}}
 .mc-pillbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;padding:20px 0 12px;background:linear-gradient(var(--bg) 72%,transparent)}
@@ -151,7 +150,7 @@ const ORGS: Org[] = [
       'Founded an independent growth and creative studio, helping founders and small teams sharpen brand, positioning, and go-to-market \u2014 from strategy to execution' ]},
   ]},
   { logo:{img:'/logos/crunchtime.png'}, name:'Crunchtime', tip:'Operations-management software for multi-unit restaurants: inventory, labor, and food-cost control.', roles:[
-    { title:'Senior Product Marketing Manager', dates:'2021 \u2014 2022', bullets:[
+    { title:'Principal Product Marketing Manager', dates:'2021 \u2014 2022', bullets:[
       'Joined as the first product marketing hire and stood up the entire function \u2014 ICPs, positioning, messaging, and competitive intelligence \u2014 from a blank page',
       'Repositioned the core product line, cutting sales cycles ~20% and lifting win rates ~15%',
       'Launched the company\u2019s first content program \u2014 its e-book and case-study series \u2014 driving a 200% jump in inbound engagement' ]},
@@ -202,7 +201,13 @@ export default function MikeCalo(){
   useEffect(()=>{
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
     ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
-    return()=>io.disconnect();
+    const onScroll=()=>{
+      if(window.scrollY<=4) setActive('intro');
+      else if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) setActive('contact');
+    };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    return()=>{io.disconnect();window.removeEventListener('scroll',onScroll);};
   },[]);
   const go=(id: string)=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
   const toggle=(k: string)=>setOpen(o=>({...o,[k]:!o[k]}));
@@ -219,7 +224,7 @@ export default function MikeCalo(){
           <img className="mc-avatar" src="/mike-headshot-square.jpg" alt="Mike Calo"/>
           <div className="mc-name">Mike<br/>Calo</div>
           <div className="mc-role">GTM Strategist<br/>Product Marketing Leader</div>
-          <div className="mc-social"><a href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg></a></div>
+          <a className="mc-li" href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg>LinkedIn</a>
           <nav className="mc-nav">
             <a className={active==='intro'?'active':''} onClick={()=>go('intro')}>Intro</a>
             <a className={active==='featured'?'active':''} onClick={()=>go('featured')}>Featured</a>
@@ -233,7 +238,7 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of marketing experience, I&apos;ve owned the full product marketing stack, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
+              <p>With over 13 years of marketing experience, I&apos;ve done just about every kind of marketing there is, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
               <p>I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
