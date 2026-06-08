@@ -65,6 +65,12 @@ const CSS = `
 .mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
+.mc-quote-card{display:flex;flex-direction:column;gap:16px}
+.mc-quote-person{display:flex;align-items:center;gap:12px}
+.mc-quote-photo{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.mc-quote-who{display:flex;flex-direction:column;line-height:1.4}
+.mc-quote-name{font-size:15px;font-weight:500;color:var(--ink)}
+.mc-quote-role{font-size:13px;color:var(--soft)}
 .mc-video{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1C1B19}
 .mc-video video{width:100%;height:100%;object-fit:cover;display:block}
 .mc-vmeta{display:flex;flex-direction:column;align-items:flex-start;margin-top:16px}
@@ -274,12 +280,27 @@ export default function MikeCalo(){
           <section id="endorsements">
             <div className="mc-label">Endorsements</div>
             <div className="mc-quotes">
-              {[1,2,3,4].map(i=>(
-                <blockquote key={i}>
-                  <div className="mc-qt">&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;</div>
-                  <div className="mc-qc"><b>Placeholder Name</b> — Title, Company</div>
-                </blockquote>
-              ))}
+              <blockquote className="mc-quote-card">
+                <div className="mc-qt">&ldquo;Mike is far more than a product marketer. He&rsquo;s a true go-to-market builder &mdash; he redefined our market positioning, unified the value proposition of four distinct companies into one clear, compelling message, and was the catalyst for true partnership across our entire GTM organization.&rdquo;</div>
+                <div className="mc-quote-person">
+                  <img className="mc-quote-photo" src="/endorse-heather.jpg" alt="Heather Donohoe Hicks"/>
+                  <div className="mc-quote-who">
+                    <span className="mc-quote-name">Heather Donohoe Hicks</span>
+                    <span className="mc-quote-role">VP of Sales &middot; Revenue Enablement &middot; GTM Builder</span>
+                  </div>
+                </div>
+              </blockquote>
+
+              <blockquote className="mc-quote-card">
+                <div className="mc-qt">&ldquo;A strong product and GTM leader who combines an entrepreneurial mindset, creative problem-solving, and executive presence &mdash; he creates great ideas and actually gets them done.&rdquo;</div>
+                <div className="mc-quote-person">
+                  <img className="mc-quote-photo" src="/endorse-mark.jpg" alt="Mark Larik"/>
+                  <div className="mc-quote-who">
+                    <span className="mc-quote-name">Mark Larik</span>
+                    <span className="mc-quote-role">SVP, Strategy &amp; Growth &middot; StrataTech Education Group</span>
+                  </div>
+                </div>
+              </blockquote>
             </div>
           </section>
 
