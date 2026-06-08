@@ -230,9 +230,8 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of experience, I&apos;ve turned products into categories, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> (launched by Harvard and MIT) to names you know like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
-              <p>Today I lead Product Marketing and GTM Strategy at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch.</p>
-              <p>Alongside that, I run <a href="/">CALO&amp;CO</a>, my growth and creative studio.</p>
+              <p>With over 13 years of experience, I&apos;ve turned products into categories, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
+              <p>Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and built the go-to-market behind real growth. I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
           </section>
