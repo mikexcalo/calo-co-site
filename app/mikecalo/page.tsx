@@ -19,7 +19,7 @@ const CSS = `
 .mc-nav{margin-top:34px;display:flex;flex-direction:column;gap:13px}
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
-.mc-social{margin-top:18px}
+.mc-social{margin-top:14px;margin-bottom:4px}
 .mc-social a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;transition:opacity .2s}
 .mc-social a:hover{opacity:.6}
 .mc-main{padding:40px 60px 110px}
@@ -120,7 +120,7 @@ type Role =
   | { title: string; dates: string; groups: { label: string; bullets: string[] }[] };
 type Org = { logo: { img?: string; text?: string }; name: string; tip: string; roles: Role[] };
 
-const ROLES = ["a leader","a strategist","a marketer","a designer","a product engineer","a founder","a creator","an artist","an entrepreneur","a former chef","a dad","a world football fan"];
+const ROLES = ["a leader","a strategist","a marketer","a designer","a product engineer","a founder","a creator","an artist","a former chef","a dad","a world football fan"];
 
 const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
@@ -230,8 +230,8 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of experience, I&apos;ve turned products into categories, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
-              <p>Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and built the go-to-market behind real growth. I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
+              <p>With over 13 years of experience, I&apos;ve helped products find their market and grow, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and built the go-to-market behind real growth.</p>
+              <p>I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
           </section>
