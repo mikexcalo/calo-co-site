@@ -32,7 +32,6 @@ export default function Home() {
       <StoryTiles />
       <ExpandingQuote />
       <HowWeWork />
-      <SteerBand />
       <QuoteScrollStage
         quote={<Testimonial />}
         founder={<FounderMemo />}
