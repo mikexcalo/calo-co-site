@@ -133,7 +133,7 @@ const ORGS: Org[] = [
       'Built the enablement system of battle cards, pitch decks, and collateral that simplified complex deals and shortened enterprise sales cycles.' ]},
   ]},
   { logo:{text:'CC'}, name:'CALO&CO', tip:'Boutique growth and creative studio based in Portland, Maine.', roles:[
-    { title:'Founder', dates:'20XX \u2014 Present', bullets:[
+    { title:'Founder', dates:'2023 \u2014 Present', bullets:[
       'Founded an independent growth and creative studio, partnering with small and mid-sized businesses on brand, positioning, and go-to-market.' ]},
   ]},
   { logo:{img:'/logos/crunchtime.png'}, name:'Crunchtime', tip:'Operations-management software for multi-unit restaurants: inventory, labor, and food-cost control.', roles:[
@@ -163,9 +163,9 @@ const ORGS: Org[] = [
       'Delivered sales enablement for early-stage cloud and big-data products, supporting adoption across a global sales force.',
       'Partnered across product, channel, and field teams to align messaging with the sales motion.' ]},
   ]},
-  { logo:{img:'/logos/boston-college.svg'}, name:'Boston College', tip:'Private research university near Boston; the Carroll School of Management is its business school.', roles:[
-    { title:'B.S. Business Administration (Marketing) \u00b7 Minor: History', dates:'2013', bullets:[
-      'Studied marketing at the Carroll School of Management, with a minor in History.' ]},
+  { logo:{img:'/logos/boston-college.svg'}, name:'Boston College', tip:'', roles:[
+    { title:'B.S. Business Administration \u00b7 Carroll School of Management', dates:'2009 \u2014 2013', bullets:[
+      'B.S. in Business Administration \u2014 Marketing concentration, History minor.' ]},
   ]},
 ];
 
@@ -223,7 +223,7 @@ export default function MikeCalo(){
                 <div className="mc-orghead">
                   <div className="mc-logo">{org.logo.img?<img src={org.logo.img} alt={org.name}/>:org.logo.text}</div>
                   <div className="mc-orgname">{org.name}</div>
-                  <span className="mc-q" tabIndex={0}>?<span className="mc-tip">{org.tip}</span></span>
+                  {org.tip && <span className="mc-q" tabIndex={0}>?<span className="mc-tip">{org.tip}</span></span>}
                 </div>
                 {org.roles.map((r,ri)=>{const k=oi+'-'+ri;const isOpen=!!open[k];return(
                   <div key={k}>
@@ -286,7 +286,7 @@ export default function MikeCalo(){
                   <img className="mc-quote-photo" src="/endorse-heather.jpg" alt="Heather Donohoe Hicks"/>
                   <div className="mc-quote-who">
                     <span className="mc-quote-name">Heather Donohoe Hicks</span>
-                    <span className="mc-quote-role">VP of Sales &middot; Revenue Enablement &middot; GTM Builder</span>
+                    <span className="mc-quote-role">VP of Sales &middot; Petvisor</span>
                   </div>
                 </div>
               </blockquote>
