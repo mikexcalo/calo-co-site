@@ -38,7 +38,6 @@ export default function Home() {
         founder={<FounderMemo />}
       />
       <ContactCTA />
-      <FAQ />
       <Footer />
       <ContactModal />
     </>
