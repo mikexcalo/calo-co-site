@@ -164,8 +164,8 @@ const ORGS: Org[] = [
       'Partnered across product, channel, and field teams to align messaging with the sales motion.' ]},
   ]},
   { logo:{img:'/logos/boston-college.svg'}, name:'Boston College', tip:'', roles:[
-    { title:'B.S. Business Administration \u00b7 Carroll School of Management', dates:'2009 \u2014 2013', bullets:[
-      'B.S. in Business Administration \u2014 Marketing concentration, History minor.' ]},
+    { title:'B.S. Business Administration', dates:'2009 \u2014 2013', bullets:[
+      'Carroll School of Management \u2014 Marketing concentration, History minor.' ]},
   ]},
 ];
 
