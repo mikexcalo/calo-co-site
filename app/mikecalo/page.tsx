@@ -6,7 +6,7 @@ const CSS = `
 .mc-root{--bg:#F6F4EF;--ink:#1C1B19;--mid:#1C1B19;--soft:#1C1B19;--line:rgba(28,27,25,0.13);--chip:rgba(28,27,25,0.06);--chip-h:rgba(28,27,25,0.12);--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
 .mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:#F6F4EF;--soft:#F6F4EF;--line:rgba(246,244,239,0.15);--chip:rgba(246,244,239,0.10);--chip-h:rgba(246,244,239,0.18)}
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
-.mc-root{scroll-behavior:smooth}
+.mc-root{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 .mc-theme{position:fixed;top:18px;right:22px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
 .mc-theme:hover{border-color:var(--soft)}
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
@@ -43,7 +43,7 @@ const CSS = `
 .mc-subhead{font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.01em;margin-top:18px}
 .mc-bio a{color:var(--ink);text-decoration:none;background:var(--chip);border-radius:6px;padding:1px 7px;transition:background .2s;white-space:nowrap}
 .mc-bio a:hover{background:var(--chip-h)}
-.mc-journey{font-size:13px;color:var(--soft);letter-spacing:.02em;margin-top:22px;line-height:1.5}
+.mc-journey{font-size:12px;color:var(--soft);letter-spacing:.02em;margin-top:22px;line-height:1.5}
 .mc-journey .arrow{color:var(--soft);opacity:.6;padding:0 4px}
 .mc-org{margin-bottom:26px}
 .mc-orghead{display:flex;align-items:center;gap:11px;margin-bottom:5px}
@@ -60,6 +60,7 @@ const CSS = `
 .mc-row:hover .mc-tog{border-color:var(--soft);color:var(--ink)}
 .mc-row.open .mc-tog{border-color:var(--ink);color:var(--ink)}
 .mc-pos{font-size:15px;white-space:nowrap;color:var(--mid)}
+@media(max-width:880px){.mc-row{flex-wrap:wrap}.mc-pos{white-space:normal}.mc-dots{display:none}.mc-yr{width:100%;margin-top:3px}}
 .mc-row:hover .mc-pos{color:var(--ink)}
 .mc-dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:24px}
 .mc-yr{font-size:13px;color:var(--soft);white-space:nowrap;letter-spacing:.02em;font-variant-numeric:tabular-nums}
@@ -232,7 +233,7 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of marketing experience, I&apos;ve worked everywhere from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
+              <p>With over 13 years of marketing experience, I&apos;ve owned the full product marketing stack, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
               <p>I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
