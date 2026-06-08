@@ -313,6 +313,9 @@ export default function WhatWeDoScroll() {
               >
                 <p className={styles.eye}>{p.eye}</p>
                 <h3 className={styles.stmt}>{p.stmt}</h3>
+                <div className={styles.inlineVisual}>
+                  {(() => { const V = VISUALS[i]; return <V />; })()}
+                </div>
                 <div className={styles.caps}>
                   {p.caps.map(([icon, label], ci) => (
                     <div key={ci} className={styles.cap}>
@@ -320,9 +323,6 @@ export default function WhatWeDoScroll() {
                       <span className={styles.capLabel}>{label}</span>
                     </div>
                   ))}
-                </div>
-                <div className={styles.inlineVisual}>
-                  {(() => { const V = VISUALS[i]; return <V />; })()}
                 </div>
               </div>
             ))}
