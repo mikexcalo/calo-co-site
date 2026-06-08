@@ -1,6 +1,6 @@
 .track {
   position: relative;
-  height: 280vh;
+  height: 230vh;
   background: var(--charcoal, #1A1A1A);
 }
 .rail {
