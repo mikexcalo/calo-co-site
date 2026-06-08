@@ -162,7 +162,7 @@
 }
 .marqueeTrack {
   display: inline-block;
-  animation: heroPlunge-scroll-left 58s linear infinite;
+  animation: heroPlunge-scroll-left 29s linear infinite;
 }
 .marqueeItem {
   display: inline-flex;
