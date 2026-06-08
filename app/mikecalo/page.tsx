@@ -39,6 +39,8 @@ const CSS = `
 @media(max-width:880px){.mc-hook{font-size:25px}}
 .mc-bio{font-size:17px;max-width:60ch;margin-top:24px}
 .mc-bio p{margin-bottom:15px}
+.mc-bio a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);transition:opacity .2s}
+.mc-bio a:hover{opacity:.6}
 .mc-journey{font-size:13px;color:var(--soft);letter-spacing:.02em;margin-top:22px;line-height:1.5}
 .mc-journey .arrow{color:var(--soft);opacity:.6;padding:0 4px}
 .mc-org{margin-bottom:26px}
@@ -117,7 +119,7 @@ type Role =
   | { title: string; dates: string; groups: { label: string; bullets: string[] }[] };
 type Org = { logo: { img?: string; text?: string }; name: string; tip: string; roles: Role[] };
 
-const ROLES = ["a leader","a marketer","a designer","a product engineer","a founder","a creator","an artist","an entrepreneur","a former chef","a dad","a world football fan"];
+const ROLES = ["a leader","a strategist","a marketer","a designer","a product engineer","a founder","a creator","an artist","an entrepreneur","a former chef","a dad","a world football fan"];
 
 const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
@@ -226,9 +228,8 @@ export default function MikeCalo(){
           <section id="intro">
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <div className="mc-bio">
-              <p>I help great products, brands, and businesses win.</p>
-              <p>Product marketing and go-to-market leader with 13+ years turning products into categories — across SaaS, FinTech, and enterprise, from SMB to the enterprise floor.</p>
-              <p>Today I lead Product Marketing &amp; GTM Strategy at Fourth, where I rebuilt the function and own launches, monetization, and the shift toward product-led growth and AI-native GTM.</p>
+              <p>I&apos;ve spent 13+ years turning products into categories, across SaaS, FinTech, and enterprise. I&apos;ve done it at names you know, like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>, and at scrappy startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a>, the startup Harvard and MIT launched.</p>
+              <p>These days I lead Product Marketing and GTM Strategy at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run launches, monetization, and the move toward product-led growth and AI-native GTM.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine</div>
             </div>
           </section>
