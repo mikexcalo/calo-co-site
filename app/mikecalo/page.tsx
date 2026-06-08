@@ -31,7 +31,8 @@ const CSS = `
 .mc-pills button:hover{color:var(--ink)}
 .mc-root section{padding-top:30px;scroll-margin-top:74px}
 .mc-label{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:22px;font-weight:500}
-.mc-hook{font-weight:500;font-size:30px;line-height:1.22;letter-spacing:-.02em;max-width:30ch}
+.mc-hook{font-weight:500;font-size:28px;line-height:1.22;letter-spacing:-.02em;max-width:none;white-space:nowrap}
+@media(max-width:880px){.mc-hook{white-space:normal;font-size:24px}}
 .mc-rot{display:inline-block}
 .mc-rot > span{display:inline-block;transition:opacity .35s ease, transform .35s ease}
 .mc-rot.swap > span{opacity:0;transform:translateY(-8px)}
@@ -114,7 +115,7 @@ type Role =
   | { title: string; dates: string; groups: { label: string; bullets: string[] }[] };
 type Org = { logo: { img?: string; text?: string }; name: string; tip: string; roles: Role[] };
 
-const ROLES = ["a leader","a marketer","a designer","a product engineer","a founder","a creator","an artist","a dad","a world football fan"];
+const ROLES = ["a leader","a marketer","a designer","a product engineer","a founder","a creator","an artist","an entrepreneur","a former chef","a dad","a world football fan"];
 
 const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
@@ -221,7 +222,7 @@ export default function MikeCalo(){
         </aside>
         <main className="mc-main">
           <section id="intro">
-            <h1 className="mc-hook">Hey, I&apos;m Mike.<br/>I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span>.</h1>
+            <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <div className="mc-bio">
               <p>I help great products, brands, and businesses win.</p>
               <p>Product marketing and go-to-market leader with 13+ years turning products into categories — across SaaS, FinTech, and enterprise, from SMB to the enterprise floor.</p>
