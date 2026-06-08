@@ -53,6 +53,27 @@ const audiences: Audience[] = [
     description: 'SaaS, mobile, newsletters, and digital products solving real problems. Positioning, growth, and the GTM motion that compounds.',
     pills: ['SaaS', 'Mobile', 'Newsletter', 'Web Tool', 'Marketplace'],
   },
+  {
+    id: 'salons',
+    label: <>Stylists <span className="amp">&amp;</span> Salons</>,
+    image: null,
+    description: 'Hair stylists, barbers, estheticians, and salon owners building a brand clients come back to.',
+    pills: ['Hair', 'Barber', 'Spa', 'Nails', 'Esthetics'],
+  },
+  {
+    id: 'food',
+    label: <>Food <span className="amp">&amp;</span> Hospitality</>,
+    image: null,
+    description: 'Restaurants, caterers, food trucks, and hospitality brands filling seats and building loyal followings.',
+    pills: ['Restaurant', 'Catering', 'Food Truck', 'Bar', 'Café'],
+  },
+  {
+    id: 'musicians',
+    label: <>Musicians <span className="amp">&amp;</span> Performers</>,
+    image: null,
+    description: 'Artists, bands, DJs, and performers turning talent into a brand and filling rooms.',
+    pills: ['Musician', 'Band', 'DJ', 'Performer', 'Producer'],
+  },
 ]
 
 export default function WhoWeServe() {
