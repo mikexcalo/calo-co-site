@@ -56,10 +56,8 @@ export default function ScrollCover() {
           if (el) el.style.transform =
             `translate(calc(-50% + ${x}vw), ${y}vh)`;
         });
-        const fadeIn = clamp(p / 0.15, 0, 1); // 0→1 over first ~15% of progress
         const fade = clamp((CUT_AT - t3y) / SLIVER, 0, 1);
-        text.style.opacity = String(fadeIn * (1 - fade));
-        text.style.transform = `translateY(${(1 - fadeIn) * 16}px)`;
+        text.style.opacity = String(1 - fade);
       });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
