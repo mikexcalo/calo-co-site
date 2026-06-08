@@ -20,9 +20,7 @@
   text-align: center;
   padding: 0 24px;
   z-index: 1;
-  will-change: opacity, transform;
-  opacity: 0;
-  transform: translateY(16px);
+  will-change: opacity;
 }
 .eyebrow {
   font-family: var(--font-geist), system-ui, sans-serif;
