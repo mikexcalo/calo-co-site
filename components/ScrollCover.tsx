@@ -76,8 +76,8 @@ export default function ScrollCover() {
         <div ref={textRef} className={styles.textmod}>
           <span className={styles.eyebrow}>Who we are</span>
           <h2 className={styles.headline}>
-            CALO&amp;CO is a growth partner for brands and businesses ready
-            to <em>level up</em>.
+            CALO&amp;CO is a <em>growth partner</em> for independent brands and businesses ready
+            to level up.
           </h2>
         </div>
         <div ref={t1Ref} className={`${styles.tile} ${styles.t1}`}>{TILES[0].label}</div>
