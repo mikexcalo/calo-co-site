@@ -188,7 +188,7 @@ export default function MikeCalo(){
   const [roleSwap,setRoleSwap]=useState(false);
   const [copied,setCopied]=useState(false);
   const copyEmail=async()=>{ try{ await navigator.clipboard.writeText('mikexcalo@gmail.com'); }catch(e){} setCopied(true); setTimeout(()=>setCopied(false),1400); };
-  const ids=['intro','experience','endorsements','offtheclock','contact'];
+  const ids=['intro','featured','experience','endorsements','contact'];
   useEffect(()=>{
     const id=setInterval(()=>{
       setRoleSwap(true);
@@ -219,9 +219,9 @@ export default function MikeCalo(){
           <div className="mc-social"><a href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg></a></div>
           <nav className="mc-nav">
             <a onClick={()=>go('intro')}>Intro</a>
+            <a onClick={()=>go('featured')}>Featured</a>
             <a onClick={()=>go('experience')}>Experience</a>
             <a onClick={()=>go('endorsements')}>Endorsements</a>
-            <a onClick={()=>go('offtheclock')}>Off the Clock</a>
             <a onClick={()=>go('contact')}>Contact</a>
           </nav>
         </aside>
@@ -233,9 +233,37 @@ export default function MikeCalo(){
               <p>With over 13 years of experience, I&apos;ve turned products into categories, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> (launched by Harvard and MIT) to names you know like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
               <p>Today I lead Product Marketing and GTM Strategy at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch.</p>
               <p>Alongside that, I run <a href="/">CALO&amp;CO</a>, my growth and creative studio.</p>
-              <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine</div>
+              <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
           </section>
+
+          <div className="mc-rule"/>
+
+          <div className="mc-feature-row">
+            <section id="featured">
+              <div className="mc-label">Featured</div>
+              <div className="mc-video">
+                <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
+              </div>
+              <div className="mc-vmeta">
+                <div className="mc-vtitle">Built for the Hustle</div>
+                <div className="mc-vsub">I created and launched HotSchedules&rsquo; first-ever YouTube brand campaign &mdash; concept to market.</div>
+                <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">Watch on YouTube</a>
+              </div>
+            </section>
+
+            <section id="offtheclock">
+              <div className="mc-label">Off the Clock</div>
+              <div className="mc-music">
+                <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
+                <div className="mc-music-meta">
+                  <div className="mc-music-t">Cigar Music</div>
+                  <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
+                  <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
+                </div>
+              </div>
+            </section>
+          </div>
 
           <div className="mc-rule"/>
 
@@ -269,34 +297,6 @@ export default function MikeCalo(){
               </div>
             ))}
           </section>
-
-          <div className="mc-rule"/>
-
-          <div className="mc-feature-row">
-            <section id="featured">
-              <div className="mc-label">Featured</div>
-              <div className="mc-video">
-                <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
-              </div>
-              <div className="mc-vmeta">
-                <div className="mc-vtitle">Built for the Hustle</div>
-                <div className="mc-vsub">I created and launched HotSchedules&rsquo; first-ever YouTube brand campaign &mdash; concept to market.</div>
-                <a className="mc-listen" href="https://www.youtube.com/watch?v=3flDiFeyhGs" target="_blank" rel="noopener">Watch on YouTube</a>
-              </div>
-            </section>
-
-            <section id="offtheclock">
-              <div className="mc-label">Off the Clock</div>
-              <div className="mc-music">
-                <img className="mc-music-cover" src="/cigar-music-cover.jpg" alt="Cigar Music playlist cover"/>
-                <div className="mc-music-meta">
-                  <div className="mc-music-t">Cigar Music</div>
-                  <div className="mc-music-n">A playlist I curate and keep growing &mdash; hip-hop and R&amp;B for the slow, unhurried end of a day.</div>
-                  <a className="mc-listen" href="https://music.apple.com/us/playlist/cigar-music/pl.u-zPyLLYXCMo3Jjj" target="_blank" rel="noopener">Listen on Apple Music</a>
-                </div>
-              </div>
-            </section>
-          </div>
 
           <div className="mc-rule"/>
 
