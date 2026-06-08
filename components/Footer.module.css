@@ -12,6 +12,7 @@
 .wordmark {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 600;
+  text-transform: uppercase;
   font-size: clamp(56px, 13vw, 180px);
   line-height: 1;
   letter-spacing: 0.02em;

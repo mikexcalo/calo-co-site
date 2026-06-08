@@ -11,8 +11,9 @@
 }
 
 .wordmark {
-  font-family: var(--font-lora), Georgia, serif;
-  font-weight: 500;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
   font-size: 18px;
   letter-spacing: 0.02em;
   color: #F5F5F5;
