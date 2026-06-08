@@ -42,9 +42,12 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       <div className={styles.wordmark}>CALO<span className="amp">&amp;</span>CO</div>
-      <button className={styles.navCta} data-modal-trigger>
-        Get Started
-      </button>
+      <div className={styles.navRight}>
+        <a href="https://nautilusapp.vercel.app/welcome" className={styles.navLogin}>Log in</a>
+        <button className={styles.navCta} data-modal-trigger>
+          Get Started
+        </button>
+      </div>
     </header>
   );
 }
