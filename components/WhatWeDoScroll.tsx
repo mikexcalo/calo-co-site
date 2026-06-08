@@ -267,6 +267,9 @@ export default function WhatWeDoScroll() {
   }, []);
 
   useEffect(() => {
+    const mq = window.matchMedia('(min-width: 861px)');
+    if (!mq.matches) return; // mobile: skip scroll listener entirely (cards-stack is pure CSS)
+
     let raf = 0;
     function onScroll() {
       cancelAnimationFrame(raf);
@@ -310,6 +313,7 @@ export default function WhatWeDoScroll() {
                 key={i}
                 ref={el => { blocksRef.current[i] = el; }}
                 className={`${styles.block} ${active === i ? styles.blockOn : ''}`}
+                style={{ zIndex: i + 1 }}
               >
                 <p className={styles.eye}>{p.eye}</p>
                 <h3 className={styles.stmt}>{p.stmt}</h3>
