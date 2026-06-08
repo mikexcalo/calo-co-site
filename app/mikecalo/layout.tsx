@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mike Calo — GTM & Product Marketing Leader",
+  title: "Mike Calo — Product Marketing & GTM Leader",
   description: "13+ years turning products into categories — from startups like edX to global brands like Liberty Mutual.",
   openGraph: {
-    title: "Mike Calo — GTM & Product Marketing Leader",
+    title: "Mike Calo — Product Marketing & GTM Leader",
     description: "13+ years turning products into categories — from startups like edX to global brands like Liberty Mutual.",
     url: "https://calo-co-site.vercel.app/mikecalo",
     type: "profile",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mike Calo — GTM & Product Marketing Leader",
+    title: "Mike Calo — Product Marketing & GTM Leader",
     description: "13+ years turning products into categories.",
     images: ["/mikecalo-og.png"],
   },

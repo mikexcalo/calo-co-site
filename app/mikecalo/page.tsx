@@ -8,7 +8,7 @@ const CSS = `
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
 .mc-root{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media(max-width:880px){.mc-root{overflow-x:clip}.mc-q{display:none}}
-.mc-theme{position:fixed;top:max(14px,env(safe-area-inset-top));right:18px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
+.mc-theme{position:fixed;top:max(14px,env(safe-area-inset-top));right:18px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s;will-change:transform;transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden}
 .mc-theme:hover{border-color:var(--soft)}
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
 @media(max-width:880px){.mc-shell{grid-template-columns:1fr}}
@@ -131,8 +131,8 @@ const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
     { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
       { label:'Product Marketing', bullets:[
+        'Own product marketing and go-to-market across Fourth\u2019s full platform \u2014 scheduling, payroll, inventory, recruiting and ATS, and the FinTech suite',
         'Rebuilt the product marketing function from the ground up and run its full craft \u2014 positioning, messaging, product narrative, launch, sales enablement, and competitive intelligence \u2014 as the connective tissue between product, sales, and customers',
-        'Own product marketing and go-to-market across Fourth\u2019s full platform \u2014 scheduling, payroll, inventory, recruiting and ATS, and FinTech',
         'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology',
         'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits',
         'Built AI-native tooling to run the function at scale \u2014 from competitive-intelligence systems to an automated collateral and brochure builder \u2014 turning slow, manual PMM work into fast, on-brand, repeatable engines',
