@@ -7,6 +7,7 @@ const CSS = `
 .mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:#F6F4EF;--soft:#F6F4EF;--line:rgba(246,244,239,0.15);--chip:rgba(246,244,239,0.10);--chip-h:rgba(246,244,239,0.18)}
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
 .mc-root{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(max-width:880px){.mc-root{overflow-x:clip}.mc-q{display:none}}
 .mc-theme{position:fixed;top:18px;right:22px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
 .mc-theme:hover{border-color:var(--soft)}
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
@@ -20,6 +21,7 @@ const CSS = `
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
 .mc-nav a.active{opacity:1;font-weight:500;padding-left:6px}
+@media(max-width:880px){.mc-nav{flex-direction:row;flex-wrap:wrap;gap:18px;margin-top:22px}.mc-nav a:hover,.mc-nav a.active{padding-left:0}}
 .mc-li{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;margin-bottom:4px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s}
 .mc-li:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
 .mc-main{padding:40px 60px 110px}
@@ -36,6 +38,7 @@ const CSS = `
 .mc-rot{display:inline-block}
 .mc-rot > span{display:inline-block;transition:opacity .35s ease, transform .35s ease}
 .mc-rot.swap > span{opacity:0;transform:translateY(-8px)}
+@media(max-width:880px){.mc-rot{display:block;margin-top:2px}}
 @media(max-width:880px){.mc-hook{font-size:25px}}
 .mc-bio{font-size:17px;max-width:60ch;margin-top:24px}
 .mc-bio p{margin-bottom:15px}
