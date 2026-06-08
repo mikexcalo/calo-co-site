@@ -8,7 +8,7 @@ const CSS = `
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
 .mc-root{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media(max-width:880px){.mc-root{overflow-x:clip}.mc-q{display:none}}
-.mc-theme{position:fixed;top:18px;right:22px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
+.mc-theme{position:fixed;top:max(14px,env(safe-area-inset-top));right:18px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
 .mc-theme:hover{border-color:var(--soft)}
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
 @media(max-width:880px){.mc-shell{grid-template-columns:1fr}}
@@ -213,6 +213,16 @@ export default function MikeCalo(){
     onScroll();
     return()=>{io.disconnect();window.removeEventListener('scroll',onScroll);};
   },[]);
+  useEffect(()=>{
+    const v=document.getElementById('reel') as HTMLVideoElement|null;
+    if(!v) return;
+    const kick=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
+    const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting) kick(); }); },{threshold:0.25});
+    io.observe(v);
+    document.addEventListener('visibilitychange', kick);
+    window.addEventListener('focus', kick);
+    return ()=>{ io.disconnect(); document.removeEventListener('visibilitychange', kick); window.removeEventListener('focus', kick); };
+  },[]);
   const go=(id: string)=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
   const toggle=(k: string)=>setOpen(o=>({...o,[k]:!o[k]}));
   return (
@@ -242,7 +252,8 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of marketing experience, I&apos;ve done just about every kind of marketing there is, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
+              <p>With over 13 years of marketing experience, I&apos;ve done just about every kind of marketing there is, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
+              <p>Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
               <p>I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
@@ -254,7 +265,7 @@ export default function MikeCalo(){
             <section id="featured">
               <div className="mc-label">Featured</div>
               <div className="mc-video">
-                <video src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
+                <video id="reel" src="/hotschedules-reel.mp4" autoPlay muted loop playsInline preload="auto"></video>
               </div>
               <div className="mc-vmeta">
                 <div className="mc-vtitle">Built for the Hustle</div>
