@@ -19,6 +19,7 @@ const CSS = `
 .mc-nav{margin-top:34px;display:flex;flex-direction:column;gap:13px}
 .mc-nav a{color:var(--ink);text-decoration:none;font-size:16px;opacity:.85;transition:opacity .2s,padding-left .2s}
 .mc-nav a:hover{opacity:1;padding-left:6px}
+.mc-nav a.active{opacity:1;font-weight:500;padding-left:6px}
 .mc-social{margin-top:14px;margin-bottom:4px}
 .mc-social a{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;transition:opacity .2s}
 .mc-social a:hover{opacity:.6}
@@ -63,7 +64,7 @@ const CSS = `
 .mc-dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:24px}
 .mc-yr{font-size:13px;color:var(--soft);white-space:nowrap;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .mc-panel{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.mc-panel.open{max-height:1300px}
+.mc-panel.open{max-height:1420px}
 .mc-panel ul{padding:2px 0 14px 37px}
 .mc-panel li{font-size:14.5px;color:var(--mid);margin-bottom:9px;list-style:none;position:relative;padding-left:20px;max-width:70ch;line-height:1.5}
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
@@ -126,57 +127,58 @@ const ORGS: Org[] = [
   { logo:{img:'/logos/fourth.png'}, name:'Fourth (HotSchedules)', tip:'Workforce and operations software for restaurants and hospitality: scheduling, labor, and back-office management.', roles:[
     { title:'Director, Product Marketing & GTM Strategy', dates:'2024 \u2014 Present', groups:[
       { label:'Product Marketing', bullets:[
-        'Rebuilt the product marketing function from the ground up and run its full craft \u2014 positioning, messaging, product narrative, launch, sales enablement, and competitive intelligence \u2014 as the connective tissue between product, sales, and customers.',
-        'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology.',
-        'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits.',
-        'Built AI-native tooling to run the function at scale \u2014 from competitive-intelligence systems to an automated collateral and brochure builder \u2014 turning slow, manual PMM work into fast, on-brand, repeatable engines.',
+        'Rebuilt the product marketing function from the ground up and run its full craft \u2014 positioning, messaging, product narrative, launch, sales enablement, and competitive intelligence \u2014 as the connective tissue between product, sales, and customers',
+        'Launched Fourth iQ and architected its U.S. go-to-market, establishing the company as a category leader in AI-driven restaurant technology',
+        'Created \u201CBuilt for the Hustle,\u201D the company\u2019s first YouTube brand campaign: 24M+ impressions at a $0.063 CPC (67% below industry benchmark), a 245% lift in branded search, and 12,000+ high-intent site visits',
+        'Built AI-native tooling to run the function at scale \u2014 from competitive-intelligence systems to an automated collateral and brochure builder \u2014 turning slow, manual PMM work into fast, on-brand, repeatable engines',
       ]},
       { label:'GTM Strategy', bullets:[
-        'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline.',
-        'Grew a FinTech product line 7x year over year and lifted win rates from 10% to 78% through sharper messaging, enablement, and offer design.',
-        'Secured official partner status with Square and architected the joint go-to-market promotional strategy to penetrate the food-and-beverage segment.',
-        'Consolidated fragmented SMB offerings into unified pricing and packaging, and is leading the shift to product-led growth and AI-native GTM.',
+        'Own go-to-market across Fourth\u2019s full platform \u2014 scheduling, payroll, inventory, recruiting and ATS, and FinTech',
+        'Built a promotional monetization program that produced $2M in new ARR across 162 deals, returning $4.60 for every $1 invested and $1.1M in ARR above baseline',
+        'Grew a FinTech product line 7x year over year and lifted win rates from 10% to 78% through sharper messaging, enablement, and offer design',
+        'Secured official partner status with Square and architected the joint go-to-market promotional strategy to penetrate the food-and-beverage segment',
+        'Consolidated fragmented SMB offerings into unified pricing and packaging, and is leading the shift to product-led growth and AI-native GTM',
       ]},
     ]},
     { title:'Senior Product Marketing Lead', dates:'2022 \u2014 2024', bullets:[
-      'Owned go-to-market for the payments and FinTech ecosystem while directing rebranding and ABM across the enterprise product line.',
-      'Coordinated positioning and launches across overlapping FinTech and enterprise lines, each with a distinct audience and sales motion.',
-      'Built the enablement system of battle cards, pitch decks, and collateral that simplified complex deals and shortened enterprise sales cycles.' ]},
+      'Owned go-to-market for the payments and FinTech ecosystem while directing rebranding and ABM across the enterprise product line',
+      'Coordinated positioning and launches across overlapping FinTech and enterprise lines, each with a distinct audience and sales motion',
+      'Built the enablement system of battle cards, pitch decks, and collateral that simplified complex deals and shortened enterprise sales cycles' ]},
   ]},
   { logo:{text:'CC'}, name:'CALO&CO', tip:'Boutique growth and creative studio based in Portland, Maine.', roles:[
     { title:'Founder', dates:'2023 \u2014 Present', bullets:[
-      'Founded an independent growth and creative studio, partnering with small and mid-sized businesses on brand, positioning, and go-to-market.' ]},
+      'Founded an independent growth and creative studio, partnering with small and mid-sized businesses on brand, positioning, and go-to-market' ]},
   ]},
   { logo:{img:'/logos/crunchtime.png'}, name:'Crunchtime', tip:'Operations-management software for multi-unit restaurants: inventory, labor, and food-cost control.', roles:[
     { title:'Senior Product Marketing Manager', dates:'2021 \u2014 2022', bullets:[
-      'Joined as the first product marketing hire and built the entire discipline from scratch, defining personas, competitive battle cards, and the enablement frameworks the sales team still runs on.',
-      'Repositioned the legacy portfolio, cutting sales cycles roughly 20% and lifting win rates about 15%.',
-      'Authored the company\u2019s first e-book and caselet series, driving inbound engagement 200% above prior benchmarks.' ]},
+      'Joined as the first product marketing hire and built the entire discipline from scratch, defining personas, competitive battle cards, and the enablement frameworks the sales team still runs on',
+      'Repositioned the legacy portfolio, cutting sales cycles roughly 20% and lifting win rates about 15%',
+      'Authored the company\u2019s first e-book and caselet series, driving inbound engagement 200% above prior benchmarks' ]},
   ]},
   { logo:{img:'/logos/state-street.jpg'}, name:'State Street', tip:'Global financial-services firm and one of the world\u2019s largest asset managers and custodian banks.', roles:[
     { title:'Senior Demand Generation Marketing Manager', dates:'2019 \u2014 2021', bullets:[
-      'Ran paid and organic social for the firm\u2019s ETF portfolios, partnering with creative and content on full-funnel digital campaigns.',
-      'Turned complex financial products into demand-generation programs that grew engagement and qualified pipeline.' ]},
+      'Ran paid and organic social for the firm\u2019s ETF portfolios, partnering with creative and content on full-funnel digital campaigns',
+      'Turned complex financial products into demand-generation programs that grew engagement and qualified pipeline' ]},
   ]},
   { logo:{img:'/logos/liberty-mutual.png'}, name:'Liberty Mutual', tip:'One of the largest property-and-casualty insurance companies in the United States.', roles:[
     { title:'Partnerships & Field Marketing Manager', dates:'2016 \u2014 2018', bullets:[
-      'Built and launched a scalable field-marketing program for partner dealerships, including a performance leaderboard and incentive structure designed to expand across regions.',
-      'Ran email and direct-mail campaigns for strategic partners across the connected-home and insurance verticals.' ]},
+      'Built and launched a scalable field-marketing program for partner dealerships, including a performance leaderboard and incentive structure designed to expand across regions',
+      'Ran email and direct-mail campaigns for strategic partners across the connected-home and insurance verticals' ]},
   ]},
   { logo:{img:'/logos/edx.png'}, name:'edX', tip:'Online learning platform offering university-level courses, originally founded by Harvard and MIT.', roles:[
     { title:'Product Marketing Specialist', dates:'2015 \u2014 2017', bullets:[
-      'Grew the affiliate partner program from 0 to 55+ partners in its first year, opening a new inbound acquisition channel.',
-      'Ran marketing for the website and course catalog, A/B testing listings to lift engagement and conversion.',
-      'Shaped positioning and go-to-market for the MicroMasters launch and supported enterprise bulk-adoption agreements.' ]},
+      'Grew the affiliate partner program from 0 to 55+ partners in its first year, opening a new inbound acquisition channel',
+      'Ran marketing for the website and course catalog, A/B testing listings to lift engagement and conversion',
+      'Shaped positioning and go-to-market for the MicroMasters launch and supported enterprise bulk-adoption agreements' ]},
   ]},
   { logo:{img:'/logos/dell.png'}, name:'EMC (Dell)', tip:'Enterprise data-storage and cloud-infrastructure company, now part of Dell Technologies.', roles:[
     { title:'Product Marketing Rotational Program', dates:'2013 \u2014 2015', bullets:[
-      'Delivered sales enablement for early-stage cloud and big-data products, supporting adoption across a global sales force.',
-      'Partnered across product, channel, and field teams to align messaging with the sales motion.' ]},
+      'Delivered sales enablement for early-stage cloud and big-data products, supporting adoption across a global sales force',
+      'Partnered across product, channel, and field teams to align messaging with the sales motion' ]},
   ]},
   { logo:{img:'/logos/boston-college.svg'}, name:'Boston College', tip:'', roles:[
     { title:'B.S. Business Administration', dates:'2009 \u2014 2013', bullets:[
-      'Carroll School of Management \u2014 Marketing concentration, History minor.' ]},
+      'Carroll School of Management \u2014 Marketing concentration, History minor' ]},
   ]},
 ];
 
@@ -218,11 +220,11 @@ export default function MikeCalo(){
           <div className="mc-role">GTM Strategist<br/>Product Marketing Leader</div>
           <div className="mc-social"><a href="https://linkedin.com/in/mikecalo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg></a></div>
           <nav className="mc-nav">
-            <a onClick={()=>go('intro')}>Intro</a>
-            <a onClick={()=>go('featured')}>Featured</a>
-            <a onClick={()=>go('experience')}>Experience</a>
-            <a onClick={()=>go('endorsements')}>Endorsements</a>
-            <a onClick={()=>go('contact')}>Contact</a>
+            <a className={active==='intro'?'active':''} onClick={()=>go('intro')}>Intro</a>
+            <a className={active==='featured'?'active':''} onClick={()=>go('featured')}>Featured</a>
+            <a className={active==='experience'?'active':''} onClick={()=>go('experience')}>Experience</a>
+            <a className={active==='endorsements'?'active':''} onClick={()=>go('endorsements')}>Endorsements</a>
+            <a className={active==='contact'?'active':''} onClick={()=>go('contact')}>Contact</a>
           </nav>
         </aside>
         <main className="mc-main">
@@ -230,7 +232,7 @@ export default function MikeCalo(){
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
             <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>With over 13 years of experience, I&apos;ve helped products find their market and grow, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and built the go-to-market behind real growth.</p>
+              <p>With over 13 years of experience, I&apos;ve worked everywhere from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> to global brands like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>. Today I lead Product Marketing at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run go-to-market across the entire platform.</p>
               <p>I also founded and run CALO&amp;CO, an independent growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine <span style={{opacity:.55}}>(current)</span></div>
             </div>
