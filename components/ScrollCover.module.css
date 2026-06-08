@@ -1,6 +1,6 @@
 .track {
   position: relative;
-  height: 230vh;
+  height: 210vh;
   background: var(--charcoal, #1A1A1A);
 }
 .rail {
@@ -16,9 +16,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  padding: 0 24px;
+  padding: 23vh 24px 0;
   z-index: 1;
   will-change: opacity;
 }
@@ -64,6 +64,7 @@
 
 @media (max-width: 860px) {
   .track { height: 316vh; }
+  .textmod { justify-content: center; padding: 0 24px; }
   .tile { width: 78vw; height: 52vh; }
   .headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
 }
