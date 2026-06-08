@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap');
-.mc-root{--bg:#F6F4EF;--ink:#1C1B19;--mid:#1C1B19;--soft:#1C1B19;--line:rgba(28,27,25,0.13);--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
-.mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:#F6F4EF;--soft:#F6F4EF;--line:rgba(246,244,239,0.15)}
+.mc-root{--bg:#F6F4EF;--ink:#1C1B19;--mid:#1C1B19;--soft:#1C1B19;--line:rgba(28,27,25,0.13);--chip:rgba(28,27,25,0.06);--chip-h:rgba(28,27,25,0.12);--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+.mc-root.dark{--bg:#1C1B19;--ink:#F6F4EF;--mid:#F6F4EF;--soft:#F6F4EF;--line:rgba(246,244,239,0.15);--chip:rgba(246,244,239,0.10);--chip-h:rgba(246,244,239,0.18)}
 .mc-root *{margin:0;padding:0;box-sizing:border-box}
 .mc-root{scroll-behavior:smooth}
 .mc-theme{position:fixed;top:18px;right:22px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s}
@@ -39,8 +39,9 @@ const CSS = `
 @media(max-width:880px){.mc-hook{font-size:25px}}
 .mc-bio{font-size:17px;max-width:60ch;margin-top:24px}
 .mc-bio p{margin-bottom:15px}
-.mc-bio a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);transition:opacity .2s}
-.mc-bio a:hover{opacity:.6}
+.mc-subhead{font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.01em;margin-top:18px}
+.mc-bio a{color:var(--ink);text-decoration:none;background:var(--chip);border-radius:6px;padding:1px 7px;transition:background .2s;white-space:nowrap}
+.mc-bio a:hover{background:var(--chip-h)}
 .mc-journey{font-size:13px;color:var(--soft);letter-spacing:.02em;margin-top:22px;line-height:1.5}
 .mc-journey .arrow{color:var(--soft);opacity:.6;padding:0 4px}
 .mc-org{margin-bottom:26px}
@@ -227,9 +228,11 @@ export default function MikeCalo(){
         <main className="mc-main">
           <section id="intro">
             <h1 className="mc-hook">Hey, I&apos;m Mike, and I&apos;m <span className={'mc-rot'+(roleSwap?' swap':'')}><span>{ROLES[roleIdx]}</span></span></h1>
+            <p className="mc-subhead">I help great products, brands, and businesses win.</p>
             <div className="mc-bio">
-              <p>I&apos;ve spent 13+ years turning products into categories, across SaaS, FinTech, and enterprise. I&apos;ve done it at names you know, like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>, and at scrappy startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a>, the startup Harvard and MIT launched.</p>
-              <p>These days I lead Product Marketing and GTM Strategy at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch and run launches, monetization, and the move toward product-led growth and AI-native GTM.</p>
+              <p>With over 13 years of experience, I&apos;ve turned products into categories, from startups like <a href="https://www.edx.org" target="_blank" rel="noopener">edX</a> (launched by Harvard and MIT) to names you know like <a href="https://www.libertymutual.com" target="_blank" rel="noopener">Liberty Mutual</a>.</p>
+              <p>Today I lead Product Marketing and GTM Strategy at <a href="https://www.fourth.com" target="_blank" rel="noopener">Fourth</a>, where I rebuilt the function from scratch.</p>
+              <p>Alongside that, I run <a href="/">CALO&amp;CO</a>, my growth and creative studio.</p>
               <div className="mc-journey">New Jersey <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> New York City <span className="arrow">&rarr;</span> Boston <span className="arrow">&rarr;</span> Portland, Maine</div>
             </div>
           </section>
