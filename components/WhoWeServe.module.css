@@ -261,3 +261,69 @@
   background-size: 175%;
   background-position: 48% 18%;
 }
+
+/* ===== Scroll-in entrance motion ===== */
+
+/* Resting (pre-reveal) states */
+.eyebrow,
+.subhead,
+.word { will-change: opacity, transform; }
+
+.section .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.section .eyebrow,
+.section .subhead {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.section .tile {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Revealed states */
+.section[data-revealed='true'] .eyebrow {
+  opacity: 1; transform: translateY(0);
+  transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.section[data-revealed='true'] .word {
+  opacity: 1; transform: translateY(0);
+  transition: opacity .55s cubic-bezier(.22,.61,.36,1), transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.section[data-revealed='true'] .subhead {
+  opacity: 1; transform: translateY(0);
+  transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+  transition-delay: .5s;
+}
+.section[data-revealed='true'] .tile {
+  opacity: 1; transform: translateY(0);
+  transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Word-by-word stagger (eyebrow leads, then words ~45ms apart) */
+.section[data-revealed='true'] .word:nth-child(1) { transition-delay: .12s; }
+.section[data-revealed='true'] .word:nth-child(2) { transition-delay: .165s; }
+.section[data-revealed='true'] .word:nth-child(3) { transition-delay: .21s; }
+.section[data-revealed='true'] .word:nth-child(5) { transition-delay: .255s; }
+.section[data-revealed='true'] .word:nth-child(6) { transition-delay: .30s; }
+
+/* Tile cascade, left-to-right (first 4 visible) */
+.section[data-revealed='true'] .shelf .tile:nth-child(1) { transition-delay: .55s; }
+.section[data-revealed='true'] .shelf .tile:nth-child(2) { transition-delay: .64s; }
+.section[data-revealed='true'] .shelf .tile:nth-child(3) { transition-delay: .73s; }
+.section[data-revealed='true'] .shelf .tile:nth-child(4) { transition-delay: .82s; }
+
+/* Accessibility: no motion for users who opt out */
+@media (prefers-reduced-motion: reduce) {
+  .section .word,
+  .section .eyebrow,
+  .section .subhead,
+  .section .tile {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

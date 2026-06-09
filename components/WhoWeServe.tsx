@@ -88,6 +88,7 @@ export default function WhoWeServe() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let raf = 0
     let half = 0
+    let scrollStarted = reduce // if reduced-motion, allow scroll immediately
 
     const measure = () => {
       const tile = track.querySelector('[data-tile]') as HTMLElement | null
@@ -98,7 +99,7 @@ export default function WhoWeServe() {
     }
 
     const frame = () => {
-      if (!dragRef.current.active && !pausedRef.current && !reduce) offsetRef.current += SPEED
+      if (scrollStarted && !dragRef.current.active && !pausedRef.current && !reduce) offsetRef.current += SPEED
       if (!dragRef.current.active && Math.abs(pendingRef.current) > 0.4) {
         const s = pendingRef.current * 0.12
         offsetRef.current += s
@@ -141,6 +142,23 @@ export default function WhoWeServe() {
     track2.addEventListener('touchend', onTouchEnd, { passive: true })
     track2.addEventListener('touchcancel', onTouchEnd, { passive: true })
 
+    const section = track.closest('section')
+    if (section && !reduce) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            section.setAttribute('data-revealed', 'true')
+            obs.disconnect()
+            // release auto-scroll after the entrance choreography completes
+            window.setTimeout(() => { scrollStarted = true }, 1600)
+          }
+        })
+      }, { threshold: 0.25 })
+      io.observe(section)
+    } else if (section) {
+      section.setAttribute('data-revealed', 'true')
+    }
+
     measure()
     raf = requestAnimationFrame(frame)
     window.addEventListener('resize', measure)
@@ -164,7 +182,12 @@ export default function WhoWeServe() {
       <div className={styles.head}>
         <span className={styles.eyebrow}>Who we serve</span>
         <h2 className={styles.title}>
-          For every visionary<br />and venture
+          <span className={styles.word}>For</span>{' '}
+          <span className={styles.word}>every</span>{' '}
+          <span className={styles.word}>visionary</span>
+          <br />
+          <span className={styles.word}>and</span>{' '}
+          <span className={styles.word}>venture</span>
         </h2>
         <p className={styles.subhead}>
           From solo founders to skilled-trade teams, we partner with operators
