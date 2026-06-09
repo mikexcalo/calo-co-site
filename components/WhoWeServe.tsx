@@ -42,7 +42,7 @@ const audiences: Audience[] = [
   {
     id: 'cpg',
     label: <>Makers <span className="amp">&amp;</span> Producers</>,
-    image: null,
+    image: '/images/audiences/makers-producers.jpg',
     description: 'Food, beverage, beauty, and wellness brands building distribution, awareness, and loyalty in a crowded shelf.',
     pills: ['Food', 'Beverage', 'Beauty', 'Wellness', 'Supplements'],
   },
@@ -63,14 +63,14 @@ const audiences: Audience[] = [
   {
     id: 'food',
     label: <>Food <span className="amp">&amp;</span> Hospitality</>,
-    image: null,
+    image: '/images/audiences/food-hospitality.jpg',
     description: 'Restaurants, caterers, food trucks, and hospitality brands filling seats and building loyal followings.',
     pills: ['Restaurant', 'Catering', 'Food Truck', 'Bar', 'Café'],
   },
   {
     id: 'musicians',
     label: <>Musicians <span className="amp">&amp;</span> Performers</>,
-    image: null,
+    image: '/images/audiences/musicians-performers.jpg',
     description: 'Artists, bands, DJs, and performers turning talent into a brand and filling rooms.',
     pills: ['Musician', 'Band', 'DJ', 'Performer', 'Producer'],
   },
@@ -171,18 +171,13 @@ export default function WhoWeServe() {
       <div className={styles.head}>
         <span className={styles.eyebrow}>Who we serve</span>
         <h2 className={styles.title}>
-          For every visionary<br />and venture.
+          For every visionary<br />and venture
         </h2>
         <p className={styles.subhead}>
           From solo founders to skilled-trade teams, we partner with operators
-          ready to build something worth remembering. Every business runs different
-          — we shape what we do to match how yours actually works.
+          ready to build something worth remembering
+          — shaping what we do to match how your business actually works.
         </p>
-      </div>
-
-      <div className={styles.arrowBar}>
-        <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
-        <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
       </div>
 
       <div
@@ -207,7 +202,7 @@ export default function WhoWeServe() {
         </div>
       </div>
 
-      <div className={styles.arrowBarMobile}>
+      <div className={styles.arrowBar}>
         <button type="button" className={styles.arrow} onClick={() => nudge(-1)} aria-label="Previous">&larr;</button>
         <button type="button" className={styles.arrow} onClick={() => nudge(1)} aria-label="Next">&rarr;</button>
       </div>

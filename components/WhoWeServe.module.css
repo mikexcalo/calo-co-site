@@ -52,9 +52,9 @@
 
 .arrowBar {
   max-width: var(--site-max-width);
-  margin: 0 auto 18px;
+  margin: 24px auto 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
 }
@@ -212,9 +212,6 @@
     grid-row: 3;
     padding-top: 4px;
     max-width: none;
-  }
-  .arrowBar {
-    display: none;
   }
   .arrowBarMobile {
     display: flex;
