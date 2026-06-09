@@ -84,7 +84,7 @@ export default function WhoWeServe() {
     if (!track) return
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches
-    const SPEED = isMobile ? 0.5 : 0.4
+    const SPEED = isMobile ? 1.5 : 1.2
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let raf = 0
     let half = 0

@@ -238,8 +238,8 @@
   background-position: center top;
 }
 .tileBg[style*="musicians-performers"] {
-  background-size: 135%;
-  background-position: 50% 72%;
+  background-size: 150%;
+  background-position: 38% 72%;
 }
 .tileBg[style*="artist-teacher"] {
   background-size: 130%;
@@ -259,5 +259,5 @@
 
 .tileBg[style*="founders-startups"] {
   background-size: 175%;
-  background-position: 42% 28%;
+  background-position: 48% 18%;
 }
