@@ -229,3 +229,18 @@
     min-width: 0;
   }
 }
+
+/* Per-tile crop tuning (background-size = zoom, position = framing) */
+.tileBg[style*="food-hospitality"] {
+  background-position: center 22%;
+}
+.tileBg[style*="musicians-performers"] {
+  background-size: 165%;
+  background-position: 50% 30%;
+}
+.tileBg[style*="artist-teacher"] {
+  background-position: center 35%;
+}
+.tileBg[style*="designers-boutiques"] {
+  background-position: center 40%;
+}

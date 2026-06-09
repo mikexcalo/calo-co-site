@@ -14,7 +14,7 @@ const audiences: Audience[] = [
   {
     id: 'creators',
     label: <>Artists <span className="amp">&amp;</span> Creatives</>,
-    image: '/images/audiences/creators-designers.jpg',
+    image: '/images/audiences/artist-teacher.jpg',
     description: 'Solo founders, artists, and personal brands turning audience into business worth remembering.',
     pills: ['Artist', 'Designer', 'Writer', 'Maker', 'Freelance'],
   },
@@ -35,7 +35,7 @@ const audiences: Audience[] = [
   {
     id: 'retail',
     label: <>Designers <span className="amp">&amp;</span> Boutiques</>,
-    image: null,
+    image: '/images/audiences/designers-boutiques.jpg',
     description: 'Independent product brands navigating brick-and-mortar, e-commerce, and the increasingly blurred line between.',
     pills: ['Apparel', 'Jewelry', 'Home', 'Accessories', 'Boutique'],
   },
