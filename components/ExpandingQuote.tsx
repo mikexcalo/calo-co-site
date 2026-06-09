@@ -16,6 +16,9 @@ export default function ExpandingQuote() {
       ease(Math.max(0, Math.min(1, (p - a) / (b - a))))
 
     let raf = 0
+    let revealed = false
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) { revealed = true; panelEl.setAttribute('data-revealed', 'true') }
     const update = () => {
       raf = 0
       const rect = moduleEl.getBoundingClientRect()
@@ -29,11 +32,10 @@ export default function ExpandingQuote() {
       const closeP = ease(exit)
       const pv = openP * (1 - closeP)
       panelEl.style.setProperty('--p', pv.toFixed(4))
-      panelEl.querySelectorAll<HTMLElement>('.' + styles.fi).forEach((el) => {
-        const idx = parseFloat(el.dataset.fi || '0')
-        const start = 0.3 + idx * 0.05
-        el.style.setProperty('--i', seg(p, start, start + 0.14).toFixed(4))
-      })
+      if (!revealed && p >= 0.3) {
+        revealed = true
+        panelEl.setAttribute('data-revealed', 'true')
+      }
     }
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
     window.addEventListener('scroll', onScroll, { passive: true })
