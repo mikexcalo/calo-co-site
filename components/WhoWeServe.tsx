@@ -61,13 +61,6 @@ const audiences: Audience[] = [
     pills: ['Hair', 'Barber', 'Spa', 'Nails', 'Esthetics'],
   },
   {
-    id: 'food',
-    label: <>Food <span className="amp">&amp;</span> Hospitality</>,
-    image: '/images/audiences/food-hospitality.jpg',
-    description: 'Restaurants, caterers, food trucks, and hospitality brands filling seats and building loyal followings.',
-    pills: ['Restaurant', 'Catering', 'Food Truck', 'Bar', 'Café'],
-  },
-  {
     id: 'musicians',
     label: <>Musicians <span className="amp">&amp;</span> Performers</>,
     image: '/images/audiences/musicians-performers.jpg',
@@ -91,7 +84,7 @@ export default function WhoWeServe() {
     if (!track) return
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches
-    const SPEED = isMobile ? 3.6 : 2.8
+    const SPEED = isMobile ? 0.5 : 0.4
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let raf = 0
     let half = 0
@@ -175,8 +168,7 @@ export default function WhoWeServe() {
         </h2>
         <p className={styles.subhead}>
           From solo founders to skilled-trade teams, we partner with operators
-          ready to build something worth remembering
-          — shaping what we do to match how your business actually works.
+          ready to build something worth remembering — built around how you already operate.
         </p>
       </div>
 
