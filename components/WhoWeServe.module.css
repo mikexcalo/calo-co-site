@@ -1,7 +1,7 @@
 .section {
   background: var(--charcoal, #1A1A1A);
   color: var(--ivory, #F5F5F5);
-  padding: 120px var(--site-gutter) 48px;
+  padding: 120px var(--site-gutter) 120px;
   position: relative;
 }
 
