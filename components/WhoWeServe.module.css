@@ -104,7 +104,7 @@
 }
 
 .tile {
-  flex: 0 0 calc((min(100vw - 2 * var(--site-gutter), var(--site-max-width)) - 54px) / 4);
+  flex: 0 0 clamp(280px, 25vw, 372px);
   flex-shrink: 0;
   aspect-ratio: 3 / 4;
   border-radius: 10px;
