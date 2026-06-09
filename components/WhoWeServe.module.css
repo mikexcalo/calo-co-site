@@ -130,7 +130,7 @@
 
 .tileBg[style*="studios-media"] {
   background-size: 115%;
-  background-position: center 30%;
+  background-position: center 55%;
 }
 .tile:hover .tileBg {
   transform: scale(1.04);
@@ -155,7 +155,7 @@
 .tileLabel {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--ivory);
@@ -249,4 +249,10 @@
 .tileBg[style*="stylists-salons"] {
   background-size: 115%;
   background-position: center 30%;
+}
+
+.tileLabel .amp {
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
