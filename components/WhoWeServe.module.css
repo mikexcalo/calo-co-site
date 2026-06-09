@@ -130,7 +130,7 @@
 
 .tileBg[style*="studios-media"] {
   background-size: 115%;
-  background-position: center 55%;
+  background-position: 40% 55%;
 }
 .tile:hover .tileBg {
   transform: scale(1.04);
@@ -238,7 +238,7 @@
   background-position: center top;
 }
 .tileBg[style*="musicians-performers"] {
-  background-size: 150%;
+  background-size: 170%;
   background-position: 38% 72%;
 }
 .tileBg[style*="artist-teacher"] {
@@ -259,7 +259,7 @@
 
 .tileBg[style*="founders-startups"] {
   background-size: 175%;
-  background-position: 48% 18%;
+  background-position: 48% 8%;
 }
 
 /* ===== Scroll-in entrance motion ===== */
@@ -333,6 +333,6 @@
   background-position: 30% 30%;
 }
 .tileBg[style*="designers-boutiques"] {
-  background-size: 120%;
-  background-position: 65% 35%;
+  background-size: 145%;
+  background-position: 48% 20%;
 }

@@ -69,6 +69,10 @@ const audiences: Audience[] = [
   },
 ]
 
+const orderedAudiences: Audience[] = ['trades', 'retail', 'studios', 'cpg', 'apps', 'creators', 'salons', 'musicians']
+  .map((id) => audiences.find((a) => a.id === id))
+  .filter((a): a is Audience => Boolean(a))
+
 export default function WhoWeServe() {
   const trackRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef(0)
@@ -190,8 +194,7 @@ export default function WhoWeServe() {
           <span className={styles.word}>venture</span>
         </h2>
         <p className={styles.subhead}>
-          From solo founders to skilled-trade teams, we partner with operators
-          ready to build something worth remembering — built around how you already operate.
+          From solo founders to skilled-trade teams, we partner with the people doing the work and build at your pace.
         </p>
       </div>
 
@@ -201,7 +204,7 @@ export default function WhoWeServe() {
         onMouseLeave={() => { pausedRef.current = false }}
       >
         <div className={styles.shelf} ref={trackRef}>
-          {[...audiences, ...audiences].map((a, i) => (
+          {[...orderedAudiences, ...orderedAudiences].map((a, i) => (
             <article key={`${a.id}-${i}`} data-tile className={styles.tile}>
               {a.image ? (
                 <div className={styles.tileBg} style={{ backgroundImage: `url(${a.image})` }} />
