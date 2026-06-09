@@ -21,7 +21,7 @@ const audiences: Audience[] = [
   {
     id: 'trades',
     label: <>Builders <span className="amp">&amp;</span> Contractors</>,
-    image: '/images/audiences/trades-local-services.jpg',
+    image: null,
     description: 'Skilled-trade operators — construction, flooring, contracting — modernizing how they win and run jobs.',
     pills: ['Construction', 'Flooring', 'Landscaping', 'Plumbing', 'Electrical'],
   },
@@ -35,14 +35,14 @@ const audiences: Audience[] = [
   {
     id: 'retail',
     label: <>Designers <span className="amp">&amp;</span> Boutiques</>,
-    image: '/images/audiences/designers-boutiques.jpg',
+    image: null,
     description: 'Independent product brands navigating brick-and-mortar, e-commerce, and the increasingly blurred line between.',
     pills: ['Apparel', 'Jewelry', 'Home', 'Accessories', 'Boutique'],
   },
   {
     id: 'cpg',
     label: <>Makers <span className="amp">&amp;</span> Producers</>,
-    image: '/images/audiences/makers-producers.jpg',
+    image: null,
     description: 'Food, beverage, beauty, and wellness brands building distribution, awareness, and loyalty in a crowded shelf.',
     pills: ['Food', 'Beverage', 'Beauty', 'Wellness', 'Supplements'],
   },
@@ -91,7 +91,7 @@ export default function WhoWeServe() {
     if (!track) return
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches
-    const SPEED = isMobile ? 1.1 : 0.7
+    const SPEED = isMobile ? 2.2 : 1.4
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let raf = 0
     let half = 0
