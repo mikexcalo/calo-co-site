@@ -150,7 +150,7 @@ export default function WhoWeServe() {
             section.setAttribute('data-revealed', 'true')
             obs.disconnect()
             // release auto-scroll after the entrance choreography completes
-            window.setTimeout(() => { scrollStarted = true }, 1600)
+            window.setTimeout(() => { scrollStarted = true }, 2800)
           }
         })
       }, { threshold: 0.25 })
