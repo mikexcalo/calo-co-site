@@ -129,7 +129,7 @@
 }
 
 .tileBg[style*="studios-media"] {
-  background-size: 130%;
+  background-size: 115%;
   background-position: center 30%;
 }
 .tile:hover .tileBg {
@@ -239,8 +239,8 @@
   background-position: center top;
 }
 .tileBg[style*="musicians-performers"] {
-  background-size: 165%;
-  background-position: 50% 58%;
+  background-size: 135%;
+  background-position: 50% 72%;
 }
 .tileBg[style*="artist-teacher"] {
   background-position: center 35%;
