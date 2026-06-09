@@ -49,7 +49,7 @@ const audiences: Audience[] = [
   {
     id: 'apps',
     label: <>Founders <span className="amp">&amp;</span> Startups</>,
-    image: null,
+    image: '/images/audiences/founders-startups.jpg',
     description: 'SaaS, mobile, newsletters, and digital products solving real problems. Positioning, growth, and the GTM motion that compounds.',
     pills: ['SaaS', 'Mobile', 'Newsletter', 'Web Tool', 'Marketplace'],
   },

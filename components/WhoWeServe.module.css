@@ -251,8 +251,13 @@
   background-position: center 30%;
 }
 
-.tileLabel .amp {
+.tileLabel :global(.amp) {
   font-family: var(--font-geist), system-ui, sans-serif;
   font-style: normal;
   font-weight: 500;
+}
+
+.tileBg[style*="founders-startups"] {
+  background-size: 145%;
+  background-position: 38% 30%;
 }
