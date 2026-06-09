@@ -21,7 +21,7 @@ const audiences: Audience[] = [
   {
     id: 'trades',
     label: <>Builders <span className="amp">&amp;</span> Contractors</>,
-    image: null,
+    image: '/images/audiences/builders-contractors.jpg',
     description: 'Skilled-trade operators — construction, flooring, contracting — modernizing how they win and run jobs.',
     pills: ['Construction', 'Flooring', 'Landscaping', 'Plumbing', 'Electrical'],
   },
@@ -35,7 +35,7 @@ const audiences: Audience[] = [
   {
     id: 'retail',
     label: <>Designers <span className="amp">&amp;</span> Boutiques</>,
-    image: null,
+    image: '/images/audiences/designers-boutiques.jpg',
     description: 'Independent product brands navigating brick-and-mortar, e-commerce, and the increasingly blurred line between.',
     pills: ['Apparel', 'Jewelry', 'Home', 'Accessories', 'Boutique'],
   },

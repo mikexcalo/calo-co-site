@@ -327,3 +327,12 @@
     transition: none !important;
   }
 }
+
+.tileBg[style*="builders-contractors"] {
+  background-size: 130%;
+  background-position: 30% 30%;
+}
+.tileBg[style*="designers-boutiques"] {
+  background-size: 120%;
+  background-position: 65% 35%;
+}
