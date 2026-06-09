@@ -245,3 +245,8 @@
   background-size: 130%;
   background-position: center 35%;
 }
+
+.tileBg[style*="stylists-salons"] {
+  background-size: 115%;
+  background-position: center 30%;
+}

@@ -56,7 +56,7 @@ const audiences: Audience[] = [
   {
     id: 'salons',
     label: <>Stylists <span className="amp">&amp;</span> Salons</>,
-    image: null,
+    image: '/images/audiences/stylists-salons.jpg',
     description: 'Hair stylists, barbers, estheticians, and salon owners building a brand clients come back to.',
     pills: ['Hair', 'Barber', 'Spa', 'Nails', 'Esthetics'],
   },
