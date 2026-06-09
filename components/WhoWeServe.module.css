@@ -132,8 +132,10 @@
   background-size: 115%;
   background-position: 40% 55%;
 }
-.tile:hover .tileBg {
-  transform: scale(1.04);
+@media (hover: hover) {
+  .tile:hover .tileBg {
+    transform: scale(1.04);
+  }
 }
 
 .tile::after {

@@ -194,7 +194,7 @@ export default function WhoWeServe() {
           <span className={styles.word}>venture</span>
         </h2>
         <p className={styles.subhead}>
-          From solo founders to skilled-trade teams, we partner with the people doing the work and build at your pace.
+          From solo founders to skilled-trade teams, we&rsquo;re here to help navigate the brand or business you&rsquo;re building, all at your pace.
         </p>
       </div>
 
