@@ -22,7 +22,7 @@ const audiences: Audience[] = [
     id: 'trades',
     label: <>Trades <span className="amp">&amp;</span> Contractors</>,
     image: '/images/audiences/builders-contractors.jpg',
-    description: 'Construction, flooring, cleaning, landscaping, and the skilled-trade operators modernizing how they win and run jobs.',
+    description: 'Construction, flooring, cleaning, and the skilled-trade operators modernizing how they win and run jobs.',
     pills: ['Construction', 'Flooring', 'Landscaping', 'Plumbing', 'Electrical'],
   },
   {
@@ -43,14 +43,14 @@ const audiences: Audience[] = [
     id: 'cpg',
     label: <>Makers <span className="amp">&amp;</span> Merchants</>,
     image: null,
-    description: 'Product and small-batch brands — spice blends, packaged goods, the makers turning a product into something people buy on sight.',
+    description: 'Spice blends, packaged goods, and small-batch makers turning a product into something people buy on sight.',
     pills: ['Packaged Goods', 'Small Batch', 'Beauty', 'Wellness', 'CPG'],
   },
   {
     id: 'apps',
     label: <>Founders <span className="amp">&amp;</span> Startups</>,
     image: '/images/audiences/founders-startups.jpg',
-    description: 'SaaS, mobile, newsletters, and digital products solving real problems. Positioning, growth, and the GTM motion that compounds.',
+    description: 'SaaS, mobile, and digital products solving real problems — with the positioning and growth motion that compounds.',
     pills: ['SaaS', 'Mobile', 'Newsletter', 'Web Tool', 'Marketplace'],
   },
   {
@@ -64,7 +64,7 @@ const audiences: Audience[] = [
     id: 'fooddrink',
     label: <>Food <span className="amp">&amp;</span> Drink</>,
     image: '/images/audiences/food-drink.jpg',
-    description: 'Food trucks, cafés, caterers, and the operators turning a food business into a name people seek out.',
+    description: 'Food trucks, cafés, and caterers turning a food business into a name people seek out.',
     pills: ['Food Truck', 'Café', 'Catering', 'Coffee', 'Hospitality'],
   },
 ]
