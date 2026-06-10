@@ -34,17 +34,17 @@ const audiences: Audience[] = [
   },
   {
     id: 'retail',
-    label: <>Designers <span className="amp">&amp;</span> Boutiques</>,
+    label: <>Shops <span className="amp">&amp;</span> Storefronts</>,
     image: '/images/audiences/designers-boutiques.jpg',
-    description: 'Independent product brands navigating brick-and-mortar, e-commerce, and the increasingly blurred line between.',
-    pills: ['Apparel', 'Jewelry', 'Home', 'Accessories', 'Boutique'],
+    description: 'Brick-and-mortar shops, boutiques, and local retail building a brand people travel for.',
+    pills: ['Retail', 'Boutique', 'Storefront', 'E-commerce', 'Local'],
   },
   {
     id: 'cpg',
-    label: <>Makers <span className="amp">&amp;</span> Producers</>,
+    label: <>Makers <span className="amp">&amp;</span> Merchants</>,
     image: null,
-    description: 'Food, beverage, beauty, and wellness brands building distribution, awareness, and loyalty in a crowded shelf.',
-    pills: ['Food', 'Beverage', 'Beauty', 'Wellness', 'Supplements'],
+    description: 'Product and small-batch brands — spice blends, packaged goods, the makers turning a product into something people buy on sight.',
+    pills: ['Packaged Goods', 'Small Batch', 'Beauty', 'Wellness', 'CPG'],
   },
   {
     id: 'apps',
@@ -61,15 +61,15 @@ const audiences: Audience[] = [
     pills: ['Hair', 'Barber', 'Spa', 'Nails', 'Esthetics'],
   },
   {
-    id: 'musicians',
-    label: <>Musicians <span className="amp">&amp;</span> Performers</>,
-    image: '/images/audiences/musicians-performers.jpg',
-    description: 'Artists, bands, DJs, and performers turning talent into a brand and filling rooms.',
-    pills: ['Musician', 'Band', 'DJ', 'Performer', 'Producer'],
+    id: 'fooddrink',
+    label: <>Food <span className="amp">&amp;</span> Drink</>,
+    image: '/images/audiences/food-drink.jpg',
+    description: 'Food trucks, cafés, caterers, and the operators turning a food business into a name people seek out.',
+    pills: ['Food Truck', 'Café', 'Catering', 'Coffee', 'Hospitality'],
   },
 ]
 
-const orderedAudiences: Audience[] = ['trades', 'retail', 'studios', 'cpg', 'apps', 'creators', 'salons', 'musicians']
+const orderedAudiences: Audience[] = ['trades', 'retail', 'fooddrink', 'cpg', 'apps', 'creators', 'salons', 'studios']
   .map((id) => audiences.find((a) => a.id === id))
   .filter((a): a is Audience => Boolean(a))
 

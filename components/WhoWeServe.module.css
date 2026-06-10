@@ -338,3 +338,8 @@
   background-size: 145%;
   background-position: 48% 20%;
 }
+
+.tileBg[style*="food-drink"] {
+  background-size: 120%;
+  background-position: center 18%;
+}
