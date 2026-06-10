@@ -236,22 +236,7 @@
 }
 
 /* Per-tile crop tuning (background-size = zoom, position = framing) */
-.tileBg[style*="food-hospitality"] {
-  background-position: center top;
-}
-.tileBg[style*="musicians-performers"] {
-  background-size: 170%;
-  background-position: 38% 72%;
-}
-.tileBg[style*="artist-teacher"] {
-  background-size: 130%;
-  background-position: center 35%;
-}
 
-.tileBg[style*="stylists-salons"] {
-  background-size: 115%;
-  background-position: center 30%;
-}
 
 .tileLabel :global(.amp) {
   font-family: var(--font-geist), system-ui, sans-serif;
