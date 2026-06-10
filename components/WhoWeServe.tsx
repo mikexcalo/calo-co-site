@@ -20,16 +20,16 @@ const audiences: Audience[] = [
   },
   {
     id: 'trades',
-    label: <>Builders <span className="amp">&amp;</span> Contractors</>,
+    label: <>Trades <span className="amp">&amp;</span> Contractors</>,
     image: '/images/audiences/builders-contractors.jpg',
-    description: 'Skilled-trade operators — construction, flooring, contracting — modernizing how they win and run jobs.',
+    description: 'Construction, flooring, cleaning, landscaping, and the skilled-trade operators modernizing how they win and run jobs.',
     pills: ['Construction', 'Flooring', 'Landscaping', 'Plumbing', 'Electrical'],
   },
   {
     id: 'studios',
-    label: <>Photographers <span className="amp">&amp;</span> Studios</>,
+    label: <>Studios <span className="amp">&amp;</span> Creators</>,
     image: '/images/audiences/studios-media.png',
-    description: 'Photographers, videographers, podcasters, and content studios turning craft into scalable business.',
+    description: 'Photographers, videographers, artists, and content creators turning craft into a brand and a business.',
     pills: ['Photography', 'Video', 'Podcast', 'Content', 'Production'],
   },
   {
@@ -69,7 +69,7 @@ const audiences: Audience[] = [
   },
 ]
 
-const orderedAudiences: Audience[] = ['trades', 'retail', 'fooddrink', 'cpg', 'apps', 'creators', 'salons', 'studios']
+const orderedAudiences: Audience[] = ['trades', 'retail', 'fooddrink', 'cpg', 'apps', 'studios']
   .map((id) => audiences.find((a) => a.id === id))
   .filter((a): a is Audience => Boolean(a))
 
