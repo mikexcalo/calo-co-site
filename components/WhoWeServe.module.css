@@ -130,7 +130,7 @@
 
 .tileBg[style*="studios-media"] {
   background-size: 115%;
-  background-position: 40% 55%;
+  background-position: 60% 55%;
 }
 @media (hover: hover) {
   .tile:hover .tileBg {
@@ -335,8 +335,8 @@
   background-position: 30% 30%;
 }
 .tileBg[style*="designers-boutiques"] {
-  background-size: 145%;
-  background-position: 48% 20%;
+  background-size: 135%;
+  background-position: 62% 40%;
 }
 
 .tileBg[style*="food-drink"] {
