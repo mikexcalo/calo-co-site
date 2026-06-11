@@ -74,3 +74,63 @@
     padding: 72px 24px;
   }
 }
+
+/* ── Entrance reveal — matches Who We Serve choreography ── */
+.word { will-change: opacity, transform; }
+
+.section .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.section .eyebrow,
+.section .subhead,
+.section .cta {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.section[data-revealed='true'] .eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+}
+.section[data-revealed='true'] .word {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+.section[data-revealed='true'] .subhead {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1);
+  transition-delay: 1.05s;
+}
+/* CTA rises last via keyframe so its hover opacity stays snappy */
+.section[data-revealed='true'] .cta {
+  animation: shCtaRise 1.1s cubic-bezier(.16,1,.3,1) 1.2s both;
+}
+@keyframes shCtaRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Word-by-word stagger — ~110ms apart, matches Who We Serve */
+.section[data-revealed='true'] .word:nth-child(1) { transition-delay: .2s; }
+.section[data-revealed='true'] .word:nth-child(2) { transition-delay: .31s; }
+.section[data-revealed='true'] .word:nth-child(3) { transition-delay: .42s; }
+.section[data-revealed='true'] .word:nth-child(4) { transition-delay: .53s; }
+.section[data-revealed='true'] .word:nth-child(5) { transition-delay: .64s; }
+.section[data-revealed='true'] .word:nth-child(6) { transition-delay: .75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .section .word,
+  .section .eyebrow,
+  .section .subhead,
+  .section .cta {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
