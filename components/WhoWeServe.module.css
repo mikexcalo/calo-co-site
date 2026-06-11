@@ -199,7 +199,7 @@
 
 @media (max-width: 900px) {
   .section {
-    padding: 80px 24px 100px;
+    padding: 80px 24px;
   }
   .head {
     grid-template-columns: 1fr;
