@@ -334,6 +334,6 @@
 }
 
 .tileBg[style*="artists-merchants"] {
-  background-size: 130%;
-  background-position: center 30%;
+  background-size: auto 130%;
+  background-position: 38% 30%;
 }
