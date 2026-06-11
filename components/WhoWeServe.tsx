@@ -69,7 +69,7 @@ const audiences: Audience[] = [
   },
 ]
 
-const orderedAudiences: Audience[] = ['trades', 'retail', 'fooddrink', 'cpg', 'apps', 'studios']
+const orderedAudiences: Audience[] = ['fooddrink', 'trades', 'cpg', 'retail', 'apps', 'studios']
   .map((id) => audiences.find((a) => a.id === id))
   .filter((a): a is Audience => Boolean(a))
 
@@ -164,6 +164,11 @@ export default function WhoWeServe() {
     }
 
     measure()
+    // Open the section framed deeper into the row (around Boutiques→Artists→Founders)
+    if (half > 0) {
+      const tileApprox = half / orderedAudiences.length
+      offsetRef.current = tileApprox * 2
+    }
     raf = requestAnimationFrame(frame)
     window.addEventListener('resize', measure)
 
