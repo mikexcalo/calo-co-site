@@ -31,7 +31,6 @@ export default function StoryTiles() {
   return (
     <section ref={sectionRef} className={styles.section}>
       <div className={styles.inner}>
-        <span className={styles.eyebrow}>Start here</span>
         <h2 className={styles.headline}>
           <span className={styles.word}>Wherever</span>{' '}
           <span className={styles.word}>you</span>{' '}
@@ -45,8 +44,9 @@ export default function StoryTiles() {
           Not sure where to begin? Tell us what you&apos;re thinking — we&apos;ll steer.
         </p>
         <a href="#contact" className={styles.cta} data-modal-trigger>
-          Book a discovery call
+          Book discovery call
         </a>
+        <div className={styles.fine}>No cost, no commitment</div>
       </div>
     </section>
   )
