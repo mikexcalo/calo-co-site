@@ -22,21 +22,21 @@ const audiences: Audience[] = [
     id: 'trades',
     label: <>Trades <span className="amp">&amp;</span> Contractors</>,
     image: '/images/audiences/builders-contractors.jpg',
-    description: 'Skilled-trade operators modernizing how they win and run jobs.',
+    description: 'Skilled-trade operators modernizing how they win the work and run the jobs.',
     pills: ['Construction', 'Flooring', 'Landscaping', 'Plumbing', 'Electrical'],
   },
   {
     id: 'studios',
     label: <>Studios <span className="amp">&amp;</span> Creators</>,
     image: '/images/audiences/studios-media.png',
-    description: 'Creators turning craft into a brand and a business.',
+    description: 'Creators turning their craft into a real brand and a real business.',
     pills: ['Photography', 'Video', 'Podcast', 'Content', 'Production'],
   },
   {
     id: 'retail',
     label: <>Shops <span className="amp">&amp;</span> Storefronts</>,
     image: null,
-    description: 'Retail and local storefronts building a brand people travel for.',
+    description: 'Retail and local storefronts building a brand that people travel across town for.',
     pills: ['Retail', 'Boutique', 'Storefront', 'E-commerce', 'Local'],
   },
   {
@@ -50,7 +50,7 @@ const audiences: Audience[] = [
     id: 'apps',
     label: <>Founders <span className="amp">&amp;</span> Startups</>,
     image: '/images/audiences/founders-startups.jpg',
-    description: 'Digital products solving real problems, built to grow.',
+    description: 'Digital products solving real problems, built and positioned to grow.',
     pills: ['SaaS', 'Mobile', 'Newsletter', 'Web Tool', 'Marketplace'],
   },
   {
@@ -64,7 +64,7 @@ const audiences: Audience[] = [
     id: 'fooddrink',
     label: <>Food <span className="amp">&amp;</span> Drink</>,
     image: '/images/audiences/food-drink.jpg',
-    description: 'Food businesses turning into names people seek out.',
+    description: 'Food businesses turning everyday regulars into a name people seek out.',
     pills: ['Food Truck', 'Café', 'Catering', 'Coffee', 'Hospitality'],
   },
 ]
