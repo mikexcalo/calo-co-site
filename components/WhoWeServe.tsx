@@ -41,7 +41,7 @@ const audiences: Audience[] = [
   },
   {
     id: 'cpg',
-    label: <>Apparel <span className="amp">&amp;</span> Boutiques</>,
+    label: <>Boutiques <span className="amp">&amp;</span> Apparel</>,
     image: '/images/audiences/designers-boutiques.jpg',
     description: 'Apparel, accessories, and jewelry brands building a label people wear with pride.',
     pills: ['Packaged Goods', 'Small Batch', 'Beauty', 'Wellness', 'CPG'],

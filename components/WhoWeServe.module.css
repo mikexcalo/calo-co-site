@@ -249,8 +249,8 @@
 }
 
 .tileBg[style*="founders-startups"] {
-  background-size: 110%;
-  background-position: 50% 0%;
+  background-size: 150%;
+  background-position: 50% 10%;
 }
 
 /* ===== Scroll-in entrance motion ===== */
@@ -325,15 +325,15 @@
 }
 .tileBg[style*="designers-boutiques"] {
   background-size: 120%;
-  background-position: 80% 10%;
+  background-position: 80% 0%;
 }
 
 .tileBg[style*="food-drink"] {
-  background-size: 110%;
+  background-size: 105%;
   background-position: center 0%;
 }
 
 .tileBg[style*="artists-merchants"] {
-  background-size: auto 130%;
+  background-size: auto 112%;
   background-position: 38% 30%;
 }
