@@ -34,16 +34,16 @@ const audiences: Audience[] = [
   },
   {
     id: 'retail',
-    label: <>Shops <span className="amp">&amp;</span> Storefronts</>,
-    image: null,
-    description: 'Retail and local storefronts building a brand that people travel across town for.',
+    label: <>Artists <span className="amp">&amp;</span> Merchants</>,
+    image: '/images/audiences/artists-merchants.jpg',
+    description: 'Artists and makers selling their own work, turning a craft into a living.',
     pills: ['Retail', 'Boutique', 'Storefront', 'E-commerce', 'Local'],
   },
   {
     id: 'cpg',
-    label: <>Makers <span className="amp">&amp;</span> Merchants</>,
+    label: <>Apparel <span className="amp">&amp;</span> Boutiques</>,
     image: '/images/audiences/designers-boutiques.jpg',
-    description: 'Product brands turning what they make into something people buy on sight.',
+    description: 'Apparel, accessories, and jewelry brands building a label people wear with pride.',
     pills: ['Packaged Goods', 'Small Batch', 'Beauty', 'Wellness', 'CPG'],
   },
   {
