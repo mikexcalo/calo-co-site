@@ -19,6 +19,7 @@
   width: calc(var(--site-max-width) + var(--p, 0) * (100vw - var(--site-max-width)));
   height: calc(64vh + var(--p, 0) * 28vh);
   border-radius: calc((1 - var(--p, 0)) * 16px);
+  transform: translateY(calc((1 - var(--p, 0)) * -16vh));
 }
 
 .panel img {
