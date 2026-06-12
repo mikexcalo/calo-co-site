@@ -58,14 +58,12 @@ export default function ExpandingQuote() {
           <div className={styles.scrimBR} />
           <div className={styles.qzone}>
             <p className={styles.qText}>
-              {'When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.'.split(' ').flatMap((w, i) => [
-                <span key={i} className={styles.word} style={{ transitionDelay: `${(0.15 + i * 0.11).toFixed(2)}s` }}>{w}</span>,
-                ' ',
-              ])}
+              <span className={`${styles.ln} ${styles.fi}`} data-fi="0">When I started, it was just me and my typewriter on the sidewalk.</span>
+              <span className={`${styles.ln} ${styles.fi}`} data-fi="1">I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.</span>
             </p>
-            <div className={`${styles.qSig} ${styles.fi}`} style={{ transitionDelay: '3.40s' }}>Stevie Treviño</div>
-            <div className={`${styles.qRole} ${styles.fi}`} style={{ transitionDelay: '3.52s' }}>Founder, Stevie&rsquo;s Poem Store</div>
-            <a className={`${styles.qLink} ${styles.fi}`} style={{ transitionDelay: '3.64s' }} href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
+            <div className={`${styles.qSig} ${styles.fi}`} data-fi="2">Stevie Treviño</div>
+            <div className={`${styles.qRole} ${styles.fi}`} data-fi="3">Founder, Stevie&rsquo;s Poem Store</div>
+            <a className={`${styles.qLink} ${styles.fi}`} data-fi="4" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
           </div>
         </div>
       </div>
