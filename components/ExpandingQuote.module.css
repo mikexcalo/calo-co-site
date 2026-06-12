@@ -168,6 +168,7 @@
   font-size: 32px;
   line-height: 1.1;
   color: #F5F5F5;
+  margin-top: 24px;
 }
 
 .mobileAttribRole {
@@ -182,7 +183,7 @@
 
 .mobileBody {
   background: #1A1A1A;
-  padding: 20px 22px 28px;
+  padding: 20px 36px 28px 22px;
 }
 
 .mobileQuote {
@@ -198,18 +199,19 @@
   font-style: italic;
 }
 
-.mobileBtn {
-  display: inline-block;
-  margin-top: 18px;
+.mobileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
   font-family: var(--font-geist), system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
-  background: #FAFAF8;
-  color: #1A1A1A;
-  padding: 15px 28px;
-  border-radius: 2px;
-  text-decoration: none;
-  white-space: nowrap;
+  color: #F5F5F5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  width: fit-content;
 }
 
 @media (max-width: 860px) {

@@ -72,16 +72,14 @@ export default function ExpandingQuote() {
         <div className={styles.mobilePhoto}>
           <img src="/images/audiences/stevie-trevino.jpg" alt="Stevie Treviño of Stevie's Poem Store" />
           <div className={styles.mobileGrad} />
-          <div className={styles.mobileAttrib}>
-            <div className={styles.mobileAttribName}>Stevie Treviño</div>
-            <div className={styles.mobileAttribRole}>Founder, Stevie&rsquo;s Poem Store</div>
-          </div>
         </div>
         <div className={styles.mobileBody}>
           <p className={styles.mobileQuote}>
             &ldquo;When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.&rdquo;
           </p>
-          <a className={styles.mobileBtn} href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store</a>
+          <div className={styles.mobileAttribName}>Stevie Treviño</div>
+          <div className={styles.mobileAttribRole}>Founder, Stevie&rsquo;s Poem Store</div>
+          <a className={styles.mobileLink} href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
         </div>
       </div>
     </div>
