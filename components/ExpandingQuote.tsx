@@ -58,12 +58,11 @@ export default function ExpandingQuote() {
           <div className={styles.scrimBR} />
           <div className={styles.qzone}>
             <p className={styles.qText}>
-              <span className={`${styles.ln} ${styles.fi}`} data-fi="0">When I started, it was just me and my typewriter on the sidewalk.</span>
-              <span className={`${styles.ln} ${styles.fi}`} data-fi="1">I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.</span>
+              <span className={`${styles.ln} ${styles.fi}`} data-fi="0">&ldquo;When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.&rdquo;</span>
             </p>
-            <div className={`${styles.qSig} ${styles.fi}`} data-fi="2">Stevie Treviño</div>
-            <div className={`${styles.qRole} ${styles.fi}`} data-fi="3">Founder, Stevie&rsquo;s Poem Store</div>
-            <a className={`${styles.qLink} ${styles.fi}`} data-fi="4" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
+            <div className={`${styles.qSig} ${styles.fi}`} data-fi="1">Stevie Treviño</div>
+            <div className={`${styles.qRole} ${styles.fi}`} data-fi="2">Founder, Stevie&rsquo;s Poem Store</div>
+            <a className={`${styles.qLink} ${styles.fi}`} data-fi="3" href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store &rarr;</a>
           </div>
         </div>
       </div>
@@ -80,7 +79,7 @@ export default function ExpandingQuote() {
         </div>
         <div className={styles.mobileBody}>
           <p className={styles.mobileQuote}>
-            When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.
+            &ldquo;When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.&rdquo;
           </p>
           <a className={styles.mobileBtn} href="https://steviespoemstore.com" target="_blank" rel="noopener noreferrer">Visit Stevie&rsquo;s Poem Store</a>
         </div>
