@@ -58,7 +58,7 @@ export default function ExpandingQuote() {
           <div className={styles.scrimBR} />
           <div className={styles.qzone}>
             <p className={styles.qText}>
-              <span className={`${styles.ln} ${styles.fi}`} data-fi="0">&ldquo;When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.&rdquo;</span>
+              <span className={`${styles.ln} ${styles.fi}`} data-fi="0">&ldquo;When I first started out, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a website, a brand, and a collaboration with L.L.Bean.&rdquo;</span>
             </p>
             <div className={`${styles.qSig} ${styles.fi}`} data-fi="1">Stevie Treviño</div>
             <div className={`${styles.qRole} ${styles.fi}`} data-fi="2">Founder, Stevie&rsquo;s Poem Store</div>
@@ -75,7 +75,7 @@ export default function ExpandingQuote() {
         </div>
         <div className={styles.mobileBody}>
           <p className={styles.mobileQuote}>
-            &ldquo;When I started, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a brand, a website, and a collaboration with L.L.Bean.&rdquo;
+            &ldquo;When I first started out, it was just me and my typewriter on the sidewalk. I never imagined it would turn into a website, a brand, and a collaboration with L.L.Bean.&rdquo;
           </p>
           <div className={styles.mobileAttribName}>Stevie Treviño</div>
           <div className={styles.mobileAttribRole}>Founder, Stevie&rsquo;s Poem Store</div>

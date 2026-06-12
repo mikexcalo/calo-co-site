@@ -182,8 +182,11 @@
 }
 
 .mobileBody {
+  position: relative;
+  z-index: 2;
   background: #1A1A1A;
-  padding: 20px 36px 28px 22px;
+  margin-top: -8px;
+  padding: 0 24px 50px 22px;
 }
 
 .mobileQuote {
