@@ -11,7 +11,7 @@ const CSS = `
 .mc-theme{position:fixed;top:max(14px,env(safe-area-inset-top));right:18px;z-index:60;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s;will-change:transform;transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden}
 .mc-theme:hover{border-color:var(--soft)}
 .mc-shell{display:grid;grid-template-columns:290px 1fr;min-height:100vh;max-width:1500px;margin:0 auto}
-@media(max-width:880px){.mc-shell{grid-template-columns:1fr}}
+@media(max-width:880px){.mc-shell{grid-template-columns:minmax(0,1fr)}}
 .mc-rail{border-right:1px solid var(--line);padding:48px 42px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
 @media(max-width:880px){.mc-rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:32px 26px}}
 .mc-avatar{width:124px;height:124px;border-radius:50%;object-fit:cover;margin-bottom:22px;display:block}
@@ -26,7 +26,7 @@ const CSS = `
 .mc-li{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:16px;margin-bottom:4px;padding:10px 18px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-size:14px;white-space:nowrap;transition:opacity .2s}
 .mc-li:hover{opacity:.85}
 .mc-main{padding:40px 60px 110px}
-@media(max-width:880px){.mc-main{padding:0 26px 70px}}
+@media(max-width:880px){.mc-main{padding:0 26px 70px;min-width:0;overflow-x:clip}}
 .mc-pillbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;padding:20px 0 12px;background:linear-gradient(var(--bg) 72%,transparent)}
 .mc-pills{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;gap:2px;background:var(--bg)}
 .mc-pills button{font-family:inherit;font-size:14px;color:var(--soft);background:none;border:none;padding:7px 15px;border-radius:999px;cursor:pointer;transition:all .25s}
