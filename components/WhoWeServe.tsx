@@ -69,7 +69,7 @@ const audiences: Audience[] = [
   },
 ]
 
-const orderedAudiences: Audience[] = ['cpg', 'fooddrink', 'trades', 'apps', 'retail', 'studios']
+const orderedAudiences: Audience[] = ['trades', 'fooddrink', 'retail', 'cpg', 'apps', 'studios']
   .map((id) => audiences.find((a) => a.id === id))
   .filter((a): a is Audience => Boolean(a))
 
