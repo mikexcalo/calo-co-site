@@ -75,10 +75,9 @@ const CSS = `
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
 .mc-group{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:400;margin:24px 0 10px 0}
 .mc-group:first-child{margin-top:18px}
-.mc-quotes{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;scroll-padding-left:0}
+.mc-quotes{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:4px;-webkit-overflow-scrolling:touch}
 .mc-quotes::-webkit-scrollbar{display:none}
-.mc-quotes::after{content:'';flex:0 0 1px}
-@media(max-width:880px){.mc-quotes{gap:18px;margin-right:-26px;padding-right:26px}}
+@media(max-width:880px){.mc-quotes{gap:18px}}
 .mc-qt{font-size:15px;line-height:1.55;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
