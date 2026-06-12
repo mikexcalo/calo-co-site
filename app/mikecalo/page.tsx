@@ -34,11 +34,7 @@ const CSS = `
 .mc-pills button:hover{color:var(--ink)}
 .mc-root section{padding-top:30px;scroll-margin-top:74px}
 .mc-label{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:22px;font-weight:500}
-.mc-endorse-head{display:flex;align-items:center;justify-content:space-between}
-.mc-arrows{display:flex;gap:8px;margin-bottom:22px}
-.mc-arrows button{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:none;cursor:pointer;color:var(--ink);font-size:15px;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s}
-.mc-arrows button:hover{border-color:var(--ink)}
-@media(max-width:880px){.mc-arrows{display:none}}
+
 .mc-hook{font-weight:500;font-size:28px;line-height:1.22;letter-spacing:-.02em;max-width:none;white-space:nowrap}
 @media(max-width:880px){.mc-hook{white-space:normal;font-size:24px}}
 .mc-rot{display:inline-block}
@@ -79,10 +75,11 @@ const CSS = `
 .mc-panel li:before{content:'';position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink)}
 .mc-group{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);font-weight:400;margin:24px 0 10px 0}
 .mc-group:first-child{margin-top:18px}
-.mc-quotes{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.mc-quotes{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;scroll-padding-left:0}
 .mc-quotes::-webkit-scrollbar{display:none}
-@media(max-width:880px){.mc-quotes{gap:18px}}
-.mc-qt{font-size:18px;line-height:1.5;color:var(--ink)}
+.mc-quotes::after{content:'';flex:0 0 1px}
+@media(max-width:880px){.mc-quotes{gap:18px;margin-right:-26px;padding-right:26px}}
+.mc-qt{font-size:15px;line-height:1.55;color:var(--ink)}
 .mc-qc{margin-top:14px;font-size:13.5px;color:var(--ink)}
 .mc-qc b{font-weight:500}
 .mc-quote-card{flex:0 0 340px;scroll-snap-align:start;display:flex;flex-direction:column;gap:16px;padding:24px;border:1px solid var(--line);border-radius:14px;background:rgba(28,27,25,.015)}
@@ -331,7 +328,7 @@ export default function MikeCalo(){
           <div className="mc-rule"/>
 
           <section id="endorsements">
-            <div className="mc-endorse-head"><div className="mc-label">Endorsements</div><div className="mc-arrows"><button type="button" aria-label="Previous" onClick={()=>{const s=document.getElementById('mc-quotes');if(s)s.scrollBy({left:-368,behavior:'smooth'})}}>‹</button><button type="button" aria-label="Next" onClick={()=>{const s=document.getElementById('mc-quotes');if(s)s.scrollBy({left:368,behavior:'smooth'})}}>›</button></div></div>
+            <div className="mc-label">Endorsements</div>
             <div className="mc-quotes" id="mc-quotes">
               <blockquote className="mc-quote-card">
                 <div className="mc-qt">&ldquo;Mike is far more than a product marketer. He&rsquo;s a true go-to-market builder &mdash; he redefined our market positioning, unified the value proposition of four distinct companies into one clear, compelling message, and was the catalyst for true partnership across our entire GTM organization.&rdquo;</div>
