@@ -41,12 +41,11 @@ export default function StoryTiles() {
           <span className={styles.word}>journey</span>
         </h2>
         <p className={styles.subhead}>
-          Not sure where to begin? Tell us what you&apos;re thinking — we&apos;ll steer.
+          Not sure where to begin? Tell us what you&apos;re thinking — the first call&apos;s on us, no commitment.
         </p>
         <a href="#contact" className={styles.cta} data-modal-trigger>
           Book discovery call
         </a>
-        <div className={styles.fine}>No cost, no commitment</div>
       </div>
     </section>
   )
