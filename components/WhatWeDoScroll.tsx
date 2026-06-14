@@ -165,12 +165,12 @@ function RadarChart() {
   return (
     <svg ref={ref} className={styles.svgv} viewBox="0 0 520 360">
       {gridLevels.map((lv, i) => (
-        <polygon key={i} points={angles.map(a => `${cx + R * lv * Math.cos(a)},${cy + R * lv * Math.sin(a)}`).join(' ')} fill="none" stroke="#1A1A1A" strokeOpacity="0.10" />
+        <polygon key={i} points={angles.map(a => `${cx + R * lv * Math.cos(a)},${cy + R * lv * Math.sin(a)}`).join(' ')} fill="none" stroke="#F5F5F5" strokeOpacity="0.12" />
       ))}
       {angles.map((a, i) => (
-        <line key={i} x1={cx} y1={cy} x2={cx + R * Math.cos(a)} y2={cy + R * Math.sin(a)} stroke="#1A1A1A" strokeOpacity="0.08" />
+        <line key={i} x1={cx} y1={cy} x2={cx + R * Math.cos(a)} y2={cy + R * Math.sin(a)} stroke="#F5F5F5" strokeOpacity="0.1" />
       ))}
-      <polygon id="rShape" fill="#1A1A1A" fillOpacity="0.08" stroke="#1A1A1A" strokeWidth="2" strokeLinejoin="round" />
+      <polygon id="rShape" fill="#F5F5F5" fillOpacity="0.1" stroke="#F5F5F5" strokeWidth="2" strokeLinejoin="round" />
       {angles.map((a, i) => {
         const cosA = Math.cos(a), sinA = Math.sin(a);
         const lx = cx + RL * cosA, ly = cy + RL * sinA;
@@ -178,7 +178,7 @@ function RadarChart() {
         const dy = sinA < -0.5 ? -2 : sinA > 0.5 ? 14 : 4;
         return (
           <g key={i}>
-            <circle className="rv" r="3.5" fill="#1A1A1A" />
+            <circle className="rv" r="3.5" fill="#F5F5F5" />
             <text x={lx} y={ly + dy} textAnchor={anchor} className={styles.glabel} fillOpacity="0.55">{labels[i]}</text>
           </g>
         );
@@ -232,15 +232,15 @@ function EngineDiagram() {
   return (
     <svg ref={ref} className={styles.svgv} viewBox="0 0 520 360">
       {nodes.map((n, i) => (
-        <line key={i} x1={n.x} y1={n.y} x2={center.x} y2={center.y} stroke="#1A1A1A" strokeOpacity="0.14" strokeWidth="1.25" />
+        <line key={i} x1={n.x} y1={n.y} x2={center.x} y2={center.y} stroke="#F5F5F5" strokeOpacity="0.16" strokeWidth="1.25" />
       ))}
-      {nodes.map((_, i) => <circle key={i} className="pd" r="3.5" fill="#1A1A1A" opacity="0" />)}
-      <circle id="sCoreHalo" cx="260" cy="180" r="34" fill="#1A1A1A" fillOpacity="0" />
-      <circle cx="260" cy="180" r="20" fill="#1A1A1A" />
+      {nodes.map((_, i) => <circle key={i} className="pd" r="3.5" fill="#F5F5F5" opacity="0" />)}
+      <circle id="sCoreHalo" cx="260" cy="180" r="34" fill="#F5F5F5" fillOpacity="0" />
+      <circle cx="260" cy="180" r="20" fill="#F5F5F5" />
       {nodes.map((n, i) => (
         <g key={i}>
-          <circle className="nh" cx={n.x} cy={n.y} r="16" fill="#1A1A1A" fillOpacity="0" />
-          <circle cx={n.x} cy={n.y} r="7" fill="#FAFAF8" stroke="#1A1A1A" strokeWidth="1.75" />
+          <circle className="nh" cx={n.x} cy={n.y} r="16" fill="#F5F5F5" fillOpacity="0" />
+          <circle cx={n.x} cy={n.y} r="7" fill="#1A1A1A" stroke="#F5F5F5" strokeWidth="1.75" />
           <text x={n.x} y={n.y < center.y ? n.y - 18 : n.y + 28} textAnchor="middle" className={styles.glabel} fillOpacity="0.6">{n.label}</text>
         </g>
       ))}
