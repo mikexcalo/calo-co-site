@@ -70,14 +70,42 @@ export default function ScrollCover() {
     };
   }, []);
 
+  useEffect(() => {
+    const el = textRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e], o) => {
+        if (e.isIntersecting) {
+          el.setAttribute('data-revealed', 'true');
+          o.disconnect();
+        }
+      },
+      { threshold: 0.55 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section ref={trackRef} className={styles.track}>
       <div className={styles.rail}>
         <div ref={textRef} className={styles.textmod}>
           <span className={styles.eyebrow}>Who we are</span>
           <h2 className={styles.headline}>
-            CALO&amp;CO is a <em>growth partner</em> for independent brands and businesses ready
-            to level up.
+            <span className={styles.word}>CALO&amp;CO</span>{' '}
+            <span className={styles.word}>is</span>{' '}
+            <span className={styles.word}>a</span>{' '}
+            <span className={`${styles.word} ${styles.ital}`}>growth</span>{' '}
+            <span className={`${styles.word} ${styles.ital}`}>partner</span>{' '}
+            <span className={styles.word}>for</span>{' '}
+            <span className={styles.word}>independent</span>{' '}
+            <span className={styles.word}>brands</span>{' '}
+            <span className={styles.word}>and</span>{' '}
+            <span className={styles.word}>businesses</span>{' '}
+            <span className={styles.word}>ready</span>{' '}
+            <span className={styles.word}>to</span>{' '}
+            <span className={styles.word}>level</span>{' '}
+            <span className={styles.word}>up.</span>
           </h2>
         </div>
         <div ref={t1Ref} className={`${styles.tile} ${styles.t1}`}>{TILES[0].label}</div>
