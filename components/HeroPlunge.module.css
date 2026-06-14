@@ -1,7 +1,7 @@
 /* Plunge container — 300vh runway */
 .plunge {
   position: relative;
-  height: 120vh;
+  height: 100vh;
   margin-top: -92px;
 }
 
@@ -70,7 +70,7 @@
 
 /* HERO layer — translates upward as you dive */
 .layerHero {
-  transform: translateY(calc(var(--p, 0) * -88vh + 6vh));
+  transform: translateY(calc(var(--p, 0) * -88vh + 0vh));
 }
 
 /* layerMod02 / mod02Headline removed — Module 02 text now lives in ScrollCover */
