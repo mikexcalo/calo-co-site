@@ -1,14 +1,14 @@
 .track {
   position: relative;
   height: 180vh;
-  background: var(--charcoal, #1A1A1A);
+  background: var(--ivory, #F5F5F5);
 }
 .rail {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
-  background: var(--charcoal, #1A1A1A);
+  background: var(--ivory, #F5F5F5);
 }
 .textmod {
   position: absolute;
@@ -27,7 +27,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.4);
+  color: rgba(26, 26, 26, 0.45);
   margin-bottom: 28px;
 }
 .headline {
@@ -37,7 +37,7 @@
   line-height: 1.18;
   letter-spacing: -0.02em;
   max-width: 22ch;
-  color: var(--ivory, #F5F5F5);
+  color: var(--charcoal, #1A1A1A);
 }
 .headline em { font-style: italic; }
 .eyebrow {
@@ -75,7 +75,7 @@
   height: min(58vh, 520px);
   border-radius: 16px;
   background: #2A2A2A;
-  border: 1px solid rgba(245, 245, 245, 0.08);
+  box-shadow: 0 20px 60px rgba(26, 26, 26, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
