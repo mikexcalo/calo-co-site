@@ -1,6 +1,6 @@
 .track {
   position: relative;
-  height: 180vh;
+  height: 360vh;
   margin-top: -100vh;
   background: var(--ivory, #F5F5F5);
 }
@@ -101,7 +101,7 @@
 .t3 { background: #2F2F2F; z-index: 12; }
 
 @media (max-width: 860px) {
-  .track { height: 135vh; }
+  .track { height: 320vh; }
   .tile { width: 78vw; height: 52vh; }
   .headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
 }
