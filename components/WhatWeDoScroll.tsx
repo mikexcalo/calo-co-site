@@ -254,7 +254,6 @@ const VISUALS = [BrandMock, BrowserMock, RadarChart, EngineDiagram];
 export default function WhatWeDoScroll() {
   const [active, setActive] = useState(0);
   const [headerIn, setHeaderIn] = useState(false);
-  const blocksRef = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -266,29 +265,7 @@ export default function WhatWeDoScroll() {
     return () => io.disconnect();
   }, []);
 
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 861px)');
-    if (!mq.matches) return; // mobile: skip scroll listener entirely (cards-stack is pure CSS)
-
-    let raf = 0;
-    function onScroll() {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const mid = window.innerHeight / 2;
-        let best = 0, bd = 1e9;
-        blocksRef.current.forEach((b, i) => {
-          if (!b) return;
-          const r = b.getBoundingClientRect();
-          const d = Math.abs(r.top + r.height / 2 - mid);
-          if (d < bd) { bd = d; best = i; }
-        });
-        setActive(best);
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
-  }, []);
+  const go = (n: number) => setActive((n + PILLARS.length) % PILLARS.length);
 
   return (
     <section className={styles.section}>
@@ -296,41 +273,59 @@ export default function WhatWeDoScroll() {
         <div ref={headerRef} className={`${styles.mhead} ${styles.reveal} ${headerIn ? styles.revealIn : ''}`}>
           <p className={styles.kicker}>What we do</p>
           <h2 className={styles.headline}>You know your business. We know how to build it.</h2>
-          <p className={styles.subhead}>Everything it takes to look the part, win the work, and run it well — handled in one place.</p>
+          <p className={styles.subhead}>Everything it takes to look the part, win the work, and run it well.</p>
         </div>
 
-        <div className={styles.cols}>
-          <div className={styles.media}>
-            {VISUALS.map((V, i) => (
-              <div key={i} className={`${styles.mstage} ${active === i ? styles.mstageOn : ''}`}>
-                <V />
-              </div>
-            ))}
-          </div>
-          <div>
-            {PILLARS.map((p, i) => (
-              <div
-                key={i}
-                ref={el => { blocksRef.current[i] = el; }}
-                className={`${styles.block} ${active === i ? styles.blockOn : ''}`}
-                style={{ zIndex: i + 1 }}
-              >
-                <p className={styles.eye}>{p.eye}</p>
-                <h3 className={styles.stmt}>{p.stmt}</h3>
-                <div className={styles.inlineVisual}>
-                  {(() => { const V = VISUALS[i]; return <V />; })()}
-                </div>
-                <div className={styles.caps}>
-                  {p.caps.map(([icon, label], ci) => (
-                    <div key={ci} className={styles.cap}>
-                      <Icon name={icon} />
-                      <span className={styles.capLabel}>{label}</span>
+        <div className={styles.tabs} role="tablist">
+          {PILLARS.map((p, i) => (
+            <button
+              key={i}
+              role="tab"
+              aria-selected={active === i}
+              className={`${styles.tab} ${active === i ? styles.tabOn : ''}`}
+              onClick={() => go(i)}
+            >
+              {p.eye}
+            </button>
+          ))}
+        </div>
+
+        <div className={styles.stageA}>
+          <div
+            className={styles.trackA}
+            style={{ transform: `translateX(calc(${-active} * (var(--cardw) + var(--gap))))` }}
+          >
+            {PILLARS.map((p, i) => {
+              const V = VISUALS[i];
+              return (
+                <div
+                  key={i}
+                  className={`${styles.cardA} ${active === i ? styles.cardAOn : ''}`}
+                  aria-hidden={active !== i}
+                  onClick={() => { if (active !== i) go(i); }}
+                >
+                  <div className={styles.cardCopy}>
+                    <p className={styles.eye}>{p.eye}</p>
+                    <h3 className={styles.stmt}>{p.stmt}</h3>
+                    <div className={styles.caps}>
+                      {p.caps.map(([icon, label], ci) => (
+                        <div key={ci} className={styles.cap}>
+                          <Icon name={icon} />
+                          <span className={styles.capLabel}>{label}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  <div className={styles.cardMedia}><V /></div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+        </div>
+
+        <div className={styles.navA}>
+          <button className={styles.arrA} aria-label="Previous" onClick={() => go(active - 1)}>&#8592;</button>
+          <button className={styles.arrA} aria-label="Next" onClick={() => go(active + 1)}>&#8594;</button>
         </div>
       </div>
     </section>
