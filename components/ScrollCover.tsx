@@ -47,6 +47,7 @@ export default function ScrollCover() {
         const r = track.getBoundingClientRect();
         const total = r.height - window.innerHeight;
         const p = clamp(-r.top / total, 0, 1);
+        track.style.setProperty('--cp', p.toFixed(4));
         let t3y = START_Y;
         (['t1', 't2', 't3'] as const).forEach((k) => {
           const [s, e, x] = CFG[k];

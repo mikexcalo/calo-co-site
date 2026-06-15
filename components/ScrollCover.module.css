@@ -11,6 +11,15 @@
   overflow: hidden;
   background: var(--ivory, #F5F5F5);
 }
+.rail::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #1A1A1A;
+  opacity: clamp(0, calc((var(--cp, 0) - 0.85) * 6.7), 1);
+  z-index: 20;
+  pointer-events: none;
+}
 .textmod {
   position: absolute;
   inset: 0;
