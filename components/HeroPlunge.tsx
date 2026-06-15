@@ -29,7 +29,7 @@ export default function HeroPlunge() {
       const vh = window.innerHeight;
       const total = block.offsetHeight - vh;
       const scrolled = -rect.top;
-      const p = Math.max(0, Math.min(1, scrolled / total));
+      const p = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
       block.style.setProperty('--p', p.toFixed(4));
       document.documentElement.style.setProperty('--p', p.toFixed(4));
     };
