@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/", destination: "/calo-co-homepage.html" }],
+    };
+  },
 };
 
 export default nextConfig;
